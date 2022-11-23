@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
 import Layout from "../pages/Layout";
 import Login from "../pages/Login";
+import NotFoundPage from "../pages/NotFoundPage";
 import OfflineClass from "../pages/OfflineClass";
 import OnlineClass from "../pages/OnlineClass";
 import PrivateRoute from "./PrivateRoute";
@@ -16,6 +17,7 @@ export const SetUpRouters = () => {
           <Route index element={<Dashboard />} />
           <Route path="offline" element={<OfflineClass />} />
           <Route path="online" element={<OnlineClass />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/login" element={<Login />} />
