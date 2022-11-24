@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
-import Layout from "../pages/Layout";
 import Login from "../pages/Login";
 import NotFoundPage from "../pages/NotFoundPage";
 import OfflineClass from "../pages/OfflineClass";

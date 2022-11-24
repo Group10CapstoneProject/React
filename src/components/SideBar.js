@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  Link,
-  Navigate,
-  NavLink,
-  Outlet,
-  redirect,
-  useNavigate,
-} from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
 const SideBar = () => {
@@ -40,11 +33,21 @@ const SideBar = () => {
           <li>
             <NavLink to="/">Membership</NavLink>
           </li>
-          <li>
-            <Link>Kelas</Link>
-            <NavLink to="online">Kelas Online</NavLink>
-            <NavLink to="offline">Kelas Offline</NavLink>
-          </li>
+          <div className="dropdown dropdown-top- dropdown-end">
+            <label tabIndex={0} className="btn m-1">
+              Kelas
+            </label>
+            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
+              <li>
+                <a href="online">Kelas Online</a>
+              </li>
+              <li>
+                <a href="offline">Kelas Offline</a>
+              </li>
+            </ul>
+            {/* <NavLink to="online">Kelas Online</NavLink>
+            <NavLink to="offline">Kelas Offline</NavLink> */}
+          </div>
           <li>
             <button onClick={handleLogout}>logout</button>
           </li>
