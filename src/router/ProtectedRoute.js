@@ -1,8 +1,11 @@
+import axios from "axios";
 import React from "react";
+
 import { Navigate, Outlet } from "react-router-dom";
 
 function ProtectedRoute() {
   let token = localStorage.getItem("token");
+
   if (token) {
     return <Navigate to="/" replace />;
   }

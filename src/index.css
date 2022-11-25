@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+  h3 {
+    @apply text-lg;
+  }
+  h4 {
+    @apply leading-10 font-semibold text-[34px];
+  }
+  a {
+    @apply text-blue-600 underline;
+  }
+}
+
 .borders {
-  @apply border border-2;
+  @apply border-2 border-black;
 }

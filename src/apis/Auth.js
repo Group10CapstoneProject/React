@@ -4,14 +4,16 @@ const Auth = {
   async loginUser(payload) {
     try {
       const { email, password } = payload;
-      const response = await axiosInstance.post("/login", {
+      const response = await axiosInstance.post("/auth/login", {
         email,
         password,
       });
-      localStorage.setItem("token", response.data.token);
+      const token = response.data.data.access_token;
+      localStorage.setItem("token", token);
       return response;
-    } catch (error) {
-      console.log(error.response);
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 };
