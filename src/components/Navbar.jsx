@@ -6,9 +6,9 @@ function Navbar() {
       <ul className="flex gap-x-4 justify-end ">
         <li>Notifikasi</li>
         <li className="">
-          <div class="avatar placeholder">
-            <div class="bg-neutral-focus text-neutral-content rounded-full w-8">
-              <span class="text-xs">AA</span>
+          <div className="avatar placeholder">
+            <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
+              <span className="text-xs">AA</span>
             </div>
           </div>
         </li>
