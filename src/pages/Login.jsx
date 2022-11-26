@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Auth from "../apis/Auth";
-import { BoxIconElement } from "boxicons";
-import CONST from "../utils/Constants";
 import bgLogin from "../assets/images/Login1.png";
 import logo from "../assets/images/logo.png";
-import { useJwt } from "react-jwt";
 function Login() {
-  let token = localStorage.getItem("token");
+  // let token = localStorage.getItem("token");
   // const { decodedToken, isExpired } = useJwt(token);
-  console.log(token);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -28,7 +24,6 @@ function Login() {
       });
   };
 
-  // style={{ backgroundImage: `url(${foto})` }}
   return (
     <div className="h-screen flex   text-black">
       <img

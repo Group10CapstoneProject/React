@@ -4,7 +4,7 @@ const Auth = {
   async loginUser(payload) {
     try {
       const { email, password } = payload;
-      const response = await axiosInstance.post("/auth/login", {
+      const response = await axiosInstance.post("/auth/admin/login", {
         email,
         password,
       });

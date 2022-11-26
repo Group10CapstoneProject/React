@@ -1,8 +1,10 @@
-import React from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
-
+import logo from "../assets/images/logo.png";
 const SideBar = () => {
+  const [kelas, setKelas] = useState(false);
+  const [member, setMember] = useState(false);
   let navigate = useNavigate();
   const handleLogout = (e) => {
     e.preventDefault();
@@ -21,31 +23,51 @@ const SideBar = () => {
 
     <div className="drawer drawer-mobile">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-      <div className="drawer-content flex flex-col ">
+      <div className="drawer-content flex flex-col bg-base/80 ">
         {/* <!-- Page content here --> */}
         <Navbar />
         <Outlet />
       </div>
-      <div className="drawer-side">
+      <div className="drawer-side borders">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 text-[#222222] bg-base">
+        <ul className="menu p-4 w-60 text-[#222222] bg-base">
+          <Link to="/" className="mb-2 flex justify-center">
+            <img className="w-32" src={logo} alt="" />
+          </Link>
           {/* <!-- Sidebar content here --> */}
-          <li>
-            <NavLink to="/">Membership</NavLink>
-          </li>
           <div className="dropdown dropdown-top- dropdown-end">
-            <label tabIndex={0} className="btn m-1">
-              Kelas
-            </label>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+            <label
+              onClick={() => setKelas(!kelas)}
+              className="btn justify-start  btn-primary   m-1 text-white w-full"
             >
-              <li>
-                <a href="online">Kelas Online</a>
+              <box-icon name="book-content"></box-icon>Membership
+            </label>
+            <ul className={`${kelas ? "" : "hidden "} menu  bg-base-100  w-52`}>
+              <li className="py-0 ">
+                <NavLink to="anggota">Kelola Anggota</NavLink>
               </li>
               <li>
-                <a href="offline">Kelas Offline</a>
+                <NavLink to="jenis">Kelas Offline</NavLink>
+              </li>
+            </ul>
+            {/* <NavLink to="online">Kelas Online</NavLink>
+            <NavLink to="offline">Kelas Offline</NavLink> */}
+          </div>
+          <div className="dropdown dropdown-top- dropdown-end">
+            <label
+              onClick={() => setMember(!member)}
+              className="btn justify-start m-1  btn-primary  text-white w-full"
+            >
+              <box-icon name="dumbbell"></box-icon> Kelas
+            </label>
+            <ul
+              className={`${member ? "" : "hidden "} menu  bg-base-100  w-52`}
+            >
+              <li className="py-0">
+                <NavLink to="online">Kelas Online</NavLink>
+              </li>
+              <li>
+                <NavLink to="offline">Kelas Offline</NavLink>
               </li>
             </ul>
             {/* <NavLink to="online">Kelas Online</NavLink>
