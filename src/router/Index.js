@@ -1,7 +1,9 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
+import KelolaAnggota from "../pages/KelolaAnggota";
 import Login from "../pages/Login";
+import { Member } from "../pages/Member";
 import NotFoundPage from "../pages/NotFoundPage";
 import OfflineClass from "../pages/OfflineClass";
 import OnlineClass from "../pages/OnlineClass";
@@ -16,6 +18,8 @@ export const SetUpRouters = () => {
           <Route index element={<Dashboard />} />
           <Route path="offline" element={<OfflineClass />} />
           <Route path="online" element={<OnlineClass />} />
+          <Route path="anggota" element={<KelolaAnggota />} />
+          <Route path="member" element={<Member />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="/" element={<ProtectedRoute />}>
