@@ -9,7 +9,7 @@ function Navbar() {
     Auth.signOut(navigate);
   };
   return (
-    <nav className="w-full sticky h-[60px]  bg-base/60 border px-4 py-2  flex items-center justify-end">
+    <nav className="w-full sticky h-[60px] z-50  bg-base/60 border px-4 py-2  flex items-center justify-end">
       <ul className="flex gap-x-4">
         <li>Notifikasi</li>
         <li className="">
@@ -19,7 +19,7 @@ function Navbar() {
             </div>
           </div>
         </li>
-        <div className="dropdown dropdown-bottom z-50">
+        <div className="dropdown dropdown-bottom ">
           <button tabIndex={0}>Muhammad Agil</button>
           <ul
             tabIndex={0}

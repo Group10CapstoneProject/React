@@ -21,7 +21,7 @@ const SideBar = () => {
     //   </ul>
     // </aside>
 
-    <div className="drawer drawer-mobile relative">
+    <div className="drawer drawer-mobile ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col bg-base/80 ">
         {/* <!-- Page content here --> */}
