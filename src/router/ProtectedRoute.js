@@ -1,11 +1,10 @@
 import React from "react";
 
 import { Navigate, Outlet } from "react-router-dom";
+import Auth from "../utils/Auth";
 
 function ProtectedRoute() {
-  let token = localStorage.getItem("token");
-
-  if (token) {
+  if (Auth.isAuthorization()) {
     return <Navigate to="/" replace />;
   }
 

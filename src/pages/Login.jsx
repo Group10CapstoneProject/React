@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Auth from "../apis/Auth";
+import APIAuth from "../apis/Auth.api";
 import bgLogin from "../assets/images/Login1.png";
 import logo from "../assets/images/logo.png";
 function Login() {
@@ -14,16 +14,17 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     setLoading(true);
-    Auth.loginUser({ email, password })
+    APIAuth.loginUser({ email, password })
       .then((res) => {
         res.data && navigate("/");
         setLoading(false);
       })
       .catch((err) => {
         setError(err.message);
+        setLoading(false);
       });
   };
-
+  // console.log(error);
   return (
     <div className="h-screen flex   text-black">
       <img
@@ -68,7 +69,14 @@ function Login() {
                     loading ? "opacity-50 btn-disabled" : ""
                   } bg-primary w-full h-full py-2 text-white rounded-lg`}
                 >
-                  Masuk
+                  <span
+                    className={`${
+                      loading ? "flex" : "hidden"
+                    }   justify-center`}
+                  >
+                    <box-icon name="loader-alt" animation="spin"></box-icon>
+                  </span>{" "}
+                  {`${!loading ? "Masuk" : ""}`}
                 </button>
               </div>
             </form>

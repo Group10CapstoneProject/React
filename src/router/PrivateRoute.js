@@ -1,10 +1,10 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import Layout from "../pages/Layout";
+import Auth from "../utils/Auth";
 
 const PrivateRoute = () => {
-  let token = localStorage.getItem("token");
-  if (!token) {
+  if (!Auth.isAuthorization()) {
     return <Navigate to="/login" replace />;
   }
   return (

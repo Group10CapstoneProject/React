@@ -1,9 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import Auth from "../utils/Auth";
 
 function Navbar() {
+  let navigate = useNavigate();
+  const handleLogout = (e) => {
+    e.preventDefault();
+    Auth.signOut(navigate);
+  };
   return (
-    <nav className="w-full  sticky h-[70px]  bg-base/80 p-4">
-      <ul className="flex gap-x-4 justify-end ">
+    <nav className="w-full sticky h-[60px] z-50  bg-base/60 border px-4 py-2  flex items-center justify-end">
+      <ul className="flex gap-x-4">
         <li>Notifikasi</li>
         <li className="">
           <div className="avatar placeholder">
@@ -12,7 +19,20 @@ function Navbar() {
             </div>
           </div>
         </li>
-        <li>Muhammad Agil</li>
+        <div className="dropdown dropdown-bottom ">
+          <button tabIndex={0}>Muhammad Agil</button>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu p-2 w-full shadow bg-base-100  "
+          >
+            <li>
+              <a>Item 1</a>
+            </li>
+            <li>
+              <button onClick={handleLogout}>logout</button>
+            </li>
+          </ul>
+        </div>
       </ul>
     </nav>
   );
