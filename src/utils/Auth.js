@@ -27,6 +27,7 @@ const Auth = {
     Cookies.set("token", access_token, { expires: accessExpires });
     Cookies.set("rt", refresh_token, { expires: refreshExpires });
     Cookies.set("sub", sub, { expires: accessExpires });
+
     return data;
   },
 };

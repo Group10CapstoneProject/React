@@ -1,5 +1,6 @@
 import { axiosInstance } from "../configs/axiosInstance";
 import Auth from "../utils/Auth";
+import Cookies from "js-cookie";
 const APIAuth = {
   async loginUser(payload) {
     try {

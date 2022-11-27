@@ -55,7 +55,7 @@ function Login() {
               <input
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
-                placeholder="masukkan password"
+                placeholder="Masukkan password"
                 className="input w-full"
               />
               <div className="flex gap-x-1 py-2">
