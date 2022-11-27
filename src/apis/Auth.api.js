@@ -1,6 +1,6 @@
 import { axiosInstance } from "../configs/axiosInstance";
-
-const Auth = {
+import Auth from "../utils/Auth";
+const APIAuth = {
   async loginUser(payload) {
     try {
       const { email, password } = payload;
@@ -8,8 +8,10 @@ const Auth = {
         email,
         password,
       });
-      const token = response.data.data.access_token;
-      localStorage.setItem("token", token);
+      // const token = response.data.data.access_token;
+      // localStorage.setItem("token", token);
+      Auth.storeUserInfoToCookie(response.data.data);
+      // console.log(response.data);
       return response;
     } catch (err) {
       const { message } = err.response.data;
@@ -18,4 +20,4 @@ const Auth = {
   },
 };
 
-export default Auth;
+export default APIAuth;

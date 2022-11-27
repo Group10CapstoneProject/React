@@ -21,14 +21,14 @@ const SideBar = () => {
     //   </ul>
     // </aside>
 
-    <div className="drawer drawer-mobile">
+    <div className="drawer drawer-mobile relative">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col bg-base/80 ">
         {/* <!-- Page content here --> */}
         <Navbar />
         <Outlet />
       </div>
-      <div className="drawer-side borders">
+      <div className="drawer-side border">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-60 text-[#222222] bg-base">
           <Link to="/" className="mb-2 flex justify-center">
@@ -53,7 +53,7 @@ const SideBar = () => {
             {/* <NavLink to="online">Kelas Online</NavLink>
             <NavLink to="offline">Kelas Offline</NavLink> */}
           </div>
-          <div className="dropdown dropdown-top- dropdown-end">
+          <div className="dropdown dropdown-top-  dropdown-end">
             <label
               onClick={() => setMember(!member)}
               className="btn justify-start m-1  btn-primary  text-white w-full"
@@ -61,7 +61,7 @@ const SideBar = () => {
               <box-icon name="dumbbell"></box-icon> Kelas
             </label>
             <ul
-              className={`${member ? "" : "hidden "} menu  bg-base-100  w-52`}
+              className={`${member ? "" : "hidden "} menu  bg-base-100   w-52`}
             >
               <li className="py-0">
                 <NavLink to="online">Kelas Online</NavLink>
@@ -73,9 +73,6 @@ const SideBar = () => {
             {/* <NavLink to="online">Kelas Online</NavLink>
             <NavLink to="offline">Kelas Offline</NavLink> */}
           </div>
-          <li>
-            <button onClick={handleLogout}>logout</button>
-          </li>
         </ul>
       </div>
     </div>
