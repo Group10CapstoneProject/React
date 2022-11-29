@@ -1,27 +1,27 @@
 import React from "react";
+import altaImage from "../assets/images/alta.png";
+import bg1Image from "../assets/images/bg1.png";
 
 function LandingPage() {
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-info">
         <div className="avatar">
           <div className="w-24 rounded">
-            <img src="https://placeimg.com/192/192/people" />
+            <img src={altaImage} />
           </div>
         </div>
-        <div className="navbar-start">
-          <a className="btn btn-ghost normal-case text-xl text-primary">Altagym</a>
-        </div>
+        <div className="navbar-start">{/* <a className="btn btn-ghost normal-case text-xl text-primary">Altagym</a> */}</div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <a className="text-primary">Home</a>
+              <a className="text-accent">Home</a>
             </li>
             <li>
-              <a>Trainer</a>
+              <a className="text-white">Trainer</a>
             </li>
             <li>
-              <a>Memberships</a>
+              <a className="text-white">Memberships</a>
             </li>
           </ul>
         </div>
@@ -32,12 +32,13 @@ function LandingPage() {
       <div className="stats shadow bg-neutral text-white">
         {/* <div className="stat">
           <div className="stat-value">100+</div>
-          <div className="stat-title">Great</div>
-          <div className="stat-title">Member</div>
-          <div className="stat-title">Experience</div>
+          <div className="stat-title text-white">Great</div>
+          <div className="stat-title text-white">Member</div>
+          <div className="stat-title text-white">Experience</div>
         </div> */}
       </div>
-      <div className="hero min-h-screen" style={{ backgroundImage: `url("https://placeimg.com/1000/800/arch")` }}>
+      <div className="hero min-h-screen">
+        <img src={bg1Image} />
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="max-w-md">
