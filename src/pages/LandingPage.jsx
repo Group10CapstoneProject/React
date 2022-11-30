@@ -6,7 +6,7 @@ function LandingPage() {
   return (
     <div>
       <div className="navbar bg-info">
-        <div className="avatar">
+        <div className="avatar w-105">
           <div className="w-24 rounded">
             <img src={altaImage} />
           </div>
@@ -30,12 +30,12 @@ function LandingPage() {
         </div>
       </div>
       <div className="stats shadow bg-neutral text-white">
-        {/* <div className="stat">
+        <div className="stat">
           <div className="stat-value">100+</div>
           <div className="stat-title text-white">Great</div>
           <div className="stat-title text-white">Member</div>
           <div className="stat-title text-white">Experience</div>
-        </div> */}
+        </div>
       </div>
       <div className="hero min-h-screen">
         <img src={bg1Image} />

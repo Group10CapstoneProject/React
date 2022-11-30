@@ -37,21 +37,17 @@ const SideBar = () => {
             <img className="w-32" src={logo} alt="" />
           </Link>
           {/* <!-- Sidebar content here --> */}
-          <input
+          {/* <input
             type="text"
             placeholder="Search"
             className="input w-full input-primary"
-          />
+          /> */}
+          <br />
           <div className="dropdown dropdown-top- dropdown-end">
-            <label
-              onClick={() => setMember(!member)}
-              className="btn justify-start  btn-primary   m-1 text-white w-full"
-            >
+            <label onClick={() => setMember(!member)} className="btn justify-start  btn-primary   m-1 text-white w-full">
               <box-icon name="book-content"></box-icon>Membership
             </label>
-            <ul
-              className={`${member ? "" : "hidden "} menu  bg-base-100  w-52`}
-            >
+            <ul className={`${member ? "" : "hidden "} menu  bg-base-100  w-52`}>
               <li className="py-0 ">
                 <NavLink to="anggota">Kelola Anggota</NavLink>
               </li>
@@ -61,15 +57,10 @@ const SideBar = () => {
             </ul>
           </div>
           <div className="dropdown dropdown-top-  dropdown-end">
-            <label
-              onClick={() => setKelas(!kelas)}
-              className="btn justify-start m-1  btn-primary  text-white w-full"
-            >
+            <label onClick={() => setKelas(!kelas)} className="btn justify-start m-1  btn-primary  text-white w-full">
               <box-icon name="dumbbell"></box-icon> Kelas
             </label>
-            <ul
-              className={`${kelas ? "" : "hidden "} menu  bg-base-100   w-52`}
-            >
+            <ul className={`${kelas ? "" : "hidden "} menu  bg-base-100   w-52`}>
               <li className="py-0">
                 <NavLink to="online">Online</NavLink>
               </li>

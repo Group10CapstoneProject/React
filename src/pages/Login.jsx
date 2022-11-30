@@ -56,6 +56,9 @@ function Login() {
                 </button>
               </div>
             </form>
+            <div className="footer">
+              <p className="text-base3 pt-6">&copy; 2022 Altagym. All Rights Reserved</p>
+            </div>
           </div>
         </div>
         <div className="flex bg-cover backdrop-brightness-50 bg-center items-center  justify-center h-full w-full " style={{ backgroundImage: `url(${bgLogin})` }}>
