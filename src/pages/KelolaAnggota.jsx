@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BoxIconElement } from "boxicons";
 import addMember from "../assets/svg/addMember.svg";
 import Modal from "../components/Modal";
 const KelolaAnggota = () => {
+  const [show, setShow] = useState(false);
   const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
   return (
     <div className="relative">
-      <Modal />
+      {show ? <Modal show={show} setShow={setShow} /> : ""}
       <div className="p-2  mx-5">
         <div className="w-full">
           <h4 className="font-bold">Kelola Anggota</h4>
         </div>
 
         <div className="pt-2 flex justify-between ">
-          <input type="text" placeholder="Cari Anggota ....." className="input input-bordered input-black w-full max-w-xs" />
+          <input
+            type="text"
+            placeholder="Cari Anggota ....."
+            className="input input-bordered input-black w-full max-w-xs"
+          />
 
           <button className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
-            <img className="fill-gray-800" src={addMember} alt="" /> Tambah Anggota
+            <img className="fill-gray-800" src={addMember} alt="" /> Tambah
+            Anggota
           </button>
         </div>
 
@@ -43,7 +50,10 @@ const KelolaAnggota = () => {
                     <td>Gold</td>
                     <td>aktif</td>
                     <td>
-                      <label htmlFor="my-modal-5" className="px-4 py-2 bg-primary cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in">
+                      <label
+                        htmlFor="my-modal-5"
+                        className="px-4 py-2 bg-primary cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in"
+                      >
                         Detail
                       </label>
                     </td>

@@ -27,6 +27,7 @@ export const SetUpRouters = () => {
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="/" element={<ProtectedRoute />}>
+          <Route path="/home" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
