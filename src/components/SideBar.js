@@ -44,7 +44,9 @@ const SideBar = () => {
             className="input w-full input-primary"
           /> */}
           <li className=" my-1  font-bold ">
-            <NavLink to="/">Dashboard</NavLink>
+            <NavLink to="/">
+              <box-icon type="solid" name="dashboard"></box-icon>Dashboard
+            </NavLink>
           </li>
           <div className="dropdown dropdown-top- dropdown-end ">
             <label
@@ -53,7 +55,10 @@ const SideBar = () => {
                 member ? "bg-primary" : "bg-transparent"
               }  w-full  justify-between font-bold btn  hover:bg-primary text-[#222222] border-none `}
             >
-              <span className="flex items-center gap-x-1">Membership</span>
+              <span className="flex items-center gap-x-1">
+                <box-icon type="solid" name="book-content"></box-icon>{" "}
+                Membership
+              </span>
               <box-icon
                 type="solid"
                 name={`${!member ? "chevron-down" : "chevron-up"}`}
@@ -73,7 +78,7 @@ const SideBar = () => {
 
           <li className="mt-1 font-bold text-lg">
             <label className="" for="">
-              Kelas
+              <box-icon name="dumbbell"></box-icon> Kelas
             </label>
           </li>
           <div className="dropdown dropdown-top- dropdown-end font-semibold  text-md">
