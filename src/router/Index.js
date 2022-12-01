@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Dashboard from "../pages/Dashboard";
+import JenisMembership from "../pages/JenisMembership";
 import KelolaAnggota from "../pages/KelolaAnggota";
 import LandingPage from "../pages/LandingPage";
 import Login from "../pages/Login";
@@ -20,6 +21,7 @@ export const SetUpRouters = () => {
           <Route path="offline" element={<OfflineClass />} />
           <Route path="online" element={<OnlineClass />} />
           <Route path="anggota" element={<KelolaAnggota />} />
+          <Route path="jenis" element={<JenisMembership />} />
           <Route path="member" element={<Member />} />
           <Route path="landingpage" element={<LandingPage />} />
           <Route path="*" element={<NotFoundPage />} />
