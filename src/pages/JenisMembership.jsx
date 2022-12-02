@@ -25,22 +25,15 @@ const JenisMembership = () => {
         </div>
 
         <div className="pt-2 flex justify-between ">
-          <input
-            type="text"
-            placeholder="Cari Membership ....."
-            className="input input-bordered input-black w-full max-w-xs"
-          />
+          <input type="text" placeholder="Cari Membership ....." className="input input-bordered input-black w-full max-w-xs" />
 
           <button className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
-            <img className="fill-gray-800" src={addMember} alt="" /> Tambah
-            Kelas
+            <img className="fill-gray-800" src={addMember} alt="" /> Tambah Kelas
           </button>
         </div>
 
         <div className="bg-white my-2 p-2">
-          <h3 className="py-2 font-bold text-black text-2xl">
-            Daftar Membership
-          </h3>
+          <h3 className="py-2 font-bold text-black text-2xl">Daftar Membership</h3>
           <div className="">
             <table className="table w-full text-sm my-2 ">
               <thead>
@@ -50,7 +43,7 @@ const JenisMembership = () => {
                   <th>Durasi</th>
                   <th>Kelas Offline</th>
                   <th>Kelas Online</th>
-                  <th>Gyn</th>
+                  <th>Gym</th>
                   <th>Trainer</th>
                   <th>Aksi</th>
                 </tr>
@@ -67,16 +60,10 @@ const JenisMembership = () => {
                       <td>false</td>
                       <td>true</td>
                       <td className="flex gap-x-2">
-                        <label
-                          htmlFor="my-modal-5"
-                          className="px-4 py-2 bg-primary cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in"
-                        >
+                        <label htmlFor="my-modal-5" className="px-4 py-2 bg-primary cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in">
                           Detail
                         </label>
-                        <label
-                          htmlFor="my-modal-5"
-                          className="px-4 py-2 bg-red-700 cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in"
-                        >
+                        <label htmlFor="my-modal-5" className="px-4 py-2 bg-red-700 cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in">
                           Hapus
                         </label>
                       </td>
