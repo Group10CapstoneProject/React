@@ -1,10 +1,32 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { BoxIconElement } from "boxicons";
+import Gym from "../apis/Gym";
 import addMember from "../assets/svg/addMember.svg";
 import Modal from "../components/Modal";
+import Auth from "../utils/Auth";
 const KelolaAnggota = () => {
   const [show, setShow] = useState(false);
-  const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [member, setMember] = useState(null);
+
+  axios.interceptors.request.use(
+    (config) => {
+      config.headers.authorization = `Bearer ${Auth.getAccessToken()}`;
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    }
+  );
+  const listMember = async () => {
+    try {
+      Gym.members().then((res) => setMember(res.data.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    listMember();
+  }, []);
 
   return (
     <div className="relative">
@@ -42,30 +64,31 @@ const KelolaAnggota = () => {
                 </tr>
               </thead>
               <tbody className="font-semibold">
-                {data.map((m, index) => (
-                  <tr key={index}>
-                    <th>{m}</th>
-                    <td>Muhammad Agil</td>
-                    <td>agilz@gmail.com</td>
-                    <td>Gold</td>
-                    <td>aktif</td>
-                    <td>
-                      <label
-                        htmlFor="my-modal-5"
-                        className="px-4 py-2 bg-primary cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in"
-                      >
-                        Detail
-                      </label>
-                    </td>
-                  </tr>
-                ))}
+                {member &&
+                  member.members.map((m) => (
+                    <tr key={m.id}>
+                      <th></th>
+                      <td>Muhammad Agil</td>
+                      <td>agilz@gmail.com</td>
+                      <td>Gold</td>
+                      <td>aktif</td>
+                      <td>
+                        <label
+                          htmlFor="my-modal-5"
+                          className="px-4 py-2 bg-primary cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in"
+                        >
+                          Detail
+                        </label>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
             <div className="flex justify-between">
               <div className="flex gap-x-2 font-semibold">
-                <label htmlFor="">Show : </label>
-                <select className="">
-                  <option disabled selected>
+                <label>Show : </label>
+                {/* <select className="">
+                  <option value="2" disabled selected>
                     10
                   </option>
                   <option>20</option>
@@ -73,7 +96,7 @@ const KelolaAnggota = () => {
                   <option>40</option>
                   <option>50</option>
                   <option>60</option>
-                </select>
+                </select> */}
                 <p>For Page</p>
               </div>
               <div>

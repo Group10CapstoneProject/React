@@ -8,6 +8,7 @@ function Navbar() {
     e.preventDefault();
     Auth.signOut(navigate);
   };
+  const dataAdmin = JSON.parse(localStorage.getItem("data"));
   return (
     <nav className="w-full sticky h-[60px] z-50  bg-base/60 border px-4 py-2  flex items-center justify-end">
       <ul className="flex gap-x-4">
@@ -21,10 +22,11 @@ function Navbar() {
           </div>
         </div>
         <div className="dropdown dropdown-bottom ">
-          <button tabIndex={0}>
-            <b>Muhammad Agil</b>
-          </button>
-          <ul tabIndex={0} className="dropdown-content menu p-2 w-full shadow bg-base-100  ">
+          <button tabIndex={0}>{dataAdmin && <b>{dataAdmin.role}</b>}</button>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu p-2 w-full shadow bg-base-100  "
+          >
             <li>
               <a href="*">Item 1</a>
             </li>

@@ -56,7 +56,7 @@ const SideBar = () => {
               }  w-full  justify-between font-bold btn  hover:bg-primary text-[#222222] border-none `}
             >
               <span className="flex items-center gap-x-1">
-                <box-icon type="solid" name="book-content"></box-icon>{" "}
+                <box-icon type="solid" name="book-content"></box-icon>
                 Membership
               </span>
               <box-icon
@@ -77,7 +77,7 @@ const SideBar = () => {
           </div>
 
           <li className="mt-1 font-bold text-lg">
-            <label className="" for="">
+            <label className="">
               <box-icon name="dumbbell"></box-icon> Kelas
             </label>
           </li>
