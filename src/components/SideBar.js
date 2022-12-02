@@ -49,24 +49,14 @@ const SideBar = () => {
             </NavLink>
           </li>
           <div className="dropdown dropdown-top- dropdown-end ">
-            <label
-              onClick={() => setMember(!member)}
-              className={`${
-                member ? "bg-primary" : "bg-transparent"
-              }  w-full  justify-between font-bold btn  hover:bg-primary text-[#222222] border-none `}
-            >
+            <label onClick={() => setMember(!member)} className={`${member ? "bg-primary" : "bg-transparent"}  w-full  justify-between font-bold btn  hover:bg-primary text-[#222222] border-none `}>
               <span className="flex items-center gap-x-1">
-                <box-icon type="solid" name="book-content"></box-icon>{" "}
+                <box-icon type="solid" name="book-content"></box-icon>
                 Membership
               </span>
-              <box-icon
-                type="solid"
-                name={`${!member ? "chevron-down" : "chevron-up"}`}
-              ></box-icon>
+              <box-icon type="solid" name={`${!member ? "chevron-down" : "chevron-up"}`}></box-icon>
             </label>
-            <ul
-              className={`${member ? "" : "hidden "} menu  bg-base-100  w-52`}
-            >
+            <ul className={`${member ? "" : "hidden "} menu  bg-base-100  w-52`}>
               <li className="py-0 ">
                 <Link to="anggota">Kelola Anggota</Link>
               </li>
@@ -77,26 +67,16 @@ const SideBar = () => {
           </div>
 
           <li className="mt-1 font-bold text-lg">
-            <label className="" for="">
+            <label className="">
               <box-icon name="dumbbell"></box-icon> Kelas
             </label>
           </li>
           <div className="dropdown dropdown-top- dropdown-end font-semibold  text-md">
-            <label
-              onClick={() => setOnline(!online)}
-              className={`${
-                online ? "bg-primary" : "bg-transparent"
-              }  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}
-            >
+            <label onClick={() => setOnline(!online)} className={`${online ? "bg-primary" : "bg-transparent"}  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}>
               <span className="flex  items-center gap-x-1">Offline</span>
-              <box-icon
-                type="solid"
-                name={`${!online ? "chevron-down" : "chevron-up"}`}
-              ></box-icon>
+              <box-icon type="solid" name={`${!online ? "chevron-down" : "chevron-up"}`}></box-icon>
             </label>
-            <ul
-              className={`${online ? "" : "hidden "} menu  bg-base-100  w-52`}
-            >
+            <ul className={`${online ? "" : "hidden "} menu  bg-base-100  w-52`}>
               <li className="py-0 ">
                 <Link to="online">Daftar Kelas</Link>
               </li>
@@ -106,21 +86,11 @@ const SideBar = () => {
             </ul>
           </div>
           <div className="dropdown dropdown-top- dropdown-end  font-semibold text-md">
-            <label
-              onClick={() => setOfline(!offline)}
-              className={`${
-                offline ? "bg-primary" : "bg-transparent"
-              }  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}
-            >
+            <label onClick={() => setOfline(!offline)} className={`${offline ? "bg-primary" : "bg-transparent"}  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}>
               <span className="flex items-center gap-x-1">Online</span>
-              <box-icon
-                type="solid"
-                name={`${!offline ? "chevron-down" : "chevron-up"}`}
-              ></box-icon>
+              <box-icon type="solid" name={`${!offline ? "chevron-down" : "chevron-up"}`}></box-icon>
             </label>
-            <ul
-              className={`${offline ? "" : "hidden "} menu  bg-base-100  w-52`}
-            >
+            <ul className={`${offline ? "" : "hidden "} menu  bg-base-100  w-52`}>
               <li className="py-0 ">
                 <Link to="online">Daftar Kelas</Link>
               </li>

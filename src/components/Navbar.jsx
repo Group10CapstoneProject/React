@@ -8,11 +8,12 @@ function Navbar() {
     e.preventDefault();
     Auth.signOut(navigate);
   };
+  const dataAdmin = JSON.parse(localStorage.getItem("data"));
   return (
     <nav className="w-full sticky h-[60px] z-50  bg-base/60 border px-4 py-2  flex items-center justify-end">
       <ul className="flex gap-x-4">
         <li className="indicator tab tab-lifted tab-active">Notifikasi</li>
-        <span className="indicator-item badge mr-2">8</span>
+        <span className="indicator-item indicator-center badge badge-secondary">8</span>
         <div className="avatar placeholder">
           <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
             <a href="/">
@@ -21,12 +22,11 @@ function Navbar() {
           </div>
         </div>
         <div className="dropdown dropdown-bottom ">
-          <button tabIndex={0}>
-            <b>Muhammad Agil</b>
-          </button>
+          <button tabIndex={0}>{dataAdmin && <b>{dataAdmin.role}</b>}</button>
           <ul tabIndex={0} className="dropdown-content menu p-2 w-full shadow bg-base-100  ">
             <li>
               <a href="*">Item 1</a>
+              <a href="/landingpage">PageL</a>
             </li>
             <li>
               <button onClick={handleLogout}>logout</button>

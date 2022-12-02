@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import APIAuth from "../apis/Auth.api";
 import bgLogin from "../assets/images/Login1.png";
 import logo from "../assets/images/logo.png";
+import Auth from "../utils/Auth";
 function Login() {
   // let token = localStorage.getItem("token");
   // const { decodedToken, isExpired } = useJwt(token);
@@ -10,6 +11,10 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const token = Auth.getAccessToken();
+  const headers = { Authorization: `Bearer ${token}` };
+
   let navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
@@ -24,6 +29,7 @@ function Login() {
         setLoading(false);
       });
   };
+
   // console.log(error);
   return (
     <div className="h-screen flex   text-black">
@@ -34,17 +40,17 @@ function Login() {
             <h4 className="">Masuk Admin</h4>
             <p className="text-[16px]">Silakan masuk dengan email dan password admin yang telah diberikan</p>
             <form onSubmit={handleLogin}>
-              <label className="block py-2" htmlFor="">
+              <label className="block ply-2">
                 <b>Email</b>
               </label>
               <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Type here" className="input w-full" />
-              <label className="block py-2" htmlFor="">
+              <label className="block py-2">
                 <b>Password</b>
               </label>
               <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Masukkan password" className="input w-full" />
               <div className="flex gap-x-1 py-2">
                 <input type="checkbox" name="" id="" />
-                <label htmlFor="">Ingat saya</label>
+                <label>Ingat saya</label>
               </div>
               <span className="text-red-600">{error}</span>
               <div className="flex justify-center h-full items-center  w-full ">

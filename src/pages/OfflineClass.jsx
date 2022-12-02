@@ -1,21 +1,18 @@
-import React, { useEffect, useState } from "react";
-import ListUsers from "../apis/ListUsers";
+import React, { useState } from "react";
+import Gym from "../apis/Gym";
 
 const OfflineClass = () => {
-  const [user, serUser] = useState([]);
+  const [member, setMember] = useState([]);
   const listUser = async () => {
     try {
-      ListUsers.users().then((res) => serUser(res.data.data));
+      Gym.member().then((res) => setMember(res.data.data));
     } catch (error) {
       console.log(error);
     }
   };
   // eve.holt@reqres.in
   // cityslicka
-  useEffect(() => {
-    listUser();
-  }, []);
-  console.log(user);
+
   return (
     <>
       <h1>Kelas Offline</h1>
@@ -42,7 +39,8 @@ const OfflineClass = () => {
               </td>
             </tr>
           )} */}
-            {user &&
+
+            {/* {user &&
               user.map((m) => (
                 <tr key={m.id}>
                   <th>1</th>
@@ -55,7 +53,7 @@ const OfflineClass = () => {
                     <button className="btn btn-xs btn-primary">edit</button>
                   </td>
                 </tr>
-              ))}
+              ))} */}
           </tbody>
         </table>
       </div>
