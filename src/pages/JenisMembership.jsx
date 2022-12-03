@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Gym from "../apis/Gym";
 import addMember from "../assets/svg/addMember.svg";
-import Modal from "../components/Modal";
+import Modal from "../components/ModalAnggota";
+import { ModalJenisMember } from "../components/ModalJenisMember";
+import useHook from "../hooks/useHook";
 
 const JenisMembership = () => {
   const [member, setMember] = useState(null);
-
+  const { show, setShow } = useHook();
   const listMember = async () => {
     try {
       Gym.members().then((res) => setMember(res.data.data));
@@ -16,9 +18,11 @@ const JenisMembership = () => {
   useEffect(() => {
     listMember();
   }, []);
+
+  console.log(show, "yo");
   return (
     <div className="relative">
-      <Modal />
+      {show ? <ModalJenisMember show={show} setShow={setShow} /> : ""}
       <div className="p-2  mx-5">
         <div className="w-full">
           <h4 className="font-bold">Jenis Membership</h4>
@@ -50,7 +54,7 @@ const JenisMembership = () => {
                   <th>Durasi</th>
                   <th>Kelas Offline</th>
                   <th>Kelas Online</th>
-                  <th>Gyn</th>
+                  <th>Gym</th>
                   <th>Trainer</th>
                   <th>Aksi</th>
                 </tr>
@@ -68,6 +72,7 @@ const JenisMembership = () => {
                       <td>true</td>
                       <td className="flex gap-x-2">
                         <label
+                          onClick={() => setShow(!show)}
                           htmlFor="my-modal-5"
                           className="px-4 py-2 bg-primary cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in"
                         >

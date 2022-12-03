@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = ({ show, setShow }) => {
+export const ModalJenisMember = ({ show, setShow }) => {
   const onChange = (e) => {
     const { name, value } = e.target;
     console.log(name, value);
@@ -9,7 +9,6 @@ const Modal = ({ show, setShow }) => {
     e.preventDefault();
     setShow(!show);
   };
-
   return (
     <>
       <input type="checkbox" id="my-modal" className="modal-toggle" />
@@ -76,7 +75,7 @@ const Modal = ({ show, setShow }) => {
                   />
                   <input
                     className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
-                    type="text"
+                    type="file"
                   />
                 </div>
               </div>
@@ -103,5 +102,3 @@ const Modal = ({ show, setShow }) => {
     </>
   );
 };
-
-export default Modal;

@@ -1,8 +1,6 @@
-import { axiosInstance } from "../configs/axiosInstance";
-import Auth from "../utils/Auth";
 import Cookies from "js-cookie";
-import CONST from "../utils/Constants";
-import axios from "axios";
+import axiosInstance from "../configs/axiosInstance";
+import Auth from "../utils/Auth";
 const APIAuth = {
   async loginUser(payload) {
     try {
@@ -14,8 +12,8 @@ const APIAuth = {
       // const token = response.data.data.access_token;
       // localStorage.setItem("token", token);
       // ("Authorization", "Bearer " + response.data.data.acces_token);
+
       Auth.storeUserInfoToCookie(response.data.data);
-      // console.log(response.data);
       return response;
     } catch (err) {
       const { message } = err.response.data;

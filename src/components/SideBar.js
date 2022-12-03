@@ -8,6 +8,7 @@ const SideBar = () => {
   const [offline, setOfline] = useState(false);
   const [member, setMember] = useState(false);
   let navigate = useNavigate();
+
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.clear();
@@ -46,6 +47,11 @@ const SideBar = () => {
           <li className=" my-1  font-bold ">
             <NavLink to="/">
               <box-icon type="solid" name="dashboard"></box-icon>Dashboard
+            </NavLink>
+          </li>
+          <li className=" my-1  font-bold ">
+            <NavLink to="pembayaran">
+              <box-icon type="solid" name="dashboard"></box-icon>Pembayaran
             </NavLink>
           </li>
           <div className="dropdown dropdown-top- dropdown-end ">

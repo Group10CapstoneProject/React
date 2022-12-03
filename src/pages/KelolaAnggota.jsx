@@ -1,22 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import Gym from "../apis/Gym";
 import addMember from "../assets/svg/addMember.svg";
-import Modal from "../components/Modal";
+import ModalAnggota from "../components/ModalAnggota";
 import Auth from "../utils/Auth";
 const KelolaAnggota = () => {
+  let navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [member, setMember] = useState(null);
-
-  axios.interceptors.request.use(
-    (config) => {
-      config.headers.authorization = `Bearer ${Auth.getAccessToken()}`;
-      return config;
-    },
-    (error) => {
-      return Promise.reject(error);
-    }
-  );
   const listMember = async () => {
     try {
       Gym.members().then((res) => setMember(res.data.data));
@@ -30,7 +22,7 @@ const KelolaAnggota = () => {
 
   return (
     <div className="relative">
-      {show ? <Modal show={show} setShow={setShow} /> : ""}
+      {show ? <ModalAnggota show={show} setShow={setShow} /> : ""}
       <div className="p-2  mx-5">
         <div className="w-full">
           <h4 className="font-bold">Kelola Anggota</h4>
@@ -57,7 +49,6 @@ const KelolaAnggota = () => {
                 <tr>
                   <th>Nomor</th>
                   <th>Nama</th>
-                  <th>Email</th>
                   <th>Jenis Membership</th>
                   <th>Status Membership</th>
                   <th>Aksi</th>
@@ -67,13 +58,13 @@ const KelolaAnggota = () => {
                 {member &&
                   member.members.map((m) => (
                     <tr key={m.id}>
-                      <th></th>
-                      <td>Muhammad Agil</td>
-                      <td>agilz@gmail.com</td>
-                      <td>Gold</td>
-                      <td>aktif</td>
+                      <th>1</th>
+                      <td>{m.user_name}</td>
+                      <td>{m.member_type_name}</td>
+                      <td>{m.status}</td>
                       <td>
                         <label
+                          onClick={() => navigate("/detail")}
                           htmlFor="my-modal-5"
                           className="px-4 py-2 bg-primary cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in"
                         >
