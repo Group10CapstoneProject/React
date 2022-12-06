@@ -1,14 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import Gym from "../apis/Gym";
+import Gym from "../apis/get.api";
+import PostApi from "../apis/post.api";
 import addMember from "../assets/svg/addMember.svg";
 import ModalAnggota from "../components/ModalAnggota";
+import ModalTambahAnggota from "../components/ModalTambahAnggota";
 import Auth from "../utils/Auth";
 const KelolaAnggota = () => {
   let navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [member, setMember] = useState(null);
+  const [load, setLoad] = useState(false);
   const listMember = async () => {
     try {
       Gym.members().then((res) => setMember(res.data.data));
@@ -16,13 +19,22 @@ const KelolaAnggota = () => {
       console.log(error);
     }
   };
+
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+    setLoad(true);
+    PostApi.deleteMember(id).then((res) => setLoad(false));
+  };
   useEffect(() => {
     listMember();
-  }, []);
+  }, [load]);
 
+  if (load) {
+    return <h1>load...</h1>;
+  }
   return (
     <div className="relative">
-      {show ? <ModalAnggota show={show} setShow={setShow} /> : ""}
+      {show ? <ModalTambahAnggota show={show} setShow={setShow} /> : ""}
       <div className="p-2  mx-5">
         <div className="w-full">
           <h4 className="font-bold">Kelola Anggota</h4>
@@ -35,10 +47,14 @@ const KelolaAnggota = () => {
             className="input input-bordered input-black w-full max-w-xs"
           />
 
-          <button className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
+          <label
+            onClick={() => setShow(!show)}
+            htmlFor="my-modal-5"
+            className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base"
+          >
             <img className="fill-gray-800" src={addMember} alt="" /> Tambah
             Anggota
-          </button>
+          </label>
         </div>
 
         <div className="bg-white my-2 p-2">
@@ -56,13 +72,13 @@ const KelolaAnggota = () => {
               </thead>
               <tbody className="font-semibold">
                 {member &&
-                  member.members.map((m) => (
+                  member.members.map((m, index) => (
                     <tr key={m.id}>
-                      <th>1</th>
+                      <th>{++index}</th>
                       <td>{m.user_name}</td>
                       <td>{m.member_type_name}</td>
                       <td>{m.status}</td>
-                      <td>
+                      <td className="flex gap-x-2">
                         <label
                           onClick={() => navigate("/detail")}
                           htmlFor="my-modal-5"
@@ -70,6 +86,12 @@ const KelolaAnggota = () => {
                         >
                           Detail
                         </label>
+                        <button
+                          onClick={(e) => handleDelete(e, m.id)}
+                          className="px-4 py-2 bg-primary cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in"
+                        >
+                          Hapus
+                        </button>
                       </td>
                     </tr>
                   ))}

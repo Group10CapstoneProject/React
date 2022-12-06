@@ -23,7 +23,7 @@ function Navbar() {
           </div>
         </div>
         <div className="dropdown dropdown-bottom ">
-          <button tabIndex={0}>
+          <button className="px-16" tabIndex={0}>
             {dataAdmin ? <b>{dataAdmin.role}</b> : "muhammad Agil"}
           </button>
           <ul

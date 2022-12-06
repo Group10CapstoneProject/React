@@ -52,8 +52,8 @@ function Login() {
               <input
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
-                placeholder="Type here"
-                className="input w-full"
+                placeholder="alta@gmail.com"
+                className="input input-bordered w-full"
               />
               <label className="block py-2">
                 <b>Password</b>
@@ -61,8 +61,8 @@ function Login() {
               <input
                 onChange={(e) => setPassword(e.target.value)}
                 type="password"
-                placeholder="Masukkan password"
-                className="input w-full"
+                placeholder="******"
+                className="input input-bordered w-full"
               />
               <div className="flex gap-x-1 py-2">
                 <input type="checkbox" name="" id="" />

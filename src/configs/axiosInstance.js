@@ -8,9 +8,9 @@ const axiosInstance = axios.create({
   baseURL: CONST.BASE_URL,
 });
 
-axios.interceptors.request.use(
+axiosInstance.interceptors.request.use(
   (config) => {
-    config.headers.authorization = `Bearer ${Auth.getAccessToken()}`;
+    config.headers["Authorization"] = `Bearer ${Auth.getAccessToken()}`;
     return config;
   },
   (error) => {
@@ -18,13 +18,33 @@ axios.interceptors.request.use(
   }
 );
 
-// Handle request process
-axiosInstance.interceptors.request.use((request) => requestHandler(request));
+// axios.interceptors.request.use(
+//   async (config) => {
+//     const token = Auth.getAccessToken();
+//     if (token) {
+//       config.headers["Authorization"] = `Bearer ${token}`;
+//     } else {
+//       try {
+//         const token = await Auth.getAccessToken();
+//         config.headers["Authorization"] = `Bearer ${token}`;
+//       } catch (e) {
+//         console.log(e);
+//       }
+//     }
+//     return config;
+//   },
+//   (error) => {
+//     return Promise.reject(error);
+//   }
+// );
 
-// Handle response process
-axiosInstance.interceptors.response.use(
-  (response) => successHandler(response),
-  (error) => errorHandler(error)
-);
+// Handle request process
+// axiosInstance.interceptors.request.use((request) => requestHandler(request));
+
+// // Handle response process
+// axiosInstance.interceptors.response.use(
+//   (response) => successHandler(response),
+//   (error) => errorHandler(error)
+// );
 
 export default axiosInstance;

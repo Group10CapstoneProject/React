@@ -1,43 +1,32 @@
-import React, { useState } from "react";
-import PostApi from "../apis/post.api";
+import React from "react";
 
-export const ModalMethod = ({ show, setShow }) => {
-  const [pembayaran, setPembayaran] = useState({
-    name: "",
-    payment_number: "",
-    description: "",
-  });
+const ModalTambahAnggota = ({ show, setShow }) => {
   const onChange = (e) => {
     const { name, value } = e.target;
-
-    setPembayaran({
-      ...pembayaran,
-      [name]: value,
-    });
+    console.log(name, value);
   };
-
-  const handleSubmit = (e) => {
+  const handleUpdate = (e) => {
     e.preventDefault();
-    PostApi.metode(pembayaran).then((res) => console.log(res));
     setShow(!show);
   };
 
   return (
     <>
+      <input type="checkbox" id="my-modal" className="modal-toggle" />
       <input type="checkbox" id="my-modal-5" className="modal-toggle" />
-      <div className="modal">
+      <div className="modal ">
         <div className="modal-box  p-0 overflow-hidden w-1/2 max-w-5xl">
           <div className="w-full p-3 bg-base2 flex">
             <span>❗</span>
             <div>
-              <h2 className="font-bold text-lg">Tambah Metode Pembayaran</h2>
+              <h2 className="font-bold text-lg">Edit Data Member</h2>
               <p className="text-sm font-semibold">
                 kamu dapat mengedit data member dan menkonfirmasi pembayaran
                 disini.
               </p>
             </div>
           </div>
-          <form onSubmit={handleSubmit}>
+          <form action="">
             <div className="p-3 ">
               <div className="flex w-full px-2 ">
                 <div className="w-52 ">
@@ -45,10 +34,19 @@ export const ModalMethod = ({ show, setShow }) => {
                     Nama
                   </label>
                   <label className="block my-1 py-1" htmlFor="">
-                    Nomor Rekening
+                    Jatuh Tempo
                   </label>
                   <label className="block my-1 py-1" htmlFor="">
-                    Deskripsi
+                    Jenis Membership
+                  </label>
+                  <label className="block my-1 py-1" htmlFor="">
+                    Harga Membership
+                  </label>
+                  <label className="block my-1 py-1" htmlFor="">
+                    Total Tagihan
+                  </label>
+                  <label className="block my-1 py-1" htmlFor="">
+                    Status Pembayaran
                   </label>
                 </div>
                 <div className="w-full">
@@ -56,24 +54,40 @@ export const ModalMethod = ({ show, setShow }) => {
                     onChange={onChange}
                     className="w-full input-sm border border-primary   block py-1 my-1 rounded-none input-primary"
                     type="text"
-                    name="name"
+                    name="nama"
                   />
                   <input
                     onChange={onChange}
                     className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
-                    type="number"
-                    name="payment_number"
+                    type={"date"}
+                    name="date"
                   />
                   <input
-                    onChange={onChange}
                     className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
                     type="text"
-                    name="description"
+                  />
+                  <input
+                    className="w-full input-sm border border-primary block py-1 my-1 rounded-none input-primary"
+                    type="text"
+                  />
+                  <input
+                    className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
+                    type="text"
+                  />
+                  <input
+                    className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
+                    type="file"
                   />
                 </div>
               </div>
               <div className="modal-action flex">
-                <button className="btn">Tambah</button>
+                <label
+                  onClick={handleUpdate}
+                  htmlFor="my-modal-5"
+                  className="btn"
+                >
+                  Update
+                </label>
                 <label
                   onClick={() => setShow(!show)}
                   htmlFor="my-modal-5"
@@ -89,3 +103,5 @@ export const ModalMethod = ({ show, setShow }) => {
     </>
   );
 };
+
+export default ModalTambahAnggota;

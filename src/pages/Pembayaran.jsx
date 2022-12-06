@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import Gym from "../apis/get.api";
 import Get from "../apis/get.api";
+import PostApi from "../apis/post.api";
 import { ModalMethod } from "../components/ModalMethod";
 import useHook from "../hooks/useHook";
 
 export const Pembayaran = () => {
   const [method, setMethod] = useState([]);
+  const [load, setLoad] = useState(false);
   const { show, setShow } = useHook();
-  console.log(show);
   const metode = async () => {
     try {
       Get.pembayaran().then((res) => setMethod(res.data.data));
@@ -15,12 +17,30 @@ export const Pembayaran = () => {
     }
   };
 
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+    setLoad(true);
+    PostApi.deleteMethod(id).then((res) => setLoad(false));
+  };
   useEffect(() => {
     metode();
-  }, []);
+  }, [load]);
+
+  if (load) {
+    return <h1>loading...</h1>;
+  }
   return (
     <div className="relative">
-      {show ? <ModalMethod show={show} setShow={setShow} /> : ""}
+      {show ? (
+        <ModalMethod
+          load={load}
+          setLoad={setLoad}
+          show={show}
+          setShow={setShow}
+        />
+      ) : (
+        ""
+      )}
       <div className="p-2  mx-5">
         <div className="w-full">
           <h4 className="font-bold">Metode Pembayaran</h4>
@@ -41,12 +61,24 @@ export const Pembayaran = () => {
             method.map((m) => (
               <div
                 key={m.id}
-                className="  overflow-hidden flex items-center justify-center  shadow-xl p-5 w-72 h-32"
+                className="  overflow-hidden flex items-center justify-center  shadow-xl w-72 h-32"
               >
-                <div>
-                  <h1 className="text-center font-bold">{m.name}</h1>
-                  <p className="text-sm">Payment Number : {m.payment_number}</p>
-                  <p className="text-sm">{m.description}</p>
+                <div className="w-full h-full relative">
+                  <span
+                    onClick={(e) => handleDelete(e, m.id)}
+                    className="absolute right-0 cursor-pointer "
+                  >
+                    <box-icon name="trash" size="sm" color="red"></box-icon>
+                  </span>
+                  <h1 className="text-center bg-primary text-white p-2 font-bold">
+                    {m.name}
+                  </h1>
+                  <div className="p-3">
+                    <p className="text-sm">
+                      Payment Number : {m.payment_number}
+                    </p>
+                    <p className="text-sm">{m.description}</p>
+                  </div>
                 </div>
               </div>
             ))}
