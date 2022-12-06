@@ -13,6 +13,8 @@ import OnlineClass from "../pages/OnlineClass";
 import { Pembayaran } from "../pages/Pembayaran";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedRoute from "./ProtectedRoute";
+import Trainer from "../pages/Trainer";
+import DetailPelatih from "./../pages/DetailPelatih";
 
 export const SetUpRouters = () => {
   return (
@@ -27,9 +29,11 @@ export const SetUpRouters = () => {
           <Route path="/detail" element={<DetailAnggota />} />
           <Route path="jenis" element={<JenisMembership />} />
           <Route path="member" element={<Member />} />
-          <Route path="landingpage" element={<LandingPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
+        <Route path="landingpage" element={<LandingPage />} />
+        <Route path="trainer" element={<Trainer />} />
+        <Route path="detailpelatih" element={<DetailPelatih />} />
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/home" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
