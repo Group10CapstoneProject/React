@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Auth from "../utils/Auth";
@@ -8,7 +9,7 @@ function Navbar() {
     e.preventDefault();
     Auth.signOut(navigate);
   };
-  const dataAdmin = JSON.parse(localStorage.getItem("data"));
+  const dataAdmin = JSON.parse(Cookies.get("data"));
   return (
     <nav className="w-full sticky h-[60px] z-50  bg-base/60 border px-4 py-2  flex items-center justify-end">
       <ul className="flex gap-x-4">
@@ -22,11 +23,13 @@ function Navbar() {
           </div>
         </div>
         <div className="dropdown dropdown-bottom ">
-          <button tabIndex={0}>{dataAdmin && <b>{dataAdmin.role}</b>}</button>
+          <button className="px-16" tabIndex={0}>
+            {dataAdmin ? <b>{dataAdmin.role}</b> : "muhammad Agil"}
+          </button>
           <ul tabIndex={0} className="dropdown-content menu p-2 w-full shadow bg-base-100  ">
             <li>
               <a href="*">Item 1</a>
-              <a href="/landingpage">PageL</a>
+              <a href="/landingpage">Homepage</a>
             </li>
             <li>
               <button onClick={handleLogout}>logout</button>

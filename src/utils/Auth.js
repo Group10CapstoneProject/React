@@ -17,15 +17,16 @@ const Auth = {
   signOut(navigate) {
     Cookies.remove("token");
     Cookies.remove("rt");
+    Cookies.remove("data");
     navigate("/login");
   },
   storeUserInfoToCookie(data) {
-    if (!data.access_token || !data.refresh_token) return null;
-    const { access_token, refresh_token, sub } = data;
-    const accessExpires = new Date(access_token.expires);
-    const refreshExpires = new Date(refresh_token.expires);
-    Cookies.set("token", access_token, { expires: accessExpires });
-    Cookies.set("rt", refresh_token, { expires: refreshExpires });
+    if (!data.access || !data.refresh) return null;
+    const { access, refresh } = data;
+    const accessExpires = new Date(access.expired_at);
+    const refreshExpires = new Date(refresh.expired_at);
+    Cookies.set("token", access.token, { expires: accessExpires });
+    Cookies.set("rt", refresh.token, { expires: refreshExpires });
 
     return data;
   },

@@ -1,5 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
+import "boxicons";
 import { SetUpRouters } from "./router/Index";
 function App() {
   return (
