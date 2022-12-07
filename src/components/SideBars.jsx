@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 
 function SideBars() {
   const [online, setOnline] = useState(false);
-  const [offline, setOfline] = useState(false);
+  const [offline, setOffline] = useState(false);
   const [member, setMember] = useState(false);
   let navigate = useNavigate();
   const data = JSON.parse(Cookies.get("data"));
@@ -40,20 +40,12 @@ function SideBars() {
           </NavLink>
         </li>
         <div className="dropdown dropdown-top- dropdown-end ">
-          <label
-            onClick={() => setMember(!member)}
-            className={`${
-              member ? "bg-primary" : "bg-transparent"
-            }  w-full  justify-between font-bold btn  hover:bg-primary text-[#222222] border-none `}
-          >
+          <label onClick={() => setMember(!member)} className={`${member ? "bg-primary" : "bg-transparent"}  w-full  justify-between font-bold btn  hover:bg-primary text-[#222222] border-none `}>
             <span className="flex items-center gap-x-1">
               <box-icon type="solid" name="book-content"></box-icon>
               Membership
             </span>
-            <box-icon
-              type="solid"
-              name={`${!member ? "chevron-down" : "chevron-up"}`}
-            ></box-icon>
+            <box-icon type="solid" name={`${!member ? "chevron-down" : "chevron-up"}`}></box-icon>
           </label>
           <ul className={`${member ? "" : "hidden "} menu  bg-base-100  w-52`}>
             <li className="py-0 ">
@@ -71,17 +63,9 @@ function SideBars() {
           </label>
         </li>
         <div className="dropdown dropdown-top- dropdown-end font-semibold  text-md">
-          <label
-            onClick={() => setOnline(!online)}
-            className={`${
-              online ? "bg-primary" : "bg-transparent"
-            }  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}
-          >
+          <label onClick={() => setOnline(!online)} className={`${online ? "bg-primary" : "bg-transparent"}  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}>
             <span className="flex  items-center gap-x-1">Offline</span>
-            <box-icon
-              type="solid"
-              name={`${!online ? "chevron-down" : "chevron-up"}`}
-            ></box-icon>
+            <box-icon type="solid" name={`${!online ? "chevron-down" : "chevron-up"}`}></box-icon>
           </label>
           <ul className={`${online ? "" : "hidden "} menu  bg-base-100  w-52`}>
             <li className="py-0 ">
@@ -93,17 +77,9 @@ function SideBars() {
           </ul>
         </div>
         <div className="dropdown dropdown-top- dropdown-end  font-semibold text-md">
-          <label
-            onClick={() => setOfline(!offline)}
-            className={`${
-              offline ? "bg-primary" : "bg-transparent"
-            }  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}
-          >
+          <label onClick={() => setOffline(!offline)} className={`${offline ? "bg-primary" : "bg-transparent"}  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}>
             <span className="flex items-center gap-x-1">Online</span>
-            <box-icon
-              type="solid"
-              name={`${!offline ? "chevron-down" : "chevron-up"}`}
-            ></box-icon>
+            <box-icon type="solid" name={`${!offline ? "chevron-down" : "chevron-up"}`}></box-icon>
           </label>
           <ul className={`${offline ? "" : "hidden "} menu  bg-base-100  w-52`}>
             <li className="py-0 ">
