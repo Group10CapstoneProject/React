@@ -7,6 +7,7 @@ import CONST from "../utils/Constants";
 const ModalTambahJenis = ({ show, setShow }) => {
   const [image, setImage] = useState(null);
   const [check, setCheck] = useState(false);
+  const [load, setLoad] = useState(false);
   const [member, setMember] = useState({
     name: "",
     price: 20000,
@@ -18,33 +19,7 @@ const ModalTambahJenis = ({ show, setShow }) => {
     picture: null,
   });
 
-  // const handleImage = (e) => {
-  //   const file = e.target.files[0];
-  //   const title = "member_type";
-  //   const datas = {
-  //     file: file,
-  //     title: title,
-  //   };
-  //   axios({
-  //     method: "post",
-  //     url: `${CONST.BASE_URL}/files/upload`,
-  //     data: datas,
-  //     title: "member_type",
-  //     headers: { "Content-Type": "multipart/form-data" },
-  //   })
-  //     .then(function (response) {
-  //       //handle success
-  //       console.log(response);
-  //     })
-  //     .catch(function (response) {
-  //       //handle error
-  //       console.log(response);
-  //     });
-  // };
-  let formData = new FormData();
-
   const handleImage = (e) => {
-    // const file = e.target.files[0];
     const { name, files } = e.target;
     PostApi.uploadFile({ title: name, files }).then((res) =>
       setMember({
@@ -68,9 +43,11 @@ const ModalTambahJenis = ({ show, setShow }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    PostApi.tambahJenisMember(member).then((res) => console.log(res));
+    setLoad(true);
+    PostApi.tambahJenisMember(member).then((res) => setLoad(false));
     setShow(!show);
   };
+
   return (
     <>
       <input type="checkbox" id="my-modal-5" className="modal-toggle" />
@@ -89,9 +66,9 @@ const ModalTambahJenis = ({ show, setShow }) => {
           <form onSubmit={handleSubmit} encType="multipart/form-data">
             <div className="p-3 ">
               <div className="flex w-full px-2 gap-x-2 ">
-                <div className="w-[20%]  flex justify-center">
+                <div className="w-[20%] relative  flex justify-center">
                   <input
-                    className="bg-white  border w-24 h-24 file-input-bordered rounded-full file-input-ghost file"
+                    className="bg-white cursor-pointer border w-24 h-24 file-input-bordered rounded-full file-input-ghost file"
                     type="file"
                     onChange={handleImage}
                     name="member_type"
@@ -177,11 +154,17 @@ const ModalTambahJenis = ({ show, setShow }) => {
                 </div>
               </div>
               <div className="modal-action flex">
-                <button className="btn">Tambah</button>
+                <button className="btnp flex items-center justify-center">
+                  {load ? (
+                    <box-icon name="loader-alt" animation="spin"></box-icon>
+                  ) : (
+                    "Tambah"
+                  )}
+                </button>
                 <label
                   onClick={() => setShow(!show)}
                   htmlFor="my-modal-5"
-                  className="btn"
+                  className="btnd flex items-center"
                 >
                   Batal
                 </label>

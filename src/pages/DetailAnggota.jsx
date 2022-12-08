@@ -3,9 +3,7 @@ import React from "react";
 const DetailAnggota = () => {
   return (
     <>
-      <h2 className="px-6 pt-2 text-3xl font-semibold">
-        Kelola Anggota / Detail
-      </h2>
+      <h2 className="px-6 pt-2 text-3xl font-semibold">Kelola Anggota / Detail</h2>
       <div className="flex m-3 p-3  border ">
         <div className="w-1/2  flex gap-x-14 font-semibold text-md">
           <div>
@@ -30,11 +28,7 @@ const DetailAnggota = () => {
         <div className="w-1/2 flex-col justify-center ">
           <div className="w-1/2 pb-2">
             <h2 className="font-semibold text-md pb-2">Bukti pembayaran</h2>
-            <img
-              className="2"
-              src="https://1.bp.blogspot.com/-vRxyZBWkyb4/Xn6k2sMrXuI/AAAAAAAAGog/Ay9PBsRutbo3Q6PcL6pXjsc-r-5MT9tLwCLcBGAsYHQ/s1600/buzzbreak%2Bbayar%2Blewat%2BDANA.png"
-              alt=""
-            />
+            <img className="2" src="https://1.bp.blogspot.com/-vRxyZBWkyb4/Xn6k2sMrXuI/AAAAAAAAGog/Ay9PBsRutbo3Q6PcL6pXjsc-r-5MT9tLwCLcBGAsYHQ/s1600/buzzbreak%2Bbayar%2Blewat%2BDANA.png" alt="" />
           </div>
           <div className="flex gap-x-10">
             <h2 className="text-lg font-semibold">Status Membership</h2>
@@ -44,12 +38,8 @@ const DetailAnggota = () => {
             </select>
           </div>
           <div className="flex gap-x-2">
-            <button className="h-8 px-3 btn-primary btn min-h-0 text-white">
-              Simpan
-            </button>
-            <button className="h-8 px-3 btn-error bg-red-700 text-white btn min-h-0">
-              Batal
-            </button>
+            <button className="h-8 px-3 btn-primary btn min-h-0 text-white">Simpan</button>
+            <button className="h-8 px-3 btn-error bg-red-700 text-white btn min-h-0">Batal</button>
           </div>
         </div>
       </div>

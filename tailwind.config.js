@@ -16,10 +16,12 @@ module.exports = {
       {
         mytheme: {
           primary: "#52A1A4",
+          "primary-focus": "#296676",
           secondary: "#f6d860",
           accent: "#37cdbe",
           neutral: "#3d4451",
           info: "#1A4B5F",
+          "info-content": "#FF704C",
           "base-100": "#ffffff",
         },
       },

@@ -23,6 +23,15 @@ const Gym = {
     }
   },
 
+  async onlineKategori() {
+    try {
+      const response = await axiosInstance.get(`/online-classes/categories`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+
   async memberType() {
     try {
       const response = await axiosInstance.get(`/members/types`);

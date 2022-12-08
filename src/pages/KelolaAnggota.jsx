@@ -23,8 +23,9 @@ const KelolaAnggota = () => {
   const handleDelete = (e, id) => {
     e.preventDefault();
     setLoad(true);
-    PostApi.deleteMember(id).then((res) => setLoad(false));
+    PostApi.hapusAnggota(id).then((res) => setLoad(false));
   };
+
   useEffect(() => {
     listMember();
   }, [load]);
@@ -60,7 +61,7 @@ const KelolaAnggota = () => {
         <div className="bg-white my-2 p-2">
           <h3 className="py-2 font-bold text-black text-2xl">Manage Member</h3>
           <div className="">
-            <table className="table w-full text-sm my-2 ">
+            <table className="table table-compact w-full text-sm ">
               <thead>
                 <tr>
                   <th>Nomor</th>
@@ -82,13 +83,13 @@ const KelolaAnggota = () => {
                         <label
                           onClick={() => navigate("/detail")}
                           htmlFor="my-modal-5"
-                          className="px-4 py-2 bg-primary cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in"
+                          className="btnp flex items-center"
                         >
                           Detail
                         </label>
                         <button
                           onClick={(e) => handleDelete(e, m.id)}
-                          className="px-4 py-2 bg-primary cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in"
+                          className="btnp"
                         >
                           Hapus
                         </button>

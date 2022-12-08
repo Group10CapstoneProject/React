@@ -62,7 +62,40 @@ const PostApi = {
       });
       return response;
     } catch (err) {
-      console.log("woi");
+      console.log(err);
+    }
+  },
+
+  async tambahAnggota(payload) {
+    try {
+      const { member_type_id, duration, payment_method_id, total } = payload;
+      console.log(payload);
+
+      const response = await axiosInstance.post(`/members`, {
+        member_type_id,
+        duration,
+        payment_method_id,
+        total,
+      });
+      return response;
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  async onlineKategori(payload) {
+    try {
+      const { name, description, picture } = payload;
+      console.log(payload);
+
+      const response = await axiosInstance.post(`/online-classes/categories`, {
+        name,
+        description,
+        picture,
+      });
+      return response;
+    } catch (err) {
+      console.log(err);
     }
   },
 
@@ -83,7 +116,7 @@ const PostApi = {
     }
   },
 
-  async deleteMember(id) {
+  async hapusAnggota(id) {
     try {
       const response = await axiosInstance.delete(`/members/${id}`);
       return response;
