@@ -1,66 +1,86 @@
 import React from "react";
-import altaImage from "../assets/images/alta.png";
-import bg1Image from "../assets/images/bg1.png";
+import logogymImage from "../assets/images/logogym.png";
+import FotoImage from "../assets/images/Foto.png";
+import playImage from "../assets/images/play.png";
 
 function LandingPage() {
   return (
-    <div>
-      <div className="navbar bg-info">
-        <div className="avatar w-105">
-          <div className="w-24 rounded">
-            <a href="/">
-              <img src={altaImage} />
-            </a>
+    <nav className="bg-info">
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 flex justify-center">
+        <div className="relative flex h-16 items-center justify-between">
+          <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            {/* Mobile menu button*/}
+            <button
+              type="button"
+              className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span className="sr-only">Open main menu</span>
+              <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+              <svg className="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div className="flex flex-shrink-0 items-center">
+              <img className="block h-8 w-auto lg:hidden" src={logogymImage} alt="logo gym" />
+              <img className="hidden h-8 w-auto lg:block" src={logogymImage} alt="logo gym" />
+            </div>
+            <div className="hidden sm:ml-6 sm:block">
+              <div className="flex space-x-4">
+                <a href="/" className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">
+                  Home
+                </a>
+                <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  Product
+                </a>
+                <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  Pricing
+                </a>
+                <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                  Testimony
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="navbar-start">{/* <a className="btn btn-ghost normal-case text-xl text-primary">Altagym</a> */}</div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal p-0">
-            <li>
-              <a className="text-accent" href="/">
-                Home
-              </a>
-            </li>
-            <li>
-              <a className="text-white" href="/trainer">
-                Trainer
-              </a>
-            </li>
-            <li>
-              <a className="text-white" href="/jenis">
-                Membership
-              </a>
-            </li>
-          </ul>
+      </div>
+
+      <div className="hero min-h-screen">
+        <img src={FotoImage} alt="foto" />
+        <div className="hero-content flex justify-start">
+          <div className="max-w-md">
+            <h1 className="text-5xl font-bold text-white">Hidup lebih sehat dengan ALTAGYM</h1>
+            <p className="py-6 text-white">Aplikasi pemesanan kebugaran dan kesehatan dengan bimbingan para pelatih profesional dibidangnya.</p>
+            <div className="w-40">
+              <img src={playImage} alt="play" />
+            </div>
+          </div>
         </div>
-        <div className="navbar-end">
-          <a className="btn bg-primary text-white" href="/online">
-            Join Now
+      </div>
+      {/* Mobile menu, show/hide based on menu state. */}
+      <div className="sm:hidden" id="mobile-menu">
+        <div className="space-y-1 px-2 pt-2 pb-3">
+          {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
+          <a href="#" className="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium" aria-current="page">
+            Home
+          </a>
+          <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            Products
+          </a>
+          <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            Pricing
+          </a>
+          <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
+            Testimony
           </a>
         </div>
       </div>
-      <div className="stats shadow bg-neutral text-white">
-        <div className="stat">
-          <div className="stat-value">100+</div>
-          <div className="stat-title text-white">Great</div>
-          <div className="stat-title text-white">Member</div>
-          <div className="stat-title text-white">Experience</div>
-        </div>
-      </div>
-      <div className="hero min-h-screen">
-        <img src={bg1Image} />
-        <div className="hero-overlay bg-opacity-0"></div>
-        <div className="hero-content text-center">
-          <div className="max-w-md w-565">
-            <h1 className="mb-3 text-3xl font-bold text-white h-112">Mulai Hidup Sehat Dimanapun dan Kapanpun</h1>
-            <p className="mb-5 text-white h-140">Dengan Altagym kamu dapatkan melakukan gym dimanapun dengan bimbingan para trainer pilihan yang profesional dibidangnya.</p>
-            <button className="btn btn-primary text-white">
-              <a href="/offline">Gabung Sekarang</a>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    </nav>
   );
 }
 
