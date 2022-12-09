@@ -1,6 +1,8 @@
 import React from "react";
+import { useState } from "react";
 
 const ModalTambahAnggota = ({ show, setShow }) => {
+  const [anggota, setAnggota] = useState({});
   const onChange = (e) => {
     const { name, value } = e.target;
     console.log(name, value);
@@ -9,7 +11,6 @@ const ModalTambahAnggota = ({ show, setShow }) => {
     e.preventDefault();
     setShow(!show);
   };
-
   return (
     <>
       <input type="checkbox" id="my-modal" className="modal-toggle" />

@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 
 function SideBars() {
   const [online, setOnline] = useState(false);
-  const [offline, setOffline] = useState(false);
+  const [offline, setOfline] = useState(false);
   const [member, setMember] = useState(false);
   let navigate = useNavigate();
   const data = JSON.parse(Cookies.get("data"));
@@ -77,7 +77,7 @@ function SideBars() {
           </ul>
         </div>
         <div className="dropdown dropdown-top- dropdown-end  font-semibold text-md">
-          <label onClick={() => setOffline(!offline)} className={`${offline ? "bg-primary" : "bg-transparent"}  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}>
+          <label onClick={() => setOfline(!offline)} className={`${offline ? "bg-primary" : "bg-transparent"}  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}>
             <span className="flex items-center gap-x-1">Online</span>
             <box-icon type="solid" name={`${!offline ? "chevron-down" : "chevron-up"}`}></box-icon>
           </label>

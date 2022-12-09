@@ -2,7 +2,6 @@ import Cookies from "js-cookie";
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Auth from "../utils/Auth";
-import notificationsImage from "../assets/images/notifications.png";
 
 function Navbar() {
   let navigate = useNavigate();
@@ -14,13 +13,10 @@ function Navbar() {
   return (
     <nav className="w-full sticky h-[60px] z-50  bg-base/60 border px-4 py-2  flex items-center justify-end">
       <ul className="flex gap-x-4">
-        {/* <li className="indicator tab tab-lifted tab-active">Notifikasi</li>
-        <span className="indicator-item indicator-center badge badge-secondary">8</span> */}
-        <div className="w-12">
-          <img src={notificationsImage} alt="notifications" />
-        </div>
+        <li className="indicator tab tab-lifted tab-active">Notifikasi</li>
+        <span className="indicator-item badge mr-2">8</span>
         <div className="avatar placeholder">
-          <div className="bg-neutral-focus text-neutral-content rounded-full w-11 ml-2">
+          <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
             <a href="/">
               <img src="https://placeimg.com/192/192/people" />
             </a>
@@ -33,7 +29,6 @@ function Navbar() {
           <ul tabIndex={0} className="dropdown-content menu p-2 w-full shadow bg-base-100  ">
             <li>
               <a href="*">Item 1</a>
-              <a href="/landingpage">Homepage</a>
             </li>
             <li>
               <button onClick={handleLogout}>logout</button>

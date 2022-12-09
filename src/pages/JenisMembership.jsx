@@ -1,15 +1,20 @@
+import { FormatRupiah } from "@arismun/format-rupiah";
 import React, { useEffect, useState } from "react";
 import Gym from "../apis/get.api";
 import PostApi from "../apis/post.api";
 import addMember from "../assets/svg/addMember.svg";
+import ModalEditJenis from "../components/ModalEditJenis";
 import { ModalJenisMember } from "../components/ModalJenisMember";
 import ModalTambahJenis from "../components/ModalTambahJenis.jsx";
 import useHook from "../hooks/useHook";
+import toast, { Toaster } from "react-hot-toast";
 
 const JenisMembership = () => {
   const [member, setMember] = useState(null);
   const { show, setShow } = useHook();
+  const [load, setLoad] = useState(false);
   const { show: modalTambah, setShow: setModalTambah } = useHook();
+  const { show: modalEdit, setShow: setModalEdit } = useHook();
 
   const listMember = async () => {
     try {
@@ -18,72 +23,94 @@ const JenisMembership = () => {
       console.log(error);
     }
   };
+
   const handleDelete = (e, id) => {
+    setLoad(true);
+    e.preventDefault();
+
     try {
-      PostApi.hapusJenisMember(id).then((res) => console.log(res));
+      PostApi.hapusJenisMember(id).then((res) => setLoad(false));
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     listMember();
-  }, []);
+  }, [load]);
 
+  if (load) {
+    return <h1>loading...</h1>;
+  }
   return (
-    <div className="relative">
-      {show ? <ModalJenisMember show={show} setShow={setShow} /> : ""}
+    <>
+      <div className="relative">
+        {show ? <ModalJenisMember show={show} setShow={setShow} /> : ""}
 
-      {modalTambah ? <ModalTambahJenis show={modalTambah} setShow={setModalTambah} /> : ""}
-      <div className="p-2  mx-5">
-        <div className="w-full">
-          <h4 className="font-bold">Jenis Membership</h4>
-        </div>
+        {modalEdit ? <ModalEditJenis show={modalEdit} setShow={setModalEdit} /> : ""}
 
-        <div className="pt-2 flex justify-between ">
-          <input type="text" placeholder="Cari Membership ....." className="input input-bordered input-black w-full max-w-xs" />
+        {modalTambah ? <ModalTambahJenis show={modalTambah} setShow={setModalTambah} /> : ""}
+        <div className="px-[20px] ">
+          <div className="w-full">
+            <h4 className="font-bold">Jenis Membership</h4>
+          </div>
 
-          <label htmlFor="my-modal-5" onClick={() => setModalTambah(!modalTambah)} className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
-            <img className="fill-gray-800" src={addMember} alt="" /> Tambah Jenis
-          </label>
-        </div>
+          <div className="pt-2 flex justify-between ">
+            <input type="text" placeholder="Cari Membership ....." className="input input-bordered input-black w-full max-w-xs" />
 
-        <div className="bg-white my-2 p-2">
-          <h3 className="py-2 font-bold text-black text-2xl">Daftar Membership</h3>
+            <label htmlFor="my-modal-5" onClick={() => setModalTambah(!modalTambah)} className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
+              <img className="fill-gray-800" src={addMember} alt="" /> Tambah Jenis
+            </label>
+          </div>
 
-          <div className="grid grid-cols-4 gap-4">
-            {member &&
-              member.map((m) => (
-                <div key={m.id} className=" py-3 flex flex-col items-center shadow-xl rounded-xl  bg-white ">
-                  <span className="w-full h-5    bg-primary overflow-hidden "></span>
-                  <img className="mt-2 w-20" src={m.picture} alt="icon" />
-                  <h1 className="p-2 text-black font-semibold">{m.name}</h1>
-                  <h2 className="text-primary p-2 font-semibold">{m.price}</h2>
+          <div className="bg-white my-2 p-2">
+            <h3 className="py-2 font-bold text-black text-[24px]">Daftar Membership</h3>
 
-                  <div className="flex p-2 flex-col w-full  text-[12px]">
-                    <div className="flex items-center w-full gap-x-2">
-                      <span className="h-full">✅</span>
-                      <p>Dapatkan Akses Ketika melakukan Booking</p>
-                    </div>
-                    <div className="flex items-center w-full gap-x-2">
-                      <span className="h-full">✅</span>
-                      <p>Dapatkan Akses Ketika melakukan Booking</p>
-                    </div>
-                    <div className="flex items-center w-full gap-x-2">
-                      <span className="h-full">✅</span>
-                      <p>Dapatkan Akses Ketika melakukan Booking</p>
-                    </div>
-                    <div className="flex items-center w-full gap-x-2">
-                      <span className="h-full">✅</span>
-                      <p>Dapatkan Akses Ketika melakukan Booking</p>
+            <div className="grid grid-cols-3 gap-4 ">
+              {member &&
+                member.map((m) => (
+                  <div key={m.id} className="w-[300px] border overflow-hidden   shadow-xl rounded-xl h-[400px] bg-white ">
+                    <div className="w-full py-3 bg-prim"></div>
+                    <div className="flex flex-col p-3 items-center ">
+                      <img className="mt-2 w-20" src={m.picture} alt="icon" />
+                      <h1 className=" py-1 text-black text-[20px] font-semibold">{m.name}</h1>
+                      <h2 className="text-prim border w-full text-center  py-1 text-[20px] font-semibold">
+                        <FormatRupiah value={m.price} />
+                        /Bulan
+                      </h2>
+
+                      <div className="flex p-2 flex-col w-full gap-y-2  text-[12px]">
+                        <div className="flex items-center w-full gap-x-2">
+                          <span className="h-full">✅</span>
+                          <p className="text-[12px]">Dapatkan Akses Ketika melakukan Booking</p>
+                        </div>
+                        <div className="flex items-center w-full gap-x-2">
+                          <span className="h-full">✅</span>
+                          <p className="text-[12px]">Dapatkan Akses Ketika melakukan Booking</p>
+                        </div>
+                        <div className="flex items-center w-full gap-x-2">
+                          <span className="h-full">✅</span>
+                          <p className="text-[12px]">Dapatkan Akses Ketika melakukan Booking</p>
+                        </div>
+                        <div className="flex items-center w-full gap-x-2">
+                          <span className="h-full">✅</span>
+                          <p className="text-[12px]">Dapatkan Akses Ketika melakukan Booking</p>
+                        </div>
+                      </div>
+                      <div className="flex flex-col w-full gap-y-2  h-full justify-end ">
+                        <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btnp w-full text-center  ">
+                          Detail
+                        </label>
+                        <label onClick={(e) => handleDelete(e, m.id)} className="btnd w-full text-center  ">
+                          Hapus
+                        </label>
+                        <div className="absolute bottom-0"></div>
+                      </div>
                     </div>
                   </div>
-                  <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="py-3 rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none text-white btn-primary w-44  ">
-                    Detail
-                  </label>
-                </div>
-              ))}
-          </div>
-          {/* <div className="">
+                ))}
+            </div>
+            {/* <div className="">
             <table className="table w-full text-sm my-2 ">
               <thead>
                 <tr>
@@ -145,9 +172,11 @@ const JenisMembership = () => {
               </div>
             </div>
           </div> */}
+          </div>
         </div>
       </div>
-    </div>
+      <Toaster />
+    </>
   );
 };
 

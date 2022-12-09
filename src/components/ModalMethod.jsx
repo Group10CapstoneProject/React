@@ -39,7 +39,7 @@ export const ModalMethod = ({ show, setShow }) => {
               <div className="flex w-full px-2 ">
                 <div className="w-52 ">
                   <label className="block my-1 py-1" htmlFor="">
-                    Nama Bank
+                    Nama
                   </label>
                   <label className="block my-1 py-1" htmlFor="">
                     Nomor Rekening
