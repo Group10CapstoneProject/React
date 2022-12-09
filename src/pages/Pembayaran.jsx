@@ -7,7 +7,7 @@ import useHook from "../hooks/useHook";
 
 export const Pembayaran = () => {
   const [method, setMethod] = useState([]);
-  const [load, setLoad] = useState(false);
+  const { load, setLoad } = useHook();
   const { show, setShow } = useHook();
   const metode = async () => {
     try {
@@ -31,8 +31,8 @@ export const Pembayaran = () => {
   }
   return (
     <div className="relative">
-      {show ? <ModalMethod load={load} setLoad={setLoad} show={show} setShow={setShow} /> : ""}
-      <div className="p-2  mx-5">
+      {show ? <ModalMethod setLoad={setLoad} show={show} setShow={setShow} /> : ""}
+      <div className="">
         <div className="w-full">
           <h4 className="font-bold">Metode Pembayaran</h4>
         </div>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PostApi from "../apis/post.api";
 
-const ModalTambahJenis = ({ show, setShow }) => {
+const ModalEditJenis = ({ show, setShow }) => {
   const [check, setCheck] = useState(false);
   const [member, setMember] = useState({
     name: "",
@@ -106,4 +106,4 @@ const ModalTambahJenis = ({ show, setShow }) => {
   );
 };
 
-export default ModalTambahJenis;
+export default ModalEditJenis;

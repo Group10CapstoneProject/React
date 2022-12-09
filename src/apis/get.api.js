@@ -7,7 +7,7 @@ const Gym = {
   async pembayaran() {
     try {
       // const response = await axios.get(`${CONST.BASE_URL}//paymentMethods`);
-      const response = await axiosInstance.get("/paymentMethods");
+      const response = await axiosInstance.get("/payment-methods");
       return response;
     } catch (error) {
       console.log("error");
@@ -29,6 +29,15 @@ const Gym = {
       return response;
     } catch (error) {
       console.log("error");
+    }
+  },
+
+  async onlinekelas() {
+    try {
+      const response = await axiosInstance.get("/online-classes");
+      return response;
+    } catch (error) {
+      console.log(error);
     }
   },
 
