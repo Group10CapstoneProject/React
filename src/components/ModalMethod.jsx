@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PostApi from "../apis/post.api";
 
-export const ModalMethod = ({ show, setShow }) => {
+export const ModalMethod = ({ setLoad, show, setShow }) => {
   const [pembayaran, setPembayaran] = useState({
     name: "",
     payment_number: "",
@@ -18,8 +18,13 @@ export const ModalMethod = ({ show, setShow }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    PostApi.metode(pembayaran).then((res) => console.log(res));
-    setShow(!show);
+    setLoad(true);
+    try {
+      PostApi.metode(pembayaran).then((res) => setLoad(false));
+      setShow(!show);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

@@ -7,8 +7,7 @@ const PostApi = {
   async metode(payload) {
     try {
       const { name, payment_number, description } = payload;
-
-      const response = await axiosInstance.post("/paymentMethods", {
+      const response = await axiosInstance.post("/payment-methods", {
         name,
         payment_number,
         description,
@@ -22,6 +21,7 @@ const PostApi = {
 
   async uploadFile(payload) {
     const data = new FormData();
+    console.log("ye");
     data.append("title", payload.title);
     data.append("file", payload.files[0]);
     try {
@@ -83,11 +83,39 @@ const PostApi = {
     }
   },
 
-  async onlineKategori(payload) {
+  async deleteMethod(id) {
+    try {
+      const response = axiosInstance.delete(`/payment-methods/details/${id}`);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async hapusJenisMember(id) {
+    try {
+      const response = await axiosInstance.delete(
+        `/members/types/details/${id}`
+      );
+      console.log(response);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  async hapusAnggota(id) {
+    try {
+      const response = await axiosInstance.delete(`/members/details/${id}`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+
+  // online kategori
+  async tambahOnlineKategori(payload) {
     try {
       const { name, description, picture } = payload;
-      console.log(payload);
-
       const response = await axiosInstance.post(`/online-classes/categories`, {
         name,
         description,
@@ -99,29 +127,25 @@ const PostApi = {
     }
   },
 
-  async deleteMethod(id) {
+  async updateKategoriOnline(payload, id) {
     try {
-      const response = axiosInstance.delete(`/paymentMethods/${id}`);
+      const { name, description, picture } = payload;
+      const response = await axiosInstance.put(
+        `/online-classes/categories/details/${id}`
+      );
+
       return response;
-    } catch (error) {
-      console.log(error);
-    }
-  },
-  async hapusJenisMember(id) {
-    try {
-      const response = axiosInstance.delete(`/members/types/${id}`);
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
+    } catch (error) {}
   },
 
-  async hapusAnggota(id) {
+  async deleteKategoriOnline(id) {
     try {
-      const response = await axiosInstance.delete(`/members/${id}`);
+      const response = await axiosInstance.delete(
+        `/online-classes/categories/details/${id}`
+      );
       return response;
     } catch (error) {
-      console.log("error");
+      console.log(error);
     }
   },
 };

@@ -12,7 +12,7 @@ import toast, { Toaster } from "react-hot-toast";
 const JenisMembership = () => {
   const [member, setMember] = useState(null);
   const { show, setShow } = useHook();
-  const [load, setLoad] = useState(false);
+  const { load, setLoad } = useHook();
   const { show: modalTambah, setShow: setModalTambah } = useHook();
   const { show: modalEdit, setShow: setModalEdit } = useHook();
 
@@ -27,14 +27,12 @@ const JenisMembership = () => {
   const handleDelete = (e, id) => {
     setLoad(true);
     e.preventDefault();
-
     try {
       PostApi.hapusJenisMember(id).then((res) => setLoad(false));
     } catch (error) {
       console.log(error);
     }
   };
-
   useEffect(() => {
     listMember();
   }, [load]);
@@ -48,19 +46,27 @@ const JenisMembership = () => {
         {show ? <ModalJenisMember show={show} setShow={setShow} /> : ""}
 
         {modalEdit ? (
-          <ModalEditJenis show={modalEdit} setShow={setModalEdit} />
+          <ModalEditJenis
+            setLoad={setLoad}
+            show={modalEdit}
+            setShow={setModalEdit}
+          />
         ) : (
           ""
         )}
 
         {modalTambah ? (
-          <ModalTambahJenis show={modalTambah} setShow={setModalTambah} />
+          <ModalTambahJenis
+            setLoad={setLoad}
+            show={modalTambah}
+            setShow={setModalTambah}
+          />
         ) : (
           ""
         )}
-        <div className="px-[20px] ">
+        <div className="">
           <div className="w-full">
-            <h4 className="font-bold">Jenis Membership</h4>
+            <h4 className="font-bold text-prim">Jenis Membership</h4>
           </div>
 
           <div className="pt-2 flex justify-between ">
@@ -75,13 +81,12 @@ const JenisMembership = () => {
               onClick={() => setModalTambah(!modalTambah)}
               className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base"
             >
-              <img className="fill-gray-800" src={addMember} alt="" /> Tambah
-              Jenis
+              <i className="bx bx-user-plus bx-sm"></i> Tambah Jenis
             </label>
           </div>
 
           <div className="bg-white my-2 p-2">
-            <h3 className="py-2 font-bold text-black text-[24px]">
+            <h3 className="py-2 font-bold text-prim text-[24px]">
               Daftar Membership
             </h3>
 
@@ -90,11 +95,15 @@ const JenisMembership = () => {
                 member.map((m) => (
                   <div
                     key={m.id}
-                    className="w-[300px] border overflow-hidden   shadow-xl rounded-xl h-[400px] bg-white "
+                    className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[400px] bg-white "
                   >
-                    <div className="w-full py-3 bg-prim"></div>
-                    <div className="flex flex-col p-3 items-center ">
-                      <img className="mt-2 w-20" src={m.picture} alt="icon" />
+                    <div className="w-full pt-3 bg-prim"></div>
+                    <div className="flex  justify-between flex-col h-full p-3 items-center ">
+                      <img
+                        className="mt-2 h-20 w-20"
+                        src={m.picture}
+                        alt="icon"
+                      />
                       <h1 className=" py-1 text-black text-[20px] font-semibold">
                         {m.name}
                       </h1>
@@ -110,17 +119,10 @@ const JenisMembership = () => {
                             Dapatkan Akses Ketika melakukan Booking
                           </p>
                         </div>
+
                         <div className="flex items-center w-full gap-x-2">
                           <span className="h-full">✅</span>
-                          <p className="text-[12px]">
-                            Dapatkan Akses Ketika melakukan Booking
-                          </p>
-                        </div>
-                        <div className="flex items-center w-full gap-x-2">
-                          <span className="h-full">✅</span>
-                          <p className="text-[12px]">
-                            Dapatkan Akses Ketika melakukan Booking
-                          </p>
+                          <p className="text-[12px]">yayay</p>
                         </div>
                         <div className="flex items-center w-full gap-x-2">
                           <span className="h-full">✅</span>
@@ -129,13 +131,13 @@ const JenisMembership = () => {
                           </p>
                         </div>
                       </div>
-                      <div className="flex flex-col w-full gap-y-2  h-full justify-end ">
+                      <div className="flex flex-col w-full  gap-y-2 pb-3 justify-end ">
                         <label
-                          onClick={() => setShow(!show)}
+                          onClick={() => setModalEdit(!modalEdit)}
                           htmlFor="my-modal-5"
                           className="btnp w-full text-center  "
                         >
-                          Detail
+                          Edit
                         </label>
                         <label
                           onClick={(e) => handleDelete(e, m.id)}

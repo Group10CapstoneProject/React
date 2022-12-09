@@ -2,15 +2,16 @@ import axios from "axios";
 import React, { useState } from "react";
 import PostApi from "../apis/post.api";
 import axiosInstance from "../configs/axiosInstance";
+import useHook from "../hooks/useHook";
 import CONST from "../utils/Constants";
 
-const ModalTambahJenis = ({ show, setShow }) => {
+const ModalTambahJenis = ({ setLoad, show, setShow }) => {
   const [image, setImage] = useState(null);
+  const { btn, setBtn } = useHook();
   const [check, setCheck] = useState(false);
-  const [load, setLoad] = useState(false);
   const [member, setMember] = useState({
     name: "",
-    price: 20000,
+    price: "",
     description: "",
     access_offline_class: false,
     access_online_class: false,
@@ -28,7 +29,6 @@ const ModalTambahJenis = ({ show, setShow }) => {
       })
     );
   };
-  console.log(member);
   const onChange = (e) => {
     const { name, value, type, checked, valueAsNumber } = e.target;
 
@@ -154,12 +154,13 @@ const ModalTambahJenis = ({ show, setShow }) => {
                 </div>
               </div>
               <div className="modal-action flex">
-                <button className="btnp flex items-center justify-center">
-                  {load ? (
-                    <box-icon name="loader-alt" animation="spin"></box-icon>
-                  ) : (
-                    "Tambah"
-                  )}
+                <button
+                  disabled={btn}
+                  className={`${
+                    btn ? "btnw" : "btnp"
+                  }  flex items-center justify-center`}
+                >
+                  simpan
                 </button>
                 <label
                   onClick={() => setShow(!show)}

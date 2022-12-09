@@ -6,12 +6,13 @@ import PostApi from "../apis/post.api";
 import addMember from "../assets/svg/addMember.svg";
 import ModalAnggota from "../components/ModalAnggota";
 import ModalTambahAnggota from "../components/ModalTambahAnggota";
+import useHook from "../hooks/useHook";
 import Auth from "../utils/Auth";
 const KelolaAnggota = () => {
   let navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [member, setMember] = useState(null);
-  const [load, setLoad] = useState(false);
+  const { load, setLoad } = useHook();
   const listMember = async () => {
     try {
       Gym.members().then((res) => setMember(res.data.data));
@@ -35,7 +36,11 @@ const KelolaAnggota = () => {
   }
   return (
     <div className="relative">
-      {show ? <ModalTambahAnggota show={show} setShow={setShow} /> : ""}
+      {show ? (
+        <ModalTambahAnggota setLoad={setLoad} show={show} setShow={setShow} />
+      ) : (
+        ""
+      )}
       <div className="p-2  mx-5">
         <div className="w-full">
           <h4 className="font-bold">Kelola Anggota</h4>
@@ -53,8 +58,7 @@ const KelolaAnggota = () => {
             htmlFor="my-modal-5"
             className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base"
           >
-            <img className="fill-gray-800" src={addMember} alt="" /> Tambah
-            Anggota
+            <i className="bx bx-user-plus bx-sm"></i>Tambah Anggota
           </label>
         </div>
 
@@ -89,7 +93,7 @@ const KelolaAnggota = () => {
                         </label>
                         <button
                           onClick={(e) => handleDelete(e, m.id)}
-                          className="btnp"
+                          className="btnd"
                         >
                           Hapus
                         </button>

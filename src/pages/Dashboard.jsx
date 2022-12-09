@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 
 function Dashboard() {
   return (
-    <div className="py-10 px-8">
+    <div className="">
       <h1 className="text-3xl mb-5 font-bold text-primary">
         Selamat Datang Kembali Admin01
       </h1>
@@ -59,18 +59,18 @@ function Dashboard() {
           </thead>
           <tbody>
             <tr>
-              <td className=" borders leading-none">Kelompok 10</td>
+              <td className="  leading-none">Kelompok 10</td>
               <td>Kel@gmail.com</td>
               <td>Gold</td>
               <td>Waiting</td>
               <td className="flex gap-x-1 ">
-                <box-icon
-                  size="md"
-                  color
-                  type="solid"
-                  name="message-edit"
-                ></box-icon>
-                <button className=" badge">hola</button>
+                <button>
+                  <i className="bx bx-edit bx-sm text-prim"></i>
+                </button>
+                <button>
+                  {" "}
+                  <i className="bx bx-trash bx-sm text-dang"></i>
+                </button>
               </td>
             </tr>
           </tbody>

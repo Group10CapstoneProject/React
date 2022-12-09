@@ -8,6 +8,7 @@ module.exports = {
         base2: "#E7F6F8",
         base3: "#A9A9A9",
         prim: "#296676",
+        prim1: "#52A1A4",
         warn: "#FDE384",
         suc: "#BEE3A0",
         inf: "#B0C0F9",
