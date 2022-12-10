@@ -28,7 +28,11 @@ const DetailAnggota = () => {
         <div className="w-1/2 flex-col justify-center ">
           <div className="w-1/2 pb-2">
             <h2 className="font-semibold text-md pb-2">Bukti pembayaran</h2>
-            <img className="2" src="https://1.bp.blogspot.com/-vRxyZBWkyb4/Xn6k2sMrXuI/AAAAAAAAGog/Ay9PBsRutbo3Q6PcL6pXjsc-r-5MT9tLwCLcBGAsYHQ/s1600/buzzbreak%2Bbayar%2Blewat%2BDANA.png" alt="" />
+            <img
+              className="2 cursor-zoom-in hover:scale-150 transform-gpu"
+              src="https://1.bp.blogspot.com/-vRxyZBWkyb4/Xn6k2sMrXuI/AAAAAAAAGog/Ay9PBsRutbo3Q6PcL6pXjsc-r-5MT9tLwCLcBGAsYHQ/s1600/buzzbreak%2Bbayar%2Blewat%2BDANA.png"
+              alt=""
+            />
           </div>
           <div className="flex gap-x-10">
             <h2 className="text-lg font-semibold">Status Membership</h2>

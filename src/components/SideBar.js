@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import logo from "../assets/images/logo.png";
 import Auth from "../utils/Auth";
@@ -39,48 +33,25 @@ const SideBar = () => {
           <Link to="/" className="mb-2 flex justify-center">
             <img className="w-32" src={logo} alt="" />
           </Link>
-          <li
-            className={`${
-              path == "/" ? "bg-prim text-white rounded-lg" : ""
-            } font-bold `}
-          >
+          <li className={`${path == "/" ? "bg-prim text-white rounded-lg" : ""} font-bold `}>
             <Link to="/">
-              <box-icon
-                color={`${path == "/" ? "white" : ""}`}
-                type="solid"
-                name="dashboard"
-              ></box-icon>
+              <box-icon color={`${path == "/" ? "white" : ""}`} type="solid" name="dashboard"></box-icon>
               Dashboard
             </Link>
           </li>
-          <li
-            className={`${
-              path == "/pembayaran" ? "bg-prim text-white rounded-lg" : ""
-            } font-bold `}
-          >
+          <li className={`${path == "/pembayaran" ? "bg-prim text-white rounded-lg" : ""} font-bold `}>
             <Link to="pembayaran">
-              <box-icon
-                color={`${path == "/pembayaran" ? "white" : ""}`}
-                name="wallet"
-              ></box-icon>
+              <box-icon color={`${path == "/pembayaran" ? "white" : ""}`} name="wallet"></box-icon>
               Pembayaran
             </Link>
           </li>
           <div className="dropdown dropdown-top- dropdown-end ">
-            <label
-              onClick={() => setMember(!member)}
-              className={`${
-                member ? "bg-primary" : "bg-transparent"
-              }  w-full  justify-between font-bold btn  hover:bg-primary text-black border-none `}
-            >
+            <label onClick={() => setMember(!member)} className={`${member ? "bg-primary" : "bg-transparent"}  w-full  justify-between font-bold btn  hover:bg-primary text-black border-none `}>
               <span className="flex  items-center gap-x-3">
                 <box-icon type="solid" name="book-content"></box-icon>
                 Membership
               </span>
-              <box-icon
-                type="solid"
-                name={`${!member ? "chevron-down" : "chevron-up"}`}
-              ></box-icon>
+              <box-icon type="solid" name={`${!member ? "chevron-down" : "chevron-up"}`}></box-icon>
             </label>
             <ul className={`${member ? "" : "hidden "}  w-52`}>
               <li className="py-0 ">
@@ -98,17 +69,9 @@ const SideBar = () => {
             </label>
           </li>
           <div className="dropdown dropdown-top- dropdown-end font-semibold  text-md">
-            <label
-              onClick={() => setOnline(!online)}
-              className={`${
-                online ? "bg-primary" : "bg-transparent"
-              }  w-full  justify-between  btn  font-semibold  hover:bg-primary text-black border-none `}
-            >
+            <label onClick={() => setOnline(!online)} className={`${online ? "bg-primary" : "bg-transparent"}  w-full  justify-between  btn  font-semibold  hover:bg-primary text-black border-none `}>
               <span className="flex  items-center gap-x-1">Online</span>
-              <box-icon
-                type="solid"
-                name={`${!online ? "chevron-down" : "chevron-up"}`}
-              ></box-icon>
+              <box-icon type="solid" name={`${!online ? "chevron-down" : "chevron-up"}`}></box-icon>
             </label>
             <ul className={`${online ? "" : "hidden "}  w-52`}>
               <li className="py-0 ">
@@ -123,17 +86,9 @@ const SideBar = () => {
             </ul>
           </div>
           <div className="dropdown dropdown-top- dropdown-end  font-semibold text-md">
-            <label
-              onClick={() => setOfline(!offline)}
-              className={`${
-                offline ? "bg-primary" : "bg-transparent"
-              }  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}
-            >
+            <label onClick={() => setOfline(!offline)} className={`${offline ? "bg-primary" : "bg-transparent"}  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}>
               <span className="flex items-center gap-x-1">Online</span>
-              <box-icon
-                type="solid"
-                name={`${!offline ? "chevron-down" : "chevron-up"}`}
-              ></box-icon>
+              <box-icon type="solid" name={`${!offline ? "chevron-down" : "chevron-up"}`}></box-icon>
             </label>
             <ul className={`${offline ? "" : "hidden "} w-52`}>
               <li className="py-0 ">
