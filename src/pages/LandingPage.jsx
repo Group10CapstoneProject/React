@@ -24,6 +24,7 @@ import profil6Image from "../assets/images/profil6.png";
 import profil7Image from "../assets/images/profil7.png";
 import mobileImage from "../assets/images/mobile.png";
 import logofooterImage from "../assets/images/logofooter.png";
+import bg2Image from "../assets/images/bg2.png";
 
 function LandingPage() {
   return (
@@ -38,13 +39,13 @@ function LandingPage() {
             </label>
             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-info rounded-box w-52">
               <li>
-                <a>Home</a>
+                <a href="/">Home</a>
               </li>
               <li tabIndex={0}>
                 <a className="justify-between">Product</a>
               </li>
               <li>
-                <a>Pricing</a>
+                <a href="/jenis">Pricing</a>
               </li>
               <li>
                 <a>Testimony</a>
@@ -60,13 +61,13 @@ function LandingPage() {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
             <li>
-              <a>Home</a>
+              <a href="/">Home</a>
             </li>
             <li tabIndex={0}>
               <a>Product</a>
             </li>
             <li>
-              <a>Pricing</a>
+              <a href="/jenis">Pricing</a>
             </li>
             <li>
               <a>Testimony</a>
@@ -78,9 +79,10 @@ function LandingPage() {
         </div>
       </div>
 
-      <div className="hero min-h-screen" style={{ backgroundImage: `url("https://placeimg.com/1000/800/arch")` }}>
+      <div className="hero min-h-screen">
+        <img src={bg2Image} alt="background" />
         <div className="hero-overlay bg-opacity-0"></div>
-        <div className="hero-content text-start text-neutral-content">
+        {/* <div className="hero-content text-start text-neutral-content">
           <div className="max-w-md text-start">
             <h1 className="mb-5 text-5xl font-bold text-white pb-8">Hidup lebih sehat dengan ALTAGYM</h1>
             <p className="mb-5 text-2xl text-white pb-8">Aplikasi pemesanan kebugaran dan kesehatan dengan bimbingan para pelatih profesional dibidangnya.</p>
@@ -88,7 +90,7 @@ function LandingPage() {
               <img src={playImage} alt="button-playstore" />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <br />
 
@@ -281,11 +283,11 @@ function LandingPage() {
       </div>
       <br />
 
-      <div className="text-start pt-10 ml-8">
-        <h1 className="font-bold text-4xl">Mulai Hidup Sehatmu Dari Sekarang</h1>
-        <p className="pt-6 text-lg">Unduh aplikasi AltaGym sekarang untuk book kelas olahraga dan pelatih dengan mudah</p>
+      <div className="text-start pt-14 ml-8">
+        <h1 className="font-bold text-4xl text-info">Mulai Hidup Sehatmu Dari Sekarang</h1>
+        <p className="pt-6 text-lg text-info">Unduh aplikasi AltaGym sekarang untuk book kelas olahraga dan pelatih dengan mudah</p>
         <br />
-        <h3 className="font-bold text-2xl">Dapatkan Aplikasinya</h3>
+        <h3 className="font-bold text-2xl text-info">Dapatkan Aplikasinya</h3>
         <div className="w-40 pt-4">
           <img src={playImage} alt="playstore" />
         </div>
@@ -305,13 +307,19 @@ function LandingPage() {
         </div>
         <div>
           <span className="footer-title">Services</span>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <a className="link link-hover">FAQ</a>
+          <a className="link link-hover">Syarat & Ketentuan</a>
+          <a className="link link-hover">Kebijakan Privasi</a>
         </div>
         <div>
           <span className="footer-title">Dapat Aplikasinya</span>
+          <img className="w-40" src={playImage} alt="playstore" />
+        </div>
+        <div>
+          <box-icon name="facebook-square" type="logo" color="#3b5998"></box-icon>
+          <box-icon name="instagram" type="logo" color="#cd486b"></box-icon>
+          <box-icon name="twitter" type="logo" color="#00acee"></box-icon>
+          <box-icon name="youtube" type="logo" color="#f50404"></box-icon>
         </div>
       </footer>
     </div>
