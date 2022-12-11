@@ -21,7 +21,7 @@ function Navbar() {
           <span className="indicator-item badge mr-2">8</span>
           <div className="avatar placeholder">
             <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
-              <a href="/">
+              <a href="/landingpage">
                 <img src="https://placeimg.com/192/192/people" />
               </a>
             </div>

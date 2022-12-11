@@ -78,7 +78,7 @@ const SideBar = () => {
                 <Link to="kategorionline">Kategori Kelas</Link>
               </li>
               <li className="py-0 ">
-                <Link to="kelasonline">kelas Online</Link>
+                <Link to="kelasonline">Kelas Online</Link>
               </li>
               <li>
                 <Link to="offline">Daftar Anggota</Link>
