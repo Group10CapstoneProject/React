@@ -13,6 +13,7 @@ module.exports = {
         suc: "#BEE3A0",
         inf: "#B0C0F9",
         dang: "#FF704C",
+        dang1: "#D44521",
       },
     },
   },
