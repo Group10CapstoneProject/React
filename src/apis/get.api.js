@@ -32,9 +32,52 @@ const Gym = {
     }
   },
 
+  async offline() {
+    try {
+      const response = await axiosInstance.get(`/offline-classes/categories`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+  async offlineKategori() {
+    try {
+      const response = await axiosInstance.get(`/offline-classes/categories`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+
+  async offlineKelas() {
+    try {
+      const response = await axiosInstance.get("/offline-classes");
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   async onlinekelas() {
     try {
       const response = await axiosInstance.get("/online-classes");
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  async detailOnlineKelas(id) {
+    try {
+      const response = await axiosInstance.get(`online-classes/details/${id}`);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async detailOfflineKelas(id) {
+    try {
+      const response = await axiosInstance.get(`offline-classes/details/${id}`);
       return response;
     } catch (error) {
       console.log(error);
