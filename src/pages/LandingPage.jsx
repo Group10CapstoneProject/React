@@ -101,7 +101,7 @@ function LandingPage() {
 
       <div className="grid gap-x-8 gap-y-4 grid-cols-3 justify-center items-center pt-14 mx-20 px-10">
         <div className="flex ml-5">
-          <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base2 shadow-lg cursor-pointer hover:scale-150 ease-in-out duration-300">
+          <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-150 ease-in-out duration-300">
             <div className="ml-4">
               <div className="flex justify-start w-10">
                 <img src={touchscreenImage} alt="touchscreen" />
@@ -112,7 +112,7 @@ function LandingPage() {
           </div>
         </div>
         <div className="flex ml-5">
-          <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base2 shadow-lg cursor-pointer hover:scale-150 ease-in-out duration-300">
+          <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-150 ease-in-out duration-300">
             <div className="ml-4">
               <div className="flex justify-start w-10">
                 <img src={liveImage} alt="live" />
@@ -123,7 +123,7 @@ function LandingPage() {
           </div>
         </div>
         <div className="flex ml-5">
-          <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base2 shadow-lg cursor-pointer hover:scale-150 ease-in-out duration-300">
+          <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-150 ease-in-out duration-300">
             <div className="ml-4">
               <div className="flex justify-start w-10">
                 <img src={membercardImage} alt="member-card" />
@@ -134,7 +134,7 @@ function LandingPage() {
           </div>
         </div>
         <div className="flex ml-5">
-          <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base2 shadow-lg cursor-pointer hover:scale-150 ease-in-out duration-300">
+          <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-150 ease-in-out duration-300">
             <div className="ml-4">
               <div className="flex justify-start w-10">
                 <img src={dumbbellImage} alt="dumbbell" />
@@ -145,7 +145,7 @@ function LandingPage() {
           </div>
         </div>
         <div className="flex ml-5">
-          <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base2 shadow-lg cursor-pointer hover:scale-150 ease-in-out duration-300">
+          <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-150 ease-in-out duration-300">
             <div className="ml-4">
               <div className="flex justify-start w-10">
                 <img src={applicationImage} alt="application" />
@@ -156,7 +156,7 @@ function LandingPage() {
           </div>
         </div>
         <div className="flex ml-5">
-          <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base2 shadow-lg cursor-pointer hover:scale-150 ease-in-out duration-300">
+          <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-150 ease-in-out duration-300">
             <div className="ml-4">
               <div className="flex justify-start w-10">
                 <img src={weightsImage} alt="weights" />
@@ -176,7 +176,7 @@ function LandingPage() {
       <br />
 
       <div className="flex space-x-8 mx-8 pt-10 ">
-        <div className="card w-96 bg-base2 shadow-xl cursor-pointer hover:scale-90 ease-in-out duration-300">
+        <div className="card w-96 bg-base shadow-xl cursor-pointer hover:scale-90 ease-in-out duration-300">
           <figure className="px-10 pt-10">
             <img src={profil1Image} alt="profil 1" className="rounded-xl" />
           </figure>
@@ -185,7 +185,7 @@ function LandingPage() {
             <p>Weight Mangement, Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss</p>
           </div>
         </div>
-        <div className="card w-96 bg-base2 shadow-xl cursor-pointer hover:scale-90 ease-in-out duration-300">
+        <div className="card w-96 bg-base shadow-xl cursor-pointer hover:scale-90 ease-in-out duration-300">
           <figure className="px-10 pt-10">
             <img src={profil2Image} alt="profil 2" className="rounded-xl" />
           </figure>
@@ -194,7 +194,7 @@ function LandingPage() {
             <p>Weight Mangement, Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Functional Training</p>
           </div>
         </div>
-        <div className="card w-96 bg-base2 shadow-xl cursor-pointer hover:scale-90 ease-in-out duration-300">
+        <div className="card w-96 bg-base shadow-xl cursor-pointer hover:scale-90 ease-in-out duration-300">
           <figure className="px-10 pt-10">
             <img src={profil3Image} alt="profil 3" className="rounded-xl" />
           </figure>
@@ -203,7 +203,7 @@ function LandingPage() {
             <p>Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Boxing, Muay Thai</p>
           </div>
         </div>
-        <div className="card w-96 bg-base2 shadow-xl cursor-pointer hover:scale-90 ease-in-out duration-300">
+        <div className="card w-96 bg-base shadow-xl cursor-pointer hover:scale-90 ease-in-out duration-300">
           <figure className="px-10 pt-10">
             <img src={profil4Image} alt="profil 4" className="rounded-xl" />
           </figure>

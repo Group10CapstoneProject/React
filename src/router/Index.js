@@ -6,6 +6,7 @@ import DetailAnggota from "../pages/DetailAnggota";
 import JenisMembership from "../pages/JenisMembership";
 import KategoriOnline from "../pages/KelasOnline/KategoriOnline";
 import KelasOnline from "../pages/KelasOnline/KelasOnline";
+import BookingOnline from "../pages/BookingOnline";
 
 import KelolaAnggota from "../pages/KelolaAnggota";
 import LandingPage from "../pages/LandingPage";
@@ -14,7 +15,7 @@ import { Member } from "../pages/Member";
 import NotFoundPage from "../pages/NotFoundPage";
 import OfflineClass from "../pages/OfflineClass";
 import { Pembayaran } from "../pages/Pembayaran";
-import Trainer from "../pages/Trainer";
+// import Trainer from "../pages/Trainer";
 // import DetailPelatih from "./../pages/DetailPelatih";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedRoute from "./ProtectedRoute";
@@ -34,10 +35,11 @@ export const SetUpRouters = () => {
           <Route path="/detail" element={<DetailAnggota />} />
           <Route path="jenis" element={<JenisMembership />} />
           <Route path="member" element={<Member />} />
+          <Route path="bookingonline" element={<BookingOnline />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="landingpage" element={<LandingPage />} />
-        <Route path="trainer" element={<Trainer />} />
+        {/* <Route path="trainer" element={<Trainer />} /> */}
         {/* <Route path="detailpelatih" element={<DetailPelatih />} /> */}
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/home" element={<LandingPage />} />

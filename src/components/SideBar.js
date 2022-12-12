@@ -99,49 +99,37 @@ const SideBar = () => {
               </li>
             </ul>
           </div>
+
+          <div className="dropdown dropdown-top- dropdown-end ">
+            <label onClick={() => setMember(!member)} className={`${member ? "bg-primary" : "bg-transparent"}  w-full  justify-between font-bold btn  hover:bg-primary text-prim border-none `}>
+              <span className="flex  items-center gap-x-3 hover:text-base">
+                <box-icon type="solid" name="book-bookmark"></box-icon>
+                Booking
+              </span>
+              <box-icon type="solid" name={`${!member ? "chevron-down" : "chevron-up"}`}></box-icon>
+            </label>
+            <ul className={`${member ? "" : "hidden "}  w-52`}>
+              <li className="py-0 text-prim2 font-bold hover:bg-primary hover:text-base rounded-lg">
+                <Link to="bookingonline">Online</Link>
+              </li>
+              <li className="text-prim2 font-bold hover:bg-primary hover:text-base rounded-lg">
+                <Link to="offline">Offline</Link>
+              </li>
+            </ul>
+          </div>
+
           {data && data.role == "superadmin" ? (
-            <li>
-              <Link to="offline">Admin</Link>
+            <li className={`${path == "/offline" ? "bg-prim text-white rounded-lg" : ""} font-bold `}>
+              <span className="flex  items-center gap-x-3">
+                <box-icon color={`${path == "/offline" ? "white" : ""}`} name="user-circle"></box-icon>
+                <Link to="offline" className="font-bold">
+                  Admin
+                </Link>
+              </span>
             </li>
           ) : (
             ""
           )}
-          {/* <div className="dropdown dropdown-top- dropdown-end">
-            <label
-              onClick={() => setMember(!member)}
-              className="btn justify-start  btn-primary   m-1 text-white w-full"
-            >
-              <box-icon name="book-content"></box-icon>Membership
-            </label>
-            <ul
-              className={`${member ? "" : "hidden "} menu  bg-base-100  w-52`}
-            >
-              <li className="py-0 ">
-                <NavLink to="anggota">Kelola Anggota</NavLink>
-              </li>
-              <li>
-                <NavLink to="jenis">Jenis Member</NavLink>
-              </li>
-            </ul>
-          </div>
-          <div className="dropdown dropdown-top-  dropdown-end">
-            <label
-              onClick={() => setKelas(!kelas)}
-              className="btn justify-start m-1  btn-primary  text-white w-full"
-            >
-              <box-icon name="dumbbell"></box-icon> Kelas
-            </label>
-            <ul
-              className={`${kelas ? "" : "hidden "} menu  bg-base-100   w-52`}
-            >
-              <li className="py-0">
-                <NavLink to="online">Online</NavLink>
-              </li>
-              <li>
-                <NavLink to="offline">Offline</NavLink>
-              </li>
-            </ul>
-          </div> */}
         </ul>
       </div>
     </div>
