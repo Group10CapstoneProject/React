@@ -22,7 +22,9 @@ import NotFoundPage from "../pages/NotFoundPage";
 import { Pembayaran } from "../pages/Pembayaran";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedRoute from "./ProtectedRoute";
-import BookingOnline from "../pages/BookingOnline";
+import BookingOnline from "../pages/BookingOnline/BookingOnline";
+import ModalBookingOnline from "../pages/BookingOnline/ModalBookingOnline";
+import BookingOffline from "../pages/BookingOffline/BookingOffline";
 
 export const SetUpRouters = () => {
   return (
@@ -39,28 +41,22 @@ export const SetUpRouters = () => {
           <Route path="kategorioffline" element={<KategoriOffline />} />
           <Route path="kelasoffline" element={<KelasOffline />} />
           <Route path="tambahkelasoffline" element={<TambahKelasOffline />} />
-          <Route
-            path="detailkelasoffline/:id"
-            element={<DetailKelasOffline />}
-          />
+          <Route path="detailkelasoffline/:id" element={<DetailKelasOffline />} />
           <Route path="editkelasoffline" element={<EditKelasOffline />} />
-          <Route
-            path="detailkelasoffline/:id"
-            element={<DetailKelasOffline />}
-          />
+          <Route path="detailkelasoffline/:id" element={<DetailKelasOffline />} />
           <Route path="editkelasonline" element={<EditKelasOnline />} />
           <Route path="anggota" element={<KelolaAnggota />} />
           <Route path="/detail" element={<DetailAnggota />} />
           <Route path="jenis" element={<JenisMembership />} />
           <Route path="member" element={<Member />} />
           <Route path="bookingonline" element={<BookingOnline />} />
+          <Route path="modalbookingonline" element={<ModalBookingOnline />} />
+          <Route path="bookingoffline" element={<BookingOffline />} />
           {/* <Route path="bookingoffline" element={<BookingOnline />} /> */}
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>
         <Route path="landingpage" element={<LandingPage />} />
-        {/* <Route path="trainer" element={<Trainer />} /> */}
-        {/* <Route path="detailpelatih" element={<DetailPelatih />} /> */}
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/home" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
