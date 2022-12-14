@@ -1,6 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Gym from "../../apis/get.api";
+import PostApi from "../../apis/post.api";
 
 function BookingOnline() {
+  const [booking, setBooking] = useState([]);
+  const [load, setLoad] = useState(false);
+  const [show, setShow] = useState(false);
+  const getBooking = () => {
+    try {
+      Gym.bookingOnline().then((res) => setBooking(res.data.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+    setLoad(true);
+    try {
+      PostApi.deleteBookingOnline(id).then((res) => setLoad(false));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getBooking();
+  }, [load]);
+  {
+    getBooking && console.log(booking);
+  }
+
+  if (load) {
+    return <h1>loading...</h1>;
+  }
   return (
     <div>
       <div className="flex font-semibold text-info">
@@ -40,7 +73,7 @@ function BookingOnline() {
                 <button onClick={(e) => "handleEdit"("m")} className="btnp">
                   <i className="bx bx-edit bx-sm text-inf2 bg-white" href="/modalbookingonline"></i>
                 </button>
-                <button onClick={(e) => "handleDelete"("e, m.id")} className="btnd text-center">
+                <button onClick={(e) => handleDelete(e)} className="btnd text-center">
                   {" "}
                   <i className="bx bx-trash bx-sm text-dang bg-white"></i>
                 </button>
@@ -57,7 +90,7 @@ function BookingOnline() {
                 <button onClick={(e) => "handleEdit"("m")} className="btnp">
                   <i className="bx bx-edit bx-sm text-inf2 bg-white" href="/modalbookingonline"></i>
                 </button>
-                <button onClick={(e) => "handleDelete"("e, m.id")} className="btnd text-center">
+                <button onClick={(e) => handleDelete(e)} className="btnd text-center">
                   {" "}
                   <i className="bx bx-trash bx-sm text-dang bg-white"></i>
                 </button>
@@ -74,7 +107,7 @@ function BookingOnline() {
                 <button onClick={(e) => "handleEdit"("m")} className="btnp">
                   <i className="bx bx-edit bx-sm text-inf2 bg-white" href="/modalbookingonline"></i>
                 </button>
-                <button onClick={(e) => "handleDelete"("e, m.id")} className="btnd text-center">
+                <button onClick={(e) => handleDelete(e)} className="btnd text-center">
                   {" "}
                   <i className="bx bx-trash bx-sm text-dang bg-white"></i>
                 </button>
@@ -91,7 +124,7 @@ function BookingOnline() {
                 <button onClick={(e) => "handleEdit"("m")} className="btnp">
                   <i className="bx bx-edit bx-sm text-inf2 bg-white" href="/modalbookingonline"></i>
                 </button>
-                <button onClick={(e) => "handleDelete"("e, m.id")} className="btnd text-center">
+                <button onClick={(e) => handleDelete(e)} className="btnd text-center">
                   {" "}
                   <i className="bx bx-trash bx-sm text-dang bg-white"></i>
                 </button>
@@ -108,7 +141,7 @@ function BookingOnline() {
                 <button onClick={(e) => "handleEdit"("m")} className="btnp">
                   <i className="bx bx-edit bx-sm text-inf2 bg-white" href="/modalbookingonline"></i>
                 </button>
-                <button onClick={(e) => "handleDelete"("e, m.id")} className="btnd text-center">
+                <button onClick={(e) => handleDelete(e)} className="btnd text-center">
                   {" "}
                   <i className="bx bx-trash bx-sm text-dang bg-white"></i>
                 </button>

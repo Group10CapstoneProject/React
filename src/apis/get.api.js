@@ -92,6 +92,24 @@ const Gym = {
       console.log("error");
     }
   },
+
+  async bookingOnline() {
+    try {
+      const response = await axiosInstance.get(`/online-classes/bookings`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+
+  async bookingOffline() {
+    try {
+      const response = await axiosInstance.get(`/offline-classes/bookings`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
 };
 
 export default Gym;

@@ -1,49 +1,6 @@
 import React, { useState } from "react";
 
 function ModalBookingOnline() {
-  // const [btn, setBtn] = useState(true);
-  // const [form, setForm] = useState({
-  //   id: "",
-  //   picture: "",
-  //   name: "",
-  //   email: "",
-  //   description: "",
-  //   jenismember: "",
-  //   statusmember: "",
-  //   hargakelas: "",
-  //   tanggalbooking: "",
-  // });
-
-  // const handleImage = (e) => {
-  //   const { name, files } = e.target;
-  // };
-
-  // const onChange = (e) => {
-  //   const { name, value } = e.target;
-
-  //   setForm({
-  //     ...from,
-  //     [name]: value,
-  //   });
-  // };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setLoad(true);
-  //   try {
-  //     PostApi.updateBookingOnline(form).then((res) => setLoad(false));
-  //     setShow(!show);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   if (form.picture !== null && form.name !== "" && form.description !== "") {
-  //     setBtn(false);
-  //   }
-  // }, [form]);
-
   return (
     <>
       <input type="checkbox" className="modal-toggle" />

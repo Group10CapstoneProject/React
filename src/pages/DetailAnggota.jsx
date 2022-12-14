@@ -34,7 +34,7 @@ const DetailAnggota = () => {
             <label htmlFor="my-modal-4" className="modal cursor-pointer">
               <label className="modal-box relative" htmlFor="">
                 <img
-                  className="2 cursor-zoom-in hover:scale-90 transform-gpu ease-in-out duration-300 w-screen"
+                  className="2 cursor-zoom-in hover:scale-105 transform-gpu ease-in-out duration-300 w-screen"
                   src="https://1.bp.blogspot.com/-vRxyZBWkyb4/Xn6k2sMrXuI/AAAAAAAAGog/Ay9PBsRutbo3Q6PcL6pXjsc-r-5MT9tLwCLcBGAsYHQ/s1600/buzzbreak%2Bbayar%2Blewat%2BDANA.png"
                   alt=""
                 />

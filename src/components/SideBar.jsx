@@ -139,7 +139,7 @@ const SideBar = () => {
             {data && data.role == "superadmin" ? (
               <li className={`${path == "/offline" ? "bg-base text-dang4 rounded-lg" : ""} font-bold `}>
                 <span className="flex  items-center gap-x-3">
-                  <box-icon color={`${path == "/offline" ? "#FF5328" : ""}`} name="log-in"></box-icon>
+                  <box-icon color={`${path == "/offline" ? "#ff5328" : ""}`} name="log-out"></box-icon>
                   <Link to="offline" className="font-bold">
                     Keluar
                   </Link>

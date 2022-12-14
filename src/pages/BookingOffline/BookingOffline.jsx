@@ -1,6 +1,29 @@
 import React from "react";
+import { useEffect, useState } from "react";
+import Gym from "../../apis/get.api";
 
 function BookingOffline() {
+  const [booking, setBooking] = useState([]);
+  const [load, setLoad] = useState(false);
+  const getBooking = () => {
+    try {
+      Gym.bookingOffline().then((res) => setBooking(res.data.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getBooking();
+  }, [load]);
+  {
+    getBooking && console.log(booking);
+  }
+
+  if (load) {
+    return <h1>loading...</h1>;
+  }
+
   return (
     <div>
       <div className="flex font-semibold text-info">
