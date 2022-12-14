@@ -128,7 +128,7 @@ function LandingPage() {
         </h1>
         <p className="pt-6 text-2xl">AltaGym bisa bikin kamu sehat hanya dengan satu Aplikasi lho!</p>
       </div>
-      <div className="px-14 mx-14">
+      <div className="px-14 mx-[10%]">
         <div style={{ flex: 1 }} className="grid gap-x-8 gap-y-4 grid-cols-3 justify-content-center items-center py-14  px-10 mx-8">
           <div className="flex ml-5">
             <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-125 ease-in-out duration-300">
@@ -205,7 +205,7 @@ function LandingPage() {
         <p className="pt-6 text-2xl">Menyediakan pelatih pribadi bersertifikat individual untuk membantu Anda dalam latihan untuk mencapai tujuan gaya Kamu.</p>
       </div>
       <br />
-      <div className="grid gap-x-32 gap-y-4 grid-cols-4 py-8 px-14 mx-8 pt-[100px]">
+      <div className="grid gap-x-32 gap-y-4 grid-cols-4 py-8 mx-[15%] pr-[5%] pt-[100px]">
         <div className="card w-60 bg-base shadow-xl cursor-pointer hover:scale-125 ease-in-out duration-300">
           <figure className="px-10 pt-10">
             <img src={profil1Image} alt="profil 1" className="rounded-xl" />
@@ -253,7 +253,7 @@ function LandingPage() {
       </div>
       <br />
 
-      <div className="grid gap-x-8 gap-y-4 grid-cols-4 px-8 mx-8 py-8 pt-[100px]">
+      <div className="grid gap-x-8 gap-y-4 grid-cols-4 px-10 mx-[2%] py-8 pt-[100px]">
         <div className="card">
           <figure className="px-10 pt-10 hover:scale-110 ease-in-out duration-300">
             <img src={muaythaiImage} alt="Shoes" className="rounded-xl" />
@@ -306,7 +306,7 @@ function LandingPage() {
       <br />
 
       <div className="grid gap-x-8 gap-y-4 grid-cols-4 px-14 mx-10 pt-[100px]">
-        <div className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[400px] bg-white hover:scale-110 ease-in-out duration-300">
+        <div className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[500px] bg-white hover:scale-110 ease-in-out duration-300">
           <div className="w-full pt-3 bg-inf4"></div>
           <div className="flex  justify-between flex-col h-full p-3 items-center ">
             <img src={bronzeImage} alt="bronze icon" />
@@ -319,10 +319,29 @@ function LandingPage() {
                 <i className="bx text-[20px] text-suc bx-check-circle"></i>
                 <p className="text-[12px]">Dapatkan akses prioritas ketika melakukan booking</p>
               </div>
+              <div className="flex items-center w-full gap-x-2">
+                <i className="bx text-[20px] text-suc bx-check-circle"></i>
+                <p className="text-[12px]">Akses gym tak terbatas di seluruh klub atlagym</p>
+              </div>
+              <div className="flex items-center w-full gap-x-2">
+                <i className="bx text-[20px] text-dang4 bx-x-circle"></i>
+                <p className="text-[12px]">Gratis kelas online setiap harinya </p>
+              </div>
+              <div className="flex items-center w-full gap-x-2">
+                <i className="bx text-[20px] text-dang4 bx-x-circle"></i>
+                <p className="text-[12px]">Gratis kelas offline selama berlangganan</p>
+              </div>
+              <div className="flex items-center w-full gap-x-2">
+                <i className="bx text-[20px] text-dang4 bx-x-circle"></i>
+                <p className="text-[12px]">Gratis 4 sesi personal training</p>
+              </div>
+              <div className="pt-6">
+                <button className="btn btn-wide btn-outline bg-inf4 hover:bg-inf4 text-white">BELI SEKARANG</button>
+              </div>
             </div>
           </div>
         </div>
-        <div className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[400px] bg-white hover:scale-110 ease-in-out duration-300">
+        <div className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[500px] bg-white hover:scale-110 ease-in-out duration-300">
           <div className="w-full pt-3 bg-border"></div>
           <div className="flex  justify-between flex-col h-full p-3 items-center ">
             <img src={silverImage} alt="silver icon" />
@@ -335,33 +354,100 @@ function LandingPage() {
                 <i className="bx text-[20px] text-suc bx-check-circle"></i>
                 <p className="text-[12px]">Dapatkan akses prioritas ketika melakukan booking</p>
               </div>
+              <div className="flex items-center w-full gap-x-2">
+                <i className="bx text-[20px] text-suc bx-check-circle"></i>
+                <p className="text-[12px]">Akses gym tak terbatas di seluruh klub atlagym</p>
+              </div>
+              <div className="flex items-center w-full gap-x-2">
+                <i className="bx text-[20px] text-suc bx-check-circle"></i>
+                <p className="text-[12px]">Gratis kelas online setiap harinya </p>
+              </div>
+              <div className="flex items-center w-full gap-x-2">
+                <i className="bx text-[20px] text-dang4 bx-x-circle"></i>
+                <p className="text-[12px]">Gratis kelas offline selama berlangganan</p>
+              </div>
+              <div className="flex items-center w-full gap-x-2">
+                <i className="bx text-[20px] text-dang4 bx-x-circle"></i>
+                <p className="text-[12px]">Gratis 4 sesi personal training</p>
+              </div>
+              <div className="pt-6">
+                <button className="btn btn-wide btn-outline bg-border hover:bg-border text-white">BELI SEKARANG</button>
+              </div>
             </div>
           </div>
         </div>
-        <div className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[400px] bg-white hover:scale-110 ease-in-out duration-300">
-          <div className="w-full pt-3 bg-suc3"></div>
+        <div className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[500px] bg-white hover:scale-110 ease-in-out duration-300">
+          <div className="w-full pt-3 bg-suc3">
+            <div className="pb-2">
+              <h1 className="text-center text-base-200">Best Value</h1>
+            </div>
+          </div>
           <div className="flex  justify-between flex-col h-full p-3 items-center ">
             <img src={goldImage} alt="gold icon" />
             <h1 className=" py-1 text-black capitalize text-[20px] font-semibold">Gold</h1>
-            <h2 className="text-suc3 border w-full text-center  py-1 text-[20px] font-semibold">Rp 100.000 /bulan</h2>
+            <h2 className="text-suc3 border w-full text-center  py-1 text-[20px] font-semibold">
+              Rp 100.000 <small>/bulan</small>
+            </h2>
             <div className="flex p-2 flex-col w-full gap-y-2  text-[12px]">
               <div className="flex items-center w-full gap-x-2">
                 <i className="bx text-[20px] text-suc bx-check-circle"></i>
                 <p className="text-[12px]">Dapatkan akses prioritas ketika melakukan booking</p>
               </div>
+              <div className="flex items-center w-full gap-x-2">
+                <i className="bx text-[20px] text-suc bx-check-circle"></i>
+                <p className="text-[12px]">Akses gym tak terbatas di seluruh klub atlagym</p>
+              </div>
+              <div className="flex items-center w-full gap-x-2">
+                <i className="bx text-[20px] text-suc bx-check-circle"></i>
+                <p className="text-[12px]">Gratis kelas online setiap harinya </p>
+              </div>
+              <div className="flex items-center w-full gap-x-2">
+                <i className="bx text-[20px] text-suc bx-check-circle"></i>
+                <p className="text-[12px]">Gratis kelas offline selama berlangganan</p>
+              </div>
+              <div className="flex items-center w-full gap-x-2">
+                <i className="bx text-[20px] text-dang4 bx-x-circle"></i>
+                <p className="text-[12px]">Gratis 4 sesi personal training</p>
+              </div>
+              <div className="py-8">
+                <button className="btn btn-wide btn-outline bg-suc3 hover:bg-suc3 text-white">BELI SEKARANG</button>
+              </div>
             </div>
           </div>
         </div>
-        <div className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[400px] bg-white hover:scale-110 ease-in-out duration-300">
+        <div className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[500px] bg-white hover:scale-110 ease-in-out duration-300">
           <div className="w-full pt-3 bg-dang3"></div>
           <div className="flex  justify-between flex-col h-full p-3 items-center ">
             <img src={platinumImage} alt="platinum icon" />
             <h1 className=" py-1 text-black capitalize text-[20px] font-semibold">Platinum</h1>
-            <h2 className="text-dang3 border w-full text-center  py-1 text-[20px] font-semibold">Rp 100.000 /bulan</h2>
+            <h2 className="text-dang3 border w-full text-center  py-1 text-[20px] font-semibold">
+              Rp 100.000 <small>/bulan</small>
+            </h2>
             <div className="flex p-2 flex-col w-full gap-y-2  text-[12px]">
-              <div className="flex items-center w-full gap-x-2">
-                <i className="bx text-[20px] text-suc bx-check-circle"></i>
-                <p className="text-[12px]">Dapatkan akses prioritas ketika melakukan booking</p>
+              <div className="flex p-2 flex-col w-full gap-y-2  text-[12px]">
+                <div className="flex items-center w-full gap-x-2">
+                  <i className="bx text-[20px] text-suc bx-check-circle"></i>
+                  <p className="text-[12px]">Dapatkan akses prioritas ketika melakukan booking</p>
+                </div>
+                <div className="flex items-center w-full gap-x-2">
+                  <i className="bx text-[20px] text-suc bx-check-circle"></i>
+                  <p className="text-[12px]">Akses gym tak terbatas di seluruh klub atlagym</p>
+                </div>
+                <div className="flex items-center w-full gap-x-2">
+                  <i className="bx text-[20px] text-suc bx-check-circle"></i>
+                  <p className="text-[12px]">Gratis kelas online setiap harinya </p>
+                </div>
+                <div className="flex items-center w-full gap-x-2">
+                  <i className="bx text-[20px] text-suc bx-check-circle"></i>
+                  <p className="text-[12px]">Gratis kelas offline selama berlangganan</p>
+                </div>
+                <div className="flex items-center w-full gap-x-2">
+                  <i className="bx text-[20px] text-suc bx-check-circle"></i>
+                  <p className="text-[12px]">Gratis 4 sesi personal training</p>
+                </div>
+                <div className="pt-6">
+                  <button className="btn btn-wide btn-outline bg-dang3 hover:bg-dang3 text-white">BELI SEKARANG</button>
+                </div>
               </div>
             </div>
           </div>
@@ -377,7 +463,7 @@ function LandingPage() {
       </div>
       <br />
 
-      <div className="grid gap-x-8 gap-y-4 grid-cols-3 mx-14 px-14 pt-[100px]">
+      <div className="grid gap-x-8 gap-y-4 grid-cols-3 mx-[15%] pt-[100px]">
         <div className="card w-80 bg-base shadow-xl cursor-pointer hover:scale-105 ease-in-out duration-300">
           <figure className="px-10 pt-10">
             <img src={profil5Image} alt="profil 5" className="rounded-xl" />

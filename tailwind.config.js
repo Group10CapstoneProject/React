@@ -43,6 +43,7 @@ module.exports = {
           info: "#1A4B5F",
           "info-content": "#FF704C",
           "base-100": "#ffffff",
+          "base-200": "#F2F4F3",
         },
       },
       "cupcake",
