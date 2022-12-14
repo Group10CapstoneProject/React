@@ -500,21 +500,23 @@ function LandingPage() {
 
       <br />
 
-      <div className="text-start pt-[250px] ml-8">
-        <h1 className="font-bold text-4xl text-info">Mulai Hidup Sehatmu Dari Sekarang</h1>
-        <p className="pt-6 text-lg text-info">Unduh aplikasi AltaGym sekarang untuk book kelas olahraga dan pelatih dengan mudah</p>
+      <div className="text-start pt-[300px] ml-[100px]">
+        <h1 className="font-bold text-4xl text-info">Mulai Hidup Sehatmu Dari</h1>
+        <h1 className="font-bold text-4xl text-info">Sekarang</h1>
+        <p className="pt-6 text-lg text-info">Unduh aplikasi AltaGym sekarang untuk book</p>
+        <p className="text-lg text-info">kelas olahraga dan pelatih dengan mudah</p>
         <br />
         <h3 className="font-bold text-2xl text-info">Dapatkan Aplikasinya</h3>
         <div className="w-40 pt-4">
           <img src={playImage} alt="playstore" />
         </div>
-        <div className="flex justify-end mr-14 pr-14">
+        <div className="flex justify-end mr-[300px] mb-50px]">
           <img src={mobileImage} alt="mobile" />
         </div>
       </div>
 
-      <footer className="footer p-10 bg-info text-white pt-[200px]">
-        <div className="px-8 mb-8">
+      <footer className="footer p-10 bg-info text-white pt-[100px]">
+        <div className="ml-[100px] mb-[100px]">
           <img src={logofooterImage} alt="logo footer" />
           <p>
             altagym@gmail.com
@@ -522,7 +524,7 @@ function LandingPage() {
             (024) 20192933
           </p>
         </div>
-        <div>
+        <div className="px-[10]">
           <span className="footer-title text-2xl normal-case">Bantuan</span>
           <a className="link link-hover">FAQ</a>
           <a className="link link-hover">Syarat & Ketentuan</a>
@@ -533,12 +535,12 @@ function LandingPage() {
           <img className="w-40" src={playImage} alt="playstore" />
         </div>
 
-        <div>
+        {/* <div className="pt-[100px]">
           <box-icon name="facebook-square" type="logo" color="#3b5998"></box-icon>
           <box-icon name="instagram" type="logo" color="#cd486b"></box-icon>
           <box-icon name="twitter" type="logo" color="#00acee"></box-icon>
           <box-icon name="youtube" type="logo" color="#f50404"></box-icon>
-        </div>
+        </div> */}
       </footer>
     </div>
   );
