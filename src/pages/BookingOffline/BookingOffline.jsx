@@ -8,7 +8,7 @@ function BookingOffline() {
 
         <p style={{ color: "#52A1A4", marginLeft: 5 }}>Offline</p>
       </div>
-      <div className="pt-4">
+      <div className="pt-[40px]">
         <h1 className="text-2xl font-bold">Daftar Booking</h1>
       </div>
       <div className="flex pl-7 pt-4 input-group justify-end">

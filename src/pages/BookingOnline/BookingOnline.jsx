@@ -3,7 +3,13 @@ import React from "react";
 function BookingOnline() {
   return (
     <div>
-      <h1 className="font-bold text-2xl">DAFTAR BOOKING CLASS</h1>
+      <div className="flex font-semibold text-info">
+        <a href="#">Booking / </a>
+
+        <p style={{ color: "#52A1A4", marginLeft: 5 }}>Online</p>
+      </div>
+
+      <h1 className="font-bold text-2xl pt-[40px]">Daftar Booking Class</h1>
       <div className="flex pl-7 pt-4 input-group justify-end">
         <input type="text" placeholder="Cari" className="input input-bordered" />
         <button className="btn btn-square bg-base hover:bg-info">
@@ -31,12 +37,12 @@ function BookingOnline() {
               <td className="leading-none text-info font-bold">Gold</td>
               <td className="leading-none text-inf2 font-bold">Waiting Approval</td>
               <td className="flex gap-x-1 justify-center">
-                <button>
-                  <i className="bx bx-edit bx-sm text-inf2" href="/modalbookingonline"></i>
+                <button onClick={(e) => "handleEdit"("m")} className="btnp">
+                  <i className="bx bx-edit bx-sm text-inf2 bg-white" href="/modalbookingonline"></i>
                 </button>
-                <button>
+                <button onClick={(e) => "handleDelete"("e, m.id")} className="btnd text-center">
                   {" "}
-                  <i className="bx bx-trash bx-sm text-dang"></i>
+                  <i className="bx bx-trash bx-sm text-dang bg-white"></i>
                 </button>
               </td>
             </tr>
@@ -48,12 +54,12 @@ function BookingOnline() {
               <td className="  leading-none text-info font-bold">Gold</td>
               <td className="  leading-none text-suc2 font-bold">Active</td>
               <td className="flex gap-x-1 justify-center">
-                <button>
-                  <i className="bx bx-edit bx-sm text-inf2" href="/modalbookingonline"></i>
+                <button onClick={(e) => "handleEdit"("m")} className="btnp">
+                  <i className="bx bx-edit bx-sm text-inf2 bg-white" href="/modalbookingonline"></i>
                 </button>
-                <button>
+                <button onClick={(e) => "handleDelete"("e, m.id")} className="btnd text-center">
                   {" "}
-                  <i className="bx bx-trash bx-sm text-dang"></i>
+                  <i className="bx bx-trash bx-sm text-dang bg-white"></i>
                 </button>
               </td>
             </tr>
@@ -65,12 +71,12 @@ function BookingOnline() {
               <td className="  leading-none text-info font-bold">Gold</td>
               <td className="  leading-none text-dang2 font-bold">Reject</td>
               <td className="flex gap-x-1 justify-center">
-                <button>
-                  <i className="bx bx-edit bx-sm text-inf2" href="/modalbookingonline"></i>
+                <button onClick={(e) => "handleEdit"("m")} className="btnp">
+                  <i className="bx bx-edit bx-sm text-inf2 bg-white" href="/modalbookingonline"></i>
                 </button>
-                <button>
+                <button onClick={(e) => "handleDelete"("e, m.id")} className="btnd text-center">
                   {" "}
-                  <i className="bx bx-trash bx-sm text-dang"></i>
+                  <i className="bx bx-trash bx-sm text-dang bg-white"></i>
                 </button>
               </td>
             </tr>
@@ -82,12 +88,12 @@ function BookingOnline() {
               <td className="  leading-none text-info font-bold">Gold</td>
               <td className="  leading-none text-inf2 font-bold">Waiting Approval</td>
               <td className="flex gap-x-1 justify-center">
-                <button>
-                  <i className="bx bx-edit bx-sm text-inf2" href="/modalbookingonline"></i>
+                <button onClick={(e) => "handleEdit"("m")} className="btnp">
+                  <i className="bx bx-edit bx-sm text-inf2 bg-white" href="/modalbookingonline"></i>
                 </button>
-                <button>
+                <button onClick={(e) => "handleDelete"("e, m.id")} className="btnd text-center">
                   {" "}
-                  <i className="bx bx-trash bx-sm text-dang"></i>
+                  <i className="bx bx-trash bx-sm text-dang bg-white"></i>
                 </button>
               </td>
             </tr>
@@ -99,12 +105,12 @@ function BookingOnline() {
               <td className="  leading-none text-info font-bold">Gold</td>
               <td className="  leading-none text-dang2 font-bold">Reject</td>
               <td className="flex gap-x-1 justify-center">
-                <button>
-                  <i className="bx bx-edit bx-sm text-inf2" href="/modalbookingonline"></i>
+                <button onClick={(e) => "handleEdit"("m")} className="btnp">
+                  <i className="bx bx-edit bx-sm text-inf2 bg-white" href="/modalbookingonline"></i>
                 </button>
-                <button>
+                <button onClick={(e) => "handleDelete"("e, m.id")} className="btnd text-center">
                   {" "}
-                  <i className="bx bx-trash bx-sm text-dang"></i>
+                  <i className="bx bx-trash bx-sm text-dang bg-white"></i>
                 </button>
               </td>
             </tr>
