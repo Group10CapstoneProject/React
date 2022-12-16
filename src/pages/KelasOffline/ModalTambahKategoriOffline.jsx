@@ -1,7 +1,9 @@
+import { error } from "daisyui/src/colors";
 import React, { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import PostApi from "../../apis/post.api";
 
-function ModalTambahKategoriOffline({ setLoad, show, setShow }) {
+function ModalTambahKategoriOffline({ setLoad, show, setShow, setMessage }) {
   const [btn, setBtn] = useState(true);
   const [form, setForm] = useState({
     name: "",
@@ -11,12 +13,15 @@ function ModalTambahKategoriOffline({ setLoad, show, setShow }) {
 
   const handleImage = (e) => {
     const { name, files } = e.target;
-    PostApi.uploadFile({ title: name, files }).then((res) =>
-      setForm({
-        ...form,
-        picture: res.data.data.url,
+    PostApi.uploadFile({ title: name, files })
+      .then((res) => {
+        setForm({
+          ...form,
+          picture: res.data.data.url,
+        });
+        toast.success(res.data.message);
       })
-    );
+      .catch((err) => console.log(err));
   };
 
   const onChange = (e) => {
@@ -30,19 +35,18 @@ function ModalTambahKategoriOffline({ setLoad, show, setShow }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoad(true);
-    setTimeout(() => {
-      try {
-        PostApi.tambahOfflineKategori(form).then((res) => setLoad(false));
-        setShow(!show);
-      } catch (error) {
-        console.log(error);
-      }
-    }, 5000);
+    PostApi.tambahOfflineKategori(form)
+      .then((res) => {
+        setMessage(res.data.message);
+        setShow(false);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   useEffect(() => {
-    if (form.picture !== null && form.name !== "" && form.description !== "") {
+    if (form.picture !== null) {
       setBtn(false);
     } else {
       setBtn(true);
@@ -50,6 +54,7 @@ function ModalTambahKategoriOffline({ setLoad, show, setShow }) {
   }, [form]);
   return (
     <>
+      <Toaster />
       <input defaultChecked={show} type="checkbox" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box   p-0 overflow-hidden w-1/2 max-w-5xl">

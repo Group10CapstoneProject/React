@@ -33,11 +33,25 @@ function LandingPage() {
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h8m-8 6h16"
+                />
               </svg>
             </label>
-            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-info rounded-box w-52">
+            <ul
+              tabIndex={0}
+              className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-info rounded-box w-52"
+            >
               <li>
                 <a href="/">Home</a>
               </li>
@@ -75,7 +89,9 @@ function LandingPage() {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn bg-primary hover:bg-accent text-white">Gabung Sekarang</a>
+          <a className="btn bg-primary hover:bg-accent text-white">
+            Gabung Sekarang
+          </a>
         </div>
       </div>
 
@@ -95,8 +111,12 @@ function LandingPage() {
       <br />
 
       <div className="text-center pt-10">
-        <h1 className="font-bold text-4xl text-primary">Kenapa Harus AltaGym ?</h1>
-        <p className="pt-6 text-2xl">AltaGym bisa bikin kamu sehat hanya dengan satu Aplikasi lho!</p>
+        <h1 className="font-bold text-4xl text-primary">
+          Kenapa Harus AltaGym ?
+        </h1>
+        <p className="pt-6 text-2xl">
+          AltaGym bisa bikin kamu sehat hanya dengan satu Aplikasi lho!
+        </p>
       </div>
 
       <div className="grid gap-x-8 gap-y-4 grid-cols-3 justify-center items-center pt-14 mx-20 px-10">
@@ -106,8 +126,13 @@ function LandingPage() {
               <div className="flex justify-start w-10">
                 <img src={touchscreenImage} alt="touchscreen" />
               </div>
-              <h1 className="text-[20px] font-semibold pt-2">Proses Booking Sangat Mudah</h1>
-              <p className="text-[16px] pt-2">Cari, pilih, dan pesan kelas olahraga pilihan kamu sehat dengan mudah.</p>
+              <h1 className="text-[20px] font-semibold pt-2">
+                Proses Booking Sangat Mudah
+              </h1>
+              <p className="text-[16px] pt-2">
+                Cari, pilih, dan pesan kelas olahraga pilihan kamu sehat dengan
+                mudah.
+              </p>
             </div>
           </div>
         </div>
@@ -117,8 +142,13 @@ function LandingPage() {
               <div className="flex justify-start w-10">
                 <img src={liveImage} alt="live" />
               </div>
-              <h1 className="text-[20px] font-semibold pt-2">Online & Offline Kelas</h1>
-              <p className="text-[16px] pt-2">Lakukan latihan Kamu dengan kelas streaming atau secara langsung.</p>
+              <h1 className="text-[20px] font-semibold pt-2">
+                Online & Offline Kelas
+              </h1>
+              <p className="text-[16px] pt-2">
+                Lakukan latihan Kamu dengan kelas streaming atau secara
+                langsung.
+              </p>
             </div>
           </div>
         </div>
@@ -129,7 +159,9 @@ function LandingPage() {
                 <img src={membercardImage} alt="member-card" />
               </div>
               <h1 className="text-[20px] font-semibold pt-2">Membership</h1>
-              <p className="text-[16px] pt-2">Berbagai opsi Membership yang sesuai dengan kantong Kamu!</p>
+              <p className="text-[16px] pt-2">
+                Berbagai opsi Membership yang sesuai dengan kantong Kamu!
+              </p>
             </div>
           </div>
         </div>
@@ -139,8 +171,12 @@ function LandingPage() {
               <div className="flex justify-start w-10">
                 <img src={dumbbellImage} alt="dumbbell" />
               </div>
-              <h1 className="text-[20px] font-semibold pt-2">AltaGym Trainer</h1>
-              <p className="text-[16px] pt-2">Capai tujuan sehat Kamu dengan pelatih terbaik pilihan Kamu!</p>
+              <h1 className="text-[20px] font-semibold pt-2">
+                AltaGym Trainer
+              </h1>
+              <p className="text-[16px] pt-2">
+                Capai tujuan sehat Kamu dengan pelatih terbaik pilihan Kamu!
+              </p>
             </div>
           </div>
         </div>
@@ -150,8 +186,12 @@ function LandingPage() {
               <div className="flex justify-start w-10">
                 <img src={applicationImage} alt="application" />
               </div>
-              <h1 className="text-[20px] font-semibold pt-2">Banyak Pilihan!</h1>
-              <p className="text-[16px] pt-2">Temukan banyak kelas olahraga dan pelatih di AltaGym.</p>
+              <h1 className="text-[20px] font-semibold pt-2">
+                Banyak Pilihan!
+              </h1>
+              <p className="text-[16px] pt-2">
+                Temukan banyak kelas olahraga dan pelatih di AltaGym.
+              </p>
             </div>
           </div>
         </div>
@@ -161,8 +201,13 @@ function LandingPage() {
               <div className="flex justify-start w-10">
                 <img src={weightsImage} alt="weights" />
               </div>
-              <h1 className="text-[20px] font-semibold pt-2">Fasilitas Gym Terbaik</h1>
-              <p className="text-[16px] pt-2">Berolahragalah di gym pribadi kami, yang dilengkapi dengan peralatan kebugaran berkualitas tinggi.</p>
+              <h1 className="text-[20px] font-semibold pt-2">
+                Fasilitas Gym Terbaik
+              </h1>
+              <p className="text-[16px] pt-2">
+                Berolahragalah di gym pribadi kami, yang dilengkapi dengan
+                peralatan kebugaran berkualitas tinggi.
+              </p>
             </div>
           </div>
         </div>
@@ -170,8 +215,13 @@ function LandingPage() {
       <br />
 
       <div className="text-center pt-10">
-        <h1 className="font-bold text-4xl text-primary">Trainer profesional yang ahli dibidangnya</h1>
-        <p className="pt-6 text-2xl">Menyediakan pelatih pribadi bersertifikat individual untuk membantu Anda dalam latihan untuk mencapai tujuan gaya Kamu.</p>
+        <h1 className="font-bold text-4xl text-primary">
+          Trainer profesional yang ahli dibidangnya
+        </h1>
+        <p className="pt-6 text-2xl">
+          Menyediakan pelatih pribadi bersertifikat individual untuk membantu
+          Anda dalam latihan untuk mencapai tujuan gaya Kamu.
+        </p>
       </div>
       <br />
 
@@ -182,7 +232,10 @@ function LandingPage() {
           </figure>
           <div className="card-body items-start text-start">
             <h2 className="card-title">Dika Pramudya</h2>
-            <p>Weight Mangement, Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss</p>
+            <p>
+              Weight Mangement, Muscle Building, Core, Mobility Agility,
+              Postural Alignment, Strenght, Freestyle Movement, Fat Loss
+            </p>
           </div>
         </div>
         <div className="card w-96 bg-base shadow-xl cursor-pointer hover:scale-90 ease-in-out duration-300">
@@ -191,7 +244,11 @@ function LandingPage() {
           </figure>
           <div className="card-body items-start text-start">
             <h2 className="card-title">Ammy Novarianti</h2>
-            <p>Weight Mangement, Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Functional Training</p>
+            <p>
+              Weight Mangement, Muscle Building, Core, Mobility Agility,
+              Postural Alignment, Strenght, Freestyle Movement, Fat Loss,
+              Functional Training
+            </p>
           </div>
         </div>
         <div className="card w-96 bg-base shadow-xl cursor-pointer hover:scale-90 ease-in-out duration-300">
@@ -200,7 +257,10 @@ function LandingPage() {
           </figure>
           <div className="card-body items-start text-start">
             <h2 className="card-title">Mark William</h2>
-            <p>Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Boxing, Muay Thai</p>
+            <p>
+              Muscle Building, Core, Mobility Agility, Postural Alignment,
+              Strenght, Freestyle Movement, Fat Loss, Boxing, Muay Thai
+            </p>
           </div>
         </div>
         <div className="card w-96 bg-base shadow-xl cursor-pointer hover:scale-90 ease-in-out duration-300">
@@ -209,15 +269,24 @@ function LandingPage() {
           </figure>
           <div className="card-body items-start text-start">
             <h2 className="card-title">Redy Indra</h2>
-            <p>Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Martial Arts, Nutrion Program, MMA</p>
+            <p>
+              Core, Mobility Agility, Postural Alignment, Strenght, Freestyle
+              Movement, Fat Loss, Martial Arts, Nutrion Program, MMA
+            </p>
           </div>
         </div>
       </div>
       <br />
 
       <div className="text-center pt-10">
-        <h1 className="font-bold text-4xl text-primary">Pilih berbagai kelas dengan banyak instruktur hebat</h1>
-        <p className="pt-6 text-lg">Beragam kelas olahraga kami hadirkan untuk memacu semangat dan motivasi Kam agar lebih aktif bergerak bersama-sama. Dipandu oleh para pelatih profesional.</p>
+        <h1 className="font-bold text-4xl text-primary">
+          Pilih berbagai kelas dengan banyak instruktur hebat
+        </h1>
+        <p className="pt-6 text-lg">
+          Beragam kelas olahraga kami hadirkan untuk memacu semangat dan
+          motivasi Kam agar lebih aktif bergerak bersama-sama. Dipandu oleh para
+          pelatih profesional.
+        </p>
       </div>
       <br />
 
@@ -230,8 +299,13 @@ function LandingPage() {
       <br />
 
       <div className="text-center pt-10">
-        <h1 className="font-bold text-4xl text-primary">Penawaran Terbaik Kami</h1>
-        <p className="pt-6 text-2xl">Ngegym gak pake mahal! dapatkan akses tak terbatas ke seluruh premium gym AltaGym dan kelas gratis setiap harinya.</p>
+        <h1 className="font-bold text-4xl text-primary">
+          Penawaran Terbaik Kami
+        </h1>
+        <p className="pt-6 text-2xl">
+          Ngegym gak pake mahal! dapatkan akses tak terbatas ke seluruh premium
+          gym AltaGym dan kelas gratis setiap harinya.
+        </p>
       </div>
       <br />
 
@@ -245,7 +319,10 @@ function LandingPage() {
 
       <div className="text-start pt-10 ml-8">
         <h1 className="font-bold text-4xl text-primary">Apa Kata Mereka?</h1>
-        <p className="pt-6 text-2xl">Yuk, lihat cerita dari para sobat AltaGym biar kamu semakin terinspirasi dalam menjalani gaya hidup sehat!</p>
+        <p className="pt-6 text-2xl">
+          Yuk, lihat cerita dari para sobat AltaGym biar kamu semakin
+          terinspirasi dalam menjalani gaya hidup sehat!
+        </p>
       </div>
       <br />
 
@@ -255,7 +332,12 @@ function LandingPage() {
             <img src={profil5Image} alt="profil 5" className="rounded-xl" />
           </figure>
           <div className="card-body items-start text-start">
-            <p>Tempat gym paling nyaman, terus semua kelas olahraga ada dari kelas online atau offline, alat gym juga lengkap. Paling penting tempatnya bersih. Gym premium harga affordable yang worth it cuma di AltaGym sih.</p>
+            <p>
+              Tempat gym paling nyaman, terus semua kelas olahraga ada dari
+              kelas online atau offline, alat gym juga lengkap. Paling penting
+              tempatnya bersih. Gym premium harga affordable yang worth it cuma
+              di AltaGym sih.
+            </p>
             <h2 className="card pt-2 text-2xl">Sherly</h2>
           </div>
         </div>
@@ -264,7 +346,11 @@ function LandingPage() {
             <img src={profil6Image} alt="profil 6" className="rounded-xl" />
           </figure>
           <div className="card-body items-start text-start">
-            <p>Nggak nyangka ada gym kualtitas premium gini, tapi affordable banget. Apalagi pas pandemi, setiap beberapa jam pasti di steriliasasi jadi merasa nyaman dan aman banget olahraga di sini.</p>
+            <p>
+              Nggak nyangka ada gym kualtitas premium gini, tapi affordable
+              banget. Apalagi pas pandemi, setiap beberapa jam pasti di
+              steriliasasi jadi merasa nyaman dan aman banget olahraga di sini.
+            </p>
             <h2 className="card pt-2 text-2xl">Alfan</h2>
           </div>
         </div>
@@ -274,8 +360,10 @@ function LandingPage() {
           </figure>
           <div className="card-body items-start text-start">
             <p>
-              Saya nyaman banget ngegym di AltaGym. Alatnya highclass seperti megagym tapi hargaya terjangkau, tempatnya juga bersih dan rapi. Variasi kelasnya juga banyak dan seru banget. Pelatihnya juga kece - kece bikin semangat
-              ngegymnya.
+              Saya nyaman banget ngegym di AltaGym. Alatnya highclass seperti
+              megagym tapi hargaya terjangkau, tempatnya juga bersih dan rapi.
+              Variasi kelasnya juga banyak dan seru banget. Pelatihnya juga kece
+              - kece bikin semangat ngegymnya.
             </p>
             <h2 className="card pt-2 text-2xl">Marisa</h2>
           </div>
@@ -284,8 +372,13 @@ function LandingPage() {
       <br />
 
       <div className="text-start pt-14 ml-8">
-        <h1 className="font-bold text-4xl text-info">Mulai Hidup Sehatmu Dari Sekarang</h1>
-        <p className="pt-6 text-lg text-info">Unduh aplikasi AltaGym sekarang untuk book kelas olahraga dan pelatih dengan mudah</p>
+        <h1 className="font-bold text-4xl text-info">
+          Mulai Hidup Sehatmu Dari Sekarang
+        </h1>
+        <p className="pt-6 text-lg text-info">
+          Unduh aplikasi AltaGym sekarang untuk book kelas olahraga dan pelatih
+          dengan mudah
+        </p>
         <br />
         <h3 className="font-bold text-2xl text-info">Dapatkan Aplikasinya</h3>
         <div className="w-40 pt-4">
@@ -316,7 +409,11 @@ function LandingPage() {
           <img className="w-40" src={playImage} alt="playstore" />
         </div>
         <div>
-          <box-icon name="facebook-square" type="logo" color="#3b5998"></box-icon>
+          <box-icon
+            name="facebook-square"
+            type="logo"
+            color="#3b5998"
+          ></box-icon>
           <box-icon name="instagram" type="logo" color="#cd486b"></box-icon>
           <box-icon name="twitter" type="logo" color="#00acee"></box-icon>
           <box-icon name="youtube" type="logo" color="#f50404"></box-icon>

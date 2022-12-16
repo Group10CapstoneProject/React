@@ -46,12 +46,7 @@ const SideBar = () => {
             } font-bold `}
           >
             <Link to="/">
-              <box-icon
-                color={`${path == "/" ? "white" : ""}`}
-                type="solid"
-                name="dashboard"
-              ></box-icon>
-              Dashboard
+              <i className="bx bx-sm bxs-dashboard"></i>Dashboard
             </Link>
           </li>
           <li
@@ -60,32 +55,30 @@ const SideBar = () => {
             } font-bold `}
           >
             <Link to="pembayaran">
-              <box-icon
-                color={`${path == "/pembayaran" ? "white" : ""}`}
-                name="wallet"
-              ></box-icon>
-              Pembayaran
+              <i className="bx bx-sm bxs-wallet"></i>Pembayaran
             </Link>
           </li>
           <div className="dropdown dropdown-top- dropdown-end ">
             <label
               onClick={() => setMember(!member)}
               className={`${
-                member ? "bg-primary" : "bg-transparent"
-              }  w-full  justify-between font-bold btn  hover:bg-primary text-black border-none `}
+                member ? "bg-prim text-white" : "bg-transparent  text-prim"
+              }  w-full  justify-between font-bold btn  hover:bg-prim hover:text-white  border-none `}
             >
-              <span className="flex  items-center gap-x-3">
-                <box-icon type="solid" name="book-content"></box-icon>
+              <span className="flex items-center gap-x-3">
+                <i className="bx bx-sm bx-book-content"></i>
                 Membership
               </span>
-              <box-icon
-                type="solid"
-                name={`${!member ? "chevron-down" : "chevron-up"}`}
-              ></box-icon>
+
+              <i
+                className={`bx bx-sm ${
+                  !member ? "bx-chevron-down" : "bx-chevron-up"
+                } `}
+              ></i>
             </label>
             <ul className={`${member ? "" : "hidden "} font-semibold   w-52`}>
               <li className="py-0 ">
-                <Link to="anggota">Kelola Anggota</Link>
+                <Link to="anggota">Kelola Member</Link>
               </li>
               <li>
                 <Link to="jenis">Jenis Member</Link>
@@ -95,21 +88,23 @@ const SideBar = () => {
 
           <li className="mt-1 font-bold text-lg">
             <label className="">
-              <box-icon name="dumbbell"></box-icon> Kelas
+              <i className="bx bx-sm bx-dumbbell"></i>
+              Kelas
             </label>
           </li>
           <div className="dropdown dropdown-top- dropdown-end font-semibold  text-md">
             <label
               onClick={() => setOnline(!online)}
               className={`${
-                online ? "bg-primary" : "bg-transparent"
-              }  w-full  justify-between  btn  font-semibold  hover:bg-primary text-black border-none `}
+                online ? "bg-prim text-white" : "bg-transparent text-prim"
+              }  w-full  justify-between  btn  font-semibold  hover:bg-primary  border-none `}
             >
               <span className="flex  items-center gap-x-1">Online</span>
-              <box-icon
-                type="solid"
-                name={`${!online ? "chevron-down" : "chevron-up"}`}
-              ></box-icon>
+              <i
+                className={`bx bx-sm ${
+                  !online ? "bx-chevron-down" : "bx-chevron-up"
+                } `}
+              ></i>
             </label>
             <ul className={`${online ? "" : "hidden "}  w-52`}>
               <li className="py-0 ">
@@ -118,23 +113,21 @@ const SideBar = () => {
               <li className="py-0 ">
                 <Link to="kelasonline">Kelas Online</Link>
               </li>
-              <li>
-                <Link to="offline">Daftar Anggota</Link>
-              </li>
             </ul>
           </div>
           <div className="dropdown dropdown-top- dropdown-end  font-semibold text-md">
             <label
               onClick={() => setOfline(!offline)}
               className={`${
-                offline ? "bg-primary" : "bg-transparent"
-              }  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}
+                offline ? "bg-prim text-white" : "bg-transparent text-prim"
+              }  w-full  justify-between  btn  font-semibold  hover:bg-primary  border-none `}
             >
               <span className="flex items-center gap-x-1">Offline</span>
-              <box-icon
-                type="solid"
-                name={`${!offline ? "chevron-down" : "chevron-up"}`}
-              ></box-icon>
+              <i
+                className={`bx bx-sm ${
+                  !offline ? "bx-chevron-down" : "bx-chevron-up"
+                } `}
+              ></i>
             </label>
             <ul className={`${offline ? "" : "hidden "} w-52`}>
               <li className="py-0 ">
@@ -143,9 +136,6 @@ const SideBar = () => {
               <li className="py-0 ">
                 <Link to="kelasoffline">Kelas offline</Link>
               </li>
-              <li>
-                <Link to="offline">Daftar Anggota</Link>
-              </li>
             </ul>
           </div>
 
@@ -153,24 +143,25 @@ const SideBar = () => {
             <label
               onClick={() => setBook(!book)}
               className={`${
-                book ? "bg-primary" : "bg-transparent"
-              }  w-full  justify-between font-bold btn  hover:bg-primary text-prim border-none `}
+                book ? "bg-prim text-white" : "bg-transparent text-prim"
+              }  w-full  justify-between  btn  font-semibold  hover:bg-prim hover:text-white border-none `}
             >
-              <span className="flex items-center gap-x-3 hover:text-base">
-                <box-icon type="solid" name="book-bookmark"></box-icon>
+              <span className="flex items-center font-bold gap-x-3">
+                <i class="bx bx-sm bxs-book-bookmark"></i>
                 Booking
               </span>
-              <box-icon
-                type="solid"
-                name={`${!book ? "chevron-down" : "chevron-up"}`}
-              ></box-icon>
+              <i
+                className={`bx bx-sm ${
+                  !book ? "bx-chevron-down" : "bx-chevron-up"
+                } `}
+              ></i>
             </label>
             <ul className={`${book ? "" : "hidden "}  w-52`}>
               <li className="py-0 text-prim2 hover:bg-primary hover:text-base rounded-lg">
                 <Link to="bookingonline">Online</Link>
               </li>
               <li className="text-prim2 hover:bg-primary hover:text-base rounded-lg">
-                <Link to="offline">Offline</Link>
+                <Link to="bookingoffline">Offline</Link>
               </li>
             </ul>
           </div>

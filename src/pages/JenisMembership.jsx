@@ -8,13 +8,19 @@ import { ModalJenisMember } from "../components/ModalJenisMember";
 import ModalTambahJenis from "../components/ModalTambahJenis.jsx";
 import useHook from "../hooks/useHook";
 import toast, { Toaster } from "react-hot-toast";
+import ModalHapus from "../components/ModalHapus";
 
 const JenisMembership = () => {
   const [member, setMember] = useState(null);
   const [data, setDatas] = useState(null);
+  const [message, setMessage] = useState("");
   const { show, setShow } = useHook();
   const { load, setLoad } = useHook();
   const { show: modalTambah, setShow: setModalTambah } = useHook();
+  const [modalDelete, setModalDelete] = useState({
+    isShow: false,
+    data: {},
+  });
   const [modalEdit, setModalEdit] = useState({
     isShow: false,
     data: {},
@@ -28,10 +34,12 @@ const JenisMembership = () => {
     }
   };
   const handleDelete = (e, id) => {
-    setLoad(true);
     e.preventDefault();
     try {
-      PostApi.hapusJenisMember(id).then((res) => setLoad(false));
+      PostApi.hapusJenisMember(id).then((res) => {
+        setMessage(res.data.message);
+        setModalDelete(false);
+      });
     } catch (error) {
       console.log(error);
     }
@@ -43,13 +51,22 @@ const JenisMembership = () => {
 
   useEffect(() => {
     listMember();
-  }, [load]);
+    if (message !== "") {
+      toast.success(message);
+      setMessage("");
+    }
+  }, [load, message]);
 
   if (load) {
-    return <h1>loading...</h1>;
+    return (
+      <div className="flex items-center relative h-screen justify-center">
+        <span className="absolute">🔃</span>
+      </div>
+    );
   }
   return (
     <>
+      <Toaster />
       <div className="relative">
         {show ? <ModalJenisMember show={show} setShow={setShow} /> : ""}
 
@@ -59,6 +76,7 @@ const JenisMembership = () => {
             setShow={setModalEdit}
             show={modalEdit.isShow}
             data={modalEdit.data}
+            setMessage={setMessage}
           />
         ) : (
           ""
@@ -66,12 +84,22 @@ const JenisMembership = () => {
 
         {modalTambah ? (
           <ModalTambahJenis
+            setMessage={setMessage}
             setLoad={setLoad}
             show={modalTambah}
             setShow={setModalTambah}
           />
         ) : (
           ""
+        )}
+
+        {modalDelete.isShow && (
+          <ModalHapus
+            show={modalDelete.isShow}
+            setShow={setModalDelete}
+            data={modalDelete.data}
+            handleDelete={handleDelete}
+          />
         )}
         <div className="">
           <div className="w-full">
@@ -82,7 +110,7 @@ const JenisMembership = () => {
             <input
               type="text"
               placeholder="Cari Membership ....."
-              className="input input-bordered input-black w-full max-w-xs"
+              className="input input-bordered input-black w-56 max-w-xs"
             />
 
             <label
@@ -95,10 +123,6 @@ const JenisMembership = () => {
           </div>
 
           <div className="bg-white my-2 p-2">
-            <h3 className="py-2 font-bold text-prim text-[24px]">
-              Daftar Jenis Membership
-            </h3>
-
             <div className="grid grid-cols-3 gap-4 ">
               {member &&
                 member.map((m) => (
@@ -170,7 +194,12 @@ const JenisMembership = () => {
                           Edit
                         </label>
                         <label
-                          onClick={(e) => handleDelete(e, m.id)}
+                          onClick={() =>
+                            setModalDelete({
+                              isShow: !modalDelete.isShow,
+                              data: m.id,
+                            })
+                          }
                           className="btnd w-full text-center  "
                         >
                           Hapus

@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
+import ModalHapus from "../../components/ModalHapus";
 import ModalEditKategoriOffline from "./ModalEditKategoriOffline";
 import ModalTambahKategoriOffline from "./ModalTambahKategoriOffline";
 
 const KategoriOffline = () => {
   const [show, setShow] = useState(false);
   const [load, setLoad] = useState(false);
+  const [modalDelete, setModalDelete] = useState({
+    isShow: false,
+    data: {},
+  });
+  const [message, setMessage] = useState("");
   const [modalEdit, setModalEdit] = useState({
     isShow: false,
     data: {},
@@ -22,12 +29,14 @@ const KategoriOffline = () => {
 
   const handleDelete = (e, id) => {
     e.preventDefault();
-    setLoad(true);
-    try {
-      PostApi.deleteKategoriOffline(id).then((res) => setLoad(false));
-    } catch (error) {
-      console.log(error);
-    }
+    PostApi.deleteKategoriOffline(id)
+      .then((res) => {
+        setMessage(res.data.message);
+        setModalDelete(false);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
   const handleEdit = (data) => {
     setModalEdit({ isShow: !modalEdit.isShow, data });
@@ -35,18 +44,42 @@ const KategoriOffline = () => {
 
   useEffect(() => {
     listKategori();
-  }, [load]);
+    if (message !== "") {
+      toast.success(message);
+      setMessage("");
+    }
+  }, [load, message]);
 
   if (load) {
     return <h1>loading...</h1>;
   }
   return (
     <>
+      <Toaster />
       {show && (
         <ModalTambahKategoriOffline
           show={show}
           setLoad={setLoad}
           setShow={setShow}
+          setMessage={setMessage}
+        />
+      )}
+      {modalEdit.isShow && (
+        <ModalEditKategoriOffline
+          show={modalEdit.isShow}
+          setLoad={setLoad}
+          setShow={setModalEdit}
+          data={modalEdit.data}
+          setMessage={setMessage}
+        />
+      )}
+
+      {modalDelete.isShow && (
+        <ModalHapus
+          show={modalDelete.isShow}
+          setShow={setModalDelete}
+          handleDelete={handleDelete}
+          data={modalDelete.data}
         />
       )}
       <div>
@@ -54,25 +87,9 @@ const KategoriOffline = () => {
           <div className="flex   input-group">
             <input
               type="text"
-              placeholder="Cari aktivitas"
-              className="input input-bordered"
+              placeholder="Cari Kategori..."
+              className="input input-bordered input-black w-full max-w-xs"
             />
-            <button className="btn btn-square bg-base">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </button>
           </div>
           <br />
           <div className="flex items-center justify-between ">
@@ -103,20 +120,24 @@ const KategoriOffline = () => {
                     <span className="">{m.online_class_count} Video</span>
                   </div>
                   <div className="w-full flex mt-2 gap-x-2 items-center justify-between">
-                    <button className="py-3 w-[90%]  font-bold rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none text-white btn-primary ">
-                      DETAIL
-                    </button>
                     <button
                       onClick={() => handleEdit(m)}
-                      className="rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none "
+                      className="py-3 w-[90%] font-bold rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none text-white flex items-center justify-center bg-primary  "
                     >
-                      <i className="bx bx-sm rounded-lg bg-dang p-1 text-white bx-edit"></i>
+                      <i className="bx  bx-edit"></i>
+                      Edit
                     </button>
+
                     <button
-                      onClick={(e) => handleDelete(e, m.id)}
+                      onClick={(e) =>
+                        setModalDelete({
+                          isShow: !modalDelete.isShow,
+                          data: m.id,
+                        })
+                      }
                       className="rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none "
                     >
-                      <i className="bx bx-sm rounded-lg bg-red-700 p-1 text-white bx-trash"></i>
+                      <i className="bx bx-sm rounded-lg bg-dang p-1 text-white bx-trash"></i>
                     </button>
                   </div>
                 </div>

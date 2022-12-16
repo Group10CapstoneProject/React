@@ -34,9 +34,6 @@ function Navbar() {
               className="dropdown-content menu p-2 w-full shadow bg-base-100  "
             >
               <li>
-                <a href="*">Item 1</a>
-              </li>
-              <li>
                 <button onClick={handleLogout}>logout</button>
               </li>
             </ul>

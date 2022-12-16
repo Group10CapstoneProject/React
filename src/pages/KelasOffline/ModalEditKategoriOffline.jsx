@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import PostApi from "../../apis/post.api";
 
-function ModalEditKategoriOffline({ setLoad, show, setShow, data }) {
+function ModalEditKategoriOffline({
+  setMessage,
+  setLoad,
+  show,
+  setShow,
+  data,
+}) {
   const [btn, setBtn] = useState(true);
   const [form, setForm] = useState({
     id: data.id,
@@ -31,17 +37,18 @@ function ModalEditKategoriOffline({ setLoad, show, setShow, data }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoad(true);
     try {
-      PostApi.updateKategoriOnline(form).then((res) => setLoad(false));
-      setShow(!show);
+      PostApi.updateKategoriOffline(form).then((res) => {
+        setMessage(res.data.message);
+        setShow(false);
+      });
     } catch (error) {
       console.log(error);
     }
   };
-
+  console.log(form);
   useEffect(() => {
-    if (form.picture !== null && form.name !== "" && form.description !== "") {
+    if (form.picture !== null) {
       setBtn(false);
     }
   }, [form]);

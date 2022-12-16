@@ -19,6 +19,7 @@ module.exports = {
         inf2: "#516CCB",
         dang: "#FF704C",
         dang2: "#D44521",
+        dang3: "#FF704C",
       },
     },
   },

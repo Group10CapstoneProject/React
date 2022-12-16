@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 
@@ -245,8 +245,11 @@ function EditKelasOnline() {
             </div>
           </div>
         </div>
-        <div className=" w-full flex justify-center mt-5 ">
-          <button className="btnp w-full">Simpan</button>
+        <div className="w-full flex justify-end mt-5 gap-x-2 ">
+          <button className={`btnp w-48`}>Simpan</button>
+          <Link to="/kelasonline" className="btnd2 w-48 text-center">
+            Hapus
+          </Link>
         </div>
       </form>
     </>

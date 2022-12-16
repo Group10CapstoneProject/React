@@ -9,6 +9,9 @@ import TambahKelasOffline from "../pages/KelasOffline/TambahKelasOffline";
 import KategoriOnline from "../pages/KelasOnline/KategoriOnline";
 import KelasOnline from "../pages/KelasOnline/KelasOnline";
 
+import BookingOffline from "../pages/BookingOffline/BookingOffline";
+import DetailBookingOffline from "../pages/BookingOffline/DetailBookingOffline";
+import DetailBookingOnline from "../pages/BookingOnline/DetailBookingOnline";
 import DetailKelasOffline from "../pages/KelasOffline/DetailKelasOffline";
 import EditKelasOffline from "../pages/KelasOffline/EditKelasOffline";
 import DetailKelasOnline from "../pages/KelasOnline/DetailKelasOnline";
@@ -22,7 +25,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import { Pembayaran } from "../pages/Pembayaran";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedRoute from "./ProtectedRoute";
-import BookingOnline from "../pages/BookingOnline";
+import BookingKelasOnline from "../pages/BookingOnline/BookingKelasOnline";
 
 export const SetUpRouters = () => {
   return (
@@ -50,10 +53,19 @@ export const SetUpRouters = () => {
           />
           <Route path="editkelasonline" element={<EditKelasOnline />} />
           <Route path="anggota" element={<KelolaAnggota />} />
-          <Route path="/detail" element={<DetailAnggota />} />
+          <Route path="detail/:id" element={<DetailAnggota />} />
           <Route path="jenis" element={<JenisMembership />} />
           <Route path="member" element={<Member />} />
-          <Route path="bookingonline" element={<BookingOnline />} />
+          <Route path="bookingonline" element={<BookingKelasOnline />} />
+          <Route
+            path="detailBookingOnline/:id"
+            element={<DetailBookingOnline />}
+          />
+          <Route path="bookingoffline" element={<BookingOffline />} />
+          <Route
+            path="detailBookingOffline/:id"
+            element={<DetailBookingOffline />}
+          />
           {/* <Route path="bookingoffline" element={<BookingOnline />} /> */}
 
           <Route path="*" element={<NotFoundPage />} />
