@@ -53,26 +53,14 @@ function BookingOffline() {
   return (
     <>
       <Toaster />
-      {modalDelete.isShow && (
-        <ModalHapus
-          show={modalDelete.isShow}
-          setShow={setModalDelete}
-          handleDelete={handleDelete}
-          data={modalDelete.data}
-        />
-      )}
+      {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} setShow={setModalDelete} handleDelete={handleDelete} data={modalDelete.data} />}
       <h1 className="font-bold text-2xl text-info">DAFTAR BOOKING CLASS</h1>
       <div className="flex  pt-4 input-group justify-start">
-        <input
-          onChange={(e) => setSearch(e.target.value)}
-          type="text"
-          placeholder="Cari Anggota ....."
-          className="input input-bordered input-black  w-56 max-w-xs"
-        />
+        <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Cari Anggota ....." className="input input-bordered input-black  w-56 max-w-xs" />
       </div>
       <br />
       <div className="overflow-x-auto">
-        <table className="table table-compact text-black w-full">
+        <table className="table table-compact text-black w-full text-center">
           <thead>
             <tr>
               <th>No</th>
@@ -96,25 +84,16 @@ function BookingOffline() {
                   <td className="leading-none">{m.online_class_title}</td>
                   <td className="leading-none">
                     {" "}
-                    <Moment format="D MMM YYYY hh:mm:ss">
-                      {m.actived_at}
-                    </Moment>{" "}
+                    <Moment format="D MMM YYYY hh:mm:ss">{m.actived_at}</Moment>{" "}
                   </td>
                   <td className="leading-none">
                     {" "}
-                    <Moment format="D MMM YYYY hh:mm:ss">
-                      {m.expired_at}
-                    </Moment>{" "}
+                    <Moment format="D MMM YYYY hh:mm:ss">{m.expired_at}</Moment>{" "}
                   </td>
-                  <td className="leading-none text-inf2 font-semibold">
-                    {m.status}
-                  </td>
+                  <td className="leading-none text-inf2 font-semibold">{m.status}</td>
 
-                  <td className="flex gap-x-1 ">
-                    <button
-                      className="btnp"
-                      onClick={() => navigate(`/detailBookingOffline/${m.id}`)}
-                    >
+                  <td className="flex gap-x-1 justify-center">
+                    <button className="btnp" onClick={() => navigate(`/detailBookingOffline/${m.id}`)}>
                       Detail
                     </button>
                     <button
@@ -143,24 +122,14 @@ function BookingOffline() {
       <div className="flex justify-between">
         <div className="flex gap-x-2 font-semibold">
           <label>Show : </label>
-          <select
-            defaultChecked="10"
-            name=""
-            id=""
-            onChange={(e) => setPostPerPage(parseInt(e.target.value))}
-          >
+          <select defaultChecked="10" name="" id="" onChange={(e) => setPostPerPage(parseInt(e.target.value))}>
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="30">30</option>
             <option value="40">30</option>
           </select>
         </div>
-        <Paginations
-          postPerPage={postPerPage}
-          totalPosts={booking?.count}
-          paginate={paginate}
-          currentPage={currentPage}
-        />
+        <Paginations postPerPage={postPerPage} totalPosts={booking?.count} paginate={paginate} currentPage={currentPage} />
       </div>
     </>
   );

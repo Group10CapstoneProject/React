@@ -56,61 +56,28 @@ const KategoriOffline = () => {
   return (
     <>
       <Toaster />
-      {show && (
-        <ModalTambahKategoriOffline
-          show={show}
-          setLoad={setLoad}
-          setShow={setShow}
-          setMessage={setMessage}
-        />
-      )}
-      {modalEdit.isShow && (
-        <ModalEditKategoriOffline
-          show={modalEdit.isShow}
-          setLoad={setLoad}
-          setShow={setModalEdit}
-          data={modalEdit.data}
-          setMessage={setMessage}
-        />
-      )}
+      {show && <ModalTambahKategoriOffline show={show} setLoad={setLoad} setShow={setShow} setMessage={setMessage} />}
+      {modalEdit.isShow && <ModalEditKategoriOffline show={modalEdit.isShow} setLoad={setLoad} setShow={setModalEdit} data={modalEdit.data} setMessage={setMessage} />}
 
-      {modalDelete.isShow && (
-        <ModalHapus
-          show={modalDelete.isShow}
-          setShow={setModalDelete}
-          handleDelete={handleDelete}
-          data={modalDelete.data}
-        />
-      )}
+      {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} setShow={setModalDelete} handleDelete={handleDelete} data={modalDelete.data} />}
       <div>
         <div className="form-control">
           <div className="flex   input-group">
-            <input
-              type="text"
-              placeholder="Cari Kategori..."
-              className="input input-bordered input-black w-full max-w-xs"
-            />
+            <input type="text" placeholder="Cari Kategori..." className="input input-bordered input-black w-full max-w-xs" />
           </div>
           <br />
           <div className="flex items-center justify-between ">
             <h4 className="font-bold text-prim">Kategori Kelas Offline</h4>
             <div className="flex justify-end ">
-              <label
-                onClick={() => setShow(true)}
-                htmlFor="my-modal-5"
-                className="btn border-prim bg-prim hover:bg-accent text-white transition duration-200 ease-in hover:border-base"
-              >
-                <i className="bx bx-user-plus bx-sm"></i> Tambah Kategori
+              <label onClick={() => setShow(true)} htmlFor="my-modal-5" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
+                <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Kategori
               </label>
             </div>
           </div>
 
           <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3">
             {kategori?.map((m) => (
-              <div
-                key={m.id}
-                className="  card w-[320px]  h-72 bg-base-100 shadow-xl "
-              >
+              <div key={m.id} className="  card w-[320px]  h-72 bg-base-100 shadow-xl ">
                 <figure className="  h-full">
                   <img className="h-full w-full" src={m.picture} alt="Yoga" />
                 </figure>

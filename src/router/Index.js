@@ -26,6 +26,7 @@ import { Pembayaran } from "../pages/Pembayaran";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedRoute from "./ProtectedRoute";
 import BookingKelasOnline from "../pages/BookingOnline/BookingKelasOnline";
+import Admin from "../pages/Admin";
 
 export const SetUpRouters = () => {
   return (
@@ -42,30 +43,19 @@ export const SetUpRouters = () => {
           <Route path="kategorioffline" element={<KategoriOffline />} />
           <Route path="kelasoffline" element={<KelasOffline />} />
           <Route path="tambahkelasoffline" element={<TambahKelasOffline />} />
-          <Route
-            path="detailkelasoffline/:id"
-            element={<DetailKelasOffline />}
-          />
+          <Route path="detailkelasoffline/:id" element={<DetailKelasOffline />} />
           <Route path="editkelasoffline" element={<EditKelasOffline />} />
-          <Route
-            path="detailkelasoffline/:id"
-            element={<DetailKelasOffline />}
-          />
+          <Route path="detailkelasoffline/:id" element={<DetailKelasOffline />} />
           <Route path="editkelasonline" element={<EditKelasOnline />} />
           <Route path="anggota" element={<KelolaAnggota />} />
           <Route path="detail/:id" element={<DetailAnggota />} />
           <Route path="jenis" element={<JenisMembership />} />
           <Route path="member" element={<Member />} />
           <Route path="bookingonline" element={<BookingKelasOnline />} />
-          <Route
-            path="detailBookingOnline/:id"
-            element={<DetailBookingOnline />}
-          />
+          <Route path="detailBookingOnline/:id" element={<DetailBookingOnline />} />
           <Route path="bookingoffline" element={<BookingOffline />} />
-          <Route
-            path="detailBookingOffline/:id"
-            element={<DetailBookingOffline />}
-          />
+          <Route path="detailBookingOffline/:id" element={<DetailBookingOffline />} />
+          <Route path="admin" element={<Admin />} />
           {/* <Route path="bookingoffline" element={<BookingOnline />} /> */}
 
           <Route path="*" element={<NotFoundPage />} />

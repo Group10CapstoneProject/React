@@ -28,9 +28,7 @@ const KelolaAnggota = () => {
   const { load, setLoad } = useHook();
   const listMember = async () => {
     try {
-      Gym.members({ currentPage, postPerPage, search }).then((res) =>
-        setMember(res.data.data)
-      );
+      Gym.members({ currentPage, postPerPage, search }).then((res) => setMember(res.data.data));
     } catch (error) {
       console.log(error);
     }
@@ -65,20 +63,9 @@ const KelolaAnggota = () => {
   }
   return (
     <div className="relative">
-      {show ? (
-        <ModalTambahAnggota setLoad={setLoad} show={show} setShow={setShow} />
-      ) : (
-        ""
-      )}
+      {show ? <ModalTambahAnggota setLoad={setLoad} show={show} setShow={setShow} /> : ""}
 
-      {modalDelete.isShow && (
-        <ModalHapus
-          show={modalDelete.isShow}
-          handleDelete={handleDelete}
-          data={modalDelete.data}
-          setShow={setModalDelete}
-        />
-      )}
+      {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} handleDelete={handleDelete} data={modalDelete.data} setShow={setModalDelete} />}
       <Toaster />
       <div className="">
         <div className="w-full">
@@ -94,19 +81,10 @@ const KelolaAnggota = () => {
               className="input input-bordered input-black w-full max-w-xs"
             />
           </form> */}
-          <input
-            onChange={(e) => setSearch(e.target.value)}
-            type="text"
-            placeholder="Cari Anggota ....."
-            className="input input-bordered input-black w-56 max-w-xs"
-          />
+          <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Cari Anggota ....." className="input input-bordered input-black w-56 max-w-xs" />
 
-          <label
-            onClick={() => setShow(!show)}
-            htmlFor="my-modal-5"
-            className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base"
-          >
-            <i className="bx bx-user-plus bx-sm"></i>Tambah member
+          <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
+            <i className="bx bx-user-plus bx-sm pr-2"></i>Tambah member
           </label>
         </div>
 
@@ -132,32 +110,18 @@ const KelolaAnggota = () => {
                       <th>{++index}</th>
                       <td>{m.user_name}</td>
                       <td>{m.member_type_name}</td>
-                      <td
-                        className={`${
-                          m.status === "ACTIVE"
-                            ? "text-suc"
-                            : m.status === "INACTIVE"
-                            ? "text-dang2"
-                            : "text-inf2"
-                        }`}
-                      >
+                      <td className={`${m.status === "ACTIVE" ? "text-suc" : m.status === "INACTIVE" ? "text-dang2" : "text-inf2"}`}>
                         <span> </span>
                         <span>{m.status}</span>
                       </td>
                       <td>{m.duration} Bulan</td>
                       <td>
                         {" "}
-                        <Moment format="D MMM YYYY hh:mm:ss">
-                          {m.actived_at}
-                        </Moment>
+                        <Moment format="D MMM YYYY hh:mm:ss">{m.actived_at}</Moment>
                       </td>
 
                       <td className="flex gap-x-2 items-start justify-center">
-                        <label
-                          onClick={() => navigate(`/detail/${m.id}`)}
-                          htmlFor="my-modal-5"
-                          className="btnp flex items-center"
-                        >
+                        <label onClick={() => navigate(`/detail/${m.id}`)} htmlFor="my-modal-5" className="btnp flex items-center">
                           Detail
                         </label>
                         <button
@@ -184,24 +148,14 @@ const KelolaAnggota = () => {
             <div className="flex justify-between">
               <div className="flex gap-x-2 font-semibold">
                 <label>Show : </label>
-                <select
-                  defaultChecked="10"
-                  name=""
-                  id=""
-                  onChange={(e) => setPostPerPage(parseInt(e.target.value))}
-                >
+                <select defaultChecked="10" name="" id="" onChange={(e) => setPostPerPage(parseInt(e.target.value))}>
                   <option value="10">10</option>
                   <option value="20">20</option>
                   <option value="30">30</option>
                   <option value="40">30</option>
                 </select>
               </div>
-              <Paginations
-                postPerPage={postPerPage}
-                totalPosts={member?.count}
-                paginate={paginate}
-                currentPage={currentPage}
-              />
+              <Paginations postPerPage={postPerPage} totalPosts={member?.count} paginate={paginate} currentPage={currentPage} />
             </div>
           </div>
         </div>
