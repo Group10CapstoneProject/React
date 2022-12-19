@@ -15,7 +15,7 @@ import DetailKelasOnline from "../pages/KelasOnline/DetailKelasOnline";
 import EditKelasOnline from "../pages/KelasOnline/EditKelasOnline";
 import TambahKelasOnline from "../pages/KelasOnline/TambahKelasOnline";
 import KelolaAnggota from "../pages/KelolaAnggota";
-import LandingPage from "../pages/LandingPage";
+import LandingPage from "../pages/LandingPage/LandingPage";
 import Login from "../pages/Login";
 import { Member } from "../pages/Member";
 import NotFoundPage from "../pages/NotFoundPage";
@@ -56,7 +56,7 @@ export const SetUpRouters = () => {
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>
-        <Route path="landingpage" element={<LandingPage />} />
+        <Route path="/landingpage" element={<LandingPage />} />
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/home" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />
