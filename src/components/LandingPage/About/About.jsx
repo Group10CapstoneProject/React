@@ -6,9 +6,9 @@ import dumbbellImage from "../../../assets/images/dumbbell.png";
 import applicationImage from "../../../assets/images/application.png";
 import weightsImage from "../../../assets/images/weights.png";
 
-const Product = () => {
+const About = () => {
   return (
-    <div>
+    <div className="bg-base h-[110vh]">
       <div className="flex justify-center pt-[60px]">
         <h1 className="text-center text-3xl font-semibold text-prim1">Kenapa Harus AltaGym?</h1>
       </div>
@@ -89,4 +89,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default About;

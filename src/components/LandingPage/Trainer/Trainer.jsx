@@ -7,7 +7,7 @@ import profil4Image from "../../../assets/images/profil4.png";
 
 const Trainer = () => {
   return (
-    <div>
+    <div className="bg-border2 h-[110vh]">
       <div className="flex justify-center pt-[60px]">
         <h1 className="text-center text-3xl font-semibold text-prim1">Trainer profesional yang ahli dibidangnya</h1>
       </div>
