@@ -11,3 +11,17 @@
 .borders {
   @apply border-2 border-black;
 }
+
+.btnp {
+  @apply px-3 py-1 rounded-lg cursor-pointer bg-prim text-white font-semibold active:scale-95 hover:bg-prim/80 transition-all duration-100 ease-linear;
+}
+.btnw {
+  @apply px-3 py-1 rounded-lg cursor-not-allowed bg-prim/40 text-white font-semibold active:scale-95 transition-all duration-100 ease-linear;
+}
+.btnd {
+  @apply px-3 py-1 rounded-lg cursor-pointer bg-dang text-white font-semibold active:scale-95 hover:bg-dang/80 transition-all duration-100 ease-linear;
+}
+
+.inputJenis {
+  @apply border border-primary block my-1 rounded-none input-primary;
+}

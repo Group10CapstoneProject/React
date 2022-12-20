@@ -1,22 +1,18 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Gym from "../apis/Gym";
+import { Navigate, useNavigate } from "react-router-dom";
+import Gym from "../apis/get.api";
+import PostApi from "../apis/post.api";
 import addMember from "../assets/svg/addMember.svg";
-import Modal from "../components/Modal";
+import ModalAnggota from "../components/ModalAnggota";
+import ModalTambahAnggota from "../components/ModalTambahAnggota";
+import useHook from "../hooks/useHook";
 import Auth from "../utils/Auth";
 const KelolaAnggota = () => {
+  let navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [member, setMember] = useState(null);
-
-  axios.interceptors.request.use(
-    (config) => {
-      config.headers.authorization = `Bearer ${Auth.getAccessToken()}`;
-      return config;
-    },
-    (error) => {
-      return Promise.reject(error);
-    }
-  );
+  const { load, setLoad } = useHook();
   const listMember = async () => {
     try {
       Gym.members().then((res) => setMember(res.data.data));
@@ -24,13 +20,23 @@ const KelolaAnggota = () => {
       console.log(error);
     }
   };
+
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+    setLoad(true);
+    PostApi.hapusAnggota(id).then((res) => setLoad(false));
+  };
+
   useEffect(() => {
     listMember();
-  }, []);
+  }, [load]);
 
+  if (load) {
+    return <h1>load...</h1>;
+  }
   return (
     <div className="relative">
-      {show ? <Modal show={show} setShow={setShow} /> : ""}
+      {show ? <ModalTambahAnggota setLoad={setLoad} show={show} setShow={setShow} /> : ""}
       <div className="p-2  mx-5">
         <div className="w-full">
           <h4 className="font-bold">Kelola Anggota</h4>
@@ -39,20 +45,19 @@ const KelolaAnggota = () => {
         <div className="pt-2 flex justify-between ">
           <input type="text" placeholder="Cari Anggota ....." className="input input-bordered input-black w-full max-w-xs" />
 
-          <button className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
-            <img className="fill-gray-800" src={addMember} alt="" /> Tambah Anggota
-          </button>
+          <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
+            <i className="bx bx-user-plus bx-sm"></i>Tambah Anggota
+          </label>
         </div>
 
         <div className="bg-white my-2 p-2">
           <h3 className="py-2 font-bold text-black text-2xl">Manage Member</h3>
           <div className="">
-            <table className="table w-full text-sm my-2 ">
+            <table className="table table-compact w-full text-sm ">
               <thead>
                 <tr>
                   <th>Nomor</th>
                   <th>Nama</th>
-                  <th>Email</th>
                   <th>Jenis Membership</th>
                   <th>Status Membership</th>
                   <th>Aksi</th>
@@ -60,17 +65,19 @@ const KelolaAnggota = () => {
               </thead>
               <tbody className="font-semibold">
                 {member &&
-                  member.members.map((m) => (
+                  member.members.map((m, index) => (
                     <tr key={m.id}>
-                      <th></th>
-                      <td>Muhammad Agil</td>
-                      <td>agilz@gmail.com</td>
-                      <td>Gold</td>
-                      <td>aktif</td>
-                      <td>
-                        <label htmlFor="my-modal-5" className="px-4 py-2 bg-primary cursor-pointer text-white rounded-lg active:scale-90 transition duration-100 ease-in">
+                      <th>{++index}</th>
+                      <td>{m.user_name}</td>
+                      <td>{m.member_type_name}</td>
+                      <td>{m.status}</td>
+                      <td className="flex gap-x-2">
+                        <label onClick={() => navigate("/detail")} htmlFor="my-modal-5" className="btnp flex items-center">
                           Detail
                         </label>
+                        <button onClick={(e) => handleDelete(e, m.id)} className="btnd">
+                          Hapus
+                        </button>
                       </td>
                     </tr>
                   ))}

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Modal = ({ show, setShow }) => {
+export const ModalJenisMember = ({ show, setShow }) => {
   const onChange = (e) => {
     const { name, value } = e.target;
     console.log(name, value);
@@ -9,11 +9,9 @@ const Modal = ({ show, setShow }) => {
     e.preventDefault();
     setShow(!show);
   };
-
   return (
     <>
-      <input type="checkbox" id="my-modal" className="modal-toggle" />
-      <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+      <input defaultChecked={show} type="checkbox" className="modal-toggle" />
       <div className="modal ">
         <div className="modal-box  p-0 overflow-hidden w-1/2 max-w-5xl">
           <div className="w-full p-3 bg-base2 flex">
@@ -52,7 +50,7 @@ const Modal = ({ show, setShow }) => {
                   <input className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" type="text" />
                   <input className="w-full input-sm border border-primary block py-1 my-1 rounded-none input-primary" type="text" />
                   <input className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" type="text" />
-                  <input className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" type="text" />
+                  <input className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" type="file" />
                 </div>
               </div>
               <div className="modal-action flex">
@@ -70,5 +68,3 @@ const Modal = ({ show, setShow }) => {
     </>
   );
 };
-
-export default Modal;

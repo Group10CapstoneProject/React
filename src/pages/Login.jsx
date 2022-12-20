@@ -43,11 +43,11 @@ function Login() {
               <label className="block ply-2">
                 <b>Email</b>
               </label>
-              <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Type here" className="input w-full" />
+              <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="alta@gmail.com" className="input input-bordered w-full" />
               <label className="block py-2">
                 <b>Password</b>
               </label>
-              <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Masukkan password" className="input w-full" />
+              <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="******" className="input input-bordered w-full" />
               <div className="flex gap-x-1 py-2">
                 <input type="checkbox" name="" id="" />
                 <label>Ingat saya</label>

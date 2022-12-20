@@ -21,7 +21,7 @@ export const Member = () => {
       <div className="bg-white my-2 p-2">
         <h3 className="py-2 font-bold text-black text-2xl">Manage Member</h3>
         <div className="overflow-x-auto">
-          <table className="table w-full text-sm">
+          <table className="table table-compact w-full text-sm">
             <thead>
               <tr>
                 <th>Nomor</th>
