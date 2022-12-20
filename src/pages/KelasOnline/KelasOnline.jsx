@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import ModalTambahKategoriOnline from "../../components/ModalTambahKategoriOnline";
+import ModalTambahKategoriOnline from "./ModalTambahKategoriOnline";
 import Gym from "../../apis/get.api";
 import { useEffect } from "react";
 import PostApi from "../../apis/post.api";
@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FormatRupiah } from "@arismun/format-rupiah";
 
 const KelasOnline = () => {
+  let navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [load, setLoad] = useState(false);
   const [kelas, setKelas] = useState([]);
@@ -19,12 +20,11 @@ const KelasOnline = () => {
     }
   };
 
-  console.log(kelas);
   const handleDelete = (e, id) => {
     e.preventDefault();
     setLoad(true);
     try {
-      PostApi.deleteKategoriOnline(id).then((res) => setLoad(false));
+      PostApi.deleteKelasOnline(id).then((res) => setLoad(false));
     } catch (error) {
       console.log(error);
     }
@@ -51,17 +51,17 @@ const KelasOnline = () => {
           </div>
           <br />
           <div className="flex items-center   justify-between ">
-            <h4 className="font-bold text-prim">Kategori Kelas</h4>
+            <h4 className="font-bold text-prim">Kelas Online</h4>
             <div className="flex justify-end ">
-              <Link to="/tambahkelasonline" className="btn border-prim bg-prim hover:bg-accent text-white transition duration-200 ease-in hover:border-base">
-                <i className="bx bx-user-plus bx-sm"></i> Tambah Kategori
+              <Link to="/tambahkelasonline" className="btn border-prim bg-prim hover:bg-info text-white transition duration-200 ease-in hover:border-base">
+                <i className="bx bx-user-plus bx-sm"></i> Tambah Kelas
               </Link>
             </div>
           </div>
 
           <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3">
             {kelas?.map((m) => (
-              <div key={m.id} className="  card w-[320px]  h-[300px] bg-base-100 shadow-xl cursor-pointer hover:scale-90 ease-in-out duration-300">
+              <div key={m.id} className="card w-[320px] border-prim h-[300px] bg-base-100 shadow-xl">
                 <figure className="  h-full">
                   <img className="h-full w-full" src={m.picture} alt="Yoga" />
                 </figure>
@@ -83,7 +83,12 @@ const KelasOnline = () => {
                     </div>
                   </div>
                   <div className="w-full flex mt-2 gap-x-2 items-center justify-between">
-                    <button className="py-3 w-[90%] rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none text-white btn-primary ">Edit</button>
+                    <button
+                      onClick={() => navigate(`/detailkelasonline/${m.id}`)}
+                      className="py-3 w-[90%] rounded-lg font-semibold active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none text-white btn-primary "
+                    >
+                      Detail
+                    </button>
                     <button onClick={(e) => handleDelete(e, m.id)} className="rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none ">
                       <i className="bx bx-sm rounded-lg bg-dang p-1 text-white bx-trash"></i>
                     </button>

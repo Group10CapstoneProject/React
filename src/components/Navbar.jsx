@@ -13,8 +13,7 @@ function Navbar() {
   };
   const dataAdmin = JSON.parse(Cookies.get("data"));
   return (
-    <nav className="w-full sticky h-[60px] z-50  bg-base/60 border px-4 py-2  flex items-center justify-between">
-      <div>{path.pathname}</div>
+    <nav className="w-full sticky h-[60px] z-50  bg-base/60 border px-4 py-2  flex items-center justify-end">
       <div>
         <ul className="flex gap-x-4">
           <li className="indicator tab tab-lifted tab-active">Notifikasi</li>

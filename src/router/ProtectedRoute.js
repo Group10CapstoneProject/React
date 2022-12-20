@@ -5,7 +5,7 @@ import Auth from "../utils/Auth";
 
 function ProtectedRoute() {
   if (Auth.isAuthorization()) {
-    return <Navigate to="/" replace />;
+    // return <Navigate to="/" replace />;
   }
 
   return <Outlet />;

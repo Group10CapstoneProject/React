@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Gym from "../apis/get.api";
+import Gym from "../apis/Gym";
 
 const OfflineClass = () => {
   const [member, setMember] = useState([]);

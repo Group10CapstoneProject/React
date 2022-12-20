@@ -1,10 +1,13 @@
+import Cookies from "js-cookie";
 import React from "react";
 import Navbar from "../components/Navbar";
 
 function Dashboard() {
+  const dataAdmin = JSON.parse(Cookies.get("data"));
+  console.log(dataAdmin);
   return (
     <div className="">
-      <h1 className="text-3xl mb-5 font-bold text-primary">Selamat Datang Kembali Admin 01</h1>
+      <h1 className="text-3xl mb-5 font-bold text-primary">Selamat Datang Kembali {dataAdmin && dataAdmin.role}</h1>
       <div className="grid grid-cols-4 mb-5">
         <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-warn">
           <div className="flex justify-center items-center">
@@ -52,7 +55,6 @@ function Dashboard() {
               <th>Email</th>
               <th>Jenis</th>
               <th>Status</th>
-              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -61,15 +63,6 @@ function Dashboard() {
               <td>Kel@gmail.com</td>
               <td>Gold</td>
               <td>Waiting</td>
-              <td className="flex gap-x-1 ">
-                <button>
-                  <i className="bx bx-edit bx-sm text-prim"></i>
-                </button>
-                <button>
-                  {" "}
-                  <i className="bx bx-trash bx-sm text-dang"></i>
-                </button>
-              </td>
             </tr>
           </tbody>
         </table>

@@ -36,10 +36,7 @@ export const ModalMethod = ({ setLoad, show, setShow }) => {
             <span>❗</span>
             <div>
               <h2 className="font-bold text-lg">Tambah Metode Pembayaran</h2>
-              <p className="text-sm font-semibold">
-                kamu dapat mengedit data member dan menkonfirmasi pembayaran
-                disini.
-              </p>
+              <p className="text-sm font-semibold">kamu dapat mengedit data member dan menkonfirmasi pembayaran disini.</p>
             </div>
           </div>
           <form onSubmit={handleSubmit}>
@@ -57,33 +54,14 @@ export const ModalMethod = ({ setLoad, show, setShow }) => {
                   </label>
                 </div>
                 <div className="w-full">
-                  <input
-                    onChange={onChange}
-                    className="w-full input-sm border border-primary   block py-1 my-1 rounded-none input-primary"
-                    type="text"
-                    name="name"
-                  />
-                  <input
-                    onChange={onChange}
-                    className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
-                    type="number"
-                    name="payment_number"
-                  />
-                  <input
-                    onChange={onChange}
-                    className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
-                    type="text"
-                    name="description"
-                  />
+                  <input onChange={onChange} className="w-full input-sm border border-primary   block py-1 my-1 rounded-none input-primary" type="text" name="name" />
+                  <input onChange={onChange} className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" type="number" name="payment_number" />
+                  <input onChange={onChange} className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" type="text" name="description" />
                 </div>
               </div>
               <div className="modal-action flex">
                 <button className="btn">Tambah</button>
-                <label
-                  onClick={() => setShow(!show)}
-                  htmlFor="my-modal-5"
-                  className="btn"
-                >
+                <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btn">
                   Batal
                 </label>
               </div>

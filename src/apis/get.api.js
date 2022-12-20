@@ -32,6 +32,32 @@ const Gym = {
     }
   },
 
+  async offline() {
+    try {
+      const response = await axiosInstance.get(`/offline-classes/categories`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+  async offlineKategori() {
+    try {
+      const response = await axiosInstance.get(`/offline-classes/categories`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+
+  async offlineKelas() {
+    try {
+      const response = await axiosInstance.get("/offline-classes");
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   async onlinekelas() {
     try {
       const response = await axiosInstance.get("/online-classes");
@@ -41,9 +67,44 @@ const Gym = {
     }
   },
 
+  async detailOnlineKelas(id) {
+    try {
+      const response = await axiosInstance.get(`online-classes/details/${id}`);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  async detailOfflineKelas(id) {
+    try {
+      const response = await axiosInstance.get(`offline-classes/details/${id}`);
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   async memberType() {
     try {
       const response = await axiosInstance.get(`/members/types`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+
+  async bookingOnline() {
+    try {
+      const response = await axiosInstance.get(`/online-classes/bookings`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+
+  async bookingOffline() {
+    try {
+      const response = await axiosInstance.get(`/offline-classes/bookings`);
       return response;
     } catch (error) {
       console.log("error");

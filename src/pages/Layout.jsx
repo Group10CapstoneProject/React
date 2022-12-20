@@ -2,7 +2,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import React from "react";
 import { useJwt } from "react-jwt";
-import SideBar from "../components/SideBar";
+import SideBar from "../components/SideBars";
 import Auth from "../utils/Auth";
 
 function Layout() {

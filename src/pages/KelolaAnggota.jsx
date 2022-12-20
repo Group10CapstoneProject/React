@@ -36,28 +36,16 @@ const KelolaAnggota = () => {
   }
   return (
     <div className="relative">
-      {show ? (
-        <ModalTambahAnggota setLoad={setLoad} show={show} setShow={setShow} />
-      ) : (
-        ""
-      )}
+      {show ? <ModalTambahAnggota setLoad={setLoad} show={show} setShow={setShow} /> : ""}
       <div className="p-2  mx-5">
         <div className="w-full">
           <h4 className="font-bold">Kelola Anggota</h4>
         </div>
 
         <div className="pt-2 flex justify-between ">
-          <input
-            type="text"
-            placeholder="Cari Anggota ....."
-            className="input input-bordered input-black w-full max-w-xs"
-          />
+          <input type="text" placeholder="Cari Anggota ....." className="input input-bordered input-black w-full max-w-xs" />
 
-          <label
-            onClick={() => setShow(!show)}
-            htmlFor="my-modal-5"
-            className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base"
-          >
+          <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
             <i className="bx bx-user-plus bx-sm"></i>Tambah Anggota
           </label>
         </div>
@@ -84,17 +72,10 @@ const KelolaAnggota = () => {
                       <td>{m.member_type_name}</td>
                       <td>{m.status}</td>
                       <td className="flex gap-x-2">
-                        <label
-                          onClick={() => navigate("/detail")}
-                          htmlFor="my-modal-5"
-                          className="btnp flex items-center"
-                        >
+                        <label onClick={() => navigate("/detail")} htmlFor="my-modal-5" className="btnp flex items-center">
                           Detail
                         </label>
-                        <button
-                          onClick={(e) => handleDelete(e, m.id)}
-                          className="btnd"
-                        >
+                        <button onClick={(e) => handleDelete(e, m.id)} className="btnd">
                           Hapus
                         </button>
                       </td>
