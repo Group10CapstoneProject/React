@@ -12,7 +12,7 @@ const Hero = () => {
           <div className="">
             <h1 className="mb-5 text-5xl font-bold text-white pr-[750px]">Hidup lebih sehat</h1>
             <h1 className="mb-5 text-5xl font-bold text-white pr-[750px]">dengan ALTAGYM</h1>
-            <div className="text-start text-2xl pt-4">
+            <div className="text-start text-2xl pt-4 tracking-wider">
               <p className="pr-[750px] text-white">Aplikasi pemesanan kebugaran</p>
               <p className="pr-[750px] text-white">dan kesehatan dengan bimbingan</p>
               <p className="pr-[750px] text-white">para pelatih profesional</p>

@@ -10,7 +10,7 @@ const About = () => {
   return (
     <div className="bg-base h-[110vh]">
       <div className="flex justify-center pt-[60px]">
-        <h1 className="text-center text-3xl font-bold text-prim" id="product">
+        <h1 className="text-center text-3xl font-bold text-prim2" id="product">
           Kenapa Harus AltaGym?
         </h1>
       </div>
