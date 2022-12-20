@@ -10,7 +10,9 @@ const About = () => {
   return (
     <div className="bg-base h-[110vh]">
       <div className="flex justify-center pt-[60px]">
-        <h1 className="text-center text-3xl font-semibold text-prim1">Kenapa Harus AltaGym?</h1>
+        <h1 className="text-center text-3xl font-bold text-prim" id="product">
+          Kenapa Harus AltaGym?
+        </h1>
       </div>
       <div className="flex justify-center pt-4">
         <p className="text-center text-lg">AltaGym bisa bikin kamu sehat hanya dengan satu Aplikasi lho!</p>

@@ -14,16 +14,16 @@ const Navbar = () => {
             </label>
             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-info rounded-box w-52">
               <li>
-                <a>Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a>Product</a>
+                <a href="#product">Product</a>
               </li>
               <li>
-                <a>Pricing</a>
+                <a href="#pricing">Pricing</a>
               </li>
               <li>
-                <a>Testimony</a>
+                <a href="#testimony">Testimony</a>
               </li>
             </ul>
           </div>
@@ -35,21 +35,23 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Home</a>
+              <a href="/">Home</a>
             </li>
             <li>
-              <a>Product</a>
+              <a href="#product">Product</a>
             </li>
             <li>
-              <a>Pricing</a>
+              <a href="#pricing">Pricing</a>
             </li>
             <li>
-              <a>Testimony</a>
+              <a href="#testimony">Testimony</a>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn bg-primary text-white hover:bg-accent">Gabung Sekarang</a>
+          <a className="btn bg-primary text-white hover:bg-accent" href="#join">
+            Gabung Sekarang
+          </a>
         </div>
       </div>
     </div>

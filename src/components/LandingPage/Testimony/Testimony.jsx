@@ -7,7 +7,9 @@ const Testimony = () => {
   return (
     <div className="bg-border3 h-[110vh]">
       <div className="flex justify-start pt-[60px] pl-[100px]">
-        <h1 className="text-center text-3xl font-semibold text-prim1">Apa Kata Mereka?</h1>
+        <h1 className="text-center text-3xl font-bold text-prim" id="testimony">
+          Apa Kata Mereka?
+        </h1>
       </div>
       <div className="flex justify-start pt-4 pl-[100px]">
         <p className="text-center text-lg">Yuk, lihat cerita dari para sobat AltaGym biar kamu semakin terinspirasi dalam menjalani gaya hidup sehat!</p>

@@ -8,7 +8,9 @@ const Pricing = () => {
   return (
     <div className="bg-border2 h-[120vh]">
       <div className="flex justify-center pt-[60px]">
-        <h1 className="text-center text-3xl font-semibold text-prim1">Penawaran Terbaik Kami</h1>
+        <h1 className="text-center text-3xl font-bold text-prim" id="pricing">
+          Penawaran Terbaik Kami
+        </h1>
       </div>
       <div className="flex justify-center pt-4">
         <p className="text-center text-lg">Ngegym gak pake mahal! dapatkan akses tak terbatas ke seluruh premium gym AltaGym dan kelas</p>
@@ -89,9 +91,10 @@ const Pricing = () => {
           </div>
         </div>
         <div className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[500px] bg-white hover:scale-110 ease-in-out duration-300">
-          <div className="w-full pt-3 bg-suc3">
-            <div className="pb-2">
-              <h1 className="text-center text-base-200">Best Value</h1>
+          <div className="w-full pt-2 bg-suc3">
+            <div className="pb-1">
+              <i className="bx bx-star bx-sm flex justify-center" style={{ color: "#ffffff" }} />
+              <h1 className="text-center text-base-200 font-bold">Best Value</h1>
             </div>
           </div>
           <div className="flex  justify-between flex-col h-full p-3 items-center ">
@@ -121,7 +124,7 @@ const Pricing = () => {
                 <i className="bx text-[20px] text-dang4 bx-x-circle"></i>
                 <p className="text-[12px]">Gratis 4 sesi personal training</p>
               </div>
-              <div className="py-8">
+              <div className="pb-[55px]">
                 <button className="btn btn-wide btn-outline bg-suc3 hover:bg-suc3 text-white">BELI SEKARANG</button>
               </div>
             </div>

@@ -7,16 +7,18 @@ const Download = () => {
   return (
     <div className="bg-border2 h-[100%]">
       <div className="flex justify-start pt-[60px]">
-        <h1 className="text-start text-3xl font-bold text-info pl-[200px]">Mulai Hidup Sehatmu Dari</h1>
+        <h1 className="text-start text-5xl font-bold text-info pl-[200px]" id="join">
+          Mulai Hidup Sehatmu Dari
+        </h1>
       </div>
       <div>
-        <h1 className="text-start text-3xl font-bold text-info pl-[200px]">Sekarang</h1>
+        <h1 className="text-start text-5xl font-bold text-info pl-[200px]">Sekarang</h1>
       </div>
       <div className="flex justify-start pt-6">
-        <p className="text-start text-lg text-info pl-[200px] font-normal">Unduh aplikasi AltaGym sekarang untuk book</p>
+        <p className="text-start text-2xl text-info pl-[200px] font-normal tracking-wider">Unduh aplikasi AltaGym sekarang untuk book</p>
       </div>
       <div>
-        <p className="text-start text-lg text-info pl-[200px] font-normal">kelas olahraga dan pelatih dengan mudah</p>
+        <p className="text-start text-2xl text-info pl-[200px] font-normal tracking-wider">kelas olahraga dan pelatih dengan mudah</p>
       </div>
 
       <div className="flex justify-start pt-[60px]">

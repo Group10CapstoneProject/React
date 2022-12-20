@@ -9,7 +9,7 @@ const Trainer = () => {
   return (
     <div className="bg-border2 h-[110vh]">
       <div className="flex justify-center pt-[60px]">
-        <h1 className="text-center text-3xl font-semibold text-prim1">Trainer profesional yang ahli dibidangnya</h1>
+        <h1 className="text-center text-3xl font-bold text-prim">Trainer profesional yang ahli dibidangnya</h1>
       </div>
       <div className="flex justify-center pt-4">
         <p className="text-center text-lg">Menyediakan pelatih pribadi bersertifikat individual untuk membantu Anda dalam latihan untuk</p>

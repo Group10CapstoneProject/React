@@ -8,7 +8,7 @@ const Kelas = () => {
   return (
     <div>
       <div className="flex justify-center pt-[60px]">
-        <h1 className="text-center text-3xl font-semibold text-prim1">Pilih berbagai kelas dengan banyak instruktur hebat</h1>
+        <h1 className="text-center text-3xl font-bold text-prim">Pilih berbagai kelas dengan banyak instruktur hebat</h1>
       </div>
       <div className="flex justify-center pt-4">
         <p className="text-center text-lg">Beragam kelas olahraga kami hadirkan untuk memacu semangat dan motivasi Kamu agar lebih aktif</p>
@@ -17,7 +17,7 @@ const Kelas = () => {
         <p className="text-center text-lg">bergerak bersama-sama. Dipandu oleh para pelatih profesional.</p>
       </div>
 
-      <div className="grid gap-x-8 gap-y-4 grid-cols-4 px-10 mx-[2%] py-8 pt-[100px]">
+      <div className="grid gap-x-8 gap-y-4 grid-cols-4 px-10 mx-[2%] py-8 pt-[70px]">
         <div className="card">
           <figure className="px-10 pt-10 hover:scale-110 ease-in-out duration-300">
             <img src={muaythaiImage} alt="Shoes" className="rounded-xl" />
