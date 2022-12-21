@@ -17,7 +17,7 @@ const Kelas = () => {
         <p className="text-center text-lg">bergerak bersama-sama. Dipandu oleh para pelatih profesional.</p>
       </div>
 
-      <div className="flex min-h-screen items-center justify-center bg-neutral-800">
+      <div className="flex min-h-screen items-center justify-center bg-neutral-800 pb-[50px]">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           <div className="group relative cursor-pointer items-center justify-center overflow-hidden transition-shadow hover:shadow-xl hover:shadow-black/30 rounded-xl">
             <div className="h-96 w-72">

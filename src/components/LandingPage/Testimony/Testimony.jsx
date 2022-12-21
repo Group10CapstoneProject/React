@@ -6,21 +6,21 @@ import profil7Image from "../../../assets/images/profil7.png";
 const Testimony = () => {
   return (
     <div className="bg-border3 h-[110vh]">
-      <div className="flex justify-start pt-[60px] pl-[25px]">
+      <div className="flex justify-start pt-[60px] pl-[125px]">
         <h1 className="text-center text-3xl font-bold text-prim" id="testimony">
           Apa Kata Mereka?
         </h1>
       </div>
-      <div className="flex justify-start pt-4 pl-[25px]">
+      <div className="flex justify-start pt-4 pl-[125px]">
         <p className="text-center text-lg tracking-wider">Yuk, lihat cerita dari para sobat AltaGym biar kamu semakin terinspirasi dalam menjalani gaya hidup sehat!</p>
       </div>
 
-      <section className="md:h-full flex items-center text-gray-600 pb-24">
-        <div className="container px-5 py-24 mx-auto">
+      <section className="md:h-full flex items-center text-gray-600 pb-32">
+        <div className="container px-32 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
             <div className="p-4 sm:w-1/2 lg:w-1/3">
               <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-xl shadow-xl overflow-hidden bg-base">
-                <img className="lg:h-72 md:h-48 w-full object-cover object-center hover:scale-110 ease-in-out duration-300" src={profil5Image} alt="blog" />
+                <img className="lg:h-72 md:h-48 w-full object-cover object-center hover:scale-110 ease-in-out duration-300" src={profil5Image} alt="testimony 1" />
                 <div className="p-6 hover:bg-info hover:text-white transition duration-300 ease-in">
                   <h2 className="text-base font-medium text-indigo-300 mb-1">October 29, 2021</h2>
                   <h1 className="text-2xl font-semibold mb-3">Sherly</h1>
@@ -54,7 +54,7 @@ const Testimony = () => {
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/3">
               <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-xl shadow-xl overflow-hidden bg-base">
-                <img className="lg:h-72 md:h-48 w-full object-cover object-center hover:scale-110 ease-in-out duration-300" src={profil6Image} alt="blog" />
+                <img className="lg:h-72 md:h-48 w-full object-cover object-center hover:scale-110 ease-in-out duration-300" src={profil6Image} alt="testimony 2" />
                 <div className="p-6 hover:bg-info hover:text-white transition duration-300 ease-in">
                   <h2 className="text-base font-medium text-indigo-300 mb-1">October 29, 2021</h2>
                   <h1 className="text-2xl font-semibold mb-3">Alfan</h1>
@@ -88,11 +88,13 @@ const Testimony = () => {
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/3">
               <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-xl shadow-xl overflow-hidden bg-base">
-                <img className="lg:h-72 md:h-48 w-full object-cover object-center hover:scale-110 ease-in-out duration-300" src={profil7Image} alt="blog" />
+                <img className="lg:h-72 md:h-48 w-full object-cover object-center hover:scale-110 ease-in-out duration-300" src={profil7Image} alt="testimony 3" />
                 <div className="p-6 hover:bg-info hover:text-white transition duration-300 ease-in">
                   <h2 className="text-base font-medium text-indigo-300 mb-1">October 29, 2021</h2>
                   <h1 className="text-2xl font-semibold mb-3">Marisa</h1>
-                  <p className="leading-relaxed mb-3">Saya nyaman banget ngegym di AltaGym. Alatnya highclass seperti megagym tapi hargaya terjangkau, tempatnya juga bersih dan rapi. Variasi kelasnya juga banyak dan seru banget.</p>
+                  <p className="leading-relaxed mb-3">
+                    Saya nyaman banget ngegym di AltaGym. Alatnya highclass seperti megagym tapi hargaya terjangkau, tempatnya juga bersih dan rapi. Variasi kelasnya juga banyak dan seru banget. Pelatihnya keren dan asik-asik.
+                  </p>
                   <div className="flex items-center flex-wrap ">
                     <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">
                       Read More

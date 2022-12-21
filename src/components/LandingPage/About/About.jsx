@@ -19,8 +19,8 @@ const About = () => {
       </div>
 
       <div>
-        <div className="bg-blue-50 p-12 min-h-screen min-w-screen flex justify-center items-center">
-          <div className="bg-white p-12 rounded-lg">
+        <div className="bg-base p-12 min-h-screen min-w-screen flex justify-center items-center pb-24">
+          <div className="bg-base2 p-12 rounded-lg drop-shadow-xl">
             <div className="grid md:grid-cols-3">
               <div className="border-b md:border-r p-6">
                 <div className="text-center">
