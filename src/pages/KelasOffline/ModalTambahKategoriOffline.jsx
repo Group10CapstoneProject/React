@@ -57,21 +57,14 @@ function ModalTambahKategoriOffline({ setLoad, show, setShow }) {
             <span>❗</span>
             <div>
               <h2 className="font-bold text-lg">Tambah Kategori Offline</h2>
-              <p className="text-sm font-semibold">
-                Kamu dapat menambahkan Kategori disini
-              </p>
+              <p className="text-sm font-semibold">Kamu dapat menambahkan Kategori disini</p>
             </div>
           </div>
           <form onSubmit={handleSubmit} encType="multipart/form-data">
             <div className="p-3 ">
               <div className="flex w-full px-2 gap-x-2 ">
                 <div className="w-[20%] relative  flex justify-center">
-                  <input
-                    className="bg-white cursor-pointer border w-24 h-24 file-input-bordered rounded-full file-input-ghost file"
-                    type="file"
-                    name="offline_class_category"
-                    onChange={handleImage}
-                  />
+                  <input className="bg-white cursor-pointer border w-24 h-24 file-input-bordered rounded-full file-input-ghost file" type="file" name="offline_class_category" onChange={handleImage} />
                 </div>
                 <div className=" w-[25%] text-sm flex flex-col  ">
                   <label className="block my-1" htmlFor="">
@@ -82,34 +75,15 @@ function ModalTambahKategoriOffline({ setLoad, show, setShow }) {
                   </label>
                 </div>
                 <div className=" w-[50%]">
-                  <input
-                    className="inputJenis w-full"
-                    type="text"
-                    name="name"
-                    onChange={onChange}
-                  />
-                  <input
-                    className="inputJenis w-full"
-                    type="text"
-                    name="description"
-                    onChange={onChange}
-                  />
+                  <input className="inputJenis w-full" type="text" name="name" onChange={onChange} />
+                  <input className="inputJenis w-full" type="text" name="description" onChange={onChange} />
                 </div>
               </div>
               <div className="modal-action flex">
-                <button
-                  disabled={btn}
-                  className={`${
-                    btn ? "btnw" : "btnp"
-                  }  flex items-center justify-center`}
-                >
+                <button disabled={btn} className={`${btn ? "btnw" : "btnp"}  flex items-center justify-center`}>
                   simpan
                 </button>
-                <label
-                  onClick={() => setShow(!show)}
-                  htmlFor="my-modal-5"
-                  className="btnd flex items-center"
-                >
+                <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btnd flex items-center">
                   Batal
                 </label>
               </div>

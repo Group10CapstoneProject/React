@@ -42,25 +42,10 @@ const KelasOnline = () => {
       <div>
         <div className="form-control">
           <div className="flex   input-group">
-            <input
-              type="text"
-              placeholder="Cari aktivitas"
-              className="input input-bordered"
-            />
+            <input type="text" placeholder="Cari aktivitas" className="input input-bordered" />
             <button className="btn btn-square bg-base">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </button>
           </div>
@@ -68,10 +53,7 @@ const KelasOnline = () => {
           <div className="flex items-center   justify-between ">
             <h4 className="font-bold text-prim">Kelas Online</h4>
             <div className="flex justify-end ">
-              <Link
-                to="/tambahkelasonline"
-                className="btn border-prim bg-prim hover:bg-accent text-white transition duration-200 ease-in hover:border-base"
-              >
+              <Link to="/tambahkelasonline" className="btn border-prim bg-prim hover:bg-accent text-white transition duration-200 ease-in hover:border-base">
                 <i className="bx bx-user-plus bx-sm"></i> Tambah Kelas
               </Link>
             </div>
@@ -79,10 +61,7 @@ const KelasOnline = () => {
 
           <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3">
             {kelas?.map((m) => (
-              <div
-                key={m.id}
-                className="card w-[320px] border-prim h-[300px] bg-base-100 shadow-xl"
-              >
+              <div key={m.id} className="card w-[320px] border-prim h-[300px] bg-base-100 shadow-xl">
                 <figure className="  h-full">
                   <img className="h-full w-full" src={m.picture} alt="Yoga" />
                 </figure>
@@ -110,10 +89,7 @@ const KelasOnline = () => {
                     >
                       Detail
                     </button>
-                    <button
-                      onClick={(e) => handleDelete(e, m.id)}
-                      className="rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none "
-                    >
+                    <button onClick={(e) => handleDelete(e, m.id)} className="rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none ">
                       <i className="bx bx-sm rounded-lg bg-dang p-1 text-white bx-trash"></i>
                     </button>
                   </div>

@@ -28,12 +28,7 @@ function TambahKelasOnline() {
 
     setData({
       ...data,
-      [name]:
-        name == "online_class_category_id" ||
-        name == "price" ||
-        name == "duration"
-          ? parseInt(value)
-          : value,
+      [name]: name == "online_class_category_id" || name == "price" || name == "duration" ? parseInt(value) : value,
     });
   };
 
@@ -75,9 +70,7 @@ function TambahKelasOnline() {
   }, [data]);
   return (
     <>
-      <h1 className="text-3xl mb-5 font-bold text-primary">
-        Tambah Kelas Online
-      </h1>
+      <h1 className="text-3xl mb-5 font-bold text-primary">Tambah Kelas Online</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="flex flex-col gap-y-3">
           <div className="flex gap-x-5 w-full justify-between">
@@ -85,26 +78,13 @@ function TambahKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Nama Kelas
               </label>
-              <input
-                type="text"
-                placeholder="Masukkan Nama"
-                className="input input-sm input-bordered w-full "
-                onChange={onChange}
-                name="title"
-                required
-              />
+              <input type="text" placeholder="Masukkan Nama" className="input input-sm input-bordered w-full " onChange={onChange} name="title" required />
             </div>
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">
                 Level
               </label>
-              <select
-                className="select select-primary select-sm w-full max-w-xs"
-                name="level"
-                type="text"
-                onChange={onChange}
-                required
-              >
+              <select className="select select-primary select-sm w-full max-w-xs" name="level" type="text" onChange={onChange} required>
                 <option defaultValue="Kategori" disabled>
                   pilih kategori
                 </option>
@@ -117,14 +97,7 @@ function TambahKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Harga
               </label>
-              <input
-                type="number"
-                placeholder="Masukkan Nama"
-                className="input input-sm input-bordered w-full "
-                onChange={onChange}
-                name="price"
-                required
-              />
+              <input type="number" placeholder="Masukkan Nama" className="input input-sm input-bordered w-full " onChange={onChange} name="price" required />
             </div>
           </div>
           <div>
@@ -133,40 +106,19 @@ function TambahKelasOnline() {
                 <label className="font-bold" htmlFor="">
                   Pelatihan
                 </label>
-                <input
-                  type="text"
-                  placeholder="Pelatihan"
-                  className="input input-sm input-bordered w-full "
-                  name="target_area"
-                  onChange={onChange}
-                  required
-                />
+                <input type="text" placeholder="Pelatihan" className="input input-sm input-bordered w-full " name="target_area" onChange={onChange} required />
               </div>
               <div className="flex flex-col w-1/2 gap-y-2">
                 <label className="font-bold" htmlFor="">
                   Durasi
                 </label>
-                <input
-                  type="number"
-                  placeholder="Durasi"
-                  className="input input-sm input-bordered w-full "
-                  name="duration"
-                  onChange={onChange}
-                  required
-                />
+                <input type="number" placeholder="Durasi" className="input input-sm input-bordered w-full " name="duration" onChange={onChange} required />
               </div>
               <div className="flex flex-col w-1/2 gap-y-2">
                 <label className="font-bold" htmlFor="">
                   Tools
                 </label>
-                <input
-                  type="text"
-                  placeholder="Tools"
-                  className="input input-sm input-bordered w-full "
-                  name="tools"
-                  onChange={onChange}
-                  required
-                />
+                <input type="text" placeholder="Tools" className="input input-sm input-bordered w-full " name="tools" onChange={onChange} required />
               </div>
             </div>
           </div>
@@ -175,26 +127,14 @@ function TambahKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Link Video
               </label>
-              <input
-                type="text"
-                placeholder="Link Video"
-                className="input input-sm input-bordered w-full "
-                name="link"
-                onChange={onChange}
-                required
-              />
+              <input type="text" placeholder="Link Video" className="input input-sm input-bordered w-full " name="link" onChange={onChange} required />
             </div>
 
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">
                 Kategori
               </label>
-              <select
-                className="select select-primary select-sm w-full max-w-xs"
-                name="online_class_category_id"
-                onChange={onChange}
-                required
-              >
+              <select className="select select-primary select-sm w-full max-w-xs" name="online_class_category_id" onChange={onChange} required>
                 <option defaultValue="Kategori" disabled>
                   pilih kategori
                 </option>
@@ -214,12 +154,7 @@ function TambahKelasOnline() {
               </label>
               <div className="w-full  flex justify-center items-center bg-transparent h-44">
                 <div className="flex flex-col justify-center w-full h-full  items-center border">
-                  <input
-                    onChange={handleImage}
-                    name="online_class"
-                    type="file"
-                    className="file-input w-full   p-10 h-full"
-                  />
+                  <input onChange={handleImage} name="online_class" type="file" className="file-input w-full   p-10 h-full" />
                 </div>
               </div>
             </div>
@@ -227,13 +162,7 @@ function TambahKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Deskripsi
               </label>
-              <textarea
-                type="text"
-                placeholder="Deskripsi"
-                className="input input-sm input-bordered w-full h-full"
-                onChange={onChange}
-                name="description"
-              />
+              <textarea type="text" placeholder="Deskripsi" className="input input-sm input-bordered w-full h-full" onChange={onChange} name="description" />
             </div>
           </div>
         </div>

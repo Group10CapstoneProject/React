@@ -23,6 +23,7 @@ import { Pembayaran } from "../pages/Pembayaran";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedRoute from "./ProtectedRoute";
 import BookingOnline from "../pages/BookingOnline";
+import BookingOffline from "../pages/BookingOffline";
 
 export const SetUpRouters = () => {
   return (
@@ -39,22 +40,16 @@ export const SetUpRouters = () => {
           <Route path="kategorioffline" element={<KategoriOffline />} />
           <Route path="kelasoffline" element={<KelasOffline />} />
           <Route path="tambahkelasoffline" element={<TambahKelasOffline />} />
-          <Route
-            path="detailkelasoffline/:id"
-            element={<DetailKelasOffline />}
-          />
+          <Route path="detailkelasoffline/:id" element={<DetailKelasOffline />} />
           <Route path="editkelasoffline" element={<EditKelasOffline />} />
-          <Route
-            path="detailkelasoffline/:id"
-            element={<DetailKelasOffline />}
-          />
+          <Route path="detailkelasoffline/:id" element={<DetailKelasOffline />} />
           <Route path="editkelasonline" element={<EditKelasOnline />} />
           <Route path="anggota" element={<KelolaAnggota />} />
           <Route path="/detail" element={<DetailAnggota />} />
           <Route path="jenis" element={<JenisMembership />} />
           <Route path="member" element={<Member />} />
           <Route path="bookingonline" element={<BookingOnline />} />
-          {/* <Route path="bookingoffline" element={<BookingOnline />} /> */}
+          <Route path="bookingoffline" element={<BookingOffline />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>

@@ -29,10 +29,7 @@ function Navbar() {
             <button className="px-16" tabIndex={0}>
               {dataAdmin ? <b>{dataAdmin.role}</b> : "muhammad Agil"}
             </button>
-            <ul
-              tabIndex={0}
-              className="dropdown-content menu p-2 w-full shadow bg-base-100  "
-            >
+            <ul tabIndex={0} className="dropdown-content menu p-2 w-full shadow bg-base-100  ">
               <li>
                 <a href="*">Item 1</a>
               </li>

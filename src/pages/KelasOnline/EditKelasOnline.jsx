@@ -6,19 +6,7 @@ import PostApi from "../../apis/post.api";
 function EditKelasOnline() {
   let state = useLocation();
   console.log(state);
-  const {
-    id,
-    title,
-    link,
-    price,
-    description,
-    online_class_category_id,
-    tools,
-    target_area,
-    duration,
-    level,
-    picture,
-  } = state.state;
+  const { id, title, link, price, description, online_class_category_id, tools, target_area, duration, level, picture } = state.state;
 
   let navigate = useNavigate();
   const [kategori, setKategori] = useState([]);
@@ -41,12 +29,7 @@ function EditKelasOnline() {
 
     setData({
       ...data,
-      [name]:
-        name == "online_class_category_id" ||
-        name == "price" ||
-        name == "duration"
-          ? parseInt(value)
-          : value,
+      [name]: name == "online_class_category_id" || name == "price" || name == "duration" ? parseInt(value) : value,
     });
   };
 
@@ -63,9 +46,7 @@ function EditKelasOnline() {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      PostApi.updateKelasOnline(data).then((res) =>
-        navigate(`/detailkelasonline/${id}`)
-      );
+      PostApi.updateKelasOnline(data).then((res) => navigate(`/detailkelasonline/${id}`));
     } catch (error) {
       console.log(error);
     }
@@ -85,9 +66,7 @@ function EditKelasOnline() {
 
   return (
     <>
-      <h1 className="text-3xl mb-5 font-bold text-primary">
-        Edit kelas Online
-      </h1>
+      <h1 className="text-3xl mb-5 font-bold text-primary">Edit kelas Online</h1>
 
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="flex flex-col gap-y-3">
@@ -96,26 +75,13 @@ function EditKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Nama Kelas
               </label>
-              <input
-                type="text"
-                placeholder="Masukkan Nama"
-                className="input input-sm input-bordered w-full "
-                onChange={onChange}
-                name="title"
-                value={data.title}
-              />
+              <input type="text" placeholder="Masukkan Nama" className="input input-sm input-bordered w-full " onChange={onChange} name="title" value={data.title} />
             </div>
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">
                 Level
               </label>
-              <select
-                className="select select-primary select-sm w-full max-w-xs"
-                name="level"
-                type="text"
-                onChange={onChange}
-                value={data.level}
-              >
+              <select className="select select-primary select-sm w-full max-w-xs" name="level" type="text" onChange={onChange} value={data.level}>
                 <option disabled>pilih kategori</option>
                 <option value="mudah">Mudah</option>
                 <option value="sedang">Sedang</option>
@@ -126,14 +92,7 @@ function EditKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Harga Pelatihan
               </label>
-              <input
-                type="number"
-                placeholder="Masukkan Nama"
-                className="input input-sm input-bordered w-full "
-                onChange={onChange}
-                name="price"
-                value={data.price}
-              />
+              <input type="number" placeholder="Masukkan Nama" className="input input-sm input-bordered w-full " onChange={onChange} name="price" value={data.price} />
             </div>
           </div>
           <div>
@@ -142,40 +101,19 @@ function EditKelasOnline() {
                 <label className="font-bold" htmlFor="">
                   Pelatihan
                 </label>
-                <input
-                  type="text"
-                  placeholder="Masukkan Nama Pelatih"
-                  className="input input-sm input-bordered w-full "
-                  name="target_area"
-                  onChange={onChange}
-                  value={data.target_area}
-                />
+                <input type="text" placeholder="Masukkan Nama Pelatih" className="input input-sm input-bordered w-full " name="target_area" onChange={onChange} value={data.target_area} />
               </div>
               <div className="flex flex-col w-1/2 gap-y-2">
                 <label className="font-bold" htmlFor="">
                   duration
                 </label>
-                <input
-                  type="number"
-                  placeholder="Masukkan Nama Pelatih"
-                  className="input input-sm input-bordered w-full "
-                  name="duration"
-                  onChange={onChange}
-                  value={data.duration}
-                />
+                <input type="number" placeholder="Masukkan Nama Pelatih" className="input input-sm input-bordered w-full " name="duration" onChange={onChange} value={data.duration} />
               </div>
               <div className="flex flex-col w-1/2 gap-y-2">
                 <label className="font-bold" htmlFor="">
                   tools
                 </label>
-                <input
-                  type="text"
-                  placeholder="Masukkan Nama"
-                  className="input input-sm input-bordered w-full "
-                  name="tools"
-                  onChange={onChange}
-                  value={data.tools}
-                />
+                <input type="text" placeholder="Masukkan Nama" className="input input-sm input-bordered w-full " name="tools" onChange={onChange} value={data.tools} />
               </div>
             </div>
           </div>
@@ -184,26 +122,14 @@ function EditKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Link Video
               </label>
-              <input
-                type="text"
-                placeholder="Masukkan Nama"
-                className="input input-sm input-bordered w-full "
-                name="link"
-                onChange={onChange}
-                value={data.link}
-              />
+              <input type="text" placeholder="Masukkan Nama" className="input input-sm input-bordered w-full " name="link" onChange={onChange} value={data.link} />
             </div>
 
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">
                 Kategori
               </label>
-              <select
-                className="select select-primary select-sm w-full max-w-xs"
-                name="online_class_category_id"
-                onChange={onChange}
-                value={data.online_class_category_id}
-              >
+              <select className="select select-primary select-sm w-full max-w-xs" name="online_class_category_id" onChange={onChange} value={data.online_class_category_id}>
                 <option defaultValue="Kategori" disabled>
                   pilih kategori
                 </option>
@@ -221,12 +147,7 @@ function EditKelasOnline() {
               <label htmlFor="">Foto</label>
               <div className="w-full  flex justify-center items-center bg-transparent h-44">
                 <div className="flex flex-col justify-center w-full h-full  items-center border">
-                  <input
-                    onChange={handleImage}
-                    name="online_class"
-                    type="file"
-                    className="file-input w-full   p-10 h-full"
-                  />
+                  <input onChange={handleImage} name="online_class" type="file" className="file-input w-full   p-10 h-full" />
                 </div>
               </div>
             </div>
@@ -234,14 +155,7 @@ function EditKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Deskripsi
               </label>
-              <textarea
-                type="text"
-                placeholder="Masukkan Nama Pelatih"
-                className="input input-sm input-bordered h-full w-full "
-                onChange={onChange}
-                name="description"
-                value={data.description}
-              />
+              <textarea type="text" placeholder="Masukkan Nama Pelatih" className="input input-sm input-bordered h-full w-full " onChange={onChange} name="description" value={data.description} />
             </div>
           </div>
         </div>
