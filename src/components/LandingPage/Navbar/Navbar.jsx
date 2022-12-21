@@ -35,16 +35,24 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a href="/">Home</a>
+              <a href="/" className="hover:underline underline-offset-8">
+                Home
+              </a>
             </li>
             <li>
-              <a href="#product">Product</a>
+              <a href="#product" className="hover:underline underline-offset-8">
+                Product
+              </a>
             </li>
             <li>
-              <a href="#pricing">Pricing</a>
+              <a href="#pricing" className="hover:underline underline-offset-8">
+                Pricing
+              </a>
             </li>
-            <li>
-              <a href="#testimony">Testimony</a>
+            <li className="underlined">
+              <a href="#testimony" className="hover:underline underline-offset-8 ">
+                Testimony
+              </a>
             </li>
           </ul>
         </div>

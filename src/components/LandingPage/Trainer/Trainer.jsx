@@ -18,9 +18,9 @@ const Trainer = () => {
         <p className="text-center text-lg">mencapai tujuan gaya Kamu.</p>
       </div>
 
-      <div className="pt-[90px]">
+      <div className="flex min-h-screen items-center justify-center pb-8">
         {/* <img src={rectangleImage} alt="" /> */}
-        <div className="grid gap-x-32 gap-y-4 grid-cols-4 py-8 mx-[15%] pr-[5%] pt-[60px]">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="card w-60 bg-base shadow-xl cursor-pointer hover:scale-125 ease-in-out duration-300">
             <figure className="px-10 pt-10">
               <img src={profil1Image} alt="profil 1" className="rounded-xl" />
