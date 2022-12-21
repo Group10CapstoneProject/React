@@ -1,13 +1,10 @@
-import React from "react";
-import { useState } from "react";
-import ModalTambahKategoriOnline from "./ModalTambahKategoriOnline";
+import React, { useEffect, useState } from "react";
 import Gym from "../../apis/get.api";
-import { useEffect } from "react";
 import PostApi from "../../apis/post.api";
-import { useNavigate } from "react-router-dom";
-import ModalEditKategoriOnline from "./ModalEditKategoriOnline";
+import ModalEditKategoriOffline from "./ModalEditKategoriOffline";
+import ModalTambahKategoriOffline from "./ModalTambahKategoriOffline";
 
-const KategoriOnline = () => {
+const KategoriOffline = () => {
   const [show, setShow] = useState(false);
   const [load, setLoad] = useState(false);
   const [modalEdit, setModalEdit] = useState({
@@ -17,7 +14,7 @@ const KategoriOnline = () => {
   const [kategori, setKategori] = useState([]);
   const listKategori = () => {
     try {
-      Gym.onlineKategori().then((res) => setKategori(res.data.data));
+      Gym.offlineKategori().then((res) => setKategori(res.data.data));
     } catch (error) {
       console.log(error);
     }
@@ -27,7 +24,7 @@ const KategoriOnline = () => {
     e.preventDefault();
     setLoad(true);
     try {
-      PostApi.deleteKategoriOnline(id).then((res) => setLoad(false));
+      PostApi.deleteKategoriOffline(id).then((res) => setLoad(false));
     } catch (error) {
       console.log(error);
     }
@@ -45,27 +42,13 @@ const KategoriOnline = () => {
   }
   return (
     <>
-      {show ? (
-        <ModalTambahKategoriOnline
-          setLoad={setLoad}
+      {show && (
+        <ModalTambahKategoriOffline
           show={show}
+          setLoad={setLoad}
           setShow={setShow}
         />
-      ) : (
-        ""
       )}
-
-      {modalEdit.isShow ? (
-        <ModalEditKategoriOnline
-          setLoad={setLoad}
-          show={modalEdit.isShow}
-          setShow={setModalEdit}
-          data={modalEdit.data}
-        />
-      ) : (
-        ""
-      )}
-
       <div>
         <div className="form-control">
           <div className="flex   input-group">
@@ -93,7 +76,7 @@ const KategoriOnline = () => {
           </div>
           <br />
           <div className="flex items-center justify-between ">
-            <h4 className="font-bold text-prim">Kategori Kelas Online</h4>
+            <h4 className="font-bold text-prim">Kategori Kelas Offline</h4>
             <div className="flex justify-end ">
               <label
                 onClick={() => setShow(true)}
@@ -146,4 +129,4 @@ const KategoriOnline = () => {
   );
 };
 
-export default KategoriOnline;
+export default KategoriOffline;

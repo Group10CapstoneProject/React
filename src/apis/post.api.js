@@ -48,7 +48,6 @@ const PostApi = {
         access_gym,
         picture,
       } = payload;
-      console.log(payload);
 
       const response = await axiosInstance.post(`/members/types`, {
         name,
@@ -66,6 +65,36 @@ const PostApi = {
     }
   },
 
+  async updateJenis(payload) {
+    const {
+      id,
+      name,
+      price,
+      description,
+      access_online_class,
+      access_offline_class,
+      access_trainer,
+      access_gym,
+      picture,
+    } = payload;
+    console.log(payload);
+    try {
+      const response = await axiosInstance.put(`/members/types/details/${id}`, {
+        name,
+        price,
+        description,
+        access_online_class,
+        access_offline_class,
+        access_trainer,
+        access_gym,
+        picture,
+      });
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
   async tambahAnggota(payload) {
     try {
       const { member_type_id, duration, payment_method_id, total } = payload;
@@ -80,6 +109,163 @@ const PostApi = {
       return response;
     } catch (err) {
       console.log(err);
+    }
+  },
+
+  async tambahKelasOnline(payload) {
+    try {
+      const {
+        title,
+        link,
+        price,
+        description,
+        online_class_category_id,
+        tools,
+        target_area,
+        duration,
+        level,
+        picture,
+      } = payload;
+
+      const response = await axiosInstance.post(`/online-classes`, {
+        title,
+        link,
+        price,
+        description,
+        online_class_category_id,
+        tools,
+        target_area,
+        duration,
+        level,
+        picture,
+      });
+      return response;
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  async tambahkelasOffline(payload) {
+    try {
+      const {
+        title,
+        time,
+        duration,
+        slot,
+        price,
+        picture,
+        description,
+        location,
+        offline_class_category_id,
+      } = payload;
+
+      const response = await axiosInstance.post(`/offline-classes`, {
+        title,
+        time,
+        duration,
+        slot,
+        price,
+        picture,
+        description,
+        location,
+        offline_class_category_id,
+      });
+      return response;
+    } catch (err) {
+      console.log(err.response.data.message);
+    }
+  },
+
+  async deleteKelasOffline(id) {
+    try {
+      const response = await axiosInstance.delete(
+        `/offline-classes/details/${id}`
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  async updateKelasOffline(payload) {
+    const {
+      id,
+      title,
+      time,
+      duration,
+      slot,
+      price,
+      picture,
+      description,
+      location,
+      offline_class_category_id,
+    } = payload;
+    console.log(payload);
+    try {
+      const response = await axiosInstance.put(
+        `/offline-classes/details/${id}`,
+        {
+          title,
+          time,
+          duration,
+          slot,
+          price,
+          picture,
+          description,
+          location,
+          offline_class_category_id,
+        }
+      );
+      return response;
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  },
+  async updateKelasOnline(payload) {
+    const {
+      id,
+      title,
+      link,
+      price,
+      description,
+      online_class_category_id,
+      tools,
+      target_area,
+      duration,
+      level,
+      picture,
+    } = payload;
+    console.log(payload);
+    try {
+      const response = await axiosInstance.put(
+        `/online-classes/details/${id}`,
+        {
+          title,
+          link,
+          price,
+          description,
+          online_class_category_id,
+          tools,
+          target_area,
+          duration,
+          level,
+          picture,
+        }
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  async deleteKelasOnline(id) {
+    try {
+      const response = await axiosInstance.delete(
+        `/online-classes/details/${id}`
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
     }
   },
 
@@ -127,15 +313,22 @@ const PostApi = {
     }
   },
 
-  async updateKategoriOnline(payload, id) {
+  async updateKategoriOnline(payload) {
     try {
-      const { name, description, picture } = payload;
+      const { name, description, picture, id } = payload;
       const response = await axiosInstance.put(
-        `/online-classes/categories/details/${id}`
+        `/online-classes/categories/details/${id}`,
+        {
+          name,
+          description,
+          picture,
+        }
       );
 
       return response;
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   async deleteKategoriOnline(id) {
@@ -143,6 +336,49 @@ const PostApi = {
       const response = await axiosInstance.delete(
         `/online-classes/categories/details/${id}`
       );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  async deleteKategoriOffline(id) {
+    try {
+      const response = await axiosInstance.delete(
+        `/offline-classes/categories/details/${id}`
+      );
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+
+  async tambahOfflineKategori(payload) {
+    try {
+      const { name, description, picture } = payload;
+      const response = await axiosInstance.post(`/offline-classes/categories`, {
+        name,
+        description,
+        picture,
+      });
+      return response;
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  async updateKategoriOffline(payload) {
+    try {
+      const { name, description, picture, id } = payload;
+      const response = await axiosInstance.put(
+        `/offline-classes/categories/details/${id}`,
+        {
+          name,
+          description,
+          picture,
+        }
+      );
+
       return response;
     } catch (error) {
       console.log(error);

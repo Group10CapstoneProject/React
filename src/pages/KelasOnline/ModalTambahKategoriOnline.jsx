@@ -1,16 +1,15 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import PostApi from "../apis/post.api";
+import PostApi from "../../apis/post.api";
 
 function ModalTambahKategoriOnline({ setLoad, show, setShow }) {
+  const [btn, setBtn] = useState(true);
   const [form, setForm] = useState({
     name: "",
     description: "",
     picture: null,
   });
-  const [loading, setLoading] = useState(false);
-  const [btn, setBtn] = useState(true);
 
   const handleImage = (e) => {
     const { name, files } = e.target;
@@ -47,20 +46,18 @@ function ModalTambahKategoriOnline({ setLoad, show, setShow }) {
       setBtn(false);
     }
   }, [form]);
-
-  console.log(form);
+  console.log(btn);
   return (
     <>
-      <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+      <input defaultChecked={show} type="checkbox" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box   p-0 overflow-hidden w-1/2 max-w-5xl">
           <div className="w-full p-3 bg-base2 flex">
             <span>❗</span>
             <div>
-              <h2 className="font-bold text-lg">Tambah Jenis Member</h2>
+              <h2 className="font-bold text-lg">Tambah Kategori Online</h2>
               <p className="text-sm font-semibold">
-                kamu dapat mengedit data member dan menkonfirmasi pembayaran
-                disini.
+                Kamu dapat menambahkan Kategori disini
               </p>
             </div>
           </div>

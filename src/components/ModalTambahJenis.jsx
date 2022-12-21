@@ -1,13 +1,7 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PostApi from "../apis/post.api";
-import axiosInstance from "../configs/axiosInstance";
-import useHook from "../hooks/useHook";
-import CONST from "../utils/Constants";
-
 const ModalTambahJenis = ({ setLoad, show, setShow }) => {
-  const [image, setImage] = useState(null);
-  const { btn, setBtn } = useHook();
+  const [btn, setBtn] = useState(true);
   const [check, setCheck] = useState(false);
   const [member, setMember] = useState({
     name: "",
@@ -31,7 +25,6 @@ const ModalTambahJenis = ({ setLoad, show, setShow }) => {
   };
   const onChange = (e) => {
     const { name, value, type, checked, valueAsNumber } = e.target;
-
     setMember({
       ...member,
       [name]: !Number.isNaN(valueAsNumber)
@@ -41,16 +34,22 @@ const ModalTambahJenis = ({ setLoad, show, setShow }) => {
         : value,
     });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoad(true);
     PostApi.tambahJenisMember(member).then((res) => setLoad(false));
     setShow(!show);
   };
-
+  console.log(member);
+  useEffect(() => {
+    if (member.picture != null) {
+      setBtn(false);
+    }
+  }, [member]);
   return (
     <>
-      <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+      <input defaultChecked={show} type="checkbox" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box   p-0 overflow-hidden w-1/2 max-w-5xl">
           <div className="w-full p-3 bg-base2 flex">
@@ -58,8 +57,7 @@ const ModalTambahJenis = ({ setLoad, show, setShow }) => {
             <div>
               <h2 className="font-bold text-lg">Tambah Jenis Member</h2>
               <p className="text-sm font-semibold">
-                kamu dapat mengedit data member dan menkonfirmasi pembayaran
-                disini.
+                kamu dapat menambahkan jenis member disini.
               </p>
             </div>
           </div>
@@ -94,18 +92,21 @@ const ModalTambahJenis = ({ setLoad, show, setShow }) => {
                     className="inputJenis w-full"
                     type="text"
                     name="name"
+                    required
                   />
                   <input
                     onChange={onChange}
                     className="inputJenis w-full"
                     type="number"
                     name="price"
+                    required
                   />
                   <input
                     onChange={onChange}
                     className="inputJenis w-full"
                     type="text"
                     name="description"
+                    required
                   />
 
                   <div className="w-full  border px-1 ">

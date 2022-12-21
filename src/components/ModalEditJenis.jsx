@@ -1,26 +1,42 @@
 import React, { useState } from "react";
 import PostApi from "../apis/post.api";
 
-const ModalEditJenis = ({ show, setShow }) => {
+const ModalEditJenis = ({ data, show, setShow, setLoad }) => {
   const [check, setCheck] = useState(false);
+  // const [data, setData] = useState(null);
+  const {
+    id,
+    name,
+    price,
+    description,
+    picture,
+    access_online_class,
+    access_offline_class,
+    access_trainer,
+    access_gym,
+  } = data;
   const [member, setMember] = useState({
-    name: "",
-    price: 20000,
-    description: "",
-    access_offline_class: false,
-    access_online_class: false,
-    access_trainer: false,
-    access_gym: false,
-    picture: null,
+    id: id,
+    name: name,
+    price: price,
+    description: description,
+    access_offline_class: access_offline_class,
+    access_online_class: access_online_class,
+    access_trainer: access_trainer,
+    access_gym: access_gym,
+    picture: picture,
   });
-
+  console.log(member);
   const handleImage = (e) => {
-    // waiting;
-    // console.log(e.target.files[0]);
-    const img = e.target.files[0];
-    if (!img) return;
-    PostApi.uploadFile(img).then((res) => console.log(res));
+    const { name, files } = e.target;
+    PostApi.uploadFile({ title: name, files }).then((res) =>
+      setMember({
+        ...member,
+        picture: res.data.data.url,
+      })
+    );
   };
+
   const onChange = (e) => {
     const { name, value, type, checked, valueAsNumber } = e.target;
 
@@ -35,18 +51,22 @@ const ModalEditJenis = ({ show, setShow }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    PostApi.tambahJenisMember(member).then((res) => console.log(res));
+    setLoad(true);
+    try {
+      PostApi.updateJenis(member).then((res) => setLoad(false));
+    } catch (error) {}
     setShow(!show);
   };
+
   return (
     <>
-      <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+      <input defaultChecked={show} type="checkbox" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box   p-0 overflow-hidden w-1/2 max-w-5xl">
           <div className="w-full p-3 bg-base2 flex">
             <span>❗</span>
             <div>
-              <h2 className="font-bold text-lg">Tambah Jenis Member</h2>
+              <h2 className="font-bold text-lg">Edit Jenis Member</h2>
               <p className="text-sm font-semibold">
                 kamu dapat mengedit data member dan menkonfirmasi pembayaran
                 disini.
@@ -61,6 +81,7 @@ const ModalEditJenis = ({ show, setShow }) => {
                     className="bg-white  border w-24 h-24 file-input-bordered rounded-full file-input-ghost file"
                     type="file"
                     onChange={handleImage}
+                    name="member_type"
                   />
                 </div>
                 <div className=" w-[25%] text-sm flex flex-col  ">
@@ -83,18 +104,21 @@ const ModalEditJenis = ({ show, setShow }) => {
                     className="inputJenis w-full"
                     type="text"
                     name="name"
+                    defaultValue={name}
                   />
                   <input
                     onChange={onChange}
                     className="inputJenis w-full"
                     type="number"
                     name="price"
+                    defaultValue={price}
                   />
                   <input
                     onChange={onChange}
                     className="inputJenis w-full"
                     type="text"
                     name="description"
+                    defaultValue={description}
                   />
 
                   <div className="w-full  border px-1 ">
@@ -104,6 +128,7 @@ const ModalEditJenis = ({ show, setShow }) => {
                         className="checkbox rounded-none checkbox-accent h-5 w-5 block py-1 my-1"
                         type="checkbox"
                         name="access_offline_class"
+                        defaultChecked={access_offline_class}
                       />
                       <label htmlFor="">Kelas Offline</label>
                     </div>
@@ -113,6 +138,7 @@ const ModalEditJenis = ({ show, setShow }) => {
                         className="checkbox rounded-none checkbox-accent h-5 w-5  block py-1 my-1"
                         type="checkbox"
                         name="access_online_class"
+                        defaultChecked={access_online_class}
                       />
                       <label htmlFor="">Kelas Online</label>
                     </div>
@@ -123,6 +149,7 @@ const ModalEditJenis = ({ show, setShow }) => {
                         className="checkbox rounded-none checkbox-accent h-5 w-5  block py-1 my-1"
                         type="checkbox"
                         name="access_trainer"
+                        defaultChecked={access_trainer}
                       />
                       <label htmlFor="">Trainer</label>
                     </div>
@@ -132,6 +159,7 @@ const ModalEditJenis = ({ show, setShow }) => {
                         className="checkbox rounded-none checkbox-accent h-5 w-5  block py-1 my-1"
                         type="checkbox"
                         name="access_gym"
+                        defaultChecked={access_gym}
                       />
                       <label htmlFor="">Gym</label>
                     </div>
@@ -139,11 +167,11 @@ const ModalEditJenis = ({ show, setShow }) => {
                 </div>
               </div>
               <div className="modal-action flex">
-                <button className="btn">Tambah</button>
+                <button className="btnp">Simpan</button>
                 <label
                   onClick={() => setShow(!show)}
                   htmlFor="my-modal-5"
-                  className="btn"
+                  className="btnd"
                 >
                   Batal
                 </label>

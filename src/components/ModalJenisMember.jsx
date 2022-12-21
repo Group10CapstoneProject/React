@@ -11,8 +11,7 @@ export const ModalJenisMember = ({ show, setShow }) => {
   };
   return (
     <>
-      <input type="checkbox" id="my-modal" className="modal-toggle" />
-      <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+      <input defaultChecked={show} type="checkbox" className="modal-toggle" />
       <div className="modal ">
         <div className="modal-box  p-0 overflow-hidden w-1/2 max-w-5xl">
           <div className="w-full p-3 bg-base2 flex">
