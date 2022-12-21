@@ -25,8 +25,8 @@ const Kelas = () => {
             </div>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black group-hover:from-black/70 group-hover:via-black/60 group-hover:to-black/70">
               <div className="absolute inset-0 flex translate-y-[60%] flex-col items-center justify-center px-9 text-center transition-all duration-500 group-hover:translate-y-0">
-                <h1 className="font-roboto text-3xl font-bold text-white pb-16">Muay Thai</h1>
-                <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Seni bela diri keras dari Kerajaan Thailand.</p>
+                <h1 className="font-roboto text-3xl font-bold text-white pb-4">Muay Thai</h1>
+                <p className="mb-3 text-lg italic text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">Olahraga nasional Kerajaan Thai dan turunan dari bela diri kuno Muay Boran.</p>
                 <button className="rounded-full bg-neutral-900 py-2 px-3.5 font-com text-sm capitalize text-white shadow shadow-white/60 hover:bg-base hover:text-black">Lihat Lebih Banyak</button>
               </div>
             </div>

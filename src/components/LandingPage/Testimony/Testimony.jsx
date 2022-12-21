@@ -19,7 +19,7 @@ const Testimony = () => {
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
             <div className="p-4 sm:w-1/2 lg:w-1/3">
-              <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-base">
+              <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-xl shadow-xl overflow-hidden bg-base">
                 <img className="lg:h-72 md:h-48 w-full object-cover object-center hover:scale-110 ease-in-out duration-300" src={profil5Image} alt="blog" />
                 <div className="p-6 hover:bg-info hover:text-white transition duration-300 ease-in">
                   <h2 className="text-base font-medium text-indigo-300 mb-1">October 29, 2021</h2>
@@ -53,7 +53,7 @@ const Testimony = () => {
               </div>
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/3">
-              <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-base">
+              <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-xl shadow-xl overflow-hidden bg-base">
                 <img className="lg:h-72 md:h-48 w-full object-cover object-center hover:scale-110 ease-in-out duration-300" src={profil6Image} alt="blog" />
                 <div className="p-6 hover:bg-info hover:text-white transition duration-300 ease-in">
                   <h2 className="text-base font-medium text-indigo-300 mb-1">October 29, 2021</h2>
@@ -87,7 +87,7 @@ const Testimony = () => {
               </div>
             </div>
             <div className="p-4 sm:w-1/2 lg:w-1/3">
-              <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden bg-base">
+              <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-xl shadow-xl overflow-hidden bg-base">
                 <img className="lg:h-72 md:h-48 w-full object-cover object-center hover:scale-110 ease-in-out duration-300" src={profil7Image} alt="blog" />
                 <div className="p-6 hover:bg-info hover:text-white transition duration-300 ease-in">
                   <h2 className="text-base font-medium text-indigo-300 mb-1">October 29, 2021</h2>
