@@ -10,14 +10,16 @@ const About = () => {
   return (
     <div className="bg-base h-[110vh]">
       <div className="flex justify-center pt-[60px]">
-        <h1 className="text-center text-3xl font-bold text-prim2" id="product">
+        <h1 className="text-center text-3xl font-bold text-prim2" data-aos="fade-right" data-aos-duration="1500" id="product">
           Kenapa Harus AltaGym?
         </h1>
       </div>
       <div className="flex justify-center pt-4">
-        <p className="text-center text-lg">AltaGym bisa bikin kamu sehat hanya dengan satu Aplikasi lho!</p>
+        <p className="text-center text-lg" data-aos="fade-left" data-aos-duration="1500">
+          AltaGym bisa bikin kamu sehat hanya dengan satu Aplikasi lho!
+        </p>
       </div>
-      <div className="px-14 mx-[10%]">
+      <div className="px-14 mx-[10%]" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
         <div style={{ flex: 1 }} className="grid gap-x-8 gap-y-4 grid-cols-3 justify-content-center items-center py-14  px-10 mx-8">
           <div className="flex ml-5">
             <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-125 ease-in-out duration-300">

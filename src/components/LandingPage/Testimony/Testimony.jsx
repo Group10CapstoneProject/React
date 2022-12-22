@@ -14,7 +14,7 @@ const Testimony = () => {
       <div className="flex justify-start pt-4 pl-[100px]">
         <p className="text-center text-lg">Yuk, lihat cerita dari para sobat AltaGym biar kamu semakin terinspirasi dalam menjalani gaya hidup sehat!</p>
       </div>
-      <div className="grid gap-x-8 gap-y-4 grid-cols-3 mx-[15%] pt-[100px]">
+      <div className="grid gap-x-8 gap-y-4 grid-cols-3 mx-[15%] pt-[100px]" data-aos="fade-up" data-aos-anchor-placement="center-center" data-aos-duration="1000">
         <div className="card w-80 bg-base shadow-xl cursor-pointer hover:scale-105 ease-in-out duration-300">
           <figure className="px-10 pt-10">
             <img src={profil5Image} alt="profil 5" className="rounded-xl" />

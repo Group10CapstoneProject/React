@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-scroll";
 import logogymImage from "../../../assets/images/logogym.png";
 
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar bg-info text-white px-8 py-4">
+      <div className="navbar bg-info text-white px-8 py-4" id="home">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -14,16 +15,24 @@ const Navbar = () => {
             </label>
             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-info rounded-box w-52">
               <li>
-                <a href="/">Home</a>
+                <Link to="home" spy={true} smooth={true} offset={50} duration={500}>
+                  Home
+                </Link>
               </li>
               <li>
-                <a href="#product">Product</a>
+                <Link to="product" spy={true} smooth={true} offset={50} duration={500}>
+                  Product
+                </Link>
               </li>
               <li>
-                <a href="#pricing">Pricing</a>
+                <Link to="pricing" spy={true} smooth={true} offset={50} duration={500}>
+                  Pricing
+                </Link>
               </li>
               <li>
-                <a href="#testimony">Testimony</a>
+                <Link to="testimony" spy={true} smooth={true} offset={50} duration={500}>
+                  Testimony
+                </Link>
               </li>
             </ul>
           </div>
@@ -35,23 +44,31 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a href="/">Home</a>
+              <Link to="home" spy={true} smooth={true} offset={1} duration={500}>
+                Home
+              </Link>
             </li>
             <li>
-              <a href="#product">Product</a>
+              <Link to="product" spy={true} smooth={true} offset={0} duration={500}>
+                Product
+              </Link>
             </li>
             <li>
-              <a href="#pricing">Pricing</a>
+              <Link to="pricing" spy={true} smooth={true} offset={0} duration={500}>
+                Pricing
+              </Link>
             </li>
             <li>
-              <a href="#testimony">Testimony</a>
+              <Link to="testimony" spy={true} smooth={true} offset={0} duration={500}>
+                Testimony
+              </Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn bg-primary text-white hover:bg-accent" href="#join">
-            Gabung Sekarang
-          </a>
+          <Link to="join" spy={true} smooth={true} offset={0} duration={500}>
+            <a className="btn bg-primary text-white hover:bg-accent">Gabung Sekarang</a>
+          </Link>
         </div>
       </div>
     </div>

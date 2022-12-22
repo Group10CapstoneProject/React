@@ -17,7 +17,7 @@ const Kelas = () => {
         <p className="text-center text-lg">bergerak bersama-sama. Dipandu oleh para pelatih profesional.</p>
       </div>
 
-      <div className="grid gap-x-8 gap-y-4 grid-cols-4 px-10 mx-[2%] py-8 pt-[70px]">
+      <div className="grid gap-x-8 gap-y-4 grid-cols-4 px-10 mx-[2%] py-8 pt-[70px]" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
         <div className="card">
           <figure className="px-10 pt-10 hover:scale-110 ease-in-out duration-300">
             <img src={muaythaiImage} alt="Shoes" className="rounded-xl" />

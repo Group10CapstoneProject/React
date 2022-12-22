@@ -20,7 +20,7 @@ const Trainer = () => {
 
       <div className="pt-[90px]">
         {/* <img src={rectangleImage} alt="" /> */}
-        <div className="grid gap-x-32 gap-y-4 grid-cols-4 py-8 mx-[15%] pr-[5%] pt-[60px]">
+        <div className="grid gap-x-32 gap-y-4 grid-cols-4 py-8 mx-[15%] pr-[5%] pt-[60px]" data-aos="flip-left" data-aos-duration="1500">
           <div className="card w-60 bg-base shadow-xl cursor-pointer hover:scale-125 ease-in-out duration-300">
             <figure className="px-10 pt-10">
               <img src={profil1Image} alt="profil 1" className="rounded-xl" />

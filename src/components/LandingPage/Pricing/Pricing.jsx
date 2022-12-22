@@ -19,7 +19,7 @@ const Pricing = () => {
         <p className="text-center text-lg">gratis setiap harinya.</p>
       </div>
 
-      <div className="grid gap-x-8 gap-y-4 grid-cols-4 px-14 mx-10 pt-[100px]">
+      <div className="grid gap-x-8 gap-y-4 grid-cols-4 px-14 mx-10 pt-[100px]" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
         <div className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[500px] bg-white hover:scale-110 ease-in-out duration-300">
           <div className="w-full pt-3 bg-inf4"></div>
           <div className="flex  justify-between flex-col h-full p-3 items-center ">

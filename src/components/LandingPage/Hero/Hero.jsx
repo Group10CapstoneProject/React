@@ -5,11 +5,11 @@ import FotoImage from "../../../assets/images/Foto.png";
 
 const Hero = () => {
   return (
-    <div>
+    <div id="home">
       <div className="hero min-h-screen" style={{ backgroundImage: `url(${FotoImage})` }}>
         <div className="hero-overlay bg-opacity-0"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="">
+          <div data-aos="fade-up-right" data-aos-duration="1000">
             <h1 className="mb-5 text-5xl font-bold text-white pr-[750px]">Hidup lebih sehat</h1>
             <h1 className="mb-5 text-5xl font-bold text-white pr-[750px]">dengan ALTAGYM</h1>
             <div className="text-start text-2xl pt-4 tracking-wider">

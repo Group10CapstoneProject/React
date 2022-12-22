@@ -25,7 +25,7 @@ const Footer = () => {
             <h2 className="pt-[55px] text-2xl font-bold text-gray-900 dark:text-white normal-case pr-[150px]">Bantuan</h2>
             <ul className="text-gray-50 dark:text-gray-50">
               <li className="mb-4 pt-6">
-                <a href="https://daisyui.com/" className="hover:underline">
+                <a href="home" className="hover:underline">
                   FAQ
                 </a>
               </li>

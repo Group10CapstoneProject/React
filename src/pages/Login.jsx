@@ -33,10 +33,10 @@ function Login() {
   // console.log(error);
   return (
     <div className="h-screen flex   text-black">
-      <img className="absolute top-2 left-2 w-[100px] h-[70px]" src={logo} alt="" />
-      <div className="flex w-full h-full items-center  ">
+      <img className="absolute top-2 left-2 w-[100px] h-[70px]" data-aos="zoom-in-up" data-aos-duration="1500" src={logo} alt="" />
+      <div className="flex w-full h-full items-center">
         <div className="flex justify-center   bg-white h-full items-center  w-full">
-          <div className="w-[55%]">
+          <div className="w-[55%]" data-aos="zoom-in-up" data-aos-duration="1500">
             <h4 className="">Masuk Admin</h4>
             <p className="text-[16px]">Silakan masuk dengan email dan password admin yang telah diberikan</p>
             <form onSubmit={handleLogin}>

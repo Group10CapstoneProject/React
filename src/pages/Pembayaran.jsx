@@ -34,16 +34,18 @@ export const Pembayaran = () => {
       {show ? <ModalMethod setLoad={setLoad} show={show} setShow={setShow} /> : ""}
       <div className="">
         <div className="w-full">
-          <h4 className="font-bold">Metode Pembayaran</h4>
+          <h4 className="font-bold" data-aos="fade-right" data-aos-duration="1000">
+            Metode Pembayaran
+          </h4>
         </div>
 
-        <div className="pt-2 flex justify-end ">
+        <div className="pt-2 flex justify-end" data-aos="zoom-in" data-aos-duration="1000">
           <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
             Tambah Metode Pembayaran
           </label>
         </div>
 
-        <div className="grid grid-cols-3 gap-3 mt-5">
+        <div className="grid grid-cols-3 gap-3 mt-5" data-aos="fade-up" data-aos-anchor-placement="bottom-bottom" data-aos-duration="1500">
           {method &&
             method.map((m) => (
               <div key={m.id} className="  overflow-hidden flex items-center justify-center  shadow-xl w-72 h-32">
