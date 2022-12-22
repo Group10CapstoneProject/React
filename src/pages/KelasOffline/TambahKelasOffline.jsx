@@ -8,6 +8,7 @@ import PostApi from "../../apis/post.api";
 function TambahKelasOffline() {
   let navigate = useNavigate();
   const [kategori, setKategori] = useState([]);
+  const [trainer, setTrainer] = useState([]);
   const [message, setMessage] = useState("");
   const [btn, setBtn] = useState(true);
   const [data, setData] = useState({
@@ -16,6 +17,7 @@ function TambahKelasOffline() {
     duration: 0,
     slot: 0,
     price: 0,
+    trainer_id: 0,
     picture: null,
     description: "",
     location: "",
@@ -31,7 +33,8 @@ function TambahKelasOffline() {
         name == "offline_class_category_id" ||
         name == "price" ||
         name == "duration" ||
-        name == "slot"
+        name == "slot" ||
+        name == "trainer_id"
           ? parseInt(value)
           : name == "time"
           ? time.join(" ") + ":00"
@@ -51,11 +54,17 @@ function TambahKelasOffline() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      PostApi.tambahkelasOffline(data).then((res) => navigate("/kelasoffline"));
-    } catch (err) {
-      toast.error(err.message);
-    }
+
+    PostApi.tambahkelasOffline(data)
+      .then((res) => {
+        toast.success(res.data.message);
+        setTimeout(() => {
+          navigate("/kelasoffline");
+        }, 2000);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   const listKategori = () => {
@@ -65,9 +74,12 @@ function TambahKelasOffline() {
       console.log(error);
     }
   };
-
+  const listTrainer = () => {
+    Gym.Trainers().then((res) => setTrainer(res.data.data));
+  };
   useEffect(() => {
     listKategori();
+    listTrainer();
   }, []);
 
   useEffect(() => {
@@ -97,7 +109,25 @@ function TambahKelasOffline() {
                 required
               />
             </div>
-
+            <div className="flex flex-col w-1/2 gap-y-2">
+              <label className="font-bold" htmlFor="">
+                Nama Pelatih
+              </label>
+              <select
+                onChange={onChange}
+                name="trainer_id"
+                className="select-sm border w-full max-w-xs"
+              >
+                <option disabled selected defaultValue="Pilih Trainer">
+                  Plih Trainer
+                </option>
+                {trainer?.map((m) => (
+                  <option key={m.id} value={m.id}>
+                    {m.name}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">
                 Slot
@@ -178,7 +208,9 @@ function TambahKelasOffline() {
                 onChange={onChange}
                 required
               >
-                <option disabled>Pilih kategori</option>
+                <option disabled selected defaultValue="Pilih kategori">
+                  Pilih kategori
+                </option>
                 {kategori &&
                   kategori?.map((m) => (
                     <option key={m.id} value={m.id}>
@@ -188,35 +220,42 @@ function TambahKelasOffline() {
               </select>
             </div>
           </div>
-          <div className="flex gap-x-2  w-full">
-            <div className="flex flex-col gap-y-4 w-1/2">
-              <label className="font-bold" htmlFor="">
-                Foto
-              </label>
-              <div className="w-full  flex justify-center items-center bg-transparent h-44">
-                <div className="flex flex-col justify-center w-full h-full  items-center border">
-                  <input
-                    onChange={handleImage}
-                    name="offline_class"
-                    type="file"
-                    className="file-input w-full  p-10 h-full"
-                    required
-                  />
+          <div className="flex flex-col w-full gap-y-4">
+            <label className="font-bold" htmlFor="">
+              Deskripsi
+            </label>
+            <textarea
+              type="text"
+              placeholder="Deskripsi"
+              className="input input-sm input-bordered w-full h-full"
+              onChange={onChange}
+              name="description"
+            />
+          </div>
+          <div className="flex flex-col gap-y-4 w-full">
+            <label className="font-bold" htmlFor="">
+              Foto
+            </label>
+            <div className="w-full  flex justify-center items-center bg-transparent h-40">
+              <div className="flex cursor-pointer relative flex-col justify-center w-full h-full  items-center border">
+                <input
+                  onChange={handleImage}
+                  name="offline_class"
+                  type="file"
+                  className="file-input w-full z-50 opacity-0 cursor-pointer borders  p-10 h-full"
+                />
+                <div className="absolute w-44 flex  flex-col  items-center">
+                  {data.picture !== null ? (
+                    <img src={data.picture} alt="" />
+                  ) : (
+                    <i class="bx bx-lg bxs-image-add"></i>
+                  )}
+                  <p className="text-sm text-center font-semibold">
+                    <span className="text-prim">Tarik gambar kesini </span>atau
+                    <span className="text-prim"> cari</span> untuk memilih
+                  </p>
                 </div>
               </div>
-            </div>
-            <div className="flex flex-col w-1/2 gap-y-4">
-              <label className="font-bold" htmlFor="">
-                Deskripsi
-              </label>
-              <textarea
-                type="text"
-                placeholder="Deskripsi Kelas"
-                className="input input-sm input-bordered w-full h-full"
-                onChange={onChange}
-                name="description"
-                required
-              />
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 import ModalHapus from "../../components/ModalHapus";
 import Paginations from "../../components/Paginations";
+import { useDebounce } from "../../hooks/Searching";
 import useHook from "../../hooks/useHook";
 
 function BookingKelasOnline() {
@@ -18,12 +19,13 @@ function BookingKelasOnline() {
     data: {},
   });
   const [currentPage, setCurrentPage] = useState(1);
-  const [search, setSearch] = useState("");
+  const [_text, setText] = useState("");
+  const [text] = useDebounce(3000, _text);
   const [postPerPage, setPostPerPage] = useState(10);
   const { load, setLoad } = useHook();
 
   const listBooking = () => {
-    Gym.bookingOnline({ currentPage, postPerPage, search }).then((res) =>
+    Gym.bookingOnline({ currentPage, postPerPage, text }).then((res) =>
       setBooking(res.data.data)
     );
   };
@@ -42,7 +44,7 @@ function BookingKelasOnline() {
       toast.success(message);
       setMessage("");
     }
-  }, [postPerPage, search, currentPage, message]);
+  }, [postPerPage, text, currentPage, message]);
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
@@ -64,7 +66,7 @@ function BookingKelasOnline() {
       <h1 className="font-bold text-2xl text-info">DAFTAR BOOKING CLASS</h1>
       <div className="flex  pt-4 input-group justify-start">
         <input
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => setText(e.target.value)}
           type="text"
           placeholder="Cari Anggota ....."
           className="input input-bordered input-black  w-56 max-w-xs"
@@ -107,8 +109,29 @@ function BookingKelasOnline() {
                     )}
                   </td>
                   <td className="leading-none">{m.duration} Bulan</td>
-                  <td className="leading-none text-inf2 font-semibold">
-                    {m.status}
+                  <td
+                    className={`${
+                      m.status === "ACTIVE"
+                        ? "text-suc"
+                        : m.status === "INACTIVE"
+                        ? "text-dang2  "
+                        : "text-inf2"
+                    }`}
+                  >
+                    <div className={` lowercase`}>
+                      <span
+                        className={`${
+                          m.status === "ACTIVE"
+                            ? "bg-suc/10 pr-2"
+                            : m.status === "INACTIVE"
+                            ? "bg-dang2/10 pr-2  "
+                            : "bg-inf2/10 pr-2"
+                        } `}
+                      >
+                        <i className="bx  bx-wifi-0"></i>
+                        {m.status}
+                      </span>
+                    </div>
                   </td>
 
                   <td className="flex gap-x-1 ">

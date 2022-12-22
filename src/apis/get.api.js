@@ -4,6 +4,22 @@ import Auth from "../utils/Auth";
 import CONST from "../utils/Constants";
 
 const Gym = {
+  async Dashboard() {
+    try {
+      const response = await axiosInstance.get("dashboard");
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+  async newAnggota() {
+    try {
+      const response = await axiosInstance.get("/members?limit=10");
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
   async pembayaran() {
     try {
       // const response = await axios.get(`${CONST.BASE_URL}//paymentMethods`);
@@ -15,10 +31,10 @@ const Gym = {
   },
 
   async members(payload) {
-    const { currentPage, postPerPage, search } = payload;
+    const { currentPage, postPerPage, text } = payload;
     try {
       const response = await axiosInstance.get(
-        `/members?page=${currentPage}&limit=${postPerPage}&q=${search}`
+        `/members?page=${currentPage}&limit=${postPerPage}&q=${text}`
       );
       return response;
     } catch (error) {
@@ -61,18 +77,18 @@ const Gym = {
     }
   },
 
-  async offlineKelas() {
+  async offlineKelas(text) {
     try {
-      const response = await axiosInstance.get("/offline-classes");
+      const response = await axiosInstance.get(`/offline-classes?q=${text}`);
       return response;
     } catch (error) {
       console.log(error);
     }
   },
 
-  async onlinekelas() {
+  async onlinekelas(text) {
     try {
-      const response = await axiosInstance.get("/online-classes");
+      const response = await axiosInstance.get(`/online-classes?q=${text}`);
       return response;
     } catch (error) {
       console.log(error);
@@ -106,10 +122,10 @@ const Gym = {
   },
 
   async bookingOnline(payload) {
-    const { currentPage, postPerPage, search } = payload;
+    const { currentPage, postPerPage, text } = payload;
     try {
       const response = await axiosInstance.get(
-        `/online-classes/bookings?page=${currentPage}&limit=${postPerPage}&q=${search}`
+        `/online-classes/bookings?page=${currentPage}&limit=${postPerPage}&q=${text}`
       );
       return response;
     } catch (error) {
@@ -117,10 +133,10 @@ const Gym = {
     }
   },
   async bookingOffline(payload) {
-    const { currentPage, postPerPage, search } = payload;
+    const { currentPage, postPerPage, text } = payload;
     try {
       const response = await axiosInstance.get(
-        `/offline-classes/bookings?page=${currentPage}&limit=${postPerPage}&q=${search}`
+        `/offline-classes/bookings?page=${currentPage}&limit=${postPerPage}&q=${text}`
       );
       return response;
     } catch (error) {
@@ -142,6 +158,31 @@ const Gym = {
       const response = await axiosInstance.get(
         `/online-classes/bookings/details/${id}`
       );
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+  async Skills() {
+    try {
+      const response = await axiosInstance.get(`/trainers/skills`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+
+  async Trainers() {
+    try {
+      const response = await axiosInstance.get(`/trainers`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+  async detailTrainer(id) {
+    try {
+      const response = await axiosInstance.get(`trainers/details/${id}`);
       return response;
     } catch (error) {
       console.log("error");

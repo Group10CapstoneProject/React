@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import Moment from "react-moment";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Gym from "../apis/get.api";
 import PostApi from "../apis/post.api";
 import ModalAnggota from "../components/ModalAnggota";
@@ -20,6 +20,7 @@ const DetailAnggota = () => {
     tipe: false,
     metode: false,
   });
+  let navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
   const [message, setMessage] = useState("");
@@ -27,7 +28,10 @@ const DetailAnggota = () => {
   const memberDetails = () => {
     setLoading(true);
     try {
-      Gym.membersDetail(id).then((res) => setmembers(res.data.data));
+      Gym.membersDetail(id).then((res) => {
+        setmembers(res.data.data);
+        setLoading(false);
+      });
     } catch (error) {
       console.log(error);
     }
@@ -50,6 +54,7 @@ const DetailAnggota = () => {
       setMessage("");
     }
   }, [loading, message]);
+
   if (loading) {
     return <h1>loading</h1>;
   }
@@ -269,7 +274,7 @@ const DetailAnggota = () => {
       <form className="flex flex-col  px-6  w-full" onSubmit={handleSubmit}>
         <div className="w-full pb-2">
           <h2 className="font-semibold  text-md pb-2">Bukti pembayaran</h2>
-          <img className="w-44" src={``} alt="" />
+          <img className="w-44" src={member?.proof_payment} alt="" />
         </div>
         <div className="flex gap-x-10 py-5 w-full ">
           <h2 className="text-md font-semibold">Status Membership</h2>
@@ -288,7 +293,10 @@ const DetailAnggota = () => {
           <button className="h-8 px-3 bg-prim btn border-none min-h-0 text-white">
             Simpan
           </button>
-          <button className="h-8 px-3 bg-dang2 border-none text-white btn min-h-0">
+          <button
+            onClick={() => navigate("/anggota")}
+            className="h-8 px-3 bg-dang2 border-none text-white btn min-h-0"
+          >
             Batal
           </button>
         </div>

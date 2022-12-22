@@ -6,7 +6,6 @@ import Auth from "../utils/Auth";
 function Navbar() {
   let navigate = useNavigate();
   let path = useLocation();
-  console.log(path);
   const handleLogout = (e) => {
     e.preventDefault();
     Auth.signOut(navigate);

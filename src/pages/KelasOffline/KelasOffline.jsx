@@ -1,15 +1,19 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
 import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 import ModalHapus from "../../components/ModalHapus";
+import { useDebounce } from "../../hooks/Searching";
 
 const KelasOffline = () => {
   let navigate = useNavigate();
-  const [show, setShow] = useState(false);
+  let link = useLocation();
+  console.log(link);
   const [load, setLoad] = useState(false);
+  const [_text, setText] = useState("");
+  const [text] = useDebounce(1000, _text);
   const [message, setMessage] = useState("");
   const [kelas, setKelas] = useState([]);
   const [modalDelete, setModalDelete] = useState({
@@ -18,7 +22,9 @@ const KelasOffline = () => {
   });
   const listKelas = () => {
     try {
-      Gym.offlineKelas().then((res) => setKelas(res.data.data.offline_classes));
+      Gym.offlineKelas(text).then((res) =>
+        setKelas(res.data.data.offline_classes)
+      );
     } catch (error) {
       console.log(error);
     }
@@ -41,7 +47,7 @@ const KelasOffline = () => {
       toast.success(message);
       setMessage("");
     }
-  }, [load, message]);
+  }, [load, text, message]);
 
   if (load) {
     return <h1>loading...</h1>;
@@ -63,6 +69,7 @@ const KelasOffline = () => {
           <div className="flex   input-group">
             <input
               type="text"
+              onChange={(e) => setText(e.target.value)}
               placeholder="Cari Kelas..."
               className="input input-bordered input-black w-full max-w-xs"
             />

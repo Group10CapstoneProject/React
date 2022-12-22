@@ -1,7 +1,6 @@
 import React from "react";
 
 function ModalHapus({ show, data, handleDelete, setShow }) {
-  console.log(data);
   return (
     <>
       <input

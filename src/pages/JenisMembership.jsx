@@ -27,11 +27,15 @@ const JenisMembership = () => {
   });
 
   const listMember = async () => {
+    setLoad(true);
     try {
-      Gym.memberType().then((res) => setMember(res.data.data));
+      Gym.memberType().then((res) => {
+        setMember(res.data.data);
+      });
     } catch (error) {
       console.log(error);
     }
+    setLoad(false);
   };
   const handleDelete = (e, id) => {
     e.preventDefault();
@@ -106,13 +110,7 @@ const JenisMembership = () => {
             <h4 className="font-bold text-prim">Jenis Membership</h4>
           </div>
 
-          <div className="pt-2 flex justify-between ">
-            <input
-              type="text"
-              placeholder="Cari Membership ....."
-              className="input input-bordered input-black w-56 max-w-xs"
-            />
-
+          <div className="pt-2 flex justify-end ">
             <label
               htmlFor="my-modal-5"
               onClick={() => setModalTambah(!modalTambah)}

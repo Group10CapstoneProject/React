@@ -16,6 +16,14 @@ const SideBar = () => {
   const [online, setOnline] = useState(false);
   const [offline, setOfline] = useState(false);
   const [member, setMember] = useState(false);
+  const [drop, setDrop] = useState({
+    member: false,
+    online: false,
+    offline: false,
+    member: false,
+    book: false,
+    trainer: false,
+  });
   const [book, setBook] = useState(false);
   let navigate = useNavigate();
   const data = JSON.parse(Cookies.get("data"));
@@ -60,9 +68,43 @@ const SideBar = () => {
           </li>
           <div className="dropdown dropdown-top- dropdown-end ">
             <label
-              onClick={() => setMember(!member)}
+              onClick={() => setDrop({ trainer: !drop.trainer })}
               className={`${
-                member ? "bg-prim text-white" : "bg-transparent  text-prim"
+                drop.trainer
+                  ? "bg-prim text-white"
+                  : "bg-transparent  text-prim"
+              }  w-full  justify-between font-bold btn  hover:bg-prim hover:text-white  border-none `}
+            >
+              <span className="flex items-center gap-x-3">
+                <i className="bx bx-sm bxs-contact"></i>
+                Trainer
+              </span>
+
+              <i
+                className={`bx bx-sm ${
+                  !drop.trainer ? "bx-chevron-down" : "bx-chevron-up"
+                } `}
+              ></i>
+            </label>
+            <ul
+              className={`${
+                drop.trainer ? "" : "hidden "
+              } font-semibold   w-52`}
+            >
+              <li className="py-0 ">
+                <Link to="trainer">Daftar Trainer</Link>
+              </li>
+              <li>
+                <Link to="skills">Skills</Link>
+              </li>
+            </ul>
+          </div>
+
+          <div className="dropdown dropdown-top- dropdown-end ">
+            <label
+              onClick={() => setDrop({ member: !drop.member })}
+              className={`${
+                drop.member ? "bg-prim text-white" : "bg-transparent  text-prim"
               }  w-full  justify-between font-bold btn  hover:bg-prim hover:text-white  border-none `}
             >
               <span className="flex items-center gap-x-3">
@@ -72,11 +114,13 @@ const SideBar = () => {
 
               <i
                 className={`bx bx-sm ${
-                  !member ? "bx-chevron-down" : "bx-chevron-up"
+                  !drop.member ? "bx-chevron-down" : "bx-chevron-up"
                 } `}
               ></i>
             </label>
-            <ul className={`${member ? "" : "hidden "} font-semibold   w-52`}>
+            <ul
+              className={`${drop.member ? "" : "hidden "} font-semibold   w-52`}
+            >
               <li className="py-0 ">
                 <Link to="anggota">Kelola Member</Link>
               </li>
@@ -94,19 +138,19 @@ const SideBar = () => {
           </li>
           <div className="dropdown dropdown-top- dropdown-end font-semibold  text-md">
             <label
-              onClick={() => setOnline(!online)}
+              onClick={() => setDrop({ online: !drop.online })}
               className={`${
-                online ? "bg-prim text-white" : "bg-transparent text-prim"
+                drop.online ? "bg-prim text-white" : "bg-transparent text-prim"
               }  w-full  justify-between  btn  font-semibold  hover:bg-primary  border-none `}
             >
               <span className="flex  items-center gap-x-1">Online</span>
               <i
                 className={`bx bx-sm ${
-                  !online ? "bx-chevron-down" : "bx-chevron-up"
+                  !drop.online ? "bx-chevron-down" : "bx-chevron-up"
                 } `}
               ></i>
             </label>
-            <ul className={`${online ? "" : "hidden "}  w-52`}>
+            <ul className={`${drop.online ? "" : "hidden "}  w-52`}>
               <li className="py-0 ">
                 <Link to="kategorionline">Kategori Kelas</Link>
               </li>
@@ -117,19 +161,19 @@ const SideBar = () => {
           </div>
           <div className="dropdown dropdown-top- dropdown-end  font-semibold text-md">
             <label
-              onClick={() => setOfline(!offline)}
+              onClick={() => setDrop({ offline: !drop.offline })}
               className={`${
-                offline ? "bg-prim text-white" : "bg-transparent text-prim"
+                drop.offline ? "bg-prim text-white" : "bg-transparent text-prim"
               }  w-full  justify-between  btn  font-semibold  hover:bg-primary  border-none `}
             >
               <span className="flex items-center gap-x-1">Offline</span>
               <i
                 className={`bx bx-sm ${
-                  !offline ? "bx-chevron-down" : "bx-chevron-up"
+                  !drop.offline ? "bx-chevron-down" : "bx-chevron-up"
                 } `}
               ></i>
             </label>
-            <ul className={`${offline ? "" : "hidden "} w-52`}>
+            <ul className={`${drop.offline ? "" : "hidden "} w-52`}>
               <li className="py-0 ">
                 <Link to="kategorioffline">Kategori Kelas</Link>
               </li>
@@ -141,22 +185,22 @@ const SideBar = () => {
 
           <div className="dropdown dropdown-top- dropdown-end ">
             <label
-              onClick={() => setBook(!book)}
+              onClick={() => setDrop({ book: !drop.book })}
               className={`${
-                book ? "bg-prim text-white" : "bg-transparent text-prim"
+                drop.book ? "bg-prim text-white" : "bg-transparent text-prim"
               }  w-full  justify-between  btn  font-semibold  hover:bg-prim hover:text-white border-none `}
             >
               <span className="flex items-center font-bold gap-x-3">
-                <i class="bx bx-sm bxs-book-bookmark"></i>
+                <i className="bx bx-sm bxs-book-bookmark"></i>
                 Booking
               </span>
               <i
                 className={`bx bx-sm ${
-                  !book ? "bx-chevron-down" : "bx-chevron-up"
+                  !drop.book ? "bx-chevron-down" : "bx-chevron-up"
                 } `}
               ></i>
             </label>
-            <ul className={`${book ? "" : "hidden "}  w-52`}>
+            <ul className={`${drop.book ? "" : "hidden "}  w-52`}>
               <li className="py-0 text-prim2 hover:bg-primary hover:text-base rounded-lg">
                 <Link to="bookingonline">Online</Link>
               </li>

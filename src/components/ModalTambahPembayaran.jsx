@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import PostApi from "../apis/post.api";
 
-export const ModalMethod = ({ setLoad, show, setShow, setMessage }) => {
+export const ModalTambahPembayaran = ({
+  setLoad,
+  show,
+  setShow,
+  setMessage,
+}) => {
   const [pembayaran, setPembayaran] = useState({
     name: "",
     payment_number: "",
     description: "",
+    picture: null,
   });
   const [error, setError] = useState("");
   const onChange = (e) => {
@@ -17,6 +23,16 @@ export const ModalMethod = ({ setLoad, show, setShow, setMessage }) => {
     });
   };
 
+  const handleImage = (e) => {
+    const { name, files } = e.target;
+    PostApi.uploadFile({ title: name, files }).then((res) =>
+      setPembayaran({
+        ...pembayaran,
+        picture: res.data.data.url,
+      })
+    );
+  };
+  console.log(pembayaran);
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -32,7 +48,12 @@ export const ModalMethod = ({ setLoad, show, setShow, setMessage }) => {
   return (
     <>
       <Toaster />
-      <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+      <input
+        defaultChecked={show}
+        type="checkbox"
+        id="my-modal-5"
+        className="modal-toggle"
+      />
       <div className="modal">
         <div className="modal-box  p-0 overflow-hidden w-1/2 max-w-5xl">
           <div className="w-full p-3 bg-base2 flex">
@@ -58,6 +79,9 @@ export const ModalMethod = ({ setLoad, show, setShow, setMessage }) => {
                   <label className="block my-1 py-1" htmlFor="">
                     Deskripsi
                   </label>
+                  <label className="block my-1 py-1" htmlFor="">
+                    Foto
+                  </label>
                 </div>
                 <div className="w-full">
                   <input
@@ -78,6 +102,29 @@ export const ModalMethod = ({ setLoad, show, setShow, setMessage }) => {
                     type="text"
                     name="description"
                   />
+                  <div className=" w-28 bg-[#D3D3D3] gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-28  border">
+                    <div
+                      className={`w-28  gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-28  border ${
+                        pembayaran.picture !== null ? "" : "bg-[#D3D3D3]"
+                      }`}
+                    >
+                      {pembayaran.picture !== null && (
+                        <img
+                          className="absolute w-28 h-28 cursor-pointer rounded-full"
+                          src={pembayaran.picture}
+                          alt=""
+                        />
+                      )}
+                      <input
+                        className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t"
+                        type="file"
+                        name="payment_method"
+                        onChange={handleImage}
+                      />
+                      <i className="bx bxs-camera-plus"></i>
+                      <span className="">Pilih Foto</span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="modal-action flex">

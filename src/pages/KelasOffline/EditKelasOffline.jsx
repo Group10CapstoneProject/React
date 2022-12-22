@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast, ToastBar, Toaster } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
@@ -14,14 +15,15 @@ function EditKelasOffline() {
     price,
     picture,
     description,
+    trainer_id,
     location,
     offline_class_category_id,
   } = state.state;
-  console.log(state);
   const [btn, setBtn] = useState(true);
 
   let navigate = useNavigate();
   const [kategori, setKategori] = useState([]);
+  const [trainer, setTrainer] = useState([]);
   const [data, setData] = useState({
     id: id,
     title: title,
@@ -29,10 +31,11 @@ function EditKelasOffline() {
     duration: duration,
     slot: slot,
     price: price,
+    trainer_id: trainer_id,
     picture: picture,
     description: description,
     location: location,
-    offline_class_category_id: offline_class_category_id,
+    offline_class_category_id: offline_class_category_id?.id,
   });
 
   const onChange = (e) => {
@@ -45,7 +48,8 @@ function EditKelasOffline() {
         name == "offline_class_category_id" ||
         name == "price" ||
         name == "duration" ||
-        name == "slot"
+        name == "slot" ||
+        name == "trainer_id"
           ? parseInt(value)
           : name == "time"
           ? time.join(" ") + ":00"
@@ -62,16 +66,17 @@ function EditKelasOffline() {
       })
     );
   };
-  console.log(data);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      PostApi.updateKelasOffline(data).then((res) =>
-        navigate(`/detailkelasoffline/${id}`)
-      );
-    } catch (error) {
-      console.log(error);
-    }
+    PostApi.updateKelasOffline(data)
+      .then((res) => {
+        toast.success(res.data.message);
+        setTimeout(() => {
+          navigate(`/detailkelasoffline/${id}`);
+        }, 2000);
+      })
+      .catch((err) => toast.error(err.message));
   };
 
   const listKategori = () => {
@@ -82,8 +87,12 @@ function EditKelasOffline() {
     }
   };
 
+  const listTrainer = () => {
+    Gym.Trainers().then((res) => setTrainer(res.data.data));
+  };
   useEffect(() => {
     listKategori();
+    listTrainer();
   }, []);
 
   useEffect(() => {
@@ -94,6 +103,7 @@ function EditKelasOffline() {
 
   return (
     <>
+      <Toaster />
       <h1 className="text-3xl mb-5 font-bold text-primary">
         Edit Kelas Offline
       </h1>
@@ -113,7 +123,26 @@ function EditKelasOffline() {
                 value={data.title}
               />
             </div>
-
+            <div className="flex flex-col w-1/2 gap-y-2">
+              <label className="font-bold" htmlFor="">
+                Nama Pelatih
+              </label>
+              <select
+                onChange={onChange}
+                name="trainer_id"
+                className="select-sm border w-full max-w-xs"
+                value={data.trainer_id}
+              >
+                <option disabled selected defaultValue={data.trainer_id}>
+                  Plih Trainer
+                </option>
+                {trainer?.map((m) => (
+                  <option key={m.id} value={m.id}>
+                    {m.name}
+                  </option>
+                ))}
+              </select>
+            </div>
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">
                 Slot
@@ -192,9 +221,13 @@ function EditKelasOffline() {
                 className="select select-primary select-sm w-full max-w-xs"
                 name="offline_class_category_id"
                 onChange={onChange}
-                value={data.offline_class_category_id}
+                value={data?.offline_class_category_id}
               >
-                <option defaultValue="Kategori" disabled>
+                <option
+                  disabled
+                  selected
+                  defaultValue={data?.offline_class_category_id}
+                >
                   pilih kategori
                 </option>
                 {kategori &&
@@ -206,34 +239,42 @@ function EditKelasOffline() {
               </select>
             </div>
           </div>
-          <div className="flex gap-x-2  w-full">
-            <div className="flex flex-col gap-y-4 w-1/2">
-              <label className="font-bold" htmlFor="">
-                Foto
-              </label>
-              <div className="w-full  flex justify-center items-center bg-transparent h-44">
-                <div className="flex flex-col justify-center w-full h-full  items-center border">
-                  <input
-                    onChange={handleImage}
-                    name="offline_class"
-                    type="file"
-                    className="file-input w-full  p-10 h-full"
-                  />
+          <div className="flex flex-col w-full gap-y-4">
+            <label className="font-bold" htmlFor="">
+              Deskripsi
+            </label>
+            <textarea
+              type="text"
+              placeholder="Deskripsi"
+              className="input input-sm input-bordered w-full h-full"
+              onChange={onChange}
+              name="description"
+            />
+          </div>
+          <div className="flex flex-col gap-y-4 w-full">
+            <label className="font-bold" htmlFor="">
+              Foto
+            </label>
+            <div className="w-full  flex justify-center items-center bg-transparent h-40">
+              <div className="flex cursor-pointer relative flex-col justify-center w-full h-full  items-center border">
+                <input
+                  onChange={handleImage}
+                  name="online_class"
+                  type="file"
+                  className="file-input w-full z-50 opacity-0 cursor-pointer borders  p-10 h-full"
+                />
+                <div className="absolute w-44 flex  flex-col  items-center">
+                  {data.picture !== null ? (
+                    <img src={data.picture} alt="" />
+                  ) : (
+                    <i class="bx bx-lg bxs-image-add"></i>
+                  )}
+                  <p className="text-sm text-center font-semibold">
+                    <span className="text-prim">Tarik gambar kesini </span>atau
+                    <span className="text-prim"> cari</span> untuk memilih
+                  </p>
                 </div>
               </div>
-            </div>
-            <div className="flex flex-col w-1/2 gap-y-4">
-              <label className="font-bold" htmlFor="">
-                Deskripsi
-              </label>
-              <textarea
-                type="text"
-                placeholder="Deskripsi"
-                className="input input-sm input-bordered w-full h-full"
-                onChange={onChange}
-                name="description"
-                value={data.description}
-              />
             </div>
           </div>
         </div>

@@ -26,6 +26,9 @@ import { Pembayaran } from "../pages/Pembayaran";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedRoute from "./ProtectedRoute";
 import BookingKelasOnline from "../pages/BookingOnline/BookingKelasOnline";
+import Trainer from "../pages/Trainer/Trainer";
+import Skills from "../pages/Trainer/skils/Skills";
+import DetailTrainer from "../pages/Trainer/DetailTrainer";
 
 export const SetUpRouters = () => {
   return (
@@ -34,6 +37,10 @@ export const SetUpRouters = () => {
         <Route path="/" element={<PrivateRoute />}>
           <Route index element={<Dashboard />} />
           <Route path="pembayaran" element={<Pembayaran />} />
+          <Route path="trainer" element={<Trainer />} />
+          <Route path="trainer" element={<Trainer />} />
+          <Route path="trainer/:id" element={<DetailTrainer />} />
+          <Route path="Skills" element={<Skills />} />
           <Route path="kategorionline" element={<KategoriOnline />} />
           <Route path="kelasonline" element={<KelasOnline />} />
           <Route path="tambahkelasonline" element={<TambahKelasOnline />} />

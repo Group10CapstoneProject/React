@@ -1,17 +1,15 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import Moment from "react-moment";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Gym from "../apis/get.api";
 import PostApi from "../apis/post.api";
-import addMember from "../assets/svg/addMember.svg";
-import ModalAnggota from "../components/ModalAnggota";
 import ModalHapus from "../components/ModalHapus";
 import ModalTambahAnggota from "../components/ModalTambahAnggota";
 import Paginations from "../components/Paginations";
+import { useDebounce } from "../hooks/Searching";
 import useHook from "../hooks/useHook";
-import Auth from "../utils/Auth";
+
 const KelolaAnggota = () => {
   let navigate = useNavigate();
   const [show, setShow] = useState(false);
@@ -21,19 +19,19 @@ const KelolaAnggota = () => {
     isShow: false,
     data: {},
   });
-  const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  const [search, setSearch] = useState("");
+  const [_text, setText] = useState("");
+  const [text] = useDebounce(3000, _text);
   const [postPerPage, setPostPerPage] = useState(10);
-  const { load, setLoad } = useHook();
+  const [load, setLoad] = useState(false);
   const listMember = async () => {
-    try {
-      Gym.members({ currentPage, postPerPage, search }).then((res) =>
-        setMember(res.data.data)
-      );
-    } catch (error) {
-      console.log(error);
-    }
+    Gym.members({ currentPage, postPerPage, text })
+      .then((res) => {
+        setMember(res.data.data);
+      })
+      .catch((err) => toast.error(err.message));
+
+    setLoad(false);
   };
 
   const handleDelete = (e, id) => {
@@ -49,17 +47,12 @@ const KelolaAnggota = () => {
       toast.success(message);
       setMessage("");
     }
-  }, [load, currentPage, search, postPerPage, message]);
-  const indexOfLastPost = currentPage * postPerPage;
-  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  }, [load, currentPage, text, postPerPage, message]);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  const handleSearch = (e) => {
-    e.preventDefault(setSearch(name));
-  };
-  console.log(member);
+
   if (load) {
     return <h1>load...</h1>;
   }
@@ -86,16 +79,8 @@ const KelolaAnggota = () => {
         </div>
 
         <div className="pt-2 flex justify-between ">
-          {/* <form action="" onSubmit={handleSearch}>
-            <input
-              onChange={(e) => setName(e.target.value)}
-              type="text"
-              placeholder="Cari Anggota ....."
-              className="input input-bordered input-black w-full max-w-xs"
-            />
-          </form> */}
           <input
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => setText(e.target.value)}
             type="text"
             placeholder="Cari Anggota ....."
             className="input input-bordered input-black w-56 max-w-xs"
@@ -137,12 +122,26 @@ const KelolaAnggota = () => {
                           m.status === "ACTIVE"
                             ? "text-suc"
                             : m.status === "INACTIVE"
-                            ? "text-dang2"
+                            ? "text-dang2  "
                             : "text-inf2"
                         }`}
                       >
-                        <span> </span>
-                        <span>{m.status}</span>
+                        <div
+                          className={` lowercase flex justify-center items-center`}
+                        >
+                          <span
+                            className={`${
+                              m.status === "ACTIVE"
+                                ? "bg-suc/10 pr-2"
+                                : m.status === "INACTIVE"
+                                ? "bg-dang2/10 pr-2  "
+                                : "bg-inf2/10 pr-2"
+                            } lowercase`}
+                          >
+                            <i className="bx  bx-wifi-0"></i>
+                            {m.status}
+                          </span>
+                        </div>
                       </td>
                       <td>{m.duration} Bulan</td>
                       <td>
@@ -193,7 +192,7 @@ const KelolaAnggota = () => {
                   <option value="10">10</option>
                   <option value="20">20</option>
                   <option value="30">30</option>
-                  <option value="40">30</option>
+                  <option value="40">40</option>
                 </select>
               </div>
               <Paginations

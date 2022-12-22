@@ -45,6 +45,7 @@ function DetailKelasOffline() {
             </div>
             <div className="w-1/2 flex justify-start">
               <div className="text-justify">
+                <p className="text-lg">Pelatih {detail.trainer?.name}</p>
                 <p className="text-lg">{detail.description}</p>
                 <p className="flex gap-x-1 items-center text-prim font-semibold">
                   {" "}

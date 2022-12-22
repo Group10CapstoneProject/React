@@ -18,10 +18,12 @@ function EditKelasOnline() {
     duration,
     level,
     picture,
+    trainer_id,
   } = state.state;
 
   let navigate = useNavigate();
   const [kategori, setKategori] = useState([]);
+  const [trainer, setTrainer] = useState([]);
   const [data, setData] = useState({
     id: id,
     title: title,
@@ -33,6 +35,7 @@ function EditKelasOnline() {
     target_area: target_area,
     duration: duration,
     level: level,
+    trainer_id: trainer_id,
     picture: picture,
   });
 
@@ -44,7 +47,8 @@ function EditKelasOnline() {
       [name]:
         name == "online_class_category_id" ||
         name == "price" ||
-        name == "duration"
+        name == "duration" ||
+        name == "trainer_id"
           ? parseInt(value)
           : value,
     });
@@ -78,9 +82,13 @@ function EditKelasOnline() {
       console.log(error);
     }
   };
+  const listTrainer = () => {
+    Gym.Trainers().then((res) => setTrainer(res.data.data));
+  };
 
   useEffect(() => {
     listKategori();
+    listTrainer();
   }, []);
 
   return (
@@ -104,6 +112,26 @@ function EditKelasOnline() {
                 name="title"
                 value={data.title}
               />
+            </div>
+            <div className="flex flex-col w-1/2 gap-y-2">
+              <label className="font-bold" htmlFor="">
+                Nama Pelatih
+              </label>
+              <select
+                onChange={onChange}
+                name="trainer_id"
+                value={data.trainer_id}
+                className="select-sm border w-full max-w-xs"
+              >
+                <option disabled selected>
+                  Plih Trainer
+                </option>
+                {trainer?.map((m) => (
+                  <option key={m.id} value={m.id}>
+                    {m.name}
+                  </option>
+                ))}
+              </select>
             </div>
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">

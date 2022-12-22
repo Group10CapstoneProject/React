@@ -72,12 +72,27 @@ const ModalTambahJenis = ({ setLoad, show, setShow, setMessage }) => {
             <div className="p-3 ">
               <div className="flex w-full px-2 gap-x-2 ">
                 <div className="w-[20%] relative  flex justify-center">
-                  <input
-                    className="bg-white cursor-pointer border w-24 h-24 file-input-bordered rounded-full file-input-ghost file"
-                    type="file"
-                    onChange={handleImage}
-                    name="member_type"
-                  />
+                  <div
+                    className={`${
+                      member.picture !== null ? "" : "bg-[#D3D3D3]"
+                    } w-28  gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-28  border`}
+                  >
+                    <input
+                      onChange={handleImage}
+                      className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t"
+                      type="file"
+                      name="member_type"
+                    />
+                    {member.picture !== null && (
+                      <img
+                        className="absolute w-28 h-28 cursor-pointer rounded-full"
+                        src={member.picture}
+                        alt=""
+                      />
+                    )}
+                    <i className="bx bxs-camera-plus"></i>
+                    <span className="">Pilih Foto</span>
+                  </div>
                 </div>
                 <div className=" w-[25%] text-sm flex flex-col  ">
                   <label className="block my-1" htmlFor="">

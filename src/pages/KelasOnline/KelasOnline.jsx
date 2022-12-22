@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FormatRupiah } from "@arismun/format-rupiah";
 import { toast, Toaster } from "react-hot-toast";
 import ModalHapus from "../../components/ModalHapus";
+import { useDebounce } from "../../hooks/Searching";
 
 const KelasOnline = () => {
   let navigate = useNavigate();
@@ -20,10 +21,12 @@ const KelasOnline = () => {
   const link = useLocation();
   const [message, setMessage] = useState("");
   const [kelas, setKelas] = useState([]);
+  const [_text, setText] = useState("");
+  const [text] = useDebounce(1000, _text);
 
   const listKelas = () => {
     try {
-      Gym.onlinekelas().then((res) => setKelas(res.data.data));
+      Gym.onlinekelas(text).then((res) => setKelas(res.data.data));
     } catch (error) {
       console.log(error);
     }
@@ -47,7 +50,7 @@ const KelasOnline = () => {
       toast.success(message);
       setMessage("");
     }
-  }, [load, message]);
+  }, [load, text, message]);
 
   if (load) {
     return <h1>loading...</h1>;
@@ -69,6 +72,7 @@ const KelasOnline = () => {
           <div className="flex input-group">
             <input
               type="text"
+              onChange={(e) => setText(e.target.value)}
               placeholder="Cari Kelas..."
               className="input input-bordered input-black w-full max-w-xs"
             />

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import Moment from "react-moment";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 import ModalDetailPembayaran from "../../components/ModalDetailPembayaran";
@@ -22,7 +22,7 @@ function DetailBookingOffline() {
     isShow: false,
     data: {},
   });
-
+  let navigate = useNavigate();
   const [status, setStatus] = useState("");
 
   const detailBooking = () => {
@@ -152,9 +152,12 @@ function DetailBookingOffline() {
           <button className="h-8 px-3 bg-prim btn border-none min-h-0 text-white">
             Simpan
           </button>
-          <button className="h-8 px-3 bg-dang2 border-none text-white btn min-h-0">
+          <label
+            onClick={() => navigate("/bookingoffline")}
+            className="h-8 px-3 bg-dang2 border-none text-white btn min-h-0"
+          >
             Batal
-          </button>
+          </label>
         </div>
       </form>
     </>
