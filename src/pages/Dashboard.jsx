@@ -98,7 +98,30 @@ function Dashboard() {
                     <td className="  leading-none">{m.user_name}</td>
                     <td>{m.user_email}</td>
                     <td>{m.member_type_name}</td>
-                    <td>{m.status}</td>
+                    <td
+                      className={`${
+                        m.status === "ACTIVE"
+                          ? "text-suc"
+                          : m.status === "INACTIVE"
+                          ? "text-dang2  "
+                          : "text-inf2"
+                      }`}
+                    >
+                      <div className={` lowercase `}>
+                        <span
+                          className={`${
+                            m.status === "ACTIVE"
+                              ? "bg-suc/10 pr-2"
+                              : m.status === "INACTIVE"
+                              ? "bg-dang2/10 pr-2  "
+                              : "bg-inf2/10 pr-2"
+                          } lowercase`}
+                        >
+                          <i className="bx  bx-wifi-0"></i>
+                          {m.status}
+                        </span>
+                      </div>
+                    </td>
                   </tr>
                 ))}
             </tbody>
