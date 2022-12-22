@@ -36,7 +36,7 @@ function Dashboard() {
             <p className="text-[16px]">Total Membership</p>
           </div>
         </div>
-        <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-dang">
+        <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-dang6">
           <div className="flex justify-center items-center">
             <box-icon size="lg" name="user"></box-icon>
           </div>

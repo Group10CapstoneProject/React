@@ -28,6 +28,7 @@ module.exports = {
         dang3: "#FF704C",
         dang4: "#DD5533",
         dang5: "#FF5328",
+        dang6: "#FFA993",
         border: "#4DB4EE",
         border2: "#E9FCFA",
         border3: "#F2F4F3",

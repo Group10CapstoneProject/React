@@ -110,7 +110,7 @@ const KategoriOnline = () => {
                       }
                       className="rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none "
                     >
-                      <i className="bx bx-sm rounded-lg bg-dang2 p-1 text-white bx-trash"></i>
+                      <i className="bx bx-sm rounded-lg bg-dang p-1 text-white bx-trash"></i>
                     </button>
                   </div>
                 </div>
