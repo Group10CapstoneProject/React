@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-scroll";
 import logogymImage from "../../../assets/images/logogym.png";
 
 const Navbar = () => {
   return (
     <div>
-      <div className="navbar bg-info text-white px-8 py-4">
+      <div className="navbar bg-info text-white px-8 py-4" id="home">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -14,16 +15,16 @@ const Navbar = () => {
             </label>
             <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-info rounded-box w-52">
               <li>
-                <a href="/">Home</a>
+                <a href="home">Home</a>
               </li>
               <li>
-                <a href="#product">Product</a>
+                <a href="product">Product</a>
               </li>
               <li>
-                <a href="#pricing">Pricing</a>
+                <a href="pricing">Pricing</a>
               </li>
               <li>
-                <a href="#testimony">Testimony</a>
+                <a href="testimony">Testimony</a>
               </li>
             </ul>
           </div>
@@ -35,31 +36,31 @@ const Navbar = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a href="/" className="hover:underline underline-offset-8">
-                Home
-              </a>
+              <Link to="home" spy={true} smooth={true} offset={1} duration={1000}>
+                <a className="hover:underline underline-offset-8">Home</a>
+              </Link>
             </li>
             <li>
-              <a href="#product" className="hover:underline underline-offset-8">
-                Product
-              </a>
+              <Link to="product" spy={true} smooth={true} offset={1} duration={1000}>
+                <a className="hover:underline underline-offset-8">Product</a>
+              </Link>
             </li>
             <li>
-              <a href="#pricing" className="hover:underline underline-offset-8">
-                Pricing
-              </a>
+              <Link to="pricing" spy={true} smooth={true} offset={1} duration={1500}>
+                <a className="hover:underline underline-offset-8">Pricing</a>
+              </Link>
             </li>
-            <li className="underlined">
-              <a href="#testimony" className="hover:underline underline-offset-8 ">
-                Testimony
-              </a>
+            <li>
+              <Link to="testimony" spy={true} smooth={true} offset={1} duration={1600}>
+                <a className="hover:underline underline-offset-8">Testimony</a>
+              </Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn bg-primary text-white hover:bg-accent" href="#join">
-            Gabung Sekarang
-          </a>
+          <Link to="join" spy={true} smooth={true} offset={1} duration={2000}>
+            <a className="btn bg-primary text-white hover:bg-accent">Gabung Sekarang</a>
+          </Link>
         </div>
       </div>
     </div>
