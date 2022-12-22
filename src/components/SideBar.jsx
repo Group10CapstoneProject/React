@@ -129,7 +129,7 @@ const SideBar = () => {
               ""
             )}
           </div>
-          <div className="pt-[50px]">
+          {/* <div className="pt-[50px]">
             {data && data.role == "superadmin" ? (
               <li className={`${path == "/offline" ? "bg-base text-dang4 rounded-lg" : ""} font-bold `}>
                 <span className="flex  items-center gap-x-3">
@@ -142,7 +142,7 @@ const SideBar = () => {
             ) : (
               ""
             )}
-          </div>
+          </div> */}
         </ul>
       </div>
     </div>

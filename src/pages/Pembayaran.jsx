@@ -39,7 +39,7 @@ export const Pembayaran = () => {
       <Toaster />
       <div className="">
         <div className="w-full">
-          <h4 className="font-bold text-info">Metode Pembayaran</h4>
+          <h4 className="font-bold text-prim">Metode Pembayaran</h4>
         </div>
 
         <div className="pt-2 flex justify-end ">

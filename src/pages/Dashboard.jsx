@@ -6,10 +6,8 @@ function Dashboard() {
   const dataAdmin = JSON.parse(Cookies.get("data"));
   console.log(dataAdmin);
   return (
-    <div className="">
-      <h1 className="text-3xl mb-5 font-bold text-primary">
-        Selamat Datang Kembali {dataAdmin && dataAdmin.role}
-      </h1>
+    <div>
+      <h1 className="text-3xl mb-5 font-bold text-primary">Selamat Datang Kembali {dataAdmin && dataAdmin.role}</h1>
       <div className="grid grid-cols-4 mb-5">
         <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-warn">
           <div className="flex justify-center items-center">
