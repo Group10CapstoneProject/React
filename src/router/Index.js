@@ -1,37 +1,57 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "../pages/Dashboard";
-import DetailAnggota from "../pages/DetailAnggota";
-import JenisMembership from "../pages/JenisMembership";
-import KategoriOffline from "../pages/KelasOffline/KategoriOffline";
-import KelasOffline from "../pages/KelasOffline/KelasOffline";
-import TambahKelasOffline from "../pages/KelasOffline/TambahKelasOffline";
-import KategoriOnline from "../pages/KelasOnline/KategoriOnline";
-import KelasOnline from "../pages/KelasOnline/KelasOnline";
 
-import BookingOffline from "../pages/BookingOffline/BookingOffline";
-import DetailBookingOffline from "../pages/BookingOffline/DetailBookingOffline";
-import DetailBookingOnline from "../pages/BookingOnline/DetailBookingOnline";
-import DetailKelasOffline from "../pages/KelasOffline/DetailKelasOffline";
-import EditKelasOffline from "../pages/KelasOffline/EditKelasOffline";
-import DetailKelasOnline from "../pages/KelasOnline/DetailKelasOnline";
-import EditKelasOnline from "../pages/KelasOnline/EditKelasOnline";
-import TambahKelasOnline from "../pages/KelasOnline/TambahKelasOnline";
-import KelolaAnggota from "../pages/KelolaAnggota";
-import LandingPage from "../pages/LandingPage/LandingPage";
-import Login from "../pages/Login";
-import { Member } from "../pages/Member";
-import NotFoundPage from "../pages/NotFoundPage";
-import { Pembayaran } from "../pages/Pembayaran";
+// Router
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 import ProtectedRoute from "./ProtectedRoute";
 
+// Landing Page
+import LandingPage from "../pages/LandingPage/LandingPage";
+
+// Login
+import Login from "../pages/Login";
+
+// Dashboard
+import Dashboard from "../pages/Dashboard";
+
+// Pembayaran
+import { Pembayaran } from "../pages/Pembayaran";
+
+// Membership
+import DetailAnggota from "../pages/DetailAnggota";
+import JenisMembership from "../pages/JenisMembership";
+import KelolaAnggota from "../pages/KelolaAnggota";
+
+// Kelas Offline
+import DetailKelasOffline from "../pages/KelasOffline/DetailKelasOffline";
+import EditKelasOffline from "../pages/KelasOffline/EditKelasOffline";
+import KategoriOffline from "../pages/KelasOffline/KategoriOffline";
+import KelasOffline from "../pages/KelasOffline/KelasOffline";
+import TambahKelasOffline from "../pages/KelasOffline/TambahKelasOffline";
+
+// Kelas Online
+import DetailKelasOnline from "../pages/KelasOnline/DetailKelasOnline";
+import EditKelasOnline from "../pages/KelasOnline/EditKelasOnline";
+import KategoriOnline from "../pages/KelasOnline/KategoriOnline";
+import KelasOnline from "../pages/KelasOnline/KelasOnline";
+import TambahKelasOnline from "../pages/KelasOnline/TambahKelasOnline";
+
+// Booking Offline
+import BookingOffline from "../pages/BookingOffline/BookingOffline";
+import DetailBookingOffline from "../pages/BookingOffline/DetailBookingOffline";
+
+// Booking Online
 import BookingKelasOnline from "../pages/BookingOnline/BookingKelasOnline";
+import DetailBookingOnline from "../pages/BookingOnline/DetailBookingOnline";
+import ModalBookingOnline from "../pages/BookingOnline/ModalBookingOnline";
+
+// Admin
 import Admin from "../pages/Admin";
 
-// import BookingOnline from "../pages/BookingOnline/BookingOnline";
-import ModalBookingOnline from "../pages/BookingOnline/ModalBookingOnline";
-// import BookingOffline from "../pages/BookingOffline/BookingOffline";
+// 404 Error
+import NotFoundPage from "../pages/NotFoundPage";
+
+import { Member } from "../pages/Member";
 
 export const SetUpRouters = () => {
   return (
@@ -62,12 +82,7 @@ export const SetUpRouters = () => {
           <Route path="bookingoffline" element={<BookingOffline />} />
           <Route path="detailBookingOffline/:id" element={<DetailBookingOffline />} />
           <Route path="admin" element={<Admin />} />
-
-          {/* <Route path="bookingonline" element={<BookingOnline />} /> */}
           <Route path="modalbookingonline" element={<ModalBookingOnline />} />
-          {/* <Route path="bookingoffline" element={<BookingOffline />} /> */}
-
-          {/* <Route path="bookingoffline" element={<BookingOnline />} /> */}
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>
