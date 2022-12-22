@@ -59,43 +59,32 @@ const KelasOnline = () => {
     <>
       <Toaster />
 
-      {modalDelete.isShow && (
-        <ModalHapus
-          show={modalDelete.isShow}
-          handleDelete={handleDelete}
-          data={modalDelete.data}
-          setShow={setModalDelete}
-        />
-      )}
+      {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} handleDelete={handleDelete} data={modalDelete.data} setShow={setModalDelete} />}
       <div>
         <div className="form-control">
           <div className="flex input-group">
+
             <input
               type="text"
               onChange={(e) => setText(e.target.value)}
               placeholder="Cari Kelas..."
               className="input input-bordered input-black w-full max-w-xs"
             />
+
           </div>
           <br />
           <div className="flex items-center   justify-between ">
             <h4 className="font-bold text-prim">Kelas Online</h4>
             <div className="flex justify-end ">
-              <Link
-                to="/tambahkelasonline"
-                className="btn border-prim bg-prim hover:bg-accent text-white transition duration-200 ease-in hover:border-base"
-              >
-                <i className="bx bx-user-plus bx-sm"></i> Tambah Kelas
+              <Link to="/tambahkelasonline" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
+                <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Kelas
               </Link>
             </div>
           </div>
 
           <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3">
             {kelas?.map((m) => (
-              <div
-                key={m.id}
-                className="card w-[340px] border-prim h-[300px] bg-base-100 shadow-xl"
-              >
+              <div key={m.id} className="card w-[340px] border-prim h-[300px] bg-base-100 shadow-xl">
                 <figure className="  h-full">
                   <img className="h-full w-full" src={m.picture} alt="Yoga" />
                 </figure>

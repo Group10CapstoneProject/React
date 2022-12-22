@@ -181,9 +181,7 @@ const DetailAnggota = () => {
     <>
       <Toaster />
 
-      <h2 className="px-6 pt-2 text-3xl font-semibold text-prim">
-        Kelola Anggota / Detail
-      </h2>
+      <h2 className="px-6 pt-2 text-3xl font-semibold text-prim">Kelola Anggota / Detail</h2>
       <div className="flex m-3 p-3 gap-x-5  border   ">
         <div className="w-[60%]  ">
           <div className=" flex gap-x-14 font-semibold text-md">
@@ -200,10 +198,7 @@ const DetailAnggota = () => {
               <p>: {member.user?.name}</p>
               <p>: {member.user?.email}</p>
               <p>
-                :{" "}
-                <Moment format="D MMM YYYY hh:mm:ss">
-                  {member?.actived_at}
-                </Moment>
+                : <Moment format="D MMM YYYY hh:mm:ss">{member?.actived_at}</Moment>
               </p>
               <p>: {member.payment_method?.name}</p>
               <p>: {member.payment_method?.payment_number}</p>
@@ -234,38 +229,10 @@ const DetailAnggota = () => {
                 : <FormatRupiah value={member.member_type?.price} />{" "}
               </p>
               <p>: {member.duration} Bulan</p>
-              <p>
-                :{" "}
-                {member.member_type?.access_offline_class == true ? (
-                  <i className="bx text-[20px] text-suc bx-check-circle"></i>
-                ) : (
-                  <i className="bx text-[20px] text-red-700 bx-check-circle"></i>
-                )}
-              </p>
-              <p>
-                :{" "}
-                {member.member_type?.access_online_class == true ? (
-                  <i className="bx text-[20px] text-suc bx-check-circle"></i>
-                ) : (
-                  <i className="bx text-[20px] text-red-700 bx-check-circle"></i>
-                )}
-              </p>
-              <p>
-                :{" "}
-                {member.member_type?.access_trainer == true ? (
-                  <i className="bx text-[20px] text-suc bx-check-circle"></i>
-                ) : (
-                  <i className="bx text-[20px] text-red-700 bx-check-circle"></i>
-                )}
-              </p>
-              <p>
-                :{" "}
-                {member.member_type?.access_gym == true ? (
-                  <i className="bx text-[20px] text-suc bx-check-circle"></i>
-                ) : (
-                  <i className="bx text-[20px] text-red-700 bx-check-circle"></i>
-                )}
-              </p>
+              <p>: {member.member_type?.access_offline_class == true ? <i className="bx text-[20px] text-suc bx-check-circle"></i> : <i className="bx text-[20px] text-red-700 bx-check-circle"></i>}</p>
+              <p>: {member.member_type?.access_online_class == true ? <i className="bx text-[20px] text-suc bx-check-circle"></i> : <i className="bx text-[20px] text-red-700 bx-check-circle"></i>}</p>
+              <p>: {member.member_type?.access_trainer == true ? <i className="bx text-[20px] text-suc bx-check-circle"></i> : <i className="bx text-[20px] text-red-700 bx-check-circle"></i>}</p>
+              <p>: {member.member_type?.access_gym == true ? <i className="bx text-[20px] text-suc bx-check-circle"></i> : <i className="bx text-[20px] text-red-700 bx-check-circle"></i>}</p>
             </div>
           </div>
         </div>
@@ -278,11 +245,7 @@ const DetailAnggota = () => {
         </div>
         <div className="flex gap-x-10 py-5 w-full ">
           <h2 className="text-md font-semibold">Status Membership</h2>
-          <select
-            className="select select-bordered select-sm w-full max-w-xs"
-            name="status"
-            onChange={(e) => setStatus(e.target.value)}
-          >
+          <select className="select select-bordered select-sm w-full max-w-xs" name="status" onChange={(e) => setStatus(e.target.value)}>
             <option defaultValue="menunggu">Menunggu Konfirmasi</option>
             <option value="REJECT">REJECT</option>
             <option value="INACTIVE">INACTIVE</option>

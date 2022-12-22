@@ -145,9 +145,7 @@ const Gym = {
   },
   async detailBookingOffline(id) {
     try {
-      const response = await axiosInstance.get(
-        `/offline-classes/bookings/details/${id}`
-      );
+      const response = await axiosInstance.get(`/offline-classes/bookings/details/${id}`);
       return response;
     } catch (error) {
       console.log("error");
@@ -155,9 +153,7 @@ const Gym = {
   },
   async detailBookingOnline(id) {
     try {
-      const response = await axiosInstance.get(
-        `/online-classes/bookings/details/${id}`
-      );
+      const response = await axiosInstance.get(`/online-classes/bookings/details/${id}`);
       return response;
     } catch (error) {
       console.log("error");

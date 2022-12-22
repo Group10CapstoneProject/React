@@ -1,34 +1,61 @@
 import React from "react";
+
+// Router
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import PrivateRoute from "./PrivateRoute";
+import ProtectedRoute from "./ProtectedRoute";
+
+// Landing Page
+import LandingPage from "../pages/LandingPage/LandingPage";
+
+// Login
+import Login from "../pages/Login";
+
+// Dashboard
 import Dashboard from "../pages/Dashboard";
+
+// Pembayaran
+import { Pembayaran } from "../pages/Pembayaran";
+
+// Membership
 import DetailAnggota from "../pages/DetailAnggota";
 import JenisMembership from "../pages/JenisMembership";
+import KelolaAnggota from "../pages/KelolaAnggota";
+
+// Kelas Offline
+import DetailKelasOffline from "../pages/KelasOffline/DetailKelasOffline";
+import EditKelasOffline from "../pages/KelasOffline/EditKelasOffline";
 import KategoriOffline from "../pages/KelasOffline/KategoriOffline";
 import KelasOffline from "../pages/KelasOffline/KelasOffline";
 import TambahKelasOffline from "../pages/KelasOffline/TambahKelasOffline";
-import KategoriOnline from "../pages/KelasOnline/KategoriOnline";
-import KelasOnline from "../pages/KelasOnline/KelasOnline";
 
-import BookingOffline from "../pages/BookingOffline/BookingOffline";
-import DetailBookingOffline from "../pages/BookingOffline/DetailBookingOffline";
-import DetailBookingOnline from "../pages/BookingOnline/DetailBookingOnline";
-import DetailKelasOffline from "../pages/KelasOffline/DetailKelasOffline";
-import EditKelasOffline from "../pages/KelasOffline/EditKelasOffline";
+// Kelas Online
 import DetailKelasOnline from "../pages/KelasOnline/DetailKelasOnline";
 import EditKelasOnline from "../pages/KelasOnline/EditKelasOnline";
+import KategoriOnline from "../pages/KelasOnline/KategoriOnline";
+import KelasOnline from "../pages/KelasOnline/KelasOnline";
 import TambahKelasOnline from "../pages/KelasOnline/TambahKelasOnline";
-import KelolaAnggota from "../pages/KelolaAnggota";
-import LandingPage from "../pages/LandingPage";
-import Login from "../pages/Login";
-import { Member } from "../pages/Member";
-import NotFoundPage from "../pages/NotFoundPage";
-import { Pembayaran } from "../pages/Pembayaran";
-import PrivateRoute from "./PrivateRoute";
-import ProtectedRoute from "./ProtectedRoute";
+
+// Booking Offline
+import BookingOffline from "../pages/BookingOffline/BookingOffline";
+import DetailBookingOffline from "../pages/BookingOffline/DetailBookingOffline";
+
+// Booking Online
 import BookingKelasOnline from "../pages/BookingOnline/BookingKelasOnline";
+// punya agil
 import Trainer from "../pages/Trainer/Trainer";
 import Skills from "../pages/Trainer/skils/Skills";
 import DetailTrainer from "../pages/Trainer/DetailTrainer";
+
+// punya gua
+import DetailBookingOnline from "../pages/BookingOnline/DetailBookingOnline";
+import ModalBookingOnline from "../pages/BookingOnline/ModalBookingOnline";
+// Admin
+import Admin from "../pages/Admin";
+// 404 Error
+import NotFoundPage from "../pages/NotFoundPage";
+import { Member } from "../pages/Member";
+
 
 export const SetUpRouters = () => {
   return (
@@ -49,37 +76,25 @@ export const SetUpRouters = () => {
           <Route path="kategorioffline" element={<KategoriOffline />} />
           <Route path="kelasoffline" element={<KelasOffline />} />
           <Route path="tambahkelasoffline" element={<TambahKelasOffline />} />
-          <Route
-            path="detailkelasoffline/:id"
-            element={<DetailKelasOffline />}
-          />
+          <Route path="detailkelasoffline/:id" element={<DetailKelasOffline />} />
           <Route path="editkelasoffline" element={<EditKelasOffline />} />
-          <Route
-            path="detailkelasoffline/:id"
-            element={<DetailKelasOffline />}
-          />
+          <Route path="detailkelasoffline/:id" element={<DetailKelasOffline />} />
           <Route path="editkelasonline" element={<EditKelasOnline />} />
           <Route path="anggota" element={<KelolaAnggota />} />
           <Route path="detail/:id" element={<DetailAnggota />} />
           <Route path="jenis" element={<JenisMembership />} />
           <Route path="member" element={<Member />} />
+
           <Route path="bookingonline" element={<BookingKelasOnline />} />
-          <Route
-            path="detailBookingOnline/:id"
-            element={<DetailBookingOnline />}
-          />
+          <Route path="detailBookingOnline/:id" element={<DetailBookingOnline />} />
           <Route path="bookingoffline" element={<BookingOffline />} />
-          <Route
-            path="detailBookingOffline/:id"
-            element={<DetailBookingOffline />}
-          />
-          {/* <Route path="bookingoffline" element={<BookingOnline />} /> */}
+          <Route path="detailBookingOffline/:id" element={<DetailBookingOffline />} />
+          <Route path="admin" element={<Admin />} />
+          <Route path="modalbookingonline" element={<ModalBookingOnline />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>
-        <Route path="landingpage" element={<LandingPage />} />
-        {/* <Route path="trainer" element={<Trainer />} /> */}
-        {/* <Route path="detailpelatih" element={<DetailPelatih />} /> */}
+        <Route path="/landingpage" element={<LandingPage />} />
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/home" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />

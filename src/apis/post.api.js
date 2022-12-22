@@ -58,16 +58,7 @@ const PostApi = {
 
   async tambahJenisMember(payload) {
     try {
-      const {
-        name,
-        price,
-        description,
-        access_offline_class,
-        access_online_class,
-        access_trainer,
-        access_gym,
-        picture,
-      } = payload;
+      const { name, price, description, access_offline_class, access_online_class, access_trainer, access_gym, picture } = payload;
 
       const response = await axiosInstance.post(`/members/types`, {
         name,
@@ -87,17 +78,7 @@ const PostApi = {
   },
 
   async updateJenis(payload) {
-    const {
-      id,
-      name,
-      price,
-      description,
-      access_online_class,
-      access_offline_class,
-      access_trainer,
-      access_gym,
-      picture,
-    } = payload;
+    const { id, name, price, description, access_online_class, access_offline_class, access_trainer, access_gym, picture } = payload;
     console.log(payload);
     try {
       const response = await axiosInstance.put(`/members/types/details/${id}`, {
@@ -207,9 +188,7 @@ const PostApi = {
 
   async deleteKelasOffline(id) {
     try {
-      const response = await axiosInstance.delete(
-        `/offline-classes/details/${id}`
-      );
+      const response = await axiosInstance.delete(`/offline-classes/details/${id}`);
       return response;
     } catch (err) {
       const { message } = err.response.data;
@@ -295,9 +274,7 @@ const PostApi = {
 
   async deleteKelasOnline(id) {
     try {
-      const response = await axiosInstance.delete(
-        `/online-classes/details/${id}`
-      );
+      const response = await axiosInstance.delete(`/online-classes/details/${id}`);
       return response;
     } catch (err) {
       const { message } = err.response.data;
@@ -326,9 +303,7 @@ const PostApi = {
   },
   async hapusJenisMember(id) {
     try {
-      const response = await axiosInstance.delete(
-        `/members/types/details/${id}`
-      );
+      const response = await axiosInstance.delete(`/members/types/details/${id}`);
       console.log(response);
       return response;
     } catch (err) {
@@ -366,14 +341,11 @@ const PostApi = {
   async updateKategoriOnline(payload) {
     try {
       const { name, description, picture, id } = payload;
-      const response = await axiosInstance.put(
-        `/online-classes/categories/details/${id}`,
-        {
-          name,
-          description,
-          picture,
-        }
-      );
+      const response = await axiosInstance.put(`/online-classes/categories/details/${id}`, {
+        name,
+        description,
+        picture,
+      });
 
       return response;
     } catch (err) {
@@ -384,9 +356,7 @@ const PostApi = {
 
   async deleteKategoriOnline(id) {
     try {
-      const response = await axiosInstance.delete(
-        `/online-classes/categories/details/${id}`
-      );
+      const response = await axiosInstance.delete(`/online-classes/categories/details/${id}`);
       return response;
     } catch (err) {
       const { message } = err.response.data;
@@ -396,9 +366,7 @@ const PostApi = {
 
   async deleteKategoriOffline(id) {
     try {
-      const response = await axiosInstance.delete(
-        `/offline-classes/categories/details/${id}`
-      );
+      const response = await axiosInstance.delete(`/offline-classes/categories/details/${id}`);
       return response;
     } catch (err) {
       const { message } = err.response.data;
@@ -424,14 +392,11 @@ const PostApi = {
   async updateKategoriOffline(payload) {
     try {
       const { name, description, picture, id } = payload;
-      const response = await axiosInstance.put(
-        `/offline-classes/categories/details/${id}`,
-        {
-          name,
-          description,
-          picture,
-        }
-      );
+      const response = await axiosInstance.put(`/offline-classes/categories/details/${id}`, {
+        name,
+        description,
+        picture,
+      });
 
       return response;
     } catch (err) {

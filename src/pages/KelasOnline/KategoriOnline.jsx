@@ -61,67 +61,30 @@ const KategoriOnline = () => {
   }
   return (
     <>
-      {show ? (
-        <ModalTambahKategoriOnline
-          setLoad={setLoad}
-          show={show}
-          setShow={setShow}
-          setMessage={setMessage}
-        />
-      ) : (
-        ""
-      )}
+      {show ? <ModalTambahKategoriOnline setLoad={setLoad} show={show} setShow={setShow} setMessage={setMessage} /> : ""}
 
-      {modalEdit.isShow ? (
-        <ModalEditKategoriOnline
-          setLoad={setLoad}
-          show={modalEdit.isShow}
-          setShow={setModalEdit}
-          data={modalEdit.data}
-          setMessage={setMessage}
-        />
-      ) : (
-        ""
-      )}
+      {modalEdit.isShow ? <ModalEditKategoriOnline setLoad={setLoad} show={modalEdit.isShow} setShow={setModalEdit} data={modalEdit.data} setMessage={setMessage} /> : ""}
       <Toaster />
 
-      {modalDelete.isShow && (
-        <ModalHapus
-          show={modalDelete.isShow}
-          handleDelete={handleDelete}
-          data={modalDelete.data}
-          setShow={setModalDelete}
-        />
-      )}
+      {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} handleDelete={handleDelete} data={modalDelete.data} setShow={setModalDelete} />}
       <div>
         <div className="form-control">
           <div className="flex   input-group">
-            <input
-              type="text"
-              placeholder="Cari Kategori..."
-              className="input input-bordered input-black w-full max-w-xs"
-            />
+            <input type="text" placeholder="Cari Kategori..." className="input input-bordered input-black w-full max-w-xs" />
           </div>
           <br />
           <div className="flex items-center justify-between ">
             <h4 className="font-bold text-prim">Kategori Kelas Online</h4>
             <div className="flex justify-end ">
-              <label
-                onClick={() => setShow(true)}
-                htmlFor="my-modal-5"
-                className="btn border-prim bg-prim hover:bg-accent text-white transition duration-200 ease-in hover:border-base"
-              >
-                <i className="bx bx-user-plus bx-sm"></i> Tambah Kategori
+              <label onClick={() => setShow(true)} htmlFor="my-modal-5" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
+                <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Kategori
               </label>
             </div>
           </div>
 
           <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3">
             {kategori?.map((m) => (
-              <div
-                key={m.id}
-                className="  card w-[320px]  h-72 bg-base-100 shadow-xl "
-              >
+              <div key={m.id} className="  card w-[320px]  h-72 bg-base-100 shadow-xl ">
                 <figure className="  h-full">
                   <img className="h-full w-full" src={m.picture} alt="Yoga" />
                 </figure>
@@ -147,7 +110,7 @@ const KategoriOnline = () => {
                       }
                       className="rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none "
                     >
-                      <i className="bx bx-sm rounded-lg bg-dang2 p-1 text-white bx-trash"></i>
+                      <i className="bx bx-sm rounded-lg bg-dang p-1 text-white bx-trash"></i>
                     </button>
                   </div>
                 </div>

@@ -74,37 +74,11 @@ const JenisMembership = () => {
       <div className="relative">
         {show ? <ModalJenisMember show={show} setShow={setShow} /> : ""}
 
-        {modalEdit.isShow ? (
-          <ModalEditJenis
-            setLoad={setLoad}
-            setShow={setModalEdit}
-            show={modalEdit.isShow}
-            data={modalEdit.data}
-            setMessage={setMessage}
-          />
-        ) : (
-          ""
-        )}
+        {modalEdit.isShow ? <ModalEditJenis setLoad={setLoad} setShow={setModalEdit} show={modalEdit.isShow} data={modalEdit.data} setMessage={setMessage} /> : ""}
 
-        {modalTambah ? (
-          <ModalTambahJenis
-            setMessage={setMessage}
-            setLoad={setLoad}
-            show={modalTambah}
-            setShow={setModalTambah}
-          />
-        ) : (
-          ""
-        )}
+        {modalTambah ? <ModalTambahJenis setMessage={setMessage} setLoad={setLoad} show={modalTambah} setShow={setModalTambah} /> : ""}
 
-        {modalDelete.isShow && (
-          <ModalHapus
-            show={modalDelete.isShow}
-            setShow={setModalDelete}
-            data={modalDelete.data}
-            handleDelete={handleDelete}
-          />
-        )}
+        {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} setShow={setModalDelete} data={modalDelete.data} handleDelete={handleDelete} />}
         <div className="">
           <div className="w-full">
             <h4 className="font-bold text-prim">Jenis Membership</h4>
@@ -124,20 +98,11 @@ const JenisMembership = () => {
             <div className="grid grid-cols-3 gap-4 ">
               {member &&
                 member.map((m) => (
-                  <div
-                    key={m.id}
-                    className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[400px] bg-white "
-                  >
+                  <div key={m.id} className="w-[300px] border overflow-hidden shadow-xl rounded-xl h-[400px] bg-white ">
                     <div className="w-full pt-3 bg-prim"></div>
                     <div className="flex  justify-between flex-col h-full p-3 items-center ">
-                      <img
-                        className="mt-2 h-20 w-20"
-                        src={m.picture}
-                        alt="icon"
-                      />
-                      <h1 className=" py-1 text-black capitalize text-[20px] font-semibold">
-                        {m.name}
-                      </h1>
+                      <img className="mt-2 h-20 w-20" src={m.picture} alt="icon" />
+                      <h1 className=" py-1 text-black capitalize text-[20px] font-semibold">{m.name}</h1>
                       <h2 className="text-prim border w-full text-center  py-1 text-[20px] font-semibold">
                         <FormatRupiah value={m.price} />
                         /Bulan
@@ -145,50 +110,26 @@ const JenisMembership = () => {
 
                       <div className="flex p-2 flex-col w-full gap-y-2  text-[12px]">
                         <div className="flex items-center w-full gap-x-2">
-                          {m.access_offline_class == true ? (
-                            <i className="bx text-[20px] text-suc bx-check-circle"></i>
-                          ) : (
-                            <i className="bx text-[20px] text-red-700 bx-check-circle"></i>
-                          )}
-                          <p className="text-[12px]">
-                            Dapatkan akses kelas Offline
-                          </p>
+                          {m.access_offline_class == true ? <i className="bx text-[20px] text-suc bx-check-circle"></i> : <i className="bx text-[20px] text-red-700 bx-check-circle"></i>}
+                          <p className="text-[12px]">Dapatkan akses kelas Offline</p>
                         </div>
 
                         <div className="flex items-center w-full gap-x-2">
-                          {m.access_online_class == true ? (
-                            <i className="bx text-[20px] text-suc bx-check-circle"></i>
-                          ) : (
-                            <i className="bx text-[20px] text-red-700 bx-check-circle"></i>
-                          )}
-                          <p className="text-[12px]">
-                            {" "}
-                            Dapatkan akses kelas Online
-                          </p>
+                          {m.access_online_class == true ? <i className="bx text-[20px] text-suc bx-check-circle"></i> : <i className="bx text-[20px] text-red-700 bx-check-circle"></i>}
+                          <p className="text-[12px]"> Dapatkan akses kelas Online</p>
                         </div>
                         <div className="flex items-center w-full gap-x-2">
-                          {m.access_trainer == true ? (
-                            <i className="bx text-[20px] text-suc bx-check-circle"></i>
-                          ) : (
-                            <i className="bx text-[20px] text-red-700 bx-check-circle"></i>
-                          )}
+                          {m.access_trainer == true ? <i className="bx text-[20px] text-suc bx-check-circle"></i> : <i className="bx text-[20px] text-red-700 bx-check-circle"></i>}
                           <p className="text-[12px]">Dapatkan Trainer</p>
                         </div>
 
                         <div className="flex items-center w-full gap-x-2">
-                          {m.access_gym == true ? (
-                            <i className="bx text-[20px] text-suc bx-check-circle"></i>
-                          ) : (
-                            <i className="bx text-[20px] text-red-700 bx-check-circle"></i>
-                          )}
+                          {m.access_gym == true ? <i className="bx text-[20px] text-suc bx-check-circle"></i> : <i className="bx text-[20px] text-red-700 bx-check-circle"></i>}
                           <p className="text-[12px]">Dapatkan akses Gym</p>
                         </div>
                       </div>
                       <div className="flex flex-col w-full  gap-y-2 pb-3 justify-end ">
-                        <label
-                          onClick={() => handleEdit(m)}
-                          className="btnp w-full text-center  "
-                        >
+                        <label onClick={() => handleEdit(m)} className="btnp w-full text-center  ">
                           Edit
                         </label>
                         <label
