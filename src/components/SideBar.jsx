@@ -52,7 +52,6 @@ const SideBar = () => {
                 <i className="bx bx-sm bx-book-content"></i>
                 Membership
               </span>
-
               <i className={`bx bx-sm ${!member ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
             <ul className={`${member ? "" : "hidden "}  w-52 `}>
@@ -124,6 +123,20 @@ const SideBar = () => {
                 <span className="flex  items-center gap-x-3">
                   <i class="bx bx-user-circle bx-sm"></i>
                   <Link to="admin">Admin</Link>
+                </span>
+              </li>
+            ) : (
+              ""
+            )}
+          </div>
+          <div className="pt-[50px]">
+            {data && data.role == "superadmin" ? (
+              <li className={`${path == "/offline" ? "bg-base text-dang4 rounded-lg" : ""} font-bold `}>
+                <span className="flex  items-center gap-x-3">
+                  <box-icon color={`${path == "/offline" ? "#ff5328" : ""}`} name="log-out"></box-icon>
+                  <Link to="offline" className="font-bold">
+                    Keluar
+                  </Link>
                 </span>
               </li>
             ) : (

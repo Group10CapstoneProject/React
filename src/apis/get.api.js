@@ -17,9 +17,7 @@ const Gym = {
   async members(payload) {
     const { currentPage, postPerPage, search } = payload;
     try {
-      const response = await axiosInstance.get(
-        `/members?page=${currentPage}&limit=${postPerPage}&q=${search}`
-      );
+      const response = await axiosInstance.get(`/members?page=${currentPage}&limit=${postPerPage}&q=${search}`);
       return response;
     } catch (error) {
       console.log("error");
@@ -108,9 +106,7 @@ const Gym = {
   async bookingOnline(payload) {
     const { currentPage, postPerPage, search } = payload;
     try {
-      const response = await axiosInstance.get(
-        `/online-classes/bookings?page=${currentPage}&limit=${postPerPage}&q=${search}`
-      );
+      const response = await axiosInstance.get(`/online-classes/bookings?page=${currentPage}&limit=${postPerPage}&q=${search}`);
       return response;
     } catch (error) {
       console.log("error");
@@ -119,9 +115,7 @@ const Gym = {
   async bookingOffline(payload) {
     const { currentPage, postPerPage, search } = payload;
     try {
-      const response = await axiosInstance.get(
-        `/offline-classes/bookings?page=${currentPage}&limit=${postPerPage}&q=${search}`
-      );
+      const response = await axiosInstance.get(`/offline-classes/bookings?page=${currentPage}&limit=${postPerPage}&q=${search}`);
       return response;
     } catch (error) {
       console.log("error");
@@ -129,9 +123,7 @@ const Gym = {
   },
   async detailBookingOffline(id) {
     try {
-      const response = await axiosInstance.get(
-        `/offline-classes/bookings/details/${id}`
-      );
+      const response = await axiosInstance.get(`/offline-classes/bookings/details/${id}`);
       return response;
     } catch (error) {
       console.log("error");
@@ -139,9 +131,7 @@ const Gym = {
   },
   async detailBookingOnline(id) {
     try {
-      const response = await axiosInstance.get(
-        `/online-classes/bookings/details/${id}`
-      );
+      const response = await axiosInstance.get(`/online-classes/bookings/details/${id}`);
       return response;
     } catch (error) {
       console.log("error");
