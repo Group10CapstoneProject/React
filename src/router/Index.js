@@ -52,10 +52,11 @@ import DetailBookingOnline from "../pages/BookingOnline/DetailBookingOnline";
 import ModalBookingOnline from "../pages/BookingOnline/ModalBookingOnline";
 // Admin
 import Admin from "../pages/Admin";
+import TambahAdmin from "../pages/Admin/TambahAdmin";
+
 // 404 Error
 import NotFoundPage from "../pages/NotFoundPage";
 import { Member } from "../pages/Member";
-
 
 export const SetUpRouters = () => {
   return (
@@ -90,6 +91,7 @@ export const SetUpRouters = () => {
           <Route path="bookingoffline" element={<BookingOffline />} />
           <Route path="detailBookingOffline/:id" element={<DetailBookingOffline />} />
           <Route path="admin" element={<Admin />} />
+          <Route path="tambahadmin" element={<TambahAdmin />} />
           <Route path="modalbookingonline" element={<ModalBookingOnline />} />
 
           <Route path="*" element={<NotFoundPage />} />

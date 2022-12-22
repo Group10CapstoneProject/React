@@ -9,6 +9,7 @@ module.exports = {
         base3: "#A9A9A9",
         base4: "#222222",
         base5: "#3D3D3D",
+        base6: "#898989",
         prim: "#296676",
         prim1: "#52A1A4",
         prim2: "#488892",

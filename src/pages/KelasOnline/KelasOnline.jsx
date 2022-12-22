@@ -63,18 +63,13 @@ const KelasOnline = () => {
       <div>
         <div className="form-control">
           <div className="flex input-group">
-
-            <input
-              type="text"
-              onChange={(e) => setText(e.target.value)}
-              placeholder="Cari Kelas..."
-              className="input input-bordered input-black w-full max-w-xs"
-            />
-
+            <input type="text" onChange={(e) => setText(e.target.value)} placeholder="Cari Kelas..." className="input input-bordered input-black w-full max-w-xs" />
           </div>
           <br />
-          <div className="flex items-center   justify-between ">
-            <h4 className="font-bold text-prim">Kelas Online</h4>
+          <div className="flex items-center justify-between ">
+            <h4 className="font-semibold text-info">
+              Online <span className="text-black font-medium">/</span> <span className="text-prim">Kategori Kelas</span> <span className="text-black font-medium">/</span> <span className="text-prim1">Yoga</span>{" "}
+            </h4>
             <div className="flex justify-end ">
               <Link to="/tambahkelasonline" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
                 <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Kelas

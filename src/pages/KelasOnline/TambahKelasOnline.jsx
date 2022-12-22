@@ -31,13 +31,7 @@ function TambahKelasOnline() {
 
     setData({
       ...data,
-      [name]:
-        name == "online_class_category_id" ||
-        name == "price" ||
-        name == "duration" ||
-        name == "trainer_id"
-          ? parseInt(value)
-          : value,
+      [name]: name == "online_class_category_id" || name == "price" || name == "duration" || name == "trainer_id" ? parseInt(value) : value,
     });
   };
 
@@ -82,8 +76,8 @@ function TambahKelasOnline() {
   return (
     <>
       <Toaster />
-      <h1 className="text-3xl mb-5 font-bold text-primary">
-        Tambah Kelas Online
+      <h1 className="text-3xl mb-5 font-semibold text-info">
+        Online <span className="text-black font-medium">/</span> <span className="text-prim">Yoga</span> <span className="text-black font-medium">/</span> <span className="text-prim1">Tambah Kelas</span>
       </h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="flex flex-col gap-y-3">
@@ -92,24 +86,13 @@ function TambahKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Nama Kelas
               </label>
-              <input
-                type="text"
-                placeholder="Masukkan Nama"
-                className="input input-sm input-bordered w-full "
-                onChange={onChange}
-                name="title"
-                required
-              />
+              <input type="text" placeholder="Masukkan Nama" className="input input-sm input-bordered w-full " onChange={onChange} name="title" required />
             </div>
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">
                 Nama Pelatih
               </label>
-              <select
-                onChange={onChange}
-                name="trainer_id"
-                className="select-sm border w-full max-w-xs"
-              >
+              <select onChange={onChange} name="trainer_id" className="select-sm border w-full max-w-xs">
                 <option disabled selected>
                   Plih Trainer
                 </option>
@@ -124,13 +107,7 @@ function TambahKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Level
               </label>
-              <select
-                className="select select-primary select-sm w-full max-w-xs"
-                name="level"
-                type="text"
-                onChange={onChange}
-                required
-              >
+              <select className="select select-primary select-sm w-full max-w-xs" name="level" type="text" onChange={onChange} required>
                 <option defaultValue="Kategori" disabled>
                   pilih kategori
                 </option>
@@ -143,14 +120,7 @@ function TambahKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Harga
               </label>
-              <input
-                type="number"
-                placeholder="Masukkan Nama"
-                className="input input-sm input-bordered w-full "
-                onChange={onChange}
-                name="price"
-                required
-              />
+              <input type="number" placeholder="Masukkan Nama" className="input input-sm input-bordered w-full " onChange={onChange} name="price" required />
             </div>
           </div>
           <div>
@@ -159,40 +129,19 @@ function TambahKelasOnline() {
                 <label className="font-bold" htmlFor="">
                   Pelatihan
                 </label>
-                <input
-                  type="text"
-                  placeholder="Pelatihan"
-                  className="input input-sm input-bordered w-full "
-                  name="target_area"
-                  onChange={onChange}
-                  required
-                />
+                <input type="text" placeholder="Pelatihan" className="input input-sm input-bordered w-full " name="target_area" onChange={onChange} required />
               </div>
               <div className="flex flex-col w-1/2 gap-y-2">
                 <label className="font-bold" htmlFor="">
                   Durasi
                 </label>
-                <input
-                  type="number"
-                  placeholder="Durasi"
-                  className="input input-sm input-bordered w-full "
-                  name="duration"
-                  onChange={onChange}
-                  required
-                />
+                <input type="number" placeholder="Durasi" className="input input-sm input-bordered w-full " name="duration" onChange={onChange} required />
               </div>
               <div className="flex flex-col w-1/2 gap-y-2">
                 <label className="font-bold" htmlFor="">
                   Peralatan
                 </label>
-                <input
-                  type="text"
-                  placeholder="Peralatan"
-                  className="input input-sm input-bordered w-full "
-                  name="tools"
-                  onChange={onChange}
-                  required
-                />
+                <input type="text" placeholder="Peralatan" className="input input-sm input-bordered w-full " name="tools" onChange={onChange} required />
               </div>
             </div>
           </div>
@@ -201,26 +150,14 @@ function TambahKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Link Video
               </label>
-              <input
-                type="text"
-                placeholder="Link Video"
-                className="input input-sm input-bordered w-full "
-                name="link"
-                onChange={onChange}
-                required
-              />
+              <input type="text" placeholder="Link Video" className="input input-sm input-bordered w-full " name="link" onChange={onChange} required />
             </div>
 
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">
                 Kategori
               </label>
-              <select
-                className="select select-primary select-sm w-full max-w-xs"
-                name="online_class_category_id"
-                onChange={onChange}
-                required
-              >
+              <select className="select select-primary select-sm w-full max-w-xs" name="online_class_category_id" onChange={onChange} required>
                 <option defaultValue="Kategori" disabled>
                   pilih kategori
                 </option>
@@ -237,13 +174,7 @@ function TambahKelasOnline() {
             <label className="font-bold" htmlFor="">
               Deskripsi
             </label>
-            <textarea
-              type="text"
-              placeholder="Deskripsi"
-              className="input input-sm input-bordered w-full h-full"
-              onChange={onChange}
-              name="description"
-            />
+            <textarea type="text" placeholder="Deskripsi" className="input input-sm input-bordered w-full h-full" onChange={onChange} name="description" />
           </div>
           <div className="flex flex-col gap-y-4 w-full">
             <label className="font-bold" htmlFor="">
@@ -251,18 +182,9 @@ function TambahKelasOnline() {
             </label>
             <div className="w-full  flex justify-center items-center bg-transparent h-40">
               <div className="flex cursor-pointer relative flex-col justify-center w-full h-full  items-center border">
-                <input
-                  onChange={handleImage}
-                  name="online_class"
-                  type="file"
-                  className="file-input w-full z-50 opacity-0 cursor-pointer borders  p-10 h-full"
-                />
+                <input onChange={handleImage} name="online_class" type="file" className="file-input w-full z-50 opacity-0 cursor-pointer borders  p-10 h-full" />
                 <div className="absolute w-44 flex  flex-col  items-center">
-                  {data.picture !== null ? (
-                    <img src={data.picture} alt="" />
-                  ) : (
-                    <i class="bx bx-lg bxs-image-add"></i>
-                  )}
+                  {data.picture !== null ? <img src={data.picture} alt="" /> : <i class="bx bx-lg bxs-image-add"></i>}
                   <p className="text-sm text-center font-semibold">
                     <span className="text-prim">Tarik gambar kesini </span>atau
                     <span className="text-prim"> cari</span> untuk memilih

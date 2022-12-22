@@ -8,8 +8,8 @@ const Pricing = () => {
   return (
     <div className="bg-border2 h-[120vh]">
       <div className="flex justify-center pt-[60px]">
-        <h1 className="text-center text-3xl font-bold text-prim" id="pricing">
-          Penawaran Terbaik Kami
+        <h1 className="text-center text-3xl font-bold text-prim2" id="pricing">
+          Penawaran <span className="text-info">Terbaik Kami</span>
         </h1>
       </div>
       <div className="flex justify-center pt-4">

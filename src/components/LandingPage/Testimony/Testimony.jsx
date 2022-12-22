@@ -7,8 +7,8 @@ const Testimony = () => {
   return (
     <div className="bg-border3 h-[110vh]">
       <div className="flex justify-start pt-[60px] pl-[125px]">
-        <h1 className="text-center text-3xl font-bold text-prim" id="testimony">
-          Apa Kata Mereka?
+        <h1 className="text-center text-3xl font-bold text-info" id="testimony">
+          Apa Kata <span className="text-prim2">Mereka?</span>
         </h1>
       </div>
       <div className="flex justify-start pt-4 pl-[125px]">
@@ -22,14 +22,14 @@ const Testimony = () => {
               <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-xl shadow-xl overflow-hidden bg-base">
                 <img className="lg:h-72 md:h-48 w-full object-cover object-center hover:scale-110 ease-in-out duration-300" src={profil5Image} alt="testimony 1" />
                 <div className="p-6 hover:bg-info hover:text-white transition duration-300 ease-in">
-                  <h2 className="text-base font-medium text-indigo-300 mb-1">October 29, 2021</h2>
+                  <h2 className="text-base font-medium text-indigo-300 mb-1">Desember 30, 2022</h2>
                   <h1 className="text-2xl font-semibold mb-3">Sherly</h1>
                   <p className="leading-relaxed mb-3">
                     Tempat gym paling nyaman, terus semua kelas olahraga ada dari kelas online atau offline, alat gym juga lengkap. Paling penting tempatnya bersih. Gym premium harga affordable yang worth it cuma di AltaGym sih.
                   </p>
                   <div className="flex items-center flex-wrap ">
                     <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">
-                      Read More
+                      Baca Selengkapnya
                       <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14" />
                         <path d="M12 5l7 7-7 7" />
@@ -56,14 +56,14 @@ const Testimony = () => {
               <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-xl shadow-xl overflow-hidden bg-base">
                 <img className="lg:h-72 md:h-48 w-full object-cover object-center hover:scale-110 ease-in-out duration-300" src={profil6Image} alt="testimony 2" />
                 <div className="p-6 hover:bg-info hover:text-white transition duration-300 ease-in">
-                  <h2 className="text-base font-medium text-indigo-300 mb-1">October 29, 2021</h2>
+                  <h2 className="text-base font-medium text-indigo-300 mb-1">Desember 30, 2022</h2>
                   <h1 className="text-2xl font-semibold mb-3">Alfan</h1>
                   <p className="leading-relaxed mb-3">
                     Nggak nyangka ada gym kualitas premium gini, tapi affordable banget. Apalagi pas pandemi, setiap beberapa jam pasti di steriliasasi jadi merasa nyaman dan aman banget olahraga di sini.
                   </p>
                   <div className="flex items-center flex-wrap ">
                     <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">
-                      Read More
+                      Baca Selengkapnya
                       <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14" />
                         <path d="M12 5l7 7-7 7" />
@@ -90,14 +90,14 @@ const Testimony = () => {
               <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-xl shadow-xl overflow-hidden bg-base">
                 <img className="lg:h-72 md:h-48 w-full object-cover object-center hover:scale-110 ease-in-out duration-300" src={profil7Image} alt="testimony 3" />
                 <div className="p-6 hover:bg-info hover:text-white transition duration-300 ease-in">
-                  <h2 className="text-base font-medium text-indigo-300 mb-1">October 29, 2021</h2>
+                  <h2 className="text-base font-medium text-indigo-300 mb-1">Desember 30, 2022</h2>
                   <h1 className="text-2xl font-semibold mb-3">Marisa</h1>
                   <p className="leading-relaxed mb-3">
                     Saya nyaman banget ngegym di AltaGym. Alatnya highclass seperti megagym tapi hargaya terjangkau, tempatnya juga bersih dan rapi. Variasi kelasnya juga banyak dan seru banget. Pelatihnya keren dan asik-asik.
                   </p>
                   <div className="flex items-center flex-wrap ">
                     <a className="text-indigo-300 inline-flex items-center md:mb-2 lg:mb-0">
-                      Read More
+                      Baca Selengkapnya
                       <svg className="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} fill="none" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14" />
                         <path d="M12 5l7 7-7 7" />

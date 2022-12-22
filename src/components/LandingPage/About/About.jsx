@@ -11,7 +11,7 @@ const About = () => {
     <div className="bg-base h-[110vh]">
       <div className="flex justify-center pt-[50px]">
         <h1 className="text-center text-3xl font-bold text-prim2" id="product">
-          Kenapa Harus AltaGym?
+          Kenapa <span className="text-info">Harus AltaGym?</span>
         </h1>
       </div>
       <div className="flex justify-center pt-4">

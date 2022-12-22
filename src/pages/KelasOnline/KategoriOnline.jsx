@@ -74,7 +74,9 @@ const KategoriOnline = () => {
           </div>
           <br />
           <div className="flex items-center justify-between ">
-            <h4 className="font-bold text-prim">Kategori Kelas Online</h4>
+            <h4 className="font-semibold text-prim">
+              Online <span className="text-black font-medium">/</span> <span className="text-prim1">Kategori Kelas</span>
+            </h4>
             <div className="flex justify-end ">
               <label onClick={() => setShow(true)} htmlFor="my-modal-5" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
                 <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Kategori

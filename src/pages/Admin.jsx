@@ -1,127 +1,173 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import Moment from "react-moment";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import Gym from "../apis/get.api";
+import PostApi from "../apis/post.api";
+import { useDebounce } from "../hooks/Searching";
+import Paginations from "../components/Paginations";
+import ModalHapus from "../components/ModalHapus";
+import ModalTambahKategoriOnline from "./Admin/ModalTambahAnggota";
+import ModalEditAdmin from "./Admin/ModalEditAdmin";
 
 function Admin() {
+  let navigate = useNavigate();
+  const [show, setShow] = useState(false);
+  const [member, setMember] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [modalDelete, setModalDelete] = useState({
+    isShow: false,
+    data: {},
+  });
+  const [modalEdit, setModalEdit] = useState({
+    isShow: false,
+    data: {},
+  });
+  const link = useLocation();
+  const [message, setMessage] = useState("");
+  const [_text, setText] = useState("");
+  const [text] = useDebounce(3000, _text);
+  const [postPerPage, setPostPerPage] = useState(10);
+  const [load, setLoad] = useState(false);
+  const listMember = async () => {
+    Gym.members({ currentPage, postPerPage, text })
+      .then((rest) => {
+        setMember(rest.data.data);
+      })
+      .catch((err) => toast.error(err.message));
+
+    setLoad(false);
+  };
+
+  const handleEdit = (data) => {
+    setModalEdit({ isShow: !modalEdit.isShow, data });
+  };
+
+  const handleDelete = (e, id) => {
+    e.preventDefault();
+    PostApi.hapusAnggota(id).then((res) => {
+      setMessage(res.data.message);
+      setModalDelete(false);
+    });
+  };
+  useEffect(() => {
+    listMember();
+    if (message !== "") {
+      toast.success(message);
+      setMessage("");
+    }
+  }, [load, currentPage, text, postPerPage, message]);
+  console.log(modalDelete);
+  if (load) {
+    return <h1>load....</h1>;
+  }
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  if (load) {
+    return <h1>load...</h1>;
+  }
+
   return (
-    <div>
-      <h1 className="text-info font-bold text-3xl">Admin</h1>
-      <div className="flex  pt-4 input-group justify-start">
-        <input type="text" placeholder="Cari Akun Admin ......" className="input input-bordered input-black  w-56 max-w-xs" />
-      </div>
+    <>
+      {/* {show ? <ModalTambahKategoriOnline setLoad={setLoad} show={show} setShow={setShow} setMessage={setMessage} /> : ""} */}
 
-      <div className="flex items-center justify-between pt-8">
-        <h4 className="font-bold text-neutral text-lg">Daftar Admin</h4>
-        <div className="flex justify-end ">
-          <label htmlFor="my-modal-5" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
-            <i className="bx bx-user-plus bx-sm pr-2 text-center"></i> Tambah Admin
-          </label>
-        </div>
-      </div>
+      {modalEdit.isShow ? <ModalEditAdmin setLoad={setLoad} show={modalEdit.isShow} setShow={setModalEdit} data={modalEdit.data} setMessage={setMessage} /> : ""}
+      <Toaster />
 
-      <div className="overflow-x-auto pt-8">
-        <table className="table table-compact text-black w-full text-center">
-          <thead>
-            <tr>
-              <th>Username</th>
-              <th>Email</th>
-              <th>Password</th>
-              <th>Aksi</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="font-semibold">
-              <td className=" leading-none text-info font-bold">Kelompok 10</td>
-              <td className=" leading-none text-info font-bold">kelompok10@gmail.com</td>
-              <td className=" leading-none text-info font-bold">Admin123</td>
+      {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} handleDelete={handleDelete} data={modalDelete.data} setShow={setModalDelete} />}
 
-              <td className="flex gap-x-1 justify-center">
-                <button className="btnp hover:bg-prim1">Detail</button>
-                <button className="btnd hover:bg-dang2">
-                  <i className="bx bx-trash bx-sm text-white"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr className="font-semibold">
-              <td className=" leading-none text-info font-bold">Kelompok 10</td>
-              <td className=" leading-none text-info font-bold">kelompok10@gmail.com</td>
-              <td className=" leading-none text-info font-bold">Admin123</td>
-
-              <td className="flex gap-x-1 justify-center">
-                <button className="btnp hover:bg-prim1">Detail</button>
-                <button className="btnd hover:bg-dang2">
-                  <i className="bx bx-trash bx-sm text-white"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr className="font-semibold">
-              <td className=" leading-none text-info font-bold">Kelompok 10</td>
-              <td className=" leading-none text-info font-bold">kelompok10@gmail.com</td>
-              <td className=" leading-none text-info font-bold">Admin123</td>
-
-              <td className="flex gap-x-1 justify-center">
-                <button className="btnp hover:bg-prim1">Detail</button>
-                <button className="btnd hover:bg-dang2">
-                  <i className="bx bx-trash bx-sm text-white"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr className="font-semibold">
-              <td className=" leading-none text-info font-bold">Kelompok 10</td>
-              <td className=" leading-none text-info font-bold">kelompok10@gmail.com</td>
-              <td className=" leading-none text-info font-bold">Admin123</td>
-
-              <td className="flex gap-x-1 justify-center">
-                <button className="btnp hover:bg-prim1">Detail</button>
-                <button className="btnd hover:bg-dang2">
-                  <i className="bx bx-trash bx-sm text-white"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-          <tbody>
-            <tr className="font-semibold">
-              <td className=" leading-none text-info font-bold">Kelompok 10</td>
-              <td className=" leading-none text-info font-bold">kelompok10@gmail.com</td>
-              <td className=" leading-none text-info font-bold">Admin123</td>
-
-              <td className="flex gap-x-1 justify-center">
-                <button className="btnp hover:bg-prim1">Detail</button>
-                <button className="btnd hover:bg-dang2">
-                  <i className="bx bx-trash bx-sm text-white"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div className="flex justify-between">
-        <div className="flex gap-x-2 font-semibold">
-          <label className="pt-5">Show : </label>
-          <select defaultChecked="10" name="" id="">
-            <option value="10">10</option>
-            <option value="20">20</option>
-            <option value="30">30</option>
-            <option value="40">30</option>
-          </select>
-        </div>
-        {/* <Paginations postPerPage={postPerPage} totalPosts={booking?.count} paginate={paginate} currentPage={currentPage} /> */}
-        <div className="pt-4">
-          <div className="btn-group">
-            <button className="btn btn-active">1</button>
-            <button className="btn btn-outline hover:bg-prim1">2</button>
-            <button className="btn btn-outline hover:bg-prim1">...</button>
-            <button className="btn btn-outline hover:bg-prim1">10</button>
-            <button className="btn btn-outline normal-case hover:bg-prim1">Lanjut</button>
+      <div className="relative">
+        <Toaster />
+        <h1 className="text-info font-bold text-3xl">Admin</h1>
+        <div className="flex  pt-4 input-group justify-start"></div>
+        <div className="flex items-center justify-between pt-8">
+          <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Cari Akun Admin ......" className="input input-bordered input-black  w-56 max-w-xs" />
+          <div className="flex justify-end ">
+            <Link to="/tambahadmin" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
+              <i className="bx bx-user-plus bx-sm pr-2 text-center"></i> Tambah Admin
+            </Link>
           </div>
         </div>
+
+        <div className="overflow-x-auto pt-8">
+          <table className="table table-compact text-black w-full text-center">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Jenis Membership</th>
+                <th>Status Membership</th>
+                <th>Durasi</th>
+                <th>Aktif pada tanggal</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody>
+              {member &&
+                member.members !== null &&
+                member.members?.map((m, index) => (
+                  <tr key={m.id}>
+                    <th>{++index}</th>
+                    <td>{m.user_name}</td>
+                    <td>{m.member_type_name}</td>
+
+                    <td className={`${m.status === "ACTIVE" ? "text-suc" : m.status === "INACTIVE" ? "text-dang2  " : "text-inf2"}`}>
+                      <div className={` lowercase flex justify-center items-center`}>
+                        <span className={`${m.status === "ACTIVE" ? "bg-suc/10 pr-2" : m.status === "INACTIVE" ? "bg-dang2/10 pr-2  " : "bg-inf2/10 pr-2"} lowercase`}>
+                          <i className="bx  bx-wifi-0"></i>
+                          {m.status}
+                        </span>
+                      </div>
+                    </td>
+                    <td>{m.duration} Bulan</td>
+                    <td>
+                      {" "}
+                      <Moment format="D MMM YYYY hh:mm:ss">{m.actived_at}</Moment>
+                    </td>
+
+                    <td className="flex gap-x-2 items-start justify-center">
+                      <label onClick={() => handleEdit(m)} htmlFor="my-modal-5" className="btnp flex items-center">
+                        Detail
+                      </label>
+                      <button
+                        onClick={() =>
+                          setModalDelete({
+                            isShow: !modalDelete.isShow,
+                            data: m.id,
+                          })
+                        }
+                        className="btnd"
+                      >
+                        Hapus
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
+        </div>
+        {member && member?.members == null && (
+          <div className=" text-center">
+            <p>Member tidak ditemukan</p>
+          </div>
+        )}
+        <div className="flex justify-between">
+          <div className="flex gap-x-2 font-semibold">
+            <label>Show : </label>
+            <select defaultChecked="10" name="" id="" onChange={(e) => setPostPerPage(parseInt(e.target.value))}>
+              <option value="10">10</option>
+              <option value="20">20</option>
+              <option value="30">30</option>
+              <option value="40">40</option>
+            </select>
+          </div>
+          <Paginations postPerPage={postPerPage} totalPosts={member?.count} paginate={paginate} currentPage={currentPage} />
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

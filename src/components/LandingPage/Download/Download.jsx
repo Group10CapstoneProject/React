@@ -12,7 +12,7 @@ const Download = () => {
         </h1>
       </div>
       <div>
-        <h1 className="text-start text-5xl font-bold text-info pl-[200px]" data-aos="fade-down-right" data-aos-duration="1000">
+        <h1 className="text-start text-5xl font-bold text-info pl-[200px]" data-aos="fade-up-right" data-aos-duration="1000">
           Sekarang
         </h1>
       </div>

@@ -59,19 +59,19 @@ const Footer = () => {
       <hr className="mt-[250px]" />
       <div className="flex justify-evenly">
         <div className="mt-8">
-          <a href="https://www.facebook.com/">
+          <a href="https://alta.id/">
             <i className="bx bxl-facebook-square bx-sm" style={{ color: "#ffffff" }} />
           </a>
           {"  "}
-          <a href="https://www.instagram.com/">
+          <a href="https://alta.id/">
             <i className="bx bxl-instagram-alt bx-sm" style={{ color: "#ffffff" }} />
           </a>
           {"  "}
-          <a href="https://twitter.com/home">
+          <a href="https://alta.id/">
             <i className="bx bxl-twitter bx-sm" style={{ color: "#ffffff" }} />
           </a>
           {"  "}
-          <a href="https://www.youtube.com/">
+          <a href="https://alta.id/">
             <i className="bx bxl-youtube bx-sm" style={{ color: "#ffffff" }} />
           </a>
         </div>
