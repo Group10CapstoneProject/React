@@ -1,9 +1,7 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 import ModalHapus from "../../components/ModalHapus";
@@ -71,7 +69,9 @@ function Trainer() {
             </label>
           </div>
         </div>
-
+        {!trainer && (
+          <div className="absolute top-1/2 left-1/2">Belum ada Trainer...</div>
+        )}
         <div className="grid grid-cols-4 gap-y-5 gap-x-4 mt-5 ">
           {trainer?.map((m) => (
             <div className="h-28 relative shadow-lg ">

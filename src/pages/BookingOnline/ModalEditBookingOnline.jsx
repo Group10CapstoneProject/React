@@ -6,17 +6,18 @@ import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 
 function ModalEditBookingOnline({ show, setShow, data, setMessage }) {
-  const { id, offline_class, payment_method, total } = data;
+  // const { id, offline_class, payment_method, total } = data;
   const [form, setForm] = useState({
-    id: id,
-    offline_class_id: offline_class.id,
-    payment_method_id: payment_method.id,
-    total: total,
+    id: data?.id,
+    online_class_id: data?.offline_class?.id,
+    payment_method_id: data?.payment_method?.id,
+    total: data?.total,
+    duration: data?.duration,
   });
   const [kelas, setKelas] = useState([]);
   const [pembayaran, setPembayaran] = useState([]);
-  const offlineClass = () => {
-    Gym.offlineKelas()
+  const onlineClass = () => {
+    Gym.onlinekelas("")
       .then((res) => setKelas(res.data.data))
       .catch((err) => console.log(err));
   };
@@ -34,7 +35,7 @@ function ModalEditBookingOnline({ show, setShow, data, setMessage }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    PostApi.updateBookingOffline(form)
+    PostApi.updateBookingOnline(form)
       .then((res) => {
         setMessage(res.data.message);
         setShow(false);
@@ -43,7 +44,7 @@ function ModalEditBookingOnline({ show, setShow, data, setMessage }) {
   };
 
   useEffect(() => {
-    offlineClass();
+    onlineClass();
     metodePembayaran();
   }, []);
   return (
@@ -77,11 +78,11 @@ function ModalEditBookingOnline({ show, setShow, data, setMessage }) {
                   <label>Pilih Kelas Offline :</label>
                   <select
                     name="offline_class_id"
-                    defaultValue={form.offline_class_id}
+                    defaultValue={form.online_class_id}
                     onChange={onChange}
                   >
                     {kelas &&
-                      kelas?.offline_classes?.map((m) => (
+                      kelas?.map((m) => (
                         <option key={m.id} value={m.id}>
                           {m.title}
                         </option>
@@ -105,11 +106,22 @@ function ModalEditBookingOnline({ show, setShow, data, setMessage }) {
                   </select>
                 </div>
                 <div className="flex gap-x-4">
+                  <label htmlFor="">Durasi</label>
+                  <input
+                    className="input-sm"
+                    type="number"
+                    name="duration"
+                    placeholder="Total Harga"
+                    defaultValue={form.duration}
+                  />
+                </div>
+                <div className="flex gap-x-4">
                   <label htmlFor="">Total Harga</label>
                   <input
                     className="input-sm"
                     type="number"
                     placeholder="Total Harga"
+                    name="total"
                     defaultValue={form.total}
                   />
                 </div>

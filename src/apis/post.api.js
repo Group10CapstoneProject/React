@@ -17,6 +17,36 @@ const PostApi = {
       throw new Error(message);
     }
   },
+
+  async tambahAdmin(payload) {
+    try {
+      const { email, name, password } = payload;
+      const response = await axiosInstance.post("/users/admin", {
+        email,
+        name,
+        password,
+      });
+
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+  async tambahAdmin(payload) {
+    try {
+      const { email, name, id } = payload;
+      const response = await axiosInstance.put(`/users/admin/${id}`, {
+        email,
+        name,
+      });
+
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
   async editPembayaran(payload) {
     try {
       const { id, name, payment_number, description, picture } = payload;
@@ -315,6 +345,16 @@ const PostApi = {
     }
   },
 
+  async deleteArtikel(id) {
+    try {
+      const response = await axiosInstance.delete(`/articles/details/${id}`);
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+
   async deleteMethod(id) {
     try {
       const response = axiosInstance.delete(`/payment-methods/details/${id}`);
@@ -346,6 +386,15 @@ const PostApi = {
       throw new Error(message);
     }
   },
+  async hapusAdmin(id) {
+    try {
+      const response = await axiosInstance.delete(`/users/admin/${id}`);
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
 
   // online kategori
   async tambahOnlineKategori(payload) {
@@ -355,6 +404,34 @@ const PostApi = {
         name,
         description,
         picture,
+      });
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+  async tambahArtikel(payload) {
+    try {
+      const { title, picture, content } = payload;
+      const response = await axiosInstance.post(`/articles`, {
+        title,
+        picture,
+        content,
+      });
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+  async updateArtikel(payload) {
+    try {
+      const { title, picture, content, id } = payload;
+      const response = await axiosInstance.put(`/articles/details/${id}`, {
+        title,
+        picture,
+        content,
       });
       return response;
     } catch (err) {
@@ -420,6 +497,21 @@ const PostApi = {
       throw new Error(message);
     }
   },
+  async tambahMemberAdmin(payload) {
+    const { email, member_type_id, duration, total } = payload;
+    try {
+      const response = await axiosInstance.post(`/members/admin`, {
+        email,
+        member_type_id,
+        duration,
+        total,
+      });
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
 
   async updateKategoriOffline(payload) {
     try {
@@ -470,6 +562,26 @@ const PostApi = {
       throw new Error(message);
     }
   },
+  async updateBookingOnline(payload) {
+    const { id, offline_class_id, duration, payment_method_id, total } =
+      payload;
+    try {
+      const response = await axiosInstance.put(
+        `/online-classes/bookings/details/${id}`,
+        {
+          offline_class_id,
+          payment_method_id,
+          total,
+          duration,
+        }
+      );
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+
   async setStatusBookingOffline(payload) {
     const { status, id } = payload;
     try {

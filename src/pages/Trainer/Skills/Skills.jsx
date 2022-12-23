@@ -1,15 +1,10 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
-import Moment from "react-moment";
-import { Link } from "react-router-dom";
 import Gym from "../../../apis/get.api";
 import PostApi from "../../../apis/post.api";
 import ModalHapus from "../../../components/ModalHapus";
 import ModalEditSkill from "./ModalEditSkill";
 import ModalTambahSkill from "./ModalTambahSkill";
-import ModalTambahTrainer from "./ModalTambahSkill";
 
 function Skills() {
   const [modal, setModal] = useState({
@@ -67,9 +62,9 @@ function Skills() {
       )}
       <Toaster />
       <div>
-        <div className="flex items-center justify-between ">
-          <h4 className="font-bold text-prim">Daftar Skill</h4>
-          <div className="flex justify-end ">
+        <div className="flex items-center justify-betweenx ">
+          <h4 className="font-bold text-prim w-full">Daftar Skill</h4>
+          <div className="flex w-full justify-end ">
             <label
               onClick={() => setModal({ showTambah: !modal.showTambah })}
               className="btn border-prim bg-prim hover:bg-accent text-white transition duration-200 ease-in hover:border-base"
@@ -79,15 +74,15 @@ function Skills() {
           </div>
         </div>
       </div>
-
       <div className="grid grid-cols-4">
         {skill?.map((m) => (
           <div
             key={m.id}
-            className="w-56 mt-5 relative h-24 shadow-lg p-2 border bg-white rounded-xl"
+            className="w-56  mt-5 relative h-16 border-prim overflow-auto shadow-lg p-1 border bg-white rounded-xl"
           >
-            <h1 className="text-center font-semibold ">{m.name}</h1>
-            <p className="text-sm">{m.description}</p>
+            <h1 className="text-center  h-full flex items-center justify-center font-semibold ">
+              {m.name}
+            </h1>
             <div className="absolute gap-x-2 flex right-0 top-0 px-2">
               <span
                 onClick={() => setModal({ showEdit: !modal.showEdit, data: m })}

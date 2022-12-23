@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Auth from "../utils/Auth";
+import EllipseImage from "../assets/images/Ellipse.png";
 
 function Navbar() {
   let navigate = useNavigate();
@@ -12,21 +13,23 @@ function Navbar() {
   };
   const dataAdmin = JSON.parse(Cookies.get("data"));
   return (
-    <nav className="w-full sticky h-[60px] z-50  bg-base/60 border px-4 py-2  flex items-center justify-end">
+    <nav className="w-full sticky h-[70px] z-50  bg-base/60 border px-4 py-2  flex items-center justify-end">
       <div>
-        <ul className="flex gap-x-4">
-          <li className="indicator tab tab-lifted tab-active">Notifikasi</li>
-          <span className="indicator-item badge mr-2">8</span>
-          <div className="avatar placeholder">
-            <div className="bg-neutral-focus text-neutral-content rounded-full w-8">
+        <ul className="flex">
+          <div className="indicator pr-6 pt-2">
+            <i className="bx bxs-bell bx-sm" style={{ color: "#3d3d3d" }} />
+          </div>
+          <div className="avatar placeholders">
+            <div className="bg-neutral-focus text-neutral-content rounded-full w-[50px]">
               <a href="/landingpage">
-                <img src="https://placeimg.com/192/192/people" />
+                <img src={EllipseImage} />
               </a>
             </div>
           </div>
           <div className="dropdown dropdown-bottom ">
-            <button className="px-16" tabIndex={0}>
+            <button className="px-16 pl-2 text-start" tabIndex={0}>
               {dataAdmin ? <b>{dataAdmin.role}</b> : "muhammad Agil"}
+              <p>alta@gmail.com</p>
             </button>
             <ul
               tabIndex={0}

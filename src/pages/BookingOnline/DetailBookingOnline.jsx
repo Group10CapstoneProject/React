@@ -2,7 +2,7 @@ import { FormatRupiah } from "@arismun/format-rupiah";
 import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import Moment from "react-moment";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 import ModalEditBookingOnline from "./ModalEditBookingOnline";
@@ -15,7 +15,7 @@ function DetailBookingOnline() {
     isShow: false,
     data: {},
   });
-
+  let navigate = useNavigate();
   const [status, setStatus] = useState("");
 
   const detailBooking = () => {
@@ -99,7 +99,7 @@ function DetailBookingOnline() {
               </p>
               <p>: {detail.online_class?.duration}</p>
               <p>: {detail.online_class?.level}</p>
-              <p>: {detail.online_class?.online_class_category_id}</p>
+              <p>: {detail.online_class?.online_class_category_name}</p>
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ function DetailBookingOnline() {
       <form className="flex flex-col  px-6  w-full" onSubmit={handleSubmit}>
         <div className="w-full pb-2">
           <h2 className="font-semibold  text-md pb-2">Bukti pembayaran</h2>
-          <img className="w-44" src={detail.proof_payment} alt="" />
+          <img className="w-44" src={detail?.proof_payment} alt="" />
         </div>
         <div className="flex gap-x-10 py-5 w-full ">
           <h2 className="text-md font-semibold">Status Membership</h2>
@@ -137,9 +137,12 @@ function DetailBookingOnline() {
           <button className="h-8 px-3 bg-prim btn border-none min-h-0 text-white">
             Simpan
           </button>
-          <button className="h-8 px-3 bg-dang2 border-none text-white btn min-h-0">
+          <label
+            onClick={() => navigate("/bookingonline")}
+            className="h-8 px-3 bg-dang2 border-none text-white btn min-h-0"
+          >
             Batal
-          </button>
+          </label>
         </div>
       </form>
     </>

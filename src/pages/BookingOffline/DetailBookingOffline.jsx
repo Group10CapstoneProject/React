@@ -1,17 +1,10 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
-import { data } from "autoprefixer";
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import Moment from "react-moment";
 import { useNavigate, useParams } from "react-router-dom";
 import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
-import ModalDetailPembayaran from "../../components/ModalDetailPembayaran";
-import { ModalDetailProfile } from "../../components/ModalDetailProfile";
-import { ModalDetailTipeMember } from "../../components/ModalDetailTipeMember";
-import { Member } from "../Member";
 import ModalEditBooking from "./ModalEditBooking";
 
 function DetailBookingOffline() {
@@ -100,6 +93,7 @@ function DetailBookingOffline() {
               <p>Slot</p>
               <p>Pesanan</p>
               <p>Kategori</p>
+              <p>Nama Trainer</p>
             </div>
             <div className="capitalize">
               <p>: {detail.offline_class?.title}</p>
@@ -114,7 +108,8 @@ function DetailBookingOffline() {
               <p>: {detail.offline_class?.duration}</p>
               <p>: {detail.offline_class?.slot}</p>
               <p>: {detail.offline_class?.slot_booked}</p>
-              <p>: {detail.offline_class?.offline_class_category_id}</p>
+              <p>: {detail.offline_class?.offline_class_category_name}</p>
+              <p>: {detail.offline_class?.trainer_name}</p>
             </div>
           </div>
         </div>

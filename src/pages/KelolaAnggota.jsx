@@ -21,7 +21,7 @@ const KelolaAnggota = () => {
   });
   const [message, setMessage] = useState("");
   const [_text, setText] = useState("");
-  const [text] = useDebounce(3000, _text);
+  const [text] = useDebounce(500, _text);
   const [postPerPage, setPostPerPage] = useState(10);
   const [load, setLoad] = useState(false);
   const listMember = async () => {
@@ -59,7 +59,12 @@ const KelolaAnggota = () => {
   return (
     <div className="relative">
       {show ? (
-        <ModalTambahAnggota setLoad={setLoad} show={show} setShow={setShow} />
+        <ModalTambahAnggota
+          setMessage={setMessage}
+          setLoad={setLoad}
+          show={show}
+          setShow={setShow}
+        />
       ) : (
         ""
       )}
@@ -82,7 +87,7 @@ const KelolaAnggota = () => {
           <input
             onChange={(e) => setText(e.target.value)}
             type="text"
-            placeholder="Cari Anggota ....."
+            placeholder="Cari Member ....."
             className="input input-bordered input-black w-56 max-w-xs"
           />
 
@@ -97,7 +102,7 @@ const KelolaAnggota = () => {
 
         <div className="bg-white my-2 p-2">
           <div className="">
-            <table className="table table-compact w-full text-center text-sm ">
+            <table className="table table-compact w-full  text-sm ">
               <thead>
                 <tr>
                   <th>No</th>
@@ -105,7 +110,6 @@ const KelolaAnggota = () => {
                   <th>Jenis Membership</th>
                   <th>Status Membership</th>
                   <th>Durasi</th>
-                  <th>Aktif pada tanggal</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
@@ -126,32 +130,22 @@ const KelolaAnggota = () => {
                             : "text-inf2"
                         }`}
                       >
-                        <div
-                          className={` lowercase flex justify-center items-center`}
-                        >
+                        <div className={` lowercase flex items-center`}>
                           <span
                             className={`${
                               m.status === "ACTIVE"
-                                ? "bg-suc/10 pr-2"
+                                ? "bg-suc/10 px-2"
                                 : m.status === "INACTIVE"
-                                ? "bg-dang2/10 pr-2  "
-                                : "bg-inf2/10 pr-2"
+                                ? "bg-dang2/10 px-2  "
+                                : "bg-inf2/10 px-2"
                             } lowercase`}
                           >
-                            <i className="bx  bx-wifi-0"></i>
                             {m.status}
                           </span>
                         </div>
                       </td>
                       <td>{m.duration} Bulan</td>
-                      <td>
-                        {" "}
-                        <Moment format="D MMM YYYY hh:mm:ss">
-                          {m.actived_at}
-                        </Moment>
-                      </td>
-
-                      <td className="flex gap-x-2 items-start justify-center">
+                      <td className="flex gap-x-2 items-start ">
                         <label
                           onClick={() => navigate(`/detail/${m.id}`)}
                           htmlFor="my-modal-5"

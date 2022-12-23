@@ -1,11 +1,7 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
-import Gym from "../../apis/get.api";
-import { MultiSelect } from "react-multi-select-component";
 import Select from "react-select";
-import { data } from "autoprefixer";
+import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 
 function ModalEditTrainer({ show, setShow, setMessage, data }) {
@@ -18,11 +14,11 @@ function ModalEditTrainer({ show, setShow, setMessage, data }) {
     gender,
     price,
     daily_slot,
-    skills,
+    trainer_skill,
     description,
     picture,
   } = data;
-  console.log(skills);
+
   const [trainer, setTrainer] = useState({
     id: id,
     name: name,
@@ -32,7 +28,7 @@ function ModalEditTrainer({ show, setShow, setMessage, data }) {
     gender: gender,
     price: price,
     daily_slot: daily_slot,
-    skills: skills,
+    skills: [],
     description: description,
     picture: picture,
   });
@@ -53,15 +49,15 @@ function ModalEditTrainer({ show, setShow, setMessage, data }) {
       [name]: type == "number" ? Number(value) : value,
     });
   };
-  const handleSelect = (e) => {
-    e.preventDefault();
-    const skills = select.map((m) => m.value);
+  const handleSelect = (item) => {
+    const skills = item.map((m) => m.value);
     setTrainer({
       ...trainer,
       skills: skills,
     });
   };
 
+  console.log(trainer);
   const handleImage = (e) => {
     const { name, files } = e.target;
     PostApi.uploadFile({ title: name, files }).then((res) => {
@@ -84,7 +80,6 @@ function ModalEditTrainer({ show, setShow, setMessage, data }) {
   useEffect(() => {
     trainerSkill();
   }, []);
-  console.log(trainer);
   return (
     <>
       <Toaster />
@@ -196,7 +191,7 @@ function ModalEditTrainer({ show, setShow, setMessage, data }) {
                         <Select
                           className="w-[90%]"
                           isMulti
-                          onChange={(item) => setSelect(item)}
+                          onChange={(item) => handleSelect(item)}
                           options={options}
                           isDisabled={false}
                           isLoading={false}

@@ -88,7 +88,7 @@ const ModalEditJenis = ({ data, show, setShow, setLoad, setMessage }) => {
                   >
                     <input
                       onChange={handleImage}
-                      className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t"
+                      className="absolute block w-full h-full z-50  cursor-pointer opacity-0  border pin-r pin-t"
                       type="file"
                       name="member_type"
                     />

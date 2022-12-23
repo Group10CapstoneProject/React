@@ -30,7 +30,6 @@ function Login() {
       });
   };
 
-  // console.log(error);
   return (
     <div className="h-screen flex   text-black">
       <img

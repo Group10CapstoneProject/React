@@ -36,39 +36,39 @@ function DetailKelasOnline() {
             </button>
           </div>
           <div className="flex gap-x-2 w-full ">
-            <div className="w-1/2 flex justify-center">
+            <div className="w-[35%] flex ">
               <div>
                 <div className="h-72 mt-2 w-full  ">
                   <img className="h-full w-full" src={detail.picture} alt="" />
                 </div>
               </div>
             </div>
-            <div className="w-1/2 flex justify-start">
+            <div className="w-[60%] flex justify-start">
               <div className="text-justify">
-                <p className="text-lg">{detail.description}</p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+                <p className="text-md">{detail.description}</p>
+                <p className="flex gap-x-1 items-center">
                   {" "}
-                  <i className="bx bx-md bx-money"></i>
+                  <span>Harga :</span>
                   <FormatRupiah value={detail.price} />
                 </p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+                <p className="flex gap-x-1 items-center">
                   {" "}
-                  <i className="bx bx-md bxs-hot"></i>
+                  <span>Level :</span>
                   {detail.level}
                 </p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+                <p className="flex gap-x-1 items-center">
                   {" "}
-                  <i className="bx  flex bx-timer bx-md"></i>
+                  <span>Durasi :</span>
                   {detail.duration} Menit
                 </p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+                <p className="flex gap-x-1 items-center">
                   {" "}
-                  <i className="bx  flex bx-dumbbell bx-md"></i>
+                  <span>Pelatan :</span>
                   {detail.tools}
                 </p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+                <p className="flex gap-x-1 items-center">
                   {" "}
-                  <i className="bx  flex bx-star bx-md"></i>
+                  <span>Pelatihan: </span>
                   {detail.target_area}
                 </p>
               </div>

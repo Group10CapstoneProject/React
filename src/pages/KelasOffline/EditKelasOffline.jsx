@@ -17,8 +17,9 @@ function EditKelasOffline() {
     description,
     trainer_id,
     location,
-    offline_class_category_id,
+    offline_class_category,
   } = state.state;
+  console.log(state);
   const [btn, setBtn] = useState(true);
 
   let navigate = useNavigate();
@@ -35,9 +36,8 @@ function EditKelasOffline() {
     picture: picture,
     description: description,
     location: location,
-    offline_class_category_id: offline_class_category_id?.id,
+    offline_class_category_id: offline_class_category.id,
   });
-
   const onChange = (e) => {
     const { name, value, valueAsNumber } = e.target;
     const time = value.split("T");
@@ -221,7 +221,7 @@ function EditKelasOffline() {
                 className="select select-primary select-sm w-full max-w-xs"
                 name="offline_class_category_id"
                 onChange={onChange}
-                value={data?.offline_class_category_id}
+                value={data.offline_class_category_id}
               >
                 <option
                   disabled
@@ -249,6 +249,7 @@ function EditKelasOffline() {
               className="input input-sm input-bordered w-full h-full"
               onChange={onChange}
               name="description"
+              value={data.description}
             />
           </div>
           <div className="flex flex-col gap-y-4 w-full">
@@ -259,13 +260,13 @@ function EditKelasOffline() {
               <div className="flex cursor-pointer relative flex-col justify-center w-full h-full  items-center border">
                 <input
                   onChange={handleImage}
-                  name="online_class"
+                  name="offline_class"
                   type="file"
                   className="file-input w-full z-50 opacity-0 cursor-pointer borders  p-10 h-full"
                 />
                 <div className="absolute w-44 flex  flex-col  items-center">
                   {data.picture !== null ? (
-                    <img src={data.picture} alt="" />
+                    <img className="w-28" src={data.picture} alt="" />
                   ) : (
                     <i class="bx bx-lg bxs-image-add"></i>
                   )}

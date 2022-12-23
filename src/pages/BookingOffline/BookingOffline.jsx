@@ -20,12 +20,14 @@ function BookingOffline() {
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [_text, setText] = useState("");
-  const [text] = useDebounce(3000, _text);
+  const [text] = useDebounce(500, _text);
   const [postPerPage, setPostPerPage] = useState(10);
-  const { load, setLoad } = useHook();
+  const [load, setLoad] = useState(false);
 
   const listBooking = () => {
+    setLoad(true);
     Gym.bookingOffline({ currentPage, postPerPage, text }).then((res) => {
+      setLoad(false);
       setBooking(res.data.data);
     });
   };
@@ -49,9 +51,7 @@ function BookingOffline() {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  if (load) {
-    return <h1>loading...</h1>;
-  }
+  console.log(load);
   return (
     <>
       <Toaster />
@@ -81,58 +81,43 @@ function BookingOffline() {
               <th>Nama</th>
               <th>Email</th>
               <th>Nama Kelas</th>
-              <th>Aktif pada tanggal</th>
               <th>Status</th>
               <th>Aksi</th>
             </tr>
           </thead>
-          <tbody>
+
+          <tbody className="font-semibold capitalize">
             {booking &&
               booking.offline_class_bookings !== null &&
               booking.offline_class_bookings?.map((m, index) => (
-                <tr className="font-semibold" key={m.id}>
-                  <td className=" leading-none">{++index}</td>
-                  <td className=" leading-none">{m.user_name}</td>
-                  <td className="leading-none">{m.user_email}</td>
-                  <td className="leading-none">{m.offline_class_title}</td>
-                  <td className="leading-none">
-                    {m.status == "ACTIVE" ? (
-                      <>
-                        {" "}
-                        <Moment format="D MMM YYYY hh:mm:ss">
-                          {m.actived_at}
-                        </Moment>
-                      </>
-                    ) : (
-                      "-"
-                    )}
-                  </td>
-
+                <tr key={m.id} className="font-semibold leading-none">
+                  <td>{++index}</td>
+                  <td>{m.user_name}</td>
+                  <td>{m.user_email}</td>
+                  <td>{m.offline_class_title}</td>
                   <td
                     className={`${
                       m.status === "ACTIVE"
                         ? "text-suc"
                         : m.status === "INACTIVE"
                         ? "text-dang2  "
-                        : "text-inf2"
+                        : "text-inf2 "
                     }`}
                   >
                     <div className={` lowercase`}>
                       <span
                         className={`${
                           m.status === "ACTIVE"
-                            ? "bg-suc/10 pr-2"
+                            ? "bg-suc/10 px-2"
                             : m.status === "INACTIVE"
-                            ? "bg-dang2/10 pr-2  "
-                            : "bg-inf2/10 pr-2"
+                            ? "bg-dang2/10 px-2  "
+                            : "bg-inf2/10 px-2"
                         } `}
                       >
-                        <i className="bx  bx-wifi-0"></i>
                         {m.status}
                       </span>
                     </div>
                   </td>
-
                   <td className="flex gap-x-1 ">
                     <button
                       className="btnp"
@@ -155,12 +140,12 @@ function BookingOffline() {
                 </tr>
               ))}
           </tbody>
-          {booking && booking.offline_class_bookings == null && (
-            <div className=" w-full text-center">
-              <p>Pencarian Tidak Ditemukan</p>
-            </div>
-          )}
         </table>
+        {booking && booking.offline_class_bookings == null && (
+          <div className="flex justify-center w-full">
+            Pencarian tidak ditemukan..
+          </div>
+        )}
       </div>
       <br />
       <div className="flex justify-between">
@@ -175,7 +160,7 @@ function BookingOffline() {
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="30">30</option>
-            <option value="40">30</option>
+            <option value="40">40</option>
           </select>
         </div>
         <Paginations

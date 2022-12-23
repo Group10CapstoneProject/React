@@ -145,7 +145,7 @@ function TambahKelasOnline() {
               </label>
               <input
                 type="number"
-                placeholder="Masukkan Nama"
+                placeholder="Masukkan Harga"
                 className="input input-sm input-bordered w-full "
                 onChange={onChange}
                 name="price"
@@ -259,7 +259,7 @@ function TambahKelasOnline() {
                 />
                 <div className="absolute w-44 flex  flex-col  items-center">
                   {data.picture !== null ? (
-                    <img src={data.picture} alt="" />
+                    <img className="w-28" src={data.picture} alt="" />
                   ) : (
                     <i class="bx bx-lg bxs-image-add"></i>
                   )}

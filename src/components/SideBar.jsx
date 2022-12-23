@@ -1,15 +1,8 @@
-import React, { useState } from "react";
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
-import Navbar from "./Navbar";
-import logo from "../assets/images/logo.png";
-import Auth from "../utils/Auth";
 import Cookies from "js-cookie";
+import React, { useState } from "react";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import logo from "../assets/images/logo.png";
+import Navbar from "./Navbar";
 const SideBar = () => {
   let link = useLocation();
   const path = link.pathname;
@@ -23,6 +16,7 @@ const SideBar = () => {
     member: false,
     book: false,
     trainer: false,
+    artikel: false,
   });
   const [book, setBook] = useState(false);
   let navigate = useNavigate();
@@ -50,7 +44,7 @@ const SideBar = () => {
           </Link>
           <li
             className={`${
-              path == "/" ? "bg-prim text-white rounded-lg" : ""
+              path == "/" ? "bg-prim1 text-white rounded-lg" : ""
             } font-bold `}
           >
             <Link to="/">
@@ -59,7 +53,7 @@ const SideBar = () => {
           </li>
           <li
             className={`${
-              path == "/pembayaran" ? "bg-prim text-white rounded-lg" : ""
+              path == "/pembayaran" ? "bg-prim1 text-white rounded-lg" : ""
             } font-bold `}
           >
             <Link to="pembayaran">
@@ -71,9 +65,9 @@ const SideBar = () => {
               onClick={() => setDrop({ trainer: !drop.trainer })}
               className={`${
                 drop.trainer
-                  ? "bg-prim text-white"
+                  ? "bg-prim1 text-white"
                   : "bg-transparent  text-prim"
-              }  w-full  justify-between font-bold btn  hover:bg-prim hover:text-white  border-none `}
+              }  w-full  justify-between font-bold btn  hover:bg-prim1 hover:text-white  border-none `}
             >
               <span className="flex items-center gap-x-3">
                 <i className="bx bx-sm bxs-contact"></i>
@@ -104,8 +98,10 @@ const SideBar = () => {
             <label
               onClick={() => setDrop({ member: !drop.member })}
               className={`${
-                drop.member ? "bg-prim text-white" : "bg-transparent  text-prim"
-              }  w-full  justify-between font-bold btn  hover:bg-prim hover:text-white  border-none `}
+                drop.member
+                  ? "bg-prim1 text-white"
+                  : "bg-transparent  text-prim"
+              }  w-full  justify-between font-bold btn  hover:bg-prim1 hover:text-white  border-none `}
             >
               <span className="flex items-center gap-x-3">
                 <i className="bx bx-sm bx-book-content"></i>
@@ -140,8 +136,8 @@ const SideBar = () => {
             <label
               onClick={() => setDrop({ online: !drop.online })}
               className={`${
-                drop.online ? "bg-prim text-white" : "bg-transparent text-prim"
-              }  w-full  justify-between  btn  font-semibold  hover:bg-primary  border-none `}
+                drop.online ? "bg-prim1 text-white" : "bg-transparent text-prim"
+              }  w-full  justify-between  btn  font-semibold  hover:bg-prim1  border-none `}
             >
               <span className="flex  items-center gap-x-1">Online</span>
               <i
@@ -163,8 +159,10 @@ const SideBar = () => {
             <label
               onClick={() => setDrop({ offline: !drop.offline })}
               className={`${
-                drop.offline ? "bg-prim text-white" : "bg-transparent text-prim"
-              }  w-full  justify-between  btn  font-semibold  hover:bg-primary  border-none `}
+                drop.offline
+                  ? "bg-prim1 text-white"
+                  : "bg-transparent text-prim"
+              }  w-full  justify-between  btn  font-semibold  hover:bg-prim1  border-none `}
             >
               <span className="flex items-center gap-x-1">Offline</span>
               <i
@@ -178,7 +176,7 @@ const SideBar = () => {
                 <Link to="kategorioffline">Kategori Kelas</Link>
               </li>
               <li className="py-0 ">
-                <Link to="kelasoffline">Kelas offline</Link>
+                <Link to="kelasoffline">Kelas Offline</Link>
               </li>
             </ul>
           </div>
@@ -187,8 +185,8 @@ const SideBar = () => {
             <label
               onClick={() => setDrop({ book: !drop.book })}
               className={`${
-                drop.book ? "bg-prim text-white" : "bg-transparent text-prim"
-              }  w-full  justify-between  btn  font-semibold  hover:bg-prim hover:text-white border-none `}
+                drop.book ? "bg-prim1 text-white" : "bg-transparent text-prim"
+              }  w-full  justify-between  btn  font-semibold  hover:bg-prim1 hover:text-white border-none `}
             >
               <span className="flex items-center font-bold gap-x-3">
                 <i className="bx bx-sm bxs-book-bookmark"></i>
@@ -201,31 +199,38 @@ const SideBar = () => {
               ></i>
             </label>
             <ul className={`${drop.book ? "" : "hidden "}  w-52`}>
-              <li className="py-0 text-prim2 hover:bg-primary hover:text-base rounded-lg">
+              <li className="py-0 text-prim hover:bg-prim1 hover:text-base rounded-lg">
                 <Link to="bookingonline">Online</Link>
               </li>
-              <li className="text-prim2 hover:bg-primary hover:text-base rounded-lg">
+              <li className="text-prim hover:bg-prim1 hover:text-base rounded-lg">
                 <Link to="bookingoffline">Offline</Link>
               </li>
             </ul>
           </div>
 
+          <li
+            className={`${
+              path == "/artikel" ? "bg-prim text-white rounded-lg" : ""
+            } font-bold `}
+          >
+            <Link to="/artikel">
+              <i className="bx bx-sm bx-book-open"></i>Artikel
+            </Link>
+          </li>
+
           {data && data.role == "superadmin" ? (
-            <li
-              className={`${
-                path == "/offline" ? "bg-prim text-white rounded-lg" : ""
-              } font-bold `}
-            >
-              <span className="flex  items-center gap-x-3">
-                <box-icon
-                  color={`${path == "/offline" ? "white" : ""}`}
-                  name="user-circle"
-                ></box-icon>
-                <Link to="offline" className="font-bold">
+            <Link to="admin" className="font-bold">
+              <li
+                className={`${
+                  path == "admin" ? "bg-prim text-white rounded-lg" : ""
+                } font-bold `}
+              >
+                <span className="flex  items-center gap-x-3">
+                  <i className="bx bx-sm bx-user-circle"></i>
                   Admin
-                </Link>
-              </span>
-            </li>
+                </span>
+              </li>
+            </Link>
           ) : (
             ""
           )}

@@ -74,7 +74,7 @@ export const ModalTambahPembayaran = ({
                     Nama
                   </label>
                   <label className="block my-1 py-1" htmlFor="">
-                    Nomor Rekening
+                    Nomor Pembayaran
                   </label>
                   <label className="block my-1 py-1" htmlFor="">
                     Deskripsi

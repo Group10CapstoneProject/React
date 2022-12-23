@@ -41,6 +41,17 @@ const Gym = {
       console.log("error");
     }
   },
+  async getAdmin(payload) {
+    const { currentPage, postPerPage, text } = payload;
+    try {
+      const response = await axiosInstance.get(
+        `/users/admin?page=${currentPage}&limit=${postPerPage}&q=${text}`
+      );
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
 
   async membersDetail(id) {
     try {
@@ -180,9 +191,27 @@ const Gym = {
       console.log("error");
     }
   },
+
   async detailTrainer(id) {
     try {
       const response = await axiosInstance.get(`trainers/details/${id}`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+
+  async artikelDetail(id) {
+    try {
+      const response = await axiosInstance.get(`articles/details/${id}`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+  async artikel() {
+    try {
+      const response = await axiosInstance.get(`articles`);
       return response;
     } catch (error) {
       console.log("error");

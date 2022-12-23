@@ -22,7 +22,6 @@ function Dashboard() {
     dashboard();
     newAnggota();
   }, []);
-  console.log(anggota);
   return (
     <>
       <div className="">
@@ -49,7 +48,7 @@ function Dashboard() {
               <div>
                 <h1 className="text-[20px] font-semibold">
                   {" "}
-                  {data.total_online_class} Kelas
+                  {data.total_online_class + data.total_offline_class} Kelas
                 </h1>
                 <p className="text-[16px]">Total Kelas</p>
               </div>
@@ -85,16 +84,18 @@ function Dashboard() {
           <table className="table table-compact w-full">
             <thead>
               <tr>
+                <th>No</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Jenis</th>
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="font-semibold capitalize">
               {anggota &&
-                anggota.members?.map((m) => (
+                anggota.members?.map((m, index) => (
                   <tr key={m.id}>
+                    <td className="  leading-none">{++index}</td>
                     <td className="  leading-none">{m.user_name}</td>
                     <td>{m.user_email}</td>
                     <td>{m.member_type_name}</td>
@@ -111,13 +112,12 @@ function Dashboard() {
                         <span
                           className={`${
                             m.status === "ACTIVE"
-                              ? "bg-suc/10 pr-2"
+                              ? "bg-suc/10 px-2"
                               : m.status === "INACTIVE"
-                              ? "bg-dang2/10 pr-2  "
-                              : "bg-inf2/10 pr-2"
+                              ? "bg-dang2/10 px-2  "
+                              : "bg-inf2/10 px-2"
                           } lowercase`}
                         >
-                          <i className="bx  bx-wifi-0"></i>
                           {m.status}
                         </span>
                       </div>

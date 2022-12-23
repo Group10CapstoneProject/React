@@ -22,7 +22,7 @@ const KelasOnline = () => {
   const [message, setMessage] = useState("");
   const [kelas, setKelas] = useState([]);
   const [_text, setText] = useState("");
-  const [text] = useDebounce(1000, _text);
+  const [text] = useDebounce(500, _text);
 
   const listKelas = () => {
     try {
@@ -34,14 +34,16 @@ const KelasOnline = () => {
 
   const handleDelete = (e, id) => {
     e.preventDefault();
-    try {
-      PostApi.deleteKelasOnline(id).then((res) => {
+
+    PostApi.deleteKelasOnline(id)
+      .then((res) => {
         setMessage(res.data.message);
         setModalDelete(false);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+        setModalDelete(false);
       });
-    } catch (error) {
-      setMessage(error.message);
-    }
   };
 
   useEffect(() => {
@@ -73,7 +75,7 @@ const KelasOnline = () => {
             <input
               type="text"
               onChange={(e) => setText(e.target.value)}
-              placeholder="Cari Kelas..."
+              placeholder="Cari Kelas Online..."
               className="input input-bordered input-black w-full max-w-xs"
             />
           </div>

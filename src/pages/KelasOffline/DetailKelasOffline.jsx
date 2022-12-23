@@ -1,5 +1,6 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
 import React, { useEffect, useState } from "react";
+import Moment from "react-moment";
 import { useNavigate, useParams } from "react-router-dom";
 import Gym from "../../apis/get.api";
 
@@ -36,41 +37,43 @@ function DetailKelasOffline() {
             </button>
           </div>
           <div className="flex gap-x-2 w-full ">
-            <div className="w-1/2 flex justify-center">
+            <div className="w-[35%] flex">
               <div>
                 <div className="h-72 mt-2 w-full  ">
                   <img className="h-full w-full" src={detail.picture} alt="" />
                 </div>
               </div>
             </div>
-            <div className="w-1/2 flex justify-start">
+            <div className="w-[60%] flex justify-start">
               <div className="text-justify">
-                <p className="text-lg">Pelatih {detail.trainer?.name}</p>
-                <p className="text-lg">{detail.description}</p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+                <p className="text-md">{detail.description}</p>
+                <p className="flex gap-x-1 items-center">
                   {" "}
-                  <i className="bx bx-md bx-money"></i>
+                  <span>Harga :</span>
                   <FormatRupiah value={detail.price} />
                 </p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+
+                <p className="flex gap-x-1 items-center">
                   {" "}
-                  <i className="bx bx-md bxs-hot"></i>
+                  <span>Lokasi :</span>
                   {detail.location}
                 </p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+                <p className="flex gap-x-1 items-center">
                   {" "}
-                  <i className="bx  flex bx-timer bx-md"></i>
-                  {detail.time} Menit
+                  <span>Pelatih :</span>
+                  {detail.trainer?.name}
                 </p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+                <p className="flex gap-x-1 items-center">
                   {" "}
-                  <i className="bx  flex bx-dumbbell bx-md"></i>
-                  {detail.slot}
+                  Slot :{detail.slot}
                 </p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+                <p className="flex gap-x-1 items-center">
                   {" "}
-                  <i className="bx  flex bx-star bx-md"></i>
-                  {detail.time}
+                  Durasi :{detail.duration}
+                </p>
+                <p className="flex gap-x-1 items-center">
+                  {" "}
+                  Kategori :{detail.offline_class_category?.name}
                 </p>
               </div>
             </div>

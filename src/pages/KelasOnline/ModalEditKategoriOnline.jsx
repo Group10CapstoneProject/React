@@ -73,10 +73,17 @@ function ModalEditKategoriOnline({ setMessage, setLoad, show, setShow, data }) {
                   <div className=" w-28 bg-[#D3D3D3] gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-28  border">
                     <input
                       onChange={handleImage}
-                      className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t"
+                      className="absolute block w-full h-full z-50  cursor-pointer opacity-0  border pin-r pin-t"
                       type="file"
                       name="online_class_category"
                     />
+                    {form.picture !== null && (
+                      <img
+                        className="absolute w-28 h-28 cursor-pointer rounded-full"
+                        src={form.picture}
+                        alt=""
+                      />
+                    )}
                     <i className="bx bxs-camera-plus"></i>
                     <span className="">Pilih Foto</span>
                   </div>
