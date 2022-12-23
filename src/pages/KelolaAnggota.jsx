@@ -69,7 +69,7 @@ const KelolaAnggota = () => {
 
         <div className="pt-2 flex justify-between ">
           <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Cari Member ....." className="input input-bordered input-black w-56 max-w-xs" />
-          <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
+          <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
             <i className="bx bx-user-plus bx-sm pr-2"></i>Tambah member
           </label>
         </div>

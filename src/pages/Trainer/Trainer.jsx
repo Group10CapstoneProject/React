@@ -40,38 +40,20 @@ function Trainer() {
   }, [message]);
   return (
     <>
-      {modal.showTambah && (
-        <ModalTambahTrainer
-          show={modal.showTambah}
-          setShow={setModal}
-          setMessage={setMessage}
-        />
-      )}
-      {modal.showHapus && (
-        <ModalHapus
-          show={modal.showHapus}
-          setShow={setModal}
-          data={modal.data}
-          handleDelete={handleDelete}
-        />
-      )}
+      {modal.showTambah && <ModalTambahTrainer show={modal.showTambah} setShow={setModal} setMessage={setMessage} />}
+      {modal.showHapus && <ModalHapus show={modal.showHapus} setShow={setModal} data={modal.data} handleDelete={handleDelete} />}
 
       <Toaster />
       <div>
         <div className="flex items-center justify-between ">
           <h4 className="font-bold text-prim">Daftar Trainer</h4>
           <div className="flex justify-end ">
-            <label
-              onClick={() => setModal({ showTambah: !modal.showTambah })}
-              className="btn border-prim bg-prim hover:bg-accent text-white transition duration-200 ease-in hover:border-base"
-            >
-              <i className="bx bx-user-plus bx-sm"></i> Tambah Trainer
+            <label onClick={() => setModal({ showTambah: !modal.showTambah })} className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
+              <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Trainer
             </label>
           </div>
         </div>
-        {!trainer && (
-          <div className="absolute top-1/2 left-1/2">Belum ada Trainer...</div>
-        )}
+        {!trainer && <div className="absolute top-1/2 left-1/2">Belum ada Trainer...</div>}
         <div className="grid grid-cols-4 gap-y-5 gap-x-4 mt-5 ">
           {trainer?.map((m) => (
             <div className="h-28 relative shadow-lg ">
@@ -95,20 +77,12 @@ function Trainer() {
                 </div>
               </div>
               <div className="px-3">
-                <button
-                  onClick={() => navigate(`/trainer/${m.id}`)}
-                  className="rounded-lg cursor-pointer bg-prim text-white font-semibold active:scale-95 hover:bg-prim/80 transition-all duration-100 ease-linear w-full"
-                >
+                <button onClick={() => navigate(`/trainer/${m.id}`)} className="rounded-lg cursor-pointer bg-prim text-white font-semibold active:scale-95 hover:bg-prim/80 transition-all duration-100 ease-linear w-full">
                   Detail
                 </button>
               </div>
               <div className="absolute gap-x-2 flex right-0 top-0 px-2">
-                <span
-                  onClick={() =>
-                    setModal({ showHapus: !modal.showHapus, data: m.id })
-                  }
-                  className=" cursor-pointer text-prim"
-                >
+                <span onClick={() => setModal({ showHapus: !modal.showHapus, data: m.id })} className=" cursor-pointer text-prim">
                   <i class="bx bx-trash-alt"></i>
                 </span>
               </div>

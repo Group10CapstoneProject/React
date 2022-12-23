@@ -36,66 +36,29 @@ function Skills() {
   }, [message]);
   return (
     <>
-      {modal.showTambah && (
-        <ModalTambahSkill
-          setMessage={setMessage}
-          show={modal.showTambah}
-          setShow={setModal}
-        />
-      )}
-      {modal.showEdit && (
-        <ModalEditSkill
-          setMessage={setMessage}
-          show={modal.showEdit}
-          setShow={setModal}
-          data={modal.data}
-        />
-      )}
-      {modal.showHapus && (
-        <ModalHapus
-          setMessage={setMessage}
-          show={modal.showHapus}
-          setShow={setModal}
-          data={modal.data}
-          handleDelete={handleDelete}
-        />
-      )}
+      {modal.showTambah && <ModalTambahSkill setMessage={setMessage} show={modal.showTambah} setShow={setModal} />}
+      {modal.showEdit && <ModalEditSkill setMessage={setMessage} show={modal.showEdit} setShow={setModal} data={modal.data} />}
+      {modal.showHapus && <ModalHapus setMessage={setMessage} show={modal.showHapus} setShow={setModal} data={modal.data} handleDelete={handleDelete} />}
       <Toaster />
       <div>
         <div className="flex items-center justify-betweenx ">
           <h4 className="font-bold text-prim w-full">Daftar Skill</h4>
           <div className="flex w-full justify-end ">
-            <label
-              onClick={() => setModal({ showTambah: !modal.showTambah })}
-              className="btn border-prim bg-prim hover:bg-accent text-white transition duration-200 ease-in hover:border-base"
-            >
-              <i className="bx bx-user-plus bx-sm"></i> Tambah Skill
+            <label onClick={() => setModal({ showTambah: !modal.showTambah })} className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
+              <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Skill
             </label>
           </div>
         </div>
       </div>
       <div className="grid grid-cols-4">
         {skill?.map((m) => (
-          <div
-            key={m.id}
-            className="w-56  mt-5 relative h-16 border-prim overflow-auto shadow-lg p-1 border bg-white rounded-xl"
-          >
-            <h1 className="text-center  h-full flex items-center justify-center font-semibold ">
-              {m.name}
-            </h1>
+          <div key={m.id} className="w-56  mt-5 relative h-16 border-prim overflow-auto shadow-lg p-1 border bg-white rounded-xl">
+            <h1 className="text-center  h-full flex items-center justify-center font-semibold ">{m.name}</h1>
             <div className="absolute gap-x-2 flex right-0 top-0 px-2">
-              <span
-                onClick={() => setModal({ showEdit: !modal.showEdit, data: m })}
-                className=" cursor-pointer text-prim"
-              >
+              <span onClick={() => setModal({ showEdit: !modal.showEdit, data: m })} className=" cursor-pointer text-prim">
                 <i class="bx bxs-edit-alt"></i>
               </span>
-              <span
-                onClick={() =>
-                  setModal({ showHapus: !modal.showHapus, data: m.id })
-                }
-                className=" cursor-pointer text-prim"
-              >
+              <span onClick={() => setModal({ showHapus: !modal.showHapus, data: m.id })} className=" cursor-pointer text-prim">
                 <i class="bx bx-trash-alt"></i>
               </span>
             </div>

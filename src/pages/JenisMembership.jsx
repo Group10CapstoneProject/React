@@ -85,12 +85,8 @@ const JenisMembership = () => {
           </div>
 
           <div className="pt-2 flex justify-end ">
-            <label
-              htmlFor="my-modal-5"
-              onClick={() => setModalTambah(!modalTambah)}
-              className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base"
-            >
-              <i className="bx bx-user-plus bx-sm"></i> Tambah Jenis
+            <label htmlFor="my-modal-5" onClick={() => setModalTambah(!modalTambah)} className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
+              <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Jenis
             </label>
           </div>
 

@@ -63,7 +63,7 @@ const SideBar = () => {
               className={`${drop.trainer ? "bg-prim1 text-white" : "bg-transparent  text-prim"}  w-full  justify-between font-semibold btn  hover:bg-prim1 hover:text-white  border-none `}
             >
               <span className="flex items-center gap-x-3 normal-case text-lg">
-                <i className="bx bx-sm bxs-contact"></i>
+                <i className="bx bxs-face bx-sm" />
                 Trainer
               </span>
 
@@ -108,8 +108,14 @@ const SideBar = () => {
           </li>
 
           <div className="dropdown dropdown-top- dropdown-end font-semibold  text-md pt-1">
-            <label onClick={() => setDrop({ online: !drop.online })} className={`${drop.online ? "bg-prim1 text-white" : "bg-transparent text-prim"}  w-full  justify-between  btn  font-bold  hover:bg-prim1 hover:text-white border-none `}>
-              <span className="flex  items-center gap-x-1">Online</span>
+            <label
+              onClick={() => setDrop({ online: !drop.online })}
+              className={`${drop.online ? "bg-prim1 text-white" : "bg-transparent text-prim"}  w-full  justify-between  btn  font-semibold  hover:bg-prim1 hover:text-white border-none `}
+            >
+              <span className="flex  items-center gap-x-3">
+                <i className="bx bx-movie-play bx-sm" style={{ color: "#00ff00" }} />
+                Online
+              </span>
               <i className={`bx bx-sm ${!drop.online ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
             <ul className={`${drop.online ? "" : "hidden "}  w-52`}>
@@ -127,7 +133,10 @@ const SideBar = () => {
               onClick={() => setDrop({ offline: !drop.offline })}
               className={`${drop.offline ? "bg-prim1 text-white" : "bg-transparent text-prim"}  w-full  justify-between  btn  font-bold  hover:bg-prim1 hover:text-white border-none `}
             >
-              <span className="flex items-center gap-x-1">Offline</span>
+              <span className="flex items-center gap-x-3">
+                <i className="bx bx-bolt-circle bx-sm" style={{ color: "#ff0000" }} />
+                Offline
+              </span>
               <i className={`bx bx-sm ${!drop.offline ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
             <ul className={`${drop.offline ? "" : "hidden "} w-52`}>
