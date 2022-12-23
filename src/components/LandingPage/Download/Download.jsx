@@ -5,7 +5,7 @@ import mobileImage from "../../../assets/images/mobile.png";
 
 const Download = () => {
   return (
-    <div className="bg-border2 h-[100%]">
+    <div className="bg-border2 h-[100%] overflow-hidden">
       <div className="flex justify-start pt-[60px]">
         <h1 className="text-start text-5xl font-bold text-info pl-[200px]" data-aos="fade-down-right" data-aos-duration="1000" id="join">
           Mulai Hidup Sehatmu Dari

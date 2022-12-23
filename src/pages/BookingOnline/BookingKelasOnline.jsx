@@ -25,11 +25,7 @@ function BookingKelasOnline() {
   const { load, setLoad } = useHook();
 
   const listBooking = () => {
-
-    Gym.bookingOnline({ currentPage, postPerPage, text }).then((res) =>
-      setBooking(res.data.data)
-    );
-
+    Gym.bookingOnline({ currentPage, postPerPage, text }).then((res) => setBooking(res.data.data));
   };
   const handleDelete = (e, id) => {
     e.preventDefault();
@@ -58,16 +54,11 @@ function BookingKelasOnline() {
     <>
       <Toaster />
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} setShow={setModalDelete} handleDelete={handleDelete} data={modalDelete.data} />}
-      <h1 className="font-bold text-2xl text-info">DAFTAR BOOKING CLASS</h1>
+      <h1 className="font-semibold text-2xl text-info ">
+        Booking <span className="text-black font-medium">/</span> <span className="text-prim1">Online</span>
+      </h1>
       <div className="flex  pt-4 input-group justify-start">
-
-        <input
-          onChange={(e) => setText(e.target.value)}
-          type="text"
-          placeholder="Cari Anggota ....."
-          className="input input-bordered input-black  w-56 max-w-xs"
-        />
-
+        <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Cari Anggota ....." className="input input-bordered input-black  w-56 max-w-xs" />
       </div>
       <br />
       <div className="overflow-x-auto">
@@ -105,31 +96,14 @@ function BookingKelasOnline() {
                   </td>
                   <td className="leading-none">{m.duration} Bulan</td>
 
-                  <td
-                    className={`${
-                      m.status === "ACTIVE"
-                        ? "text-suc"
-                        : m.status === "INACTIVE"
-                        ? "text-dang2  "
-                        : "text-inf2"
-                    }`}
-                  >
+                  <td className={`${m.status === "ACTIVE" ? "text-suc" : m.status === "INACTIVE" ? "text-dang2  " : "text-inf2"}`}>
                     <div className={` lowercase`}>
-                      <span
-                        className={`${
-                          m.status === "ACTIVE"
-                            ? "bg-suc/10 pr-2"
-                            : m.status === "INACTIVE"
-                            ? "bg-dang2/10 pr-2  "
-                            : "bg-inf2/10 pr-2"
-                        } `}
-                      >
+                      <span className={`${m.status === "ACTIVE" ? "bg-suc/10 pr-2" : m.status === "INACTIVE" ? "bg-dang2/10 pr-2  " : "bg-inf2/10 pr-2"} `}>
                         <i className="bx  bx-wifi-0"></i>
                         {m.status}
                       </span>
                     </div>
                   </td>
-
 
                   <td className="flex gap-x-1 justify-center">
                     <button className="btnp" onClick={() => navigate(`/detailBookingOnline/${m.id}`)}>

@@ -6,7 +6,7 @@ import zumbaImage from "../../../assets/images/zumba.png";
 
 const Kelas = () => {
   return (
-    <div>
+    <div className="h-[100%] overflow-hidden">
       <div className="flex justify-center pt-[60px]">
         <h1 className="text-center text-3xl font-bold text-info">
           Pilih <span className="text-prim2">berbagai kelas</span> <span className="text-prim-100">dengan banyak instruktur hebat</span>

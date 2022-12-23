@@ -5,7 +5,7 @@ import FotoImage from "../../../assets/images/Foto.png";
 
 const Hero = () => {
   return (
-    <div>
+    <div className="h-[100%] overflow-hidden">
       <div className="hero min-h-screen" style={{ backgroundImage: `url(${FotoImage})` }}>
         <div className="hero-overlay bg-opacity-0"></div>
         <div className="hero-content text-center text-neutral-content">

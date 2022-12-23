@@ -68,7 +68,7 @@ const KelasOnline = () => {
           <br />
           <div className="flex items-center justify-between ">
             <h4 className="font-semibold text-info">
-              Online <span className="text-black font-medium">/</span> <span className="text-prim">Kategori Kelas</span> <span className="text-black font-medium">/</span> <span className="text-prim1">Yoga</span>{" "}
+              Kelas <span className="text-black font-medium">/</span> <span className="text-prim1">Online</span>
             </h4>
             <div className="flex justify-end ">
               <Link to="/tambahkelasonline" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">

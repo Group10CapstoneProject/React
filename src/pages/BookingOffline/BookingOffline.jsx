@@ -56,16 +56,11 @@ function BookingOffline() {
     <>
       <Toaster />
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} setShow={setModalDelete} handleDelete={handleDelete} data={modalDelete.data} />}
-      <h1 className="font-bold text-2xl text-info">DAFTAR BOOKING CLASS</h1>
+      <h1 className="font-semibold text-2xl text-info">
+        Booking <span className="text-black font-medium">/</span> <span className="text-prim1">Offline</span>
+      </h1>
       <div className="flex  pt-4 input-group justify-start">
-
-        <input
-          onChange={(e) => setText(e.target.value)}
-          type="text"
-          placeholder="Cari Anggota ....."
-          className="input input-bordered input-black  w-56 max-w-xs"
-        />
-
+        <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Cari Anggota ....." className="input input-bordered input-black  w-56 max-w-xs" />
       </div>
       <br />
       <div className="overflow-x-auto">
@@ -91,43 +86,23 @@ function BookingOffline() {
                   <td className="leading-none">{m.user_email}</td>
                   <td className="leading-none">{m.offline_class_title}</td>
                   <td className="leading-none">
-
                     {m.status == "ACTIVE" ? (
                       <>
                         {" "}
-                        <Moment format="D MMM YYYY hh:mm:ss">
-                          {m.actived_at}
-                        </Moment>
+                        <Moment format="D MMM YYYY hh:mm:ss">{m.actived_at}</Moment>
                       </>
                     ) : (
                       "-"
                     )}
                   </td>
 
-                  <td
-                    className={`${
-                      m.status === "ACTIVE"
-                        ? "text-suc"
-                        : m.status === "INACTIVE"
-                        ? "text-dang2  "
-                        : "text-inf2"
-                    }`}
-                  >
+                  <td className={`${m.status === "ACTIVE" ? "text-suc" : m.status === "INACTIVE" ? "text-dang2  " : "text-inf2"}`}>
                     <div className={` lowercase`}>
-                      <span
-                        className={`${
-                          m.status === "ACTIVE"
-                            ? "bg-suc/10 pr-2"
-                            : m.status === "INACTIVE"
-                            ? "bg-dang2/10 pr-2  "
-                            : "bg-inf2/10 pr-2"
-                        } `}
-                      >
+                      <span className={`${m.status === "ACTIVE" ? "bg-suc/10 pr-2" : m.status === "INACTIVE" ? "bg-dang2/10 pr-2  " : "bg-inf2/10 pr-2"} `}>
                         <i className="bx  bx-wifi-0"></i>
                         {m.status}
                       </span>
                     </div>
-
                   </td>
                   <td className="leading-none text-inf2 font-semibold">{m.status}</td>
 

@@ -42,17 +42,21 @@ const SideBar = () => {
           <Link to="/" className="mb-2 flex justify-center">
             <img className="w-32" src={logo} alt="" />
           </Link>
-          <li className={`${path == "/" ? "bg-prim1 text-white rounded-lg" : "bg-transparent text-prim"} font-semibold text-lg hover:bg-prim1 hover:text-white rounded-lg`}>
-            <Link to="/">
-              <i className="bx bx-sm bxs-dashboard"></i>Dashboard
-            </Link>
-          </li>
-          <li className={`${path == "/pembayaran" ? "bg-prim1 text-white rounded-lg" : "bg-transparent text-prim"} font-semibold text-lg hover:bg-prim1 hover:text-white rounded-lg`}>
-            <Link to="pembayaran">
-              <i className="bx bx-sm bxs-wallet"></i>Pembayaran
-            </Link>
-          </li>
-          <div className="dropdown dropdown-top- dropdown-end ">
+          <div className="pt-4">
+            <li className={`${path == "/" ? "bg-prim1 text-white rounded-lg" : "bg-transparent text-prim"} font-semibold text-lg hover:bg-prim1 hover:text-white rounded-lg`}>
+              <Link to="/">
+                <i className="bx bx-sm bxs-dashboard"></i>Dashboard
+              </Link>
+            </li>
+          </div>
+          <div className="pt-2">
+            <li className={`${path == "/pembayaran" ? "bg-prim1 text-white rounded-lg" : "bg-transparent text-prim"} font-semibold text-lg hover:bg-prim1 hover:text-white rounded-lg`}>
+              <Link to="pembayaran">
+                <i className="bx bx-sm bxs-wallet"></i>Pembayaran
+              </Link>
+            </li>
+          </div>
+          <div className="dropdown dropdown-top- dropdown-end pt-2">
             <label
               onClick={() => setDrop({ trainer: !drop.trainer })}
               className={`${drop.trainer ? "bg-prim1 text-white" : "bg-transparent  text-prim"}  w-full  justify-between font-semibold btn  hover:bg-prim1 hover:text-white  border-none `}
@@ -65,16 +69,16 @@ const SideBar = () => {
               <i className={`bx bx-sm ${!drop.trainer ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
             <ul className={`${drop.trainer ? "" : "hidden "} font-semibold   w-52`}>
-              <li className="py-0 ">
+              <li className="py-0 pt-2">
                 <Link to="trainer">Daftar Trainer</Link>
               </li>
-              <li>
+              <li className="py-0 pt-2">
                 <Link to="skills">Skills</Link>
               </li>
             </ul>
           </div>
 
-          <div className="dropdown dropdown-top- dropdown-end pt-1.5">
+          <div className="dropdown dropdown-top- dropdown-end pt-2">
             <label
               onClick={() => setDrop({ member: !drop.member })}
               className={`${drop.member ? "bg-prim1 text-white" : "bg-transparent  text-prim"}  w-full  justify-between font-semibold btn  hover:bg-prim1 hover:text-white  border-none normal-case`}
@@ -86,7 +90,7 @@ const SideBar = () => {
               <i className={`bx bx-sm ${!drop.member ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
             <ul className={`${drop.member ? "" : "hidden "} font-semibold   w-52`}>
-              <li className="py-0 ">
+              <li className="py-0 pt-1">
                 <Link to="anggota">Kelola Member</Link>
               </li>
               <li className={`${path == "/jenis" ? "bg-transparent text-prim rounded-lg py-0" : ""} font-semibold pt-1`}>
@@ -147,7 +151,7 @@ const SideBar = () => {
               <i className={`bx bx-sm ${!drop.book ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
             <ul className={`${drop.book ? "" : "hidden "}  w-52`}>
-              <li className="py-0 pt-1 font-semibold text-prim2 hover:bg-primary hover:text-base rounded-lg">
+              <li className="py-0 pt-1 font-semibold ">
                 <Link to="bookingonline">Online</Link>
               </li>
               <li className="py-0 pt-1 font-semibold">

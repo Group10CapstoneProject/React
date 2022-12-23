@@ -5,7 +5,7 @@ import profil7Image from "../../../assets/images/profil7.png";
 
 const Testimony = () => {
   return (
-    <div className="bg-border3 h-[110vh]">
+    <div className="bg-border3 h-[100%] overflow-hidden">
       <div className="flex justify-start pt-[60px] pl-[125px]">
         <h1 className="text-center text-3xl font-bold text-info" id="testimony">
           Apa Kata <span className="text-prim2">Mereka?</span>
