@@ -1,5 +1,4 @@
 import React from "react";
-
 // Router
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
@@ -8,14 +7,24 @@ import ProtectedRoute from "./ProtectedRoute";
 // Landing Page
 import LandingPage from "../pages/LandingPage/LandingPage";
 
-// Login
-import Login from "../pages/Login";
+// Admin
+import Admin from "../pages/Admin/Admin";
+import TambahAdmin from "../pages/Admin/TambahAdmin";
+
+// Artikel
+import Artikel from "../pages/Artikel.jsx/Artikel";
+
+// BookingOffline
+import BookingOffline from "../pages/BookingOffline/BookingOffline";
+import DetailBookingOffline from "../pages/BookingOffline/DetailBookingOffline";
+
+// BookingOnline
+import BookingKelasOnline from "../pages/BookingOnline/BookingKelasOnline";
+import DetailBookingOnline from "../pages/BookingOnline/DetailBookingOnline";
+import ModalBookingOnline from "../pages/BookingOnline/ModalBookingOnline";
 
 // Dashboard
 import Dashboard from "../pages/Dashboard";
-
-// Pembayaran
-import { Pembayaran } from "../pages/Pembayaran";
 
 // Membership
 import DetailAnggota from "../pages/DetailAnggota";
@@ -36,27 +45,21 @@ import KategoriOnline from "../pages/KelasOnline/KategoriOnline";
 import KelasOnline from "../pages/KelasOnline/KelasOnline";
 import TambahKelasOnline from "../pages/KelasOnline/TambahKelasOnline";
 
-// Booking Offline
-import BookingOffline from "../pages/BookingOffline/BookingOffline";
-import DetailBookingOffline from "../pages/BookingOffline/DetailBookingOffline";
+// Login
+import Login from "../pages/Login";
 
-// Booking Online
-import BookingKelasOnline from "../pages/BookingOnline/BookingKelasOnline";
-// punya agil
-import Trainer from "../pages/Trainer/Trainer";
-import Skills from "../pages/Trainer/skils/Skills";
-import DetailTrainer from "../pages/Trainer/DetailTrainer";
-
-// punya gua
-import DetailBookingOnline from "../pages/BookingOnline/DetailBookingOnline";
-import ModalBookingOnline from "../pages/BookingOnline/ModalBookingOnline";
-// Admin
-import Admin from "../pages/Admin";
-import TambahAdmin from "../pages/Admin/TambahAdmin";
-
-// 404 Error
+// EROR
 import NotFoundPage from "../pages/NotFoundPage";
-import { Member } from "../pages/Member";
+
+// PEMBAYARAN
+import { Pembayaran } from "../pages/Pembayaran";
+
+// Trainer
+import DetailTrainer from "../pages/Trainer/DetailTrainer";
+import Skills from "../pages/Trainer/Skills/Skills";
+import Trainer from "../pages/Trainer/Trainer";
+
+// import { Member } from "../pages/Member";
 
 export const SetUpRouters = () => {
   return (
@@ -84,19 +87,18 @@ export const SetUpRouters = () => {
           <Route path="anggota" element={<KelolaAnggota />} />
           <Route path="detail/:id" element={<DetailAnggota />} />
           <Route path="jenis" element={<JenisMembership />} />
-          <Route path="member" element={<Member />} />
 
           <Route path="bookingonline" element={<BookingKelasOnline />} />
+          <Route path="artikel" element={<Artikel />} />
+          <Route path="admin" element={<Admin />} />
           <Route path="detailBookingOnline/:id" element={<DetailBookingOnline />} />
           <Route path="bookingoffline" element={<BookingOffline />} />
           <Route path="detailBookingOffline/:id" element={<DetailBookingOffline />} />
-          <Route path="admin" element={<Admin />} />
-          <Route path="tambahadmin" element={<TambahAdmin />} />
-          <Route path="modalbookingonline" element={<ModalBookingOnline />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Route>
-        <Route path="/landingpage" element={<LandingPage />} />
+        <Route path="landingpage" element={<LandingPage />} />
+
         <Route path="/" element={<ProtectedRoute />}>
           <Route path="/home" element={<LandingPage />} />
           <Route path="/login" element={<Login />} />

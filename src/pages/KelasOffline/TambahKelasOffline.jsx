@@ -246,7 +246,7 @@ function TambahKelasOffline() {
                 />
                 <div className="absolute w-44 flex  flex-col  items-center">
                   {data.picture !== null ? (
-                    <img src={data.picture} alt="" />
+                    <img className="w-28" src={data.picture} alt="" />
                   ) : (
                     <i class="bx bx-lg bxs-image-add"></i>
                   )}

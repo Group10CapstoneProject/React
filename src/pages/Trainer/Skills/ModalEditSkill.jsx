@@ -3,10 +3,11 @@ import { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import PostApi from "../../../apis/post.api";
 
-function ModalTambahSkill({ show, setShow, setMessage }) {
+function ModalEditSkill({ show, setShow, setMessage, data }) {
   const [skill, setSkill] = useState({
-    name: "",
-    description: "",
+    id: data.id,
+    name: data.name,
+    description: data.description,
   });
 
   const onChange = (e) => {
@@ -19,7 +20,7 @@ function ModalTambahSkill({ show, setShow, setMessage }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    PostApi.tambahSkill(skill)
+    PostApi.editSkill(skill)
       .then((res) => {
         setMessage(res.data.message);
         setShow(false);
@@ -37,9 +38,9 @@ function ModalTambahSkill({ show, setShow, setMessage }) {
           <div className="w-full p-3 bg-base2 flex">
             <span>❗</span>
             <div>
-              <h2 className="font-bold text-lg">Tambah Skill</h2>
+              <h2 className="font-bold text-lg">Edit Skill</h2>
               <p className="text-sm font-semibold">
-                Kamu dapat menambahkan Skill disini
+                Kamu dapat mengedit Skill disini
               </p>
             </div>
           </div>
@@ -60,12 +61,14 @@ function ModalTambahSkill({ show, setShow, setMessage }) {
                     type="text"
                     name="name"
                     onChange={onChange}
+                    value={skill.name}
                   />
-                  <input
+                  <textarea
                     className="inputJenis w-full"
                     type="text"
                     name="description"
                     onChange={onChange}
+                    value={skill.description}
                   />
                 </div>
               </div>
@@ -75,7 +78,6 @@ function ModalTambahSkill({ show, setShow, setMessage }) {
                 </button>
                 <label
                   onClick={() => setShow(false)}
-                  htmlFor="my-modal-5"
                   className="btnd flex items-center"
                 >
                   Batal
@@ -89,4 +91,4 @@ function ModalTambahSkill({ show, setShow, setMessage }) {
   );
 }
 
-export default ModalTambahSkill;
+export default ModalEditSkill;

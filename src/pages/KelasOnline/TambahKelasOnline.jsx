@@ -94,7 +94,7 @@ function TambahKelasOnline() {
               </label>
               <select onChange={onChange} name="trainer_id" className="select-sm border w-full max-w-xs">
                 <option disabled selected>
-                  Plih Trainer
+                  Pilih Trainer
                 </option>
                 {trainer?.map((m) => (
                   <option key={m.id} value={m.id}>
@@ -120,7 +120,7 @@ function TambahKelasOnline() {
               <label className="font-bold" htmlFor="">
                 Harga
               </label>
-              <input type="number" placeholder="Masukkan Nama" className="input input-sm input-bordered w-full " onChange={onChange} name="price" required />
+              <input type="number" placeholder="Masukkan Harga" className="input input-sm input-bordered w-full " onChange={onChange} name="price" required />
             </div>
           </div>
           <div>
@@ -184,7 +184,7 @@ function TambahKelasOnline() {
               <div className="flex cursor-pointer relative flex-col justify-center w-full h-full  items-center border">
                 <input onChange={handleImage} name="online_class" type="file" className="file-input w-full z-50 opacity-0 cursor-pointer borders  p-10 h-full" />
                 <div className="absolute w-44 flex  flex-col  items-center">
-                  {data.picture !== null ? <img src={data.picture} alt="" /> : <i class="bx bx-lg bxs-image-add"></i>}
+                  {data.picture !== null ? <img className="w-28" src={data.picture} alt="" /> : <i class="bx bx-lg bxs-image-add"></i>}
                   <p className="text-sm text-center font-semibold">
                     <span className="text-prim">Tarik gambar kesini </span>atau
                     <span className="text-prim"> cari</span> untuk memilih

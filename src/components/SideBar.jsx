@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
-import Navbar from "./Navbar";
-import logo from "../assets/images/logo.png";
-import Auth from "../utils/Auth";
 import Cookies from "js-cookie";
+import React, { useState } from "react";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
+import logo from "../assets/images/logo.png";
+import Navbar from "./Navbar";
+
 const SideBar = () => {
   let link = useLocation();
   const path = link.pathname;
@@ -17,6 +17,7 @@ const SideBar = () => {
     member: false,
     book: false,
     trainer: false,
+    artikel: false,
   });
   const [book, setBook] = useState(false);
   let navigate = useNavigate();
@@ -159,33 +160,24 @@ const SideBar = () => {
               </li>
             </ul>
           </div>
+          <li className={`${path == "/artikel" ? "bg-prim text-white rounded-lg" : ""} font-bold `}>
+            <Link to="/artikel">
+              <i className="bx bx-sm bx-book-open"></i>Artikel
+            </Link>
+          </li>
 
-          <div className="pt-1.5">
-            {data && data.role == "superadmin" ? (
-              <li className={`${path == "/admin" ? "bg-prim1 text-white rounded-lg" : "bg-transparent text-prim"} font-semibold text-lg hover:bg-prim1 hover:text-white rounded-lg`}>
+          {data && data.role == "superadmin" ? (
+            <Link to="admin" className="font-bold">
+              <li className={`${path == "admin" ? "bg-prim text-white rounded-lg" : ""} font-bold `}>
                 <span className="flex  items-center gap-x-3">
-                  <i class="bx bx-user-circle bx-sm"></i>
-                  <Link to="admin">Admin</Link>
+                  <i className="bx bx-sm bx-user-circle"></i>
+                  Admin
                 </span>
               </li>
-            ) : (
-              ""
-            )}
-          </div>
-          {/* <div className="pt-[50px]">
-            {data && data.role == "superadmin" ? (
-              <li className={`${path == "/offline" ? "bg-base text-dang4 rounded-lg" : ""} font-bold `}>
-                <span className="flex  items-center gap-x-3">
-                  <box-icon color={`${path == "/offline" ? "#ff5328" : ""}`} name="log-out"></box-icon>
-                  <Link to="offline" className="font-bold">
-                    Keluar
-                  </Link>
-                </span>
-              </li>
-            ) : (
-              ""
-            )}
-          </div> */}
+            </Link>
+          ) : (
+            ""
+          )}
         </ul>
       </div>
     </div>

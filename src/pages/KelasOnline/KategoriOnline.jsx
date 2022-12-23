@@ -31,17 +31,19 @@ const KategoriOnline = () => {
       console.log(error);
     }
   };
+  {
+    kategori && console.log(kategori);
+  }
 
   const handleDelete = (e, id) => {
     e.preventDefault();
-    try {
-      PostApi.deleteKategoriOnline(id).then((res) => {
+
+    PostApi.deleteKategoriOnline(id)
+      .then((res) => {
         setMessage(res.data.message);
         setModalDelete(false);
-      });
-    } catch (error) {
-      setMessage(error.message);
-    }
+      })
+      .catch((err) => toast.error(err.message));
   };
 
   const handleEdit = (data) => {
@@ -55,12 +57,12 @@ const KategoriOnline = () => {
       setMessage("");
     }
   }, [load, message]);
-  console.log(modalDelete);
   if (load) {
     return <h1>loading...</h1>;
   }
   return (
     <>
+      <Toaster />
       {show ? <ModalTambahKategoriOnline setLoad={setLoad} show={show} setShow={setShow} setMessage={setMessage} /> : ""}
 
       {modalEdit.isShow ? <ModalEditKategoriOnline setLoad={setLoad} show={modalEdit.isShow} setShow={setModalEdit} data={modalEdit.data} setMessage={setMessage} /> : ""}
@@ -69,9 +71,6 @@ const KategoriOnline = () => {
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} handleDelete={handleDelete} data={modalDelete.data} setShow={setModalDelete} />}
       <div>
         <div className="form-control">
-          <div className="flex   input-group">
-            <input type="text" placeholder="Cari Kategori..." className="input input-bordered input-black w-full max-w-xs" />
-          </div>
           <br />
           <div className="flex items-center justify-between ">
             <h4 className="font-semibold text-prim">
@@ -93,7 +92,7 @@ const KategoriOnline = () => {
                 <div className="px-2 py-2  ">
                   <div className="flex items-center justify-between w-full">
                     <h2 className="card-title font-bold">{m.name}</h2>
-                    <span className="">{m.online_class_count} Video</span>
+                    <span className="">{m.online_class_count} Kelas</span>
                   </div>
                   <div className="w-full flex mt-2 gap-x-2 items-center justify-between">
                     <button

@@ -62,9 +62,8 @@ const KategoriOffline = () => {
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} setShow={setModalDelete} handleDelete={handleDelete} data={modalDelete.data} />}
       <div>
         <div className="form-control">
-          <div className="flex   input-group">
-            <input type="text" placeholder="Cari Kategori..." className="input input-bordered input-black w-full max-w-xs" />
-          </div>
+          <div className="flex   input-group"></div>
+
           <br />
           <div className="flex items-center justify-between ">
             <h4 className="font-semibold text-info">
@@ -86,7 +85,7 @@ const KategoriOffline = () => {
                 <div className="px-2 py-2  ">
                   <div className="flex items-center justify-between w-full">
                     <h2 className="card-title font-bold">{m.name}</h2>
-                    <span className="">{m.online_class_count} Video</span>
+                    <span className="">{m.offline_class_count} Kelas</span>
                   </div>
                   <div className="w-full flex mt-2 gap-x-2 items-center justify-between">
                     <button

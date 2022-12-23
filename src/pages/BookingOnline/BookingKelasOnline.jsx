@@ -20,7 +20,7 @@ function BookingKelasOnline() {
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [_text, setText] = useState("");
-  const [text] = useDebounce(3000, _text);
+  const [text] = useDebounce(500, _text);
   const [postPerPage, setPostPerPage] = useState(10);
   const { load, setLoad } = useHook();
 
@@ -65,17 +65,16 @@ function BookingKelasOnline() {
         <table className="table table-compact text-black w-full text-center">
           <thead className="bg-black">
             <tr>
-              <th>Nomor</th>
+              <th>No</th>
               <th>Nama</th>
               <th>Email</th>
               <th>Nama Kelas</th>
-              <th>Aktif pada tanggal</th>
               <th>Durasi</th>
               <th>Status</th>
               <th>Aksi</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="font-semibold capitalize">
             {booking &&
               booking.online_class_bookings !== null &&
               booking.online_class_bookings?.map((m, index) => (
@@ -84,24 +83,11 @@ function BookingKelasOnline() {
                   <td className=" leading-none">{m.user_name}</td>
                   <td className="leading-none">{m.user_email}</td>
                   <td className="leading-none">{m.online_class_title}</td>
-                  <td className="leading-none">
-                    {m.status == "ACTIVE" ? (
-                      <>
-                        {" "}
-                        <Moment format="D MMM YYYY hh:mm:ss">{m.actived_at}</Moment>
-                      </>
-                    ) : (
-                      "-"
-                    )}
-                  </td>
                   <td className="leading-none">{m.duration} Bulan</td>
 
                   <td className={`${m.status === "ACTIVE" ? "text-suc" : m.status === "INACTIVE" ? "text-dang2  " : "text-inf2"}`}>
                     <div className={` lowercase`}>
-                      <span className={`${m.status === "ACTIVE" ? "bg-suc/10 pr-2" : m.status === "INACTIVE" ? "bg-dang2/10 pr-2  " : "bg-inf2/10 pr-2"} `}>
-                        <i className="bx  bx-wifi-0"></i>
-                        {m.status}
-                      </span>
+                      <span className={`${m.status === "ACTIVE" ? "bg-suc/10 pr-2" : m.status === "INACTIVE" ? "bg-dang2/10 pr-2  " : "bg-inf2/10 pr-2"} `}>{m.status}</span>
                     </div>
                   </td>
 
@@ -124,12 +110,8 @@ function BookingKelasOnline() {
                 </tr>
               ))}
           </tbody>
-          {booking && booking.online_class_bookings == null && (
-            <div className=" w-full text-center">
-              <p>Pencarian Tidak Ditemukan</p>
-            </div>
-          )}
         </table>
+        {booking.online_class_bookings == null && <div className="flex justify-center w-full">Pencarian tidak ditemukan..</div>}
       </div>
       <br />
       <div className="flex justify-between">

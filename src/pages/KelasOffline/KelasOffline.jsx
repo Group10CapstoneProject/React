@@ -13,7 +13,7 @@ const KelasOffline = () => {
   console.log(link);
   const [load, setLoad] = useState(false);
   const [_text, setText] = useState("");
-  const [text] = useDebounce(1000, _text);
+  const [text] = useDebounce(500, _text);
   const [message, setMessage] = useState("");
   const [kelas, setKelas] = useState([]);
   const [modalDelete, setModalDelete] = useState({
@@ -29,14 +29,16 @@ const KelasOffline = () => {
   };
   const handleDelete = (e, id) => {
     e.preventDefault();
-    try {
-      PostApi.deleteKelasOffline(id).then((res) => {
+
+    PostApi.deleteKelasOffline(id)
+      .then((res) => {
         setMessage(res.data.message);
         setModalDelete(false);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+        setModalDelete(false);
       });
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   useEffect(() => {
@@ -58,7 +60,7 @@ const KelasOffline = () => {
       <div>
         <div className="form-control">
           <div className="flex   input-group">
-            <input type="text" onChange={(e) => setText(e.target.value)} placeholder="Cari Kelas..." className="input input-bordered input-black w-full max-w-xs" />
+            <input type="text" onChange={(e) => setText(e.target.value)} placeholder="Cari Kelas Offline..." className="input input-bordered input-black w-full max-w-xs" />
           </div>
           <br />
           <div className="flex items-center   justify-between ">

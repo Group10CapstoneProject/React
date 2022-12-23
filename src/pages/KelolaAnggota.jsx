@@ -21,11 +21,10 @@ const KelolaAnggota = () => {
   });
   const [message, setMessage] = useState("");
   const [_text, setText] = useState("");
-  const [text] = useDebounce(3000, _text);
+  const [text] = useDebounce(500, _text);
   const [postPerPage, setPostPerPage] = useState(10);
   const [load, setLoad] = useState(false);
   const listMember = async () => {
-
     Gym.members({ currentPage, postPerPage, text })
       .then((res) => {
         setMember(res.data.data);
@@ -33,7 +32,6 @@ const KelolaAnggota = () => {
       .catch((err) => toast.error(err.message));
 
     setLoad(false);
-
   };
 
   const handleDelete = (e, id) => {
@@ -60,7 +58,7 @@ const KelolaAnggota = () => {
   }
   return (
     <div className="relative">
-      {show ? <ModalTambahAnggota setLoad={setLoad} show={show} setShow={setShow} /> : ""}
+      {show ? <ModalTambahAnggota setMessage={setMessage} setLoad={setLoad} show={show} setShow={setShow} /> : ""}
 
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} handleDelete={handleDelete} data={modalDelete.data} setShow={setModalDelete} />}
       <Toaster />
@@ -70,12 +68,7 @@ const KelolaAnggota = () => {
         </div>
 
         <div className="pt-2 flex justify-between ">
-          <input
-            onChange={(e) => setText(e.target.value)}
-            type="text"
-            placeholder="Cari Anggota ....."
-            className="input input-bordered input-black w-56 max-w-xs"
-          />
+          <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Cari Member ....." className="input input-bordered input-black w-56 max-w-xs" />
           <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
             <i className="bx bx-user-plus bx-sm pr-2"></i>Tambah member
           </label>
@@ -83,7 +76,7 @@ const KelolaAnggota = () => {
 
         <div className="bg-white my-2 p-2">
           <div className="">
-            <table className="table table-compact w-full text-center text-sm ">
+            <table className="table table-compact w-full  text-sm ">
               <thead>
                 <tr>
                   <th>No</th>
@@ -91,7 +84,6 @@ const KelolaAnggota = () => {
                   <th>Jenis Membership</th>
                   <th>Status Membership</th>
                   <th>Durasi</th>
-                  <th>Aktif pada tanggal</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
@@ -104,40 +96,14 @@ const KelolaAnggota = () => {
                       <td>{m.user_name}</td>
                       <td>{m.member_type_name}</td>
 
-                      <td
-                        className={`${
-                          m.status === "ACTIVE"
-                            ? "text-suc"
-                            : m.status === "INACTIVE"
-                            ? "text-dang2  "
-                            : "text-inf2"
-                        }`}
-                      >
-                        <div
-                          className={` lowercase flex justify-center items-center`}
-                        >
-                          <span
-                            className={`${
-                              m.status === "ACTIVE"
-                                ? "bg-suc/10 pr-2"
-                                : m.status === "INACTIVE"
-                                ? "bg-dang2/10 pr-2  "
-                                : "bg-inf2/10 pr-2"
-                            } lowercase`}
-                          >
-                            <i className="bx  bx-wifi-0"></i>
-                            {m.status}
-                          </span>
+                      <td className={`${m.status === "ACTIVE" ? "text-suc" : m.status === "INACTIVE" ? "text-dang2  " : "text-inf2"}`}>
+                        <div className={` lowercase flex items-center`}>
+                          <span className={`${m.status === "ACTIVE" ? "bg-suc/10 px-2" : m.status === "INACTIVE" ? "bg-dang2/10 px-2  " : "bg-inf2/10 px-2"} lowercase`}>{m.status}</span>
                         </div>
-
                       </td>
                       <td>{m.duration} Bulan</td>
-                      <td>
-                        {" "}
-                        <Moment format="D MMM YYYY hh:mm:ss">{m.actived_at}</Moment>
-                      </td>
 
-                      <td className="flex gap-x-2 items-start justify-center">
+                      <td className="flex gap-x-2 items-start ">
                         <label onClick={() => navigate(`/detail/${m.id}`)} htmlFor="my-modal-5" className="btnp flex items-center">
                           Detail
                         </label>

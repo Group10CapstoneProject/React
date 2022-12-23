@@ -69,7 +69,7 @@ export const Pembayaran = () => {
         <div className="pt-2 flex justify-end ">
           <label
             onClick={() => setModal({ modalTambah: !modal.modalTambah })}
-            className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base"
+            className="btn border-prim bg-prim hover:bg-accent text-white transition duration-200 ease-in hover:border-base"
           >
             Tambah Metode Pembayaran
           </label>

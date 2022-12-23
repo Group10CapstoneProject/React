@@ -30,7 +30,6 @@ function Login() {
       });
   };
 
-  // console.log(error);
   return (
     <div className="h-screen flex   text-black">
       <img className="absolute top-4 left-2 w-[100px] h-[70px] ml-4" data-aos="zoom-in" data-aos-duration="2000" src={logo} alt="" />

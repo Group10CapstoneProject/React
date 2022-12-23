@@ -37,9 +37,8 @@ function ModalTambahTrainer({ show, setShow, setMessage }) {
       [name]: type == "number" ? Number(value) : value,
     });
   };
-  const handleSelect = (e) => {
-    e.preventDefault();
-    const skills = select.map((m) => m.value);
+  const handleSelect = (item) => {
+    const skills = item.map((m) => m.value);
     setTrainer({
       ...trainer,
       skills: skills,
@@ -174,19 +173,19 @@ function ModalTambahTrainer({ show, setShow, setMessage }) {
                         <Select
                           className="w-[90%]"
                           isMulti
-                          onChange={(item) => setSelect(item)}
+                          onChange={(item) => handleSelect(item)}
                           options={options}
                           isDisabled={false}
                           isLoading={false}
                           isRtl={false}
                         />
-                        <label
+                        {/* <label
                           className="border cursor-pointer bg-prim text-white p-1 rounded-lg"
                           onClick={handleSelect}
                           htmlFor=""
                         >
                           tambah
-                        </label>
+                        </label> */}
                       </div>
                     </div>
 

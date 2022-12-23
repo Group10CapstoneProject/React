@@ -16,9 +16,6 @@ function Navbar() {
     <nav className="w-full sticky h-[70px] z-50  bg-base/60 border px-4 py-2  flex items-center justify-end">
       <div>
         <ul className="flex">
-          <div className="indicator pr-6 pt-2">
-            <i className="bx bxs-bell bx-sm" style={{ color: "#3d3d3d" }} />
-          </div>
           <div className="avatar placeholders">
             <div className="bg-neutral-focus text-neutral-content rounded-full w-[50px]">
               <a href="/landingpage">

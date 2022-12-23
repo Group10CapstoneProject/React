@@ -1,7 +1,5 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import Gym from "../../apis/get.api";
@@ -23,7 +21,6 @@ function DetailTrainer() {
       })
       .catch((err) => toast.error(err.message));
   };
-
   useEffect(() => {
     detailTrainer();
     if (message !== "") {
@@ -31,6 +28,8 @@ function DetailTrainer() {
       setMessage("");
     }
   }, [message]);
+  // const skills = detail?.trainer_skill.map((m) => m.skill_id);
+
   return (
     <>
       <Toaster />
@@ -58,7 +57,7 @@ function DetailTrainer() {
           <p className="text-sm pr-44">{detail?.description}</p>
           <div className="flex  gap-x-6 mt-5 text-sm text-black">
             <div className="capitalize">
-              <p>nomor handphone</p>
+              <p>Nomor handphone</p>
               <p>Umur</p>
               <p>Gender</p>
               <p>Harga</p>
@@ -68,26 +67,22 @@ function DetailTrainer() {
               <p>Acces trainer</p>
             </div>
             <div className="capitalize">
-              <p>{detail?.phone}</p>
-              <p>{detail?.age} Tahun</p>
-              <p>{detail?.gender}</p>
+              <p>: {detail?.phone}</p>
+              <p>: {detail?.age} Tahun</p>
+              <p>: {detail?.gender}</p>
               <p>
-                <FormatRupiah value={detail?.price} />
+                : <FormatRupiah value={detail?.price} />
               </p>
-              <p>{detail?.daily_slot}</p>
-              {/* {detail?.trainer_skill.map((m) => (
-                <p>
-                  <span>{m.skill_name}</span>
-                </p>
-              ))} */}
+              <p>: {detail?.daily_slot}</p>
+
               <p>
+                :
                 {detail?.trainer_skill?.map((m) => (
-                  <span key={m?.id}>{m?.skill_name} </span>
+                  <span key={m.id}>{m.skill_name} </span>
                 ))}
               </p>
-              <p>{detail?.client_active}</p>
-              <p>{detail?.access_trainer}</p>
-              <p>Acces trainer</p>
+              <p>: {detail?.client_active}</p>
+              <p>: {detail?.access_trainer == true ? "check" : "not"}</p>
             </div>
           </div>
         </div>
