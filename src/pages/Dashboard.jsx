@@ -25,9 +25,7 @@ function Dashboard() {
   return (
     <>
       <div className="">
-        <h1 className="text-3xl mb-5 font-bold text-primary">
-          Selamat Datang Kembali {dataAdmin && dataAdmin.role}
-        </h1>
+        <h1 className="text-3xl mb-5 font-bold text-prim">Selamat Datang Kembali {dataAdmin && dataAdmin.role}</h1>
         {data && (
           <div className="grid grid-cols-4 mb-5">
             <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-warn">
@@ -35,21 +33,16 @@ function Dashboard() {
                 <box-icon size="lg" name="group"></box-icon>
               </div>
               <div>
-                <h1 className="text-[20px] font-semibold">
-                  {data.total_member} Anggota
-                </h1>
+                <h1 className="text-[20px] font-semibold">{data.total_member} Anggota</h1>
                 <p className="text-[16px]">Total Anggota</p>
               </div>
             </div>
-            <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-[#76d38a]">
+            <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-suc4">
               <div className="flex justify-center items-center">
                 <box-icon size="lg" name="dumbbell"></box-icon>
               </div>
               <div>
-                <h1 className="text-[20px] font-semibold">
-                  {" "}
-                  {data.total_online_class + data.total_offline_class} Kelas
-                </h1>
+                <h1 className="text-[20px] font-semibold"> {data.total_online_class + data.total_offline_class} Kelas</h1>
                 <p className="text-[16px]">Total Kelas</p>
               </div>
             </div>
@@ -58,28 +51,22 @@ function Dashboard() {
                 <box-icon size="lg" type="solid" name="id-card"></box-icon>
               </div>
               <div>
-                <h1 className="text-[20px] font-semibold">
-                  {data.total_member} member
-                </h1>
+                <h1 className="text-[20px] font-semibold">{data.total_member} Member</h1>
                 <p className="text-[16px]">Total Membership</p>
               </div>
             </div>
-            <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-dang">
+            <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-dang6">
               <div className="flex justify-center items-center">
                 <box-icon size="lg" name="user"></box-icon>
               </div>
               <div>
-                <h1 className="text-[20px] font-semibold">
-                  {data.total_trainer} Pelatih
-                </h1>
+                <h1 className="text-[20px] font-semibold">{data.total_trainer} Pelatih</h1>
                 <p className="text-[16px]">Total Pelatih</p>
               </div>
             </div>
           </div>
         )}
-        <h1 className="text-2xl mb-5 font-bold text-primary">
-          Anggota Terbaru
-        </h1>
+        <h1 className="text-3xl mb-5 font-bold text-prim">Anggota Terbaru</h1>
         <div className="overflow-x-auto">
           <table className="table table-compact w-full">
             <thead>
@@ -99,27 +86,9 @@ function Dashboard() {
                     <td className="  leading-none">{m.user_name}</td>
                     <td>{m.user_email}</td>
                     <td>{m.member_type_name}</td>
-                    <td
-                      className={`${
-                        m.status === "ACTIVE"
-                          ? "text-suc"
-                          : m.status === "INACTIVE"
-                          ? "text-dang2  "
-                          : "text-inf2"
-                      }`}
-                    >
+                    <td className={`${m.status === "ACTIVE" ? "text-suc2" : m.status === "INACTIVE" ? "text-dang2  " : "text-inf2"}`}>
                       <div className={` lowercase `}>
-                        <span
-                          className={`${
-                            m.status === "ACTIVE"
-                              ? "bg-suc/10 px-2"
-                              : m.status === "INACTIVE"
-                              ? "bg-dang2/10 px-2  "
-                              : "bg-inf2/10 px-2"
-                          } lowercase`}
-                        >
-                          {m.status}
-                        </span>
+                        <span className={`${m.status === "ACTIVE" ? "bg-suc/10 px-2" : m.status === "INACTIVE" ? "bg-dang2/10 px-2  " : "bg-inf2/10 px-2"} lowercase`}>{m.status}</span>
                       </div>
                     </td>
                   </tr>

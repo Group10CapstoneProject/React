@@ -5,19 +5,7 @@ import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 
 function ModalEditTrainer({ show, setShow, setMessage, data }) {
-  const {
-    id,
-    name,
-    email,
-    phone,
-    dob,
-    gender,
-    price,
-    daily_slot,
-    trainer_skill,
-    description,
-    picture,
-  } = data;
+  const { id, name, email, phone, dob, gender, price, daily_slot, trainer_skill, description, picture } = data;
 
   const [trainer, setTrainer] = useState({
     id: id,
@@ -90,33 +78,16 @@ function ModalEditTrainer({ show, setShow, setMessage, data }) {
             <span>❗</span>
             <div>
               <h2 className="font-bold text-lg">Tambah Trainer</h2>
-              <p className="text-sm font-semibold">
-                Kamu dapat menambahkan Kategori disini
-              </p>
+              <p className="text-sm font-semibold">Kamu dapat menambahkan Kategori disini</p>
             </div>
           </div>
           <form onSubmit={handleSubmit} encType="multipart/form-data">
             <div className="p-3 ">
               <div className="flex flex-col w-full  px-2 gap-x-4 ">
                 <div className=" relative  flex justify-center">
-                  <div
-                    className={`w-24  gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-24  border ${
-                      trainer.picture ? "" : "bg-[#D3D3D3]"
-                    }`}
-                  >
-                    {trainer.picture && (
-                      <img
-                        className="absolute w-24 h-24 cursor-pointer rounded-full"
-                        src={trainer.picture}
-                        alt=""
-                      />
-                    )}
-                    <input
-                      className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t"
-                      type="file"
-                      name="trainer"
-                      onChange={handleImage}
-                    />
+                  <div className={`w-24  gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-24  border ${trainer.picture ? "" : "bg-[#D3D3D3]"}`}>
+                    {trainer.picture && <img className="absolute w-24 h-24 cursor-pointer rounded-full" src={trainer.picture} alt="" />}
+                    <input className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t" type="file" name="trainer" onChange={handleImage} />
                     <i className="bx bxs-camera-plus"></i>
                     <span className="">Pilih Foto</span>
                   </div>
@@ -125,85 +96,37 @@ function ModalEditTrainer({ show, setShow, setMessage, data }) {
                   <div className="w-1/2 text-sm">
                     <div>
                       <label htmlFor="">Nama</label>
-                      <input
-                        className="inputTrainer w-full"
-                        type="text"
-                        name="name"
-                        onChange={onChange}
-                        value={trainer.name}
-                      />
+                      <input className="inputTrainer w-full" type="text" name="name" onChange={onChange} value={trainer.name} />
                     </div>
                     <div>
                       <label htmlFor="">Email</label>
-                      <input
-                        className="inputTrainer w-full"
-                        type="text"
-                        name="email"
-                        onChange={onChange}
-                        value={trainer.email}
-                      />
+                      <input className="inputTrainer w-full" type="text" name="email" onChange={onChange} value={trainer.email} />
                     </div>
                     <div>
                       <label htmlFor="">Nomor HandPhone</label>
-                      <input
-                        className="inputTrainer w-full"
-                        type="text"
-                        name="phone"
-                        onChange={onChange}
-                        value={trainer.phone}
-                      />
+                      <input className="inputTrainer w-full" type="text" name="phone" onChange={onChange} value={trainer.phone} />
                     </div>
                     <div>
                       <label htmlFor="">dob</label>
-                      <input
-                        className="inputTrainer w-full"
-                        type="date"
-                        name="dob"
-                        onChange={onChange}
-                        value={trainer.dob}
-                      />
+                      <input className="inputTrainer w-full" type="date" name="dob" onChange={onChange} value={trainer.dob} />
                     </div>
                   </div>
                   <div className="w-1/2 text-sm">
                     <div>
                       <label htmlFor="">Harga</label>
-                      <input
-                        className="inputTrainer w-full"
-                        type="number"
-                        name="price"
-                        onChange={onChange}
-                        value={trainer.price}
-                      />
+                      <input className="inputTrainer w-full" type="number" name="price" onChange={onChange} value={trainer.price} />
                     </div>
                     <div>
                       <label htmlFor="">Slot</label>
-                      <input
-                        className="inputTrainer w-full"
-                        type="number"
-                        name="daily_slot"
-                        onChange={onChange}
-                        value={trainer.daily_slot}
-                      />
+                      <input className="inputTrainer w-full" type="number" name="daily_slot" onChange={onChange} value={trainer.daily_slot} />
                     </div>
                     <div>
                       <label htmlFor="">Trainer</label>
                       <div className="flex items-center gap-x-2">
-                        <Select
-                          className="w-[90%]"
-                          isMulti
-                          onChange={(item) => handleSelect(item)}
-                          options={options}
-                          isDisabled={false}
-                          isLoading={false}
-                          isRtl={false}
-                          defaultValue={trainer.skills}
-                        />
-                        <label
-                          className="border cursor-pointer bg-prim text-white p-1 rounded-lg"
-                          onClick={handleSelect}
-                          htmlFor=""
-                        >
-                          tambah
+                        <Select className="w-[90%]" isMulti onChange={(item) => handleSelect(item)} options={options} isDisabled={false} isLoading={false} isRtl={false} defaultValue={trainer.skills} />
+                        <label className="border cursor-pointer bg-prim text-white p-1 rounded-lg" onClick={handleSelect} htmlFor="">
+                          <i className="bx bx-add-to-queue flex justify-center" />
+                          Tambah
                         </label>
                       </div>
                     </div>
@@ -213,28 +136,12 @@ function ModalEditTrainer({ show, setShow, setMessage, data }) {
                       <div className="flex my-1">
                         <div className="flex gap-x-2 mr-2">
                           <span className="flex items-center text-sm gap-x-2">
-                            L{" "}
-                            <input
-                              type="radio"
-                              name="gender"
-                              onClick={onChange}
-                              className="radio radio-accent w-4 h-4"
-                              checked={trainer.gender === "L" && true}
-                              value="L"
-                            />
+                            L <input type="radio" name="gender" onClick={onChange} className="radio radio-accent w-4 h-4" checked={trainer.gender === "L" && true} value="L" />
                           </span>
                         </div>
                         <div className="flex gap-x-2">
                           <span className="flex items-center gap-x-2">
-                            P{" "}
-                            <input
-                              type="radio"
-                              name="gender"
-                              onClick={onChange}
-                              checked={trainer.gender === "P" && true}
-                              value="P"
-                              className="radio radio-accent w-4 h-4"
-                            />
+                            P <input type="radio" name="gender" onClick={onChange} checked={trainer.gender === "P" && true} value="P" className="radio radio-accent w-4 h-4" />
                           </span>
                         </div>
                       </div>
@@ -245,13 +152,7 @@ function ModalEditTrainer({ show, setShow, setMessage, data }) {
                   <label className="" htmlFor="">
                     Deskripsi
                   </label>
-                  <textarea
-                    name="description"
-                    onChange={onChange}
-                    value={trainer.description}
-                    id=""
-                    className="w-full border  focus:border-prim"
-                  ></textarea>
+                  <textarea name="description" onChange={onChange} value={trainer.description} id="" className="w-full border  focus:border-prim"></textarea>
                 </div>
                 {/* <div className="w-full">
                   <div className="flex gap-x-4 items-center">
@@ -388,13 +289,11 @@ function ModalEditTrainer({ show, setShow, setMessage, data }) {
               </div>
               <div className="modal-action flex">
                 <button className={`btnp flex items-center justify-center`}>
-                  simpan
+                  <i className="bx bx-save pr-2" />
+                  Simpan
                 </button>
-                <label
-                  onClick={() => setShow(false)}
-                  htmlFor="my-modal-5"
-                  className="btnd flex items-center"
-                >
+                <label onClick={() => setShow(false)} htmlFor="my-modal-5" className="btnd flex items-center">
+                  <i className="bx bx-message-square-x  pr-2" />
                   Batal
                 </label>
               </div>

@@ -39,9 +39,7 @@ function ModalEditSkill({ show, setShow, setMessage, data }) {
             <span>❗</span>
             <div>
               <h2 className="font-bold text-lg">Edit Skill</h2>
-              <p className="text-sm font-semibold">
-                Kamu dapat mengedit Skill disini
-              </p>
+              <p className="text-sm font-semibold">Kamu dapat mengedit Skill disini</p>
             </div>
           </div>
           <form onSubmit={handleSubmit}>
@@ -56,30 +54,17 @@ function ModalEditSkill({ show, setShow, setMessage, data }) {
                   </label>
                 </div>
                 <div className=" w-[75%]">
-                  <input
-                    className="inputJenis w-full"
-                    type="text"
-                    name="name"
-                    onChange={onChange}
-                    value={skill.name}
-                  />
-                  <textarea
-                    className="inputJenis w-full"
-                    type="text"
-                    name="description"
-                    onChange={onChange}
-                    value={skill.description}
-                  />
+                  <input className="inputJenis w-full" type="text" name="name" onChange={onChange} value={skill.name} />
+                  <textarea className="inputJenis w-full" type="text" name="description" onChange={onChange} value={skill.description} />
                 </div>
               </div>
               <div className="modal-action flex">
                 <button className={`btnp flex items-center justify-center`}>
-                  simpan
+                  <i className="bx bx-save pr-2" />
+                  Simpan
                 </button>
-                <label
-                  onClick={() => setShow(false)}
-                  className="btnd flex items-center"
-                >
+                <label onClick={() => setShow(false)} className="btnd flex items-center">
+                  <i className="bx bx-message-square-x  pr-2" />
                   Batal
                 </label>
               </div>

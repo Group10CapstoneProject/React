@@ -33,14 +33,7 @@ function DetailTrainer() {
   return (
     <>
       <Toaster />
-      {modal.showEdit && (
-        <ModalEditTrainer
-          show={modal.showEdit}
-          setShow={setModal}
-          data={modal.data}
-          setMessage={setMessage}
-        />
-      )}
+      {modal.showEdit && <ModalEditTrainer show={modal.showEdit} setShow={setModal} data={modal.data} setMessage={setMessage} />}
       <div className="flex justify-center w-full">
         <div className="w-[25%]">
           <div className="avatar">
@@ -50,9 +43,7 @@ function DetailTrainer() {
           </div>
         </div>
         <div className="w-[60%] ">
-          <h1 className="text-3xl text-prim capitalize font-bold">
-            {detail?.name}
-          </h1>
+          <h1 className="text-3xl text-prim capitalize font-bold">{detail?.name}</h1>
           <p className="text-gray-700 text-sm">{detail?.email}</p>
           <p className="text-sm pr-44">{detail?.description}</p>
           <div className="flex  gap-x-6 mt-5 text-sm text-black">
@@ -87,12 +78,8 @@ function DetailTrainer() {
           </div>
         </div>
         <div className="w-[10%] h-8 items-center flex justify-center ">
-          <button
-            onClick={() =>
-              setModal({ showEdit: !modal.showEdit, data: detail })
-            }
-            className="btnp"
-          >
+          <button onClick={() => setModal({ showEdit: !modal.showEdit, data: detail })} className="btnp">
+            <i className="bx bx-edit pr-2 " />
             Edit
           </button>
         </div>

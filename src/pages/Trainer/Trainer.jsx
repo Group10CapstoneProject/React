@@ -78,6 +78,7 @@ function Trainer() {
               </div>
               <div className="px-3">
                 <button onClick={() => navigate(`/trainer/${m.id}`)} className="rounded-lg cursor-pointer bg-prim text-white font-semibold active:scale-95 hover:bg-prim/80 transition-all duration-100 ease-linear w-full">
+                  <i className="bx bxs-user-detail pr-2" />
                   Detail
                 </button>
               </div>

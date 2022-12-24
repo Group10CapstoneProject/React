@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import PostApi from "../apis/post.api";
 
-export const ModalEditPembayaran = ({
-  setLoad,
-  show,
-  setShow,
-  setMessage,
-  data,
-}) => {
+export const ModalEditPembayaran = ({ setLoad, show, setShow, setMessage, data }) => {
   const [pembayaran, setPembayaran] = useState({
     id: data.id,
     name: data.name,
@@ -51,22 +45,14 @@ export const ModalEditPembayaran = ({
   return (
     <>
       <Toaster />
-      <input
-        defaultChecked={show}
-        type="checkbox"
-        id="my-modal-5"
-        className="modal-toggle"
-      />
+      <input defaultChecked={show} type="checkbox" id="my-modal-5" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box  p-0 overflow-hidden w-1/2 max-w-5xl">
           <div className="w-full p-3 bg-base2 flex">
             <span>❗</span>
             <div>
               <h2 className="font-bold text-lg">Edit Metode Pembayaran</h2>
-              <p className="text-sm font-semibold">
-                kamu dapat mengedit data member dan menkonfirmasi pembayaran
-                disini.
-              </p>
+              <p className="text-sm font-semibold">kamu dapat mengedit data member dan menkonfirmasi pembayaran disini.</p>
             </div>
           </div>
           <form onSubmit={handleSubmit}>
@@ -87,46 +73,13 @@ export const ModalEditPembayaran = ({
                   </label>
                 </div>
                 <div className="w-full">
-                  <input
-                    onChange={onChange}
-                    className="w-full input-sm border border-primary   block py-1 my-1 rounded-none input-primary"
-                    type="text"
-                    name="name"
-                    value={pembayaran.name}
-                  />
-                  <input
-                    onChange={onChange}
-                    className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
-                    type="number"
-                    name="payment_number"
-                    value={pembayaran.payment_number}
-                  />
-                  <input
-                    onChange={onChange}
-                    className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
-                    type="text"
-                    name="description"
-                    value={pembayaran.description}
-                  />
+                  <input onChange={onChange} className="w-full input-sm border border-primary   block py-1 my-1 rounded-none input-primary" type="text" name="name" value={pembayaran.name} />
+                  <input onChange={onChange} className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" type="number" name="payment_number" value={pembayaran.payment_number} />
+                  <input onChange={onChange} className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" type="text" name="description" value={pembayaran.description} />
                   <div className=" w-28 bg-[#D3D3D3] gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-28  border">
-                    <div
-                      className={`w-28  gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-28  border ${
-                        pembayaran.picture !== null ? "" : "bg-[#D3D3D3]"
-                      }`}
-                    >
-                      {pembayaran.picture !== null && (
-                        <img
-                          className="absolute w-28 h-28 cursor-pointer rounded-full"
-                          src={pembayaran.picture}
-                          alt=""
-                        />
-                      )}
-                      <input
-                        className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t"
-                        type="file"
-                        name="payment_method"
-                        onChange={handleImage}
-                      />
+                    <div className={`w-28  gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-28  border ${pembayaran.picture !== null ? "" : "bg-[#D3D3D3]"}`}>
+                      {pembayaran.picture !== null && <img className="absolute w-28 h-28 cursor-pointer rounded-full" src={pembayaran.picture} alt="" />}
+                      <input className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t" type="file" name="payment_method" onChange={handleImage} />
                       <i className="bx bxs-camera-plus"></i>
                       <span className="">Pilih Foto</span>
                     </div>
@@ -134,12 +87,12 @@ export const ModalEditPembayaran = ({
                 </div>
               </div>
               <div className="modal-action flex">
-                <button className="btnp">Simpan</button>
-                <label
-                  onClick={() => setShow(!show)}
-                  htmlFor="my-modal-5"
-                  className="btnd"
-                >
+                <button className="btnp">
+                  <i className="bx bx-save pr-2" />
+                  Simpan
+                </button>
+                <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btnd">
+                  <i className="bx bx-message-square-x  pr-2" />
                   Batal
                 </label>
               </div>

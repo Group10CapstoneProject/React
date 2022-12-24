@@ -38,9 +38,7 @@ function ModalTambahSkill({ show, setShow, setMessage }) {
             <span>❗</span>
             <div>
               <h2 className="font-bold text-lg">Tambah Skill</h2>
-              <p className="text-sm font-semibold">
-                Kamu dapat menambahkan Skill disini
-              </p>
+              <p className="text-sm font-semibold">Kamu dapat menambahkan Skill disini</p>
             </div>
           </div>
           <form onSubmit={handleSubmit}>
@@ -55,29 +53,17 @@ function ModalTambahSkill({ show, setShow, setMessage }) {
                   </label>
                 </div>
                 <div className=" w-[75%]">
-                  <input
-                    className="inputJenis w-full"
-                    type="text"
-                    name="name"
-                    onChange={onChange}
-                  />
-                  <textarea
-                    className="inputJenis w-full"
-                    type="text"
-                    name="description"
-                    onChange={onChange}
-                  />
+                  <input className="inputJenis w-full" type="text" name="name" onChange={onChange} />
+                  <textarea className="inputJenis w-full" type="text" name="description" onChange={onChange} />
                 </div>
               </div>
               <div className="modal-action flex">
                 <button className={`btnp flex items-center justify-center`}>
-                  simpan
+                  <i className="bx bx-save pr-2" />
+                  Simpan
                 </button>
-                <label
-                  onClick={() => setShow(false)}
-                  htmlFor="my-modal-5"
-                  className="btnd flex items-center"
-                >
+                <label onClick={() => setShow(false)} htmlFor="my-modal-5" className="btnd flex items-center">
+                  <i className="bx bx-message-square-x  pr-2" />
                   Batal
                 </label>
               </div>

@@ -76,9 +76,11 @@ export const Pembayaran = () => {
                       onClick={() => setModal({ modalEdit: !modal.modalEdit, data: m })}
                       className="px-2 py-1 rounded-lg cursor-pointer bg-prim text-white font-semibold active:scale-95 hover:bg-prim/80 transition-all duration-100 ease-linear"
                     >
+                      <i className="bx bx-edit pr-2 " />
                       Edit
                     </button>
                     <button onClick={(e) => handleDelete(e, m.id)} className="px-2 py-1 rounded-lg cursor-pointer bg-dang text-white font-semibold active:scale-95 hover:bg-dang/80 transition-all duration-100 ease-linear">
+                      <i className="bx bx-trash pr-2" />
                       Hapus
                     </button>
                   </div>

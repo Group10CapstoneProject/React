@@ -55,9 +55,9 @@ function Skills() {
           <div key={m.id} className="w-56  mt-5 relative h-16 border-prim overflow-auto shadow-lg p-1 border bg-white rounded-xl">
             <h1 className="text-center  h-full flex items-center justify-center font-semibold ">{m.name}</h1>
             <div className="absolute gap-x-2 flex right-0 top-0 px-2">
-              <span onClick={() => setModal({ showEdit: !modal.showEdit, data: m })} className=" cursor-pointer text-prim">
-                <i class="bx bxs-edit-alt"></i>
-              </span>
+              <button onClick={() => setModal({ showEdit: !modal.showEdit, data: m })} className=" cursor-pointer text-prim">
+                <i className="bx bx-edit " />
+              </button>
               <span onClick={() => setModal({ showHapus: !modal.showHapus, data: m.id })} className=" cursor-pointer text-prim">
                 <i class="bx bx-trash-alt"></i>
               </span>

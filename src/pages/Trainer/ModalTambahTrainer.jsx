@@ -78,33 +78,16 @@ function ModalTambahTrainer({ show, setShow, setMessage }) {
             <span>❗</span>
             <div>
               <h2 className="font-bold text-lg">Tambah Trainer</h2>
-              <p className="text-sm font-semibold">
-                Kamu dapat menambahkan Kategori disini
-              </p>
+              <p className="text-sm font-semibold">Kamu dapat menambahkan Kategori disini</p>
             </div>
           </div>
           <form onSubmit={handleSubmit} encType="multipart/form-data">
             <div className="p-3 ">
               <div className="flex flex-col w-full  px-2 gap-x-4 ">
                 <div className=" relative  flex justify-center">
-                  <div
-                    className={`w-24  gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-24  border ${
-                      image ? "" : "bg-[#D3D3D3]"
-                    }`}
-                  >
-                    {image && (
-                      <img
-                        className="absolute w-24 h-24 cursor-pointer rounded-full"
-                        src={image}
-                        alt=""
-                      />
-                    )}
-                    <input
-                      className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t"
-                      type="file"
-                      name="trainer"
-                      onChange={handleImage}
-                    />
+                  <div className={`w-24  gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-24  border ${image ? "" : "bg-[#D3D3D3]"}`}>
+                    {image && <img className="absolute w-24 h-24 cursor-pointer rounded-full" src={image} alt="" />}
+                    <input className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t" type="file" name="trainer" onChange={handleImage} />
                     <i className="bx bxs-camera-plus"></i>
                     <span className="">Pilih Foto</span>
                   </div>
@@ -113,72 +96,34 @@ function ModalTambahTrainer({ show, setShow, setMessage }) {
                   <div className="w-1/2 text-sm">
                     <div>
                       <label htmlFor="">Nama</label>
-                      <input
-                        className="inputTrainer w-full"
-                        type="text"
-                        name="name"
-                        onChange={onChange}
-                      />
+                      <input className="inputTrainer w-full" type="text" name="name" onChange={onChange} />
                     </div>
                     <div>
                       <label htmlFor="">Email</label>
-                      <input
-                        className="inputTrainer w-full"
-                        type="text"
-                        name="email"
-                        onChange={onChange}
-                      />
+                      <input className="inputTrainer w-full" type="text" name="email" onChange={onChange} />
                     </div>
                     <div>
                       <label htmlFor="">Nomor HandPhone</label>
-                      <input
-                        className="inputTrainer w-full"
-                        type="text"
-                        name="phone"
-                        onChange={onChange}
-                      />
+                      <input className="inputTrainer w-full" type="text" name="phone" onChange={onChange} />
                     </div>
                     <div>
                       <label htmlFor="">dob</label>
-                      <input
-                        className="inputTrainer w-full"
-                        type="date"
-                        name="dob"
-                        onChange={onChange}
-                      />
+                      <input className="inputTrainer w-full" type="date" name="dob" onChange={onChange} />
                     </div>
                   </div>
                   <div className="w-1/2 text-sm">
                     <div>
                       <label htmlFor="">Harga</label>
-                      <input
-                        className="inputTrainer w-full"
-                        type="number"
-                        name="price"
-                        onChange={onChange}
-                      />
+                      <input className="inputTrainer w-full" type="number" name="price" onChange={onChange} />
                     </div>
                     <div>
                       <label htmlFor="">Slot</label>
-                      <input
-                        className="inputTrainer w-full"
-                        type="number"
-                        name="daily_slot"
-                        onChange={onChange}
-                      />
+                      <input className="inputTrainer w-full" type="number" name="daily_slot" onChange={onChange} />
                     </div>
                     <div>
                       <label htmlFor="">Trainer</label>
                       <div className="flex items-center gap-x-2">
-                        <Select
-                          className="w-[90%]"
-                          isMulti
-                          onChange={(item) => handleSelect(item)}
-                          options={options}
-                          isDisabled={false}
-                          isLoading={false}
-                          isRtl={false}
-                        />
+                        <Select className="w-[90%]" isMulti onChange={(item) => handleSelect(item)} options={options} isDisabled={false} isLoading={false} isRtl={false} />
                         {/* <label
                           className="border cursor-pointer bg-prim text-white p-1 rounded-lg"
                           onClick={handleSelect}
@@ -194,26 +139,12 @@ function ModalTambahTrainer({ show, setShow, setMessage }) {
                       <div className="flex my-1">
                         <div className="flex gap-x-2 mr-2">
                           <span className="flex items-center text-sm gap-x-2">
-                            L{" "}
-                            <input
-                              type="radio"
-                              name="gender"
-                              onClick={onChange}
-                              className="radio radio-accent w-4 h-4"
-                              value="L"
-                            />
+                            L <input type="radio" name="gender" onClick={onChange} className="radio radio-accent w-4 h-4" value="L" />
                           </span>
                         </div>
                         <div className="flex gap-x-2">
                           <span className="flex items-center gap-x-2">
-                            P{" "}
-                            <input
-                              type="radio"
-                              name="gender"
-                              onClick={onChange}
-                              value="P"
-                              className="radio radio-accent w-4 h-4"
-                            />
+                            P <input type="radio" name="gender" onClick={onChange} value="P" className="radio radio-accent w-4 h-4" />
                           </span>
                         </div>
                       </div>
@@ -224,12 +155,7 @@ function ModalTambahTrainer({ show, setShow, setMessage }) {
                   <label className="" htmlFor="">
                     Deskripsi
                   </label>
-                  <textarea
-                    name="description"
-                    onChange={onChange}
-                    id=""
-                    className="w-full border  focus:border-prim"
-                  ></textarea>
+                  <textarea name="description" onChange={onChange} id="" className="w-full border  focus:border-prim"></textarea>
                 </div>
                 {/* <div className="w-full">
                   <div className="flex gap-x-4 items-center">
@@ -366,13 +292,11 @@ function ModalTambahTrainer({ show, setShow, setMessage }) {
               </div>
               <div className="modal-action flex">
                 <button className={`btnp flex items-center justify-center`}>
-                  simpan
+                  <i className="bx bx-save pr-2" />
+                  Simpan
                 </button>
-                <label
-                  onClick={() => setShow(false)}
-                  htmlFor="my-modal-5"
-                  className="btnd flex items-center"
-                >
+                <label onClick={() => setShow(false)} htmlFor="my-modal-5" className="btnd flex items-center">
+                  <i className="bx bx-message-square-x  pr-2" />
                   Batal
                 </label>
               </div>

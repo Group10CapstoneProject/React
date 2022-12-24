@@ -29,8 +29,11 @@ function Navbar() {
               <p>alta@gmail.com</p>
             </button>
             <ul tabIndex={0} className="dropdown-content menu p-2 w-full shadow bg-base-100  ">
-              <li>
-                <button onClick={handleLogout}>logout</button>
+              <li className="text-dang5 font-semibold">
+                <button onClick={handleLogout}>
+                  <i className="bx bx-log-out bx-sm" style={{ color: "#ff5328" }} />
+                  Keluar
+                </button>
               </li>
             </ul>
           </div>

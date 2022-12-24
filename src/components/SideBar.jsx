@@ -53,7 +53,8 @@ const SideBar = () => {
           <div className="pt-2">
             <li className={`${path == "/pembayaran" ? "bg-prim1 text-white rounded-lg" : "bg-transparent text-prim"} font-semibold text-lg hover:bg-prim1 hover:text-white rounded-lg`}>
               <Link to="pembayaran">
-                <i className="bx bx-sm bxs-wallet"></i>Pembayaran
+                <i className="bx bx-wallet bx-sm" />
+                Pembayaran
               </Link>
             </li>
           </div>
@@ -71,10 +72,16 @@ const SideBar = () => {
             </label>
             <ul className={`${drop.trainer ? "" : "hidden "} font-semibold   w-52`}>
               <li className="py-0 pt-2">
-                <Link to="trainer">Daftar Trainer</Link>
+                <Link to="trainer">
+                  <i className="bx bx-list-ol bx-sm" />
+                  Daftar Trainer
+                </Link>
               </li>
               <li className="py-0 pt-2">
-                <Link to="skills">Skills</Link>
+                <Link to="skills">
+                  <i className="bx bx-accessibility bx-sm" />
+                  Skills
+                </Link>
               </li>
             </ul>
           </div>
@@ -85,17 +92,23 @@ const SideBar = () => {
               className={`${drop.member ? "bg-prim1 text-white" : "bg-transparent  text-prim"}  w-full  justify-between font-semibold btn  hover:bg-prim1 hover:text-white  border-none normal-case`}
             >
               <span className="flex items-center gap-x-3 text-lg">
-                <i className="bx bx-sm bx-book-content"></i>
+                <i className="bx bx-id-card bx-sm" />
                 Membership
               </span>
               <i className={`bx bx-sm ${!drop.member ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
             <ul className={`${drop.member ? "" : "hidden "} font-semibold   w-52`}>
               <li className="py-0 pt-1">
-                <Link to="anggota">Kelola Member</Link>
+                <Link to="anggota">
+                  <i className="bx bx-group bx-sm" />
+                  Kelola Member
+                </Link>
               </li>
               <li className={`${path == "/jenis" ? "bg-transparent text-prim rounded-lg py-0" : ""} font-semibold pt-1`}>
-                <Link to="jenis">Jenis Member</Link>
+                <Link to="jenis">
+                  <i className="bx bx-user bx-sm" />
+                  Jenis Member
+                </Link>
               </li>
             </ul>
           </div>
@@ -112,18 +125,24 @@ const SideBar = () => {
               onClick={() => setDrop({ online: !drop.online })}
               className={`${drop.online ? "bg-prim1 text-white" : "bg-transparent text-prim"}  w-full  justify-between  btn  font-semibold  hover:bg-prim1 hover:text-white border-none `}
             >
-              <span className="flex  items-center gap-x-3">
-                <i className="bx bx-movie-play bx-sm" style={{ color: "#00ff00" }} />
+              <span className="flex  items-center gap-x-3 normal-case text-lg">
+                <i className="bx bx-slideshow bx-sm" />
                 Online
               </span>
               <i className={`bx bx-sm ${!drop.online ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
             <ul className={`${drop.online ? "" : "hidden "}  w-52`}>
               <li className="py-0 pt-1">
-                <Link to="kategorionline">Kategori Kelas</Link>
+                <Link to="kategorionline">
+                  <i className="bx bx-category bx-sm" />
+                  Kategori Kelas
+                </Link>
               </li>
               <li className="py-0 pt-1">
-                <Link to="kelasonline">Kelas Online</Link>
+                <Link to="kelasonline">
+                  <i className="bx bx-desktop bx-sm" />
+                  Kelas Online
+                </Link>
               </li>
             </ul>
           </div>
@@ -131,20 +150,26 @@ const SideBar = () => {
           <div className="dropdown dropdown-top- dropdown-end  font-semibold text-md pt-1.5">
             <label
               onClick={() => setDrop({ offline: !drop.offline })}
-              className={`${drop.offline ? "bg-prim1 text-white" : "bg-transparent text-prim"}  w-full  justify-between  btn  font-bold  hover:bg-prim1 hover:text-white border-none `}
+              className={`${drop.offline ? "bg-prim1 text-white" : "bg-transparent text-prim"}  w-full  justify-between  btn  font-semibold  hover:bg-prim1 hover:text-white border-none `}
             >
-              <span className="flex items-center gap-x-3">
-                <i className="bx bx-bolt-circle bx-sm" style={{ color: "#ff0000" }} />
+              <span className="flex items-center gap-x-3 normal-case text-lg">
+                <i className="bx bx-bolt-circle bx-sm" />
                 Offline
               </span>
               <i className={`bx bx-sm ${!drop.offline ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
             <ul className={`${drop.offline ? "" : "hidden "} w-52`}>
               <li className="py-0 pt-1">
-                <Link to="kategorioffline">Kategori Kelas</Link>
+                <Link to="kategorioffline">
+                  <i className="bx bx-category bx-sm" />
+                  Kategori Kelas
+                </Link>
               </li>
               <li className="py-0 pt-1">
-                <Link to="kelasoffline">Kelas Offline</Link>
+                <Link to="kelasoffline">
+                  <i className="bx bx-body bx-sm" />
+                  Kelas Offline
+                </Link>
               </li>
             </ul>
           </div>
@@ -155,29 +180,38 @@ const SideBar = () => {
               className={`${drop.book ? "bg-prim1 text-white" : "bg-transparent text-prim"}  w-full  justify-between  btn  font-semibold  hover:bg-prim1 hover:text-white border-none text-lg`}
             >
               <span className="flex items-center font-semibold gap-x-3 normal-case">
-                <i className="bx bx-sm bxs-book-bookmark"></i>
+                <i className="bx bx-book-bookmark bx-sm" />
                 Booking
               </span>
               <i className={`bx bx-sm ${!drop.book ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
             <ul className={`${drop.book ? "" : "hidden "}  w-52`}>
               <li className="py-0 pt-1 font-semibold ">
-                <Link to="bookingonline">Online</Link>
+                <Link to="bookingonline">
+                  <i className="bx bx-user-check bx-sm" />
+                  Online
+                </Link>
               </li>
               <li className="py-0 pt-1 font-semibold">
-                <Link to="bookingoffline">Offline</Link>
+                <Link to="bookingoffline">
+                  <i className="bx bxs-user-check bx-sm" />
+                  Offline
+                </Link>
               </li>
             </ul>
           </div>
-          <li className={`${path == "/artikel" ? "bg-prim text-white rounded-lg" : ""} font-bold `}>
-            <Link to="/artikel">
-              <i className="bx bx-sm bx-book-open"></i>Artikel
-            </Link>
-          </li>
+          <div className="pt-2">
+            <li className={`${path == "/artikel" ? "bg-prim1 text-white rounded-lg" : ""} font-semibold text-lg`}>
+              <Link to="/artikel">
+                <i className="bx bx-news bx-sm" />
+                Artikel
+              </Link>
+            </li>
+          </div>
 
           {data && data.role == "superadmin" ? (
             <Link to="admin" className="font-bold">
-              <li className={`${path == "admin" ? "bg-prim text-white rounded-lg" : ""} font-bold `}>
+              <li className={`${path == "admin" ? "bg-prim1 text-white rounded-lg" : ""} font-semibold text-lg`}>
                 <span className="flex  items-center gap-x-3">
                   <i className="bx bx-sm bx-user-circle"></i>
                   Admin

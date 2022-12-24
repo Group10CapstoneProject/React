@@ -20,6 +20,7 @@ module.exports = {
         suc: "#22BB33",
         suc2: "#68A636",
         suc3: "#7DC741",
+        suc4: "#BEE3A0",
         inf: "#B0C0F9",
         inf2: "#516CCB",
         inf3: "#4285F4",
