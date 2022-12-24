@@ -102,6 +102,7 @@ const KelasOffline = () => {
                       onClick={() => navigate(`/detailkelasoffline/${m.id}`)}
                       className="py-3 w-[90%] rounded-lg font-semibold active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none text-white btn-primary "
                     >
+                      <i className="bx bxs-user-detail pr-2" />
                       Detail
                     </button>
                     <button

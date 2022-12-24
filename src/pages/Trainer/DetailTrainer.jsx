@@ -47,7 +47,7 @@ function DetailTrainer() {
           <p className="text-gray-700 text-sm">{detail?.email}</p>
           <p className="text-sm pr-44">{detail?.description}</p>
           <div className="flex  gap-x-6 mt-5 text-sm text-black">
-            <div className="capitalize">
+            <div className="capitalize font-bold">
               <p>Nomor handphone</p>
               <p>Umur</p>
               <p>Gender</p>

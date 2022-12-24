@@ -69,54 +69,21 @@ function Admin() {
 
   return (
     <>
-      {modalEdit.isShow ? (
-        <ModalEditAdmin
-          setLoad={setLoad}
-          show={modalEdit.isShow}
-          setShow={setModalEdit}
-          data={modalEdit.data}
-          setMessage={setMessage}
-        />
-      ) : (
-        ""
-      )}
-      {show && (
-        <ModalTambahAdmin
-          setLoad={setLoad}
-          show={show}
-          setShow={setShow}
-          setMessage={setMessage}
-        />
-      )}
+      {modalEdit.isShow ? <ModalEditAdmin setLoad={setLoad} show={modalEdit.isShow} setShow={setModalEdit} data={modalEdit.data} setMessage={setMessage} /> : ""}
+      {show && <ModalTambahAdmin setLoad={setLoad} show={show} setShow={setShow} setMessage={setMessage} />}
       <Toaster />
 
-      {modalDelete.isShow && (
-        <ModalHapus
-          show={modalDelete.isShow}
-          handleDelete={handleDelete}
-          data={modalDelete.data}
-          setShow={setModalDelete}
-        />
-      )}
+      {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} handleDelete={handleDelete} data={modalDelete.data} setShow={setModalDelete} />}
 
       <div className="relative">
         <Toaster />
-        <h1 className="text-info font-bold text-3xl">Admin</h1>
+        <h1 className="text-info font-semibold text-3xl">Admin</h1>
         <div className="flex  pt-4 input-group justify-start"></div>
         <div className="flex items-center justify-between pt-8">
-          <input
-            onChange={(e) => setText(e.target.value)}
-            type="text"
-            placeholder="Cari Akun Admin ......"
-            className="input input-bordered input-black  w-56 max-w-xs"
-          />
+          <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Cari Akun Admin ......" className="input input-bordered input-black  w-56 max-w-xs" />
           <div className="flex justify-end ">
-            <button
-              onClick={() => setShow(true)}
-              className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base"
-            >
-              <i className="bx bx-user-plus bx-sm pr-2 text-center"></i> Tambah
-              Admin
+            <button onClick={() => setShow(true)} className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
+              <i className="bx bx-user-plus bx-sm pr-2 text-center"></i> Tambah Admin
             </button>
           </div>
         </div>
@@ -144,14 +111,8 @@ function Admin() {
                     <td>{m.role}</td>
 
                     <td className="flex gap-x-2 items-start justify-center">
-                      <label
-                        onClick={() =>
-                          setModalEdit({ isShow: !modalEdit.isShow, data: m })
-                        }
-                        htmlFor="my-modal-5"
-                        className="btnp flex items-center"
-                      >
-                        Edit
+                      <label onClick={() => setModalEdit({ isShow: !modalEdit.isShow, data: m })} htmlFor="my-modal-5" className="btnp flex items-center">
+                        <i className="bx bx-edit pr-2"></i>Edit
                       </label>
                       <button
                         onClick={() =>
@@ -162,7 +123,7 @@ function Admin() {
                         }
                         className="btnd"
                       >
-                        Hapus
+                        <i class="bx bx-trash-alt pr-2"></i>Hapus
                       </button>
                     </td>
                   </tr>
@@ -178,24 +139,14 @@ function Admin() {
         <div className="flex justify-between">
           <div className="flex gap-x-2 font-semibold">
             <label>Show : </label>
-            <select
-              defaultChecked="10"
-              name=""
-              id=""
-              onChange={(e) => setPostPerPage(parseInt(e.target.value))}
-            >
+            <select defaultChecked="10" name="" id="" onChange={(e) => setPostPerPage(parseInt(e.target.value))}>
               <option value="10">10</option>
               <option value="20">20</option>
               <option value="30">30</option>
               <option value="40">40</option>
             </select>
           </div>
-          <Paginations
-            postPerPage={postPerPage}
-            totalPosts={admin?.count}
-            paginate={paginate}
-            currentPage={currentPage}
-          />
+          <Paginations postPerPage={postPerPage} totalPosts={admin?.count} paginate={paginate} currentPage={currentPage} />
         </div>
       </div>
     </>

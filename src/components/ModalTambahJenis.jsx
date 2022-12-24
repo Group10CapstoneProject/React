@@ -28,11 +28,7 @@ const ModalTambahJenis = ({ setLoad, show, setShow, setMessage }) => {
     const { name, value, type, checked, valueAsNumber } = e.target;
     setMember({
       ...member,
-      [name]: !Number.isNaN(valueAsNumber)
-        ? valueAsNumber
-        : type == "checkbox"
-        ? checked
-        : value,
+      [name]: !Number.isNaN(valueAsNumber) ? valueAsNumber : type == "checkbox" ? checked : value,
     });
   };
 
@@ -63,33 +59,16 @@ const ModalTambahJenis = ({ setLoad, show, setShow, setMessage }) => {
             <span>❗</span>
             <div>
               <h2 className="font-bold text-lg">Tambah Jenis Member</h2>
-              <p className="text-sm font-semibold">
-                kamu dapat menambahkan jenis member disini.
-              </p>
+              <p className="text-sm font-semibold">kamu dapat menambahkan jenis member disini.</p>
             </div>
           </div>
           <form onSubmit={handleSubmit} encType="multipart/form-data">
             <div className="p-3 ">
               <div className="flex w-full px-2 gap-x-2 ">
                 <div className="w-[20%] relative  flex justify-center">
-                  <div
-                    className={`${
-                      member.picture !== null ? "" : "bg-[#D3D3D3]"
-                    } w-28  gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-28  border`}
-                  >
-                    <input
-                      onChange={handleImage}
-                      className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t"
-                      type="file"
-                      name="member_type"
-                    />
-                    {member.picture !== null && (
-                      <img
-                        className="absolute w-28 h-28 cursor-pointer rounded-full"
-                        src={member.picture}
-                        alt=""
-                      />
-                    )}
+                  <div className={`${member.picture !== null ? "" : "bg-[#D3D3D3]"} w-28  gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-28  border`}>
+                    <input onChange={handleImage} className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t" type="file" name="member_type" />
+                    {member.picture !== null && <img className="absolute w-28 h-28 cursor-pointer rounded-full" src={member.picture} alt="" />}
                     <i className="bx bxs-camera-plus"></i>
                     <span className="">Pilih Foto</span>
                   </div>
@@ -109,87 +88,38 @@ const ModalTambahJenis = ({ setLoad, show, setShow, setMessage }) => {
                   </label>
                 </div>
                 <div className=" w-[50%]">
-                  <input
-                    onChange={onChange}
-                    className="inputJenis w-full"
-                    type="text"
-                    name="name"
-                    required
-                  />
-                  <input
-                    onChange={onChange}
-                    className="inputJenis w-full"
-                    type="number"
-                    name="price"
-                    required
-                  />
-                  <input
-                    onChange={onChange}
-                    className="inputJenis w-full"
-                    type="text"
-                    name="description"
-                    required
-                  />
+                  <input onChange={onChange} className="inputJenis w-full" type="text" name="name" required />
+                  <input onChange={onChange} className="inputJenis w-full" type="number" name="price" required />
+                  <input onChange={onChange} className="inputJenis w-full" type="text" name="description" required />
 
                   <div className="w-full  border px-1 ">
                     <div className="flex gap-x-2">
-                      <input
-                        onChange={onChange}
-                        value={!check}
-                        className="checkbox rounded-none checkbox-accent h-5 w-5 block py-1 my-1"
-                        type="checkbox"
-                        name="access_offline_class"
-                      />
+                      <input onChange={onChange} value={!check} className="checkbox rounded-none checkbox-accent h-5 w-5 block py-1 my-1" type="checkbox" name="access_offline_class" />
                       <label htmlFor="">Kelas Offline</label>
                     </div>
                     <div className="flex gap-x-2">
-                      <input
-                        onChange={onChange}
-                        value={!check}
-                        className="checkbox rounded-none checkbox-accent h-5 w-5  block py-1 my-1"
-                        type="checkbox"
-                        name="access_online_class"
-                      />
+                      <input onChange={onChange} value={!check} className="checkbox rounded-none checkbox-accent h-5 w-5  block py-1 my-1" type="checkbox" name="access_online_class" />
                       <label htmlFor="">Kelas Online</label>
                     </div>
 
                     <div className="flex gap-x-2">
-                      <input
-                        onChange={onChange}
-                        value={!check}
-                        className="checkbox rounded-none checkbox-accent h-5 w-5  block py-1 my-1"
-                        type="checkbox"
-                        name="access_trainer"
-                      />
+                      <input onChange={onChange} value={!check} className="checkbox rounded-none checkbox-accent h-5 w-5  block py-1 my-1" type="checkbox" name="access_trainer" />
                       <label htmlFor="">Trainer</label>
                     </div>
                     <div className="flex gap-x-2">
-                      <input
-                        onChange={onChange}
-                        value={!check}
-                        className="checkbox rounded-none checkbox-accent h-5 w-5  block py-1 my-1"
-                        type="checkbox"
-                        name="access_gym"
-                      />
+                      <input onChange={onChange} value={!check} className="checkbox rounded-none checkbox-accent h-5 w-5  block py-1 my-1" type="checkbox" name="access_gym" />
                       <label htmlFor="">Gym</label>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="modal-action flex">
-                <button
-                  disabled={btn}
-                  className={`${
-                    btn ? "btnw" : "btnp"
-                  }  flex items-center justify-center`}
-                >
-                  simpan
+                <button disabled={btn} className={`${btn ? "btnw" : "btnp"}  flex items-center justify-center`}>
+                  <i className="bx bx-save pr-2" />
+                  Simpan
                 </button>
-                <label
-                  onClick={() => setShow(!show)}
-                  htmlFor="my-modal-5"
-                  className="btnd flex items-center"
-                >
+                <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btnd flex items-center">
+                  <i className="bx bx-message-square-x  pr-2" />
                   Batal
                 </label>
               </div>

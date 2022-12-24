@@ -40,17 +40,17 @@ function Skills() {
       {modal.showEdit && <ModalEditSkill setMessage={setMessage} show={modal.showEdit} setShow={setModal} data={modal.data} />}
       {modal.showHapus && <ModalHapus setMessage={setMessage} show={modal.showHapus} setShow={setModal} data={modal.data} handleDelete={handleDelete} />}
       <Toaster />
-      <div>
+      <div data-aos="zoom-in" data-aos-duration="2000">
         <div className="flex items-center justify-betweenx ">
-          <h4 className="font-bold text-prim w-full">Daftar Skill</h4>
-          <div className="flex w-full justify-end ">
+          <h4 className="font-semibold text-prim w-full">Daftar Skill</h4>
+          <div className="flex w-full justify-end pr-16">
             <label onClick={() => setModal({ showTambah: !modal.showTambah })} className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
               <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Skill
             </label>
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-4" data-aos="zoom-in" data-aos-duration="2000">
         {skill?.map((m) => (
           <div key={m.id} className="w-56  mt-5 relative h-16 border-prim overflow-auto shadow-lg p-1 border bg-white rounded-xl">
             <h1 className="text-center  h-full flex items-center justify-center font-semibold ">{m.name}</h1>

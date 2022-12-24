@@ -29,16 +29,7 @@ function TambahKelasOffline() {
 
     setData({
       ...data,
-      [name]:
-        name == "offline_class_category_id" ||
-        name == "price" ||
-        name == "duration" ||
-        name == "slot" ||
-        name == "trainer_id"
-          ? parseInt(value)
-          : name == "time"
-          ? time.join(" ") + ":00"
-          : value,
+      [name]: name == "offline_class_category_id" || name == "price" || name == "duration" || name == "slot" || name == "trainer_id" ? parseInt(value) : name == "time" ? time.join(" ") + ":00" : value,
     });
   };
 
@@ -90,9 +81,7 @@ function TambahKelasOffline() {
   return (
     <>
       <Toaster />
-      <h1 className="text-3xl mb-5 font-bold text-primary">
-        Tambah Kelas Offline
-      </h1>
+      <h1 className="text-3xl mb-5 font-bold text-primary">Tambah Kelas Offline</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="flex flex-col gap-y-3">
           <div className="flex gap-x-5 w-full justify-between">
@@ -100,24 +89,13 @@ function TambahKelasOffline() {
               <label className="font-bold" htmlFor="">
                 Nama Kelas
               </label>
-              <input
-                type="text"
-                placeholder="Masukkan Nama"
-                className="input input-sm input-bordered w-full "
-                onChange={onChange}
-                name="title"
-                required
-              />
+              <input type="text" placeholder="Masukkan Nama" className="input input-sm input-bordered w-full " onChange={onChange} name="title" required />
             </div>
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">
                 Nama Pelatih
               </label>
-              <select
-                onChange={onChange}
-                name="trainer_id"
-                className="select-sm border w-full max-w-xs"
-              >
+              <select onChange={onChange} name="trainer_id" className="select-sm border w-full max-w-xs">
                 <option disabled selected defaultValue="Pilih Trainer">
                   Plih Trainer
                 </option>
@@ -132,27 +110,13 @@ function TambahKelasOffline() {
               <label className="font-bold" htmlFor="">
                 Slot
               </label>
-              <input
-                type="number"
-                placeholder="Jumlah Slot"
-                className="input input-sm input-bordered w-full "
-                onChange={onChange}
-                name="slot"
-                required
-              />
+              <input type="number" placeholder="Jumlah Slot" className="input input-sm input-bordered w-full " onChange={onChange} name="slot" required />
             </div>
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">
                 Durasi
               </label>
-              <input
-                type="number"
-                placeholder="Durasi"
-                className="input input-sm input-bordered w-full "
-                onChange={onChange}
-                name="duration"
-                required
-              />
+              <input type="number" placeholder="Durasi" className="input input-sm input-bordered w-full " onChange={onChange} name="duration" required />
             </div>
           </div>
           <div>
@@ -161,39 +125,19 @@ function TambahKelasOffline() {
                 <label className="font-bold" htmlFor="">
                   Waktu
                 </label>
-                <input
-                  type="datetime-local"
-                  className="input input-sm input-bordered w-full "
-                  onChange={onChange}
-                  name="time"
-                  required
-                />
+                <input type="datetime-local" className="input input-sm input-bordered w-full " onChange={onChange} name="time" required />
               </div>
               <div className="flex flex-col w-1/2 gap-y-2">
                 <label className="font-bold" htmlFor="">
                   Harga
                 </label>
-                <input
-                  type="number"
-                  placeholder="Masukkan Harga"
-                  className="input input-sm input-bordered w-full "
-                  name="price"
-                  onChange={onChange}
-                  required
-                />
+                <input type="number" placeholder="Masukkan Harga" className="input input-sm input-bordered w-full " name="price" onChange={onChange} required />
               </div>
               <div className="flex flex-col w-1/2 gap-y-2">
                 <label className="font-bold" htmlFor="">
                   Lokasi
                 </label>
-                <input
-                  type="text"
-                  placeholder="Lokasi"
-                  className="input input-sm input-bordered w-full "
-                  name="location"
-                  onChange={onChange}
-                  required
-                />
+                <input type="text" placeholder="Lokasi" className="input input-sm input-bordered w-full " name="location" onChange={onChange} required />
               </div>
             </div>
           </div>
@@ -202,12 +146,7 @@ function TambahKelasOffline() {
               <label className="font-bold" htmlFor="">
                 Kategori
               </label>
-              <select
-                className="select select-primary select-sm w-full max-w-xs"
-                name="offline_class_category_id"
-                onChange={onChange}
-                required
-              >
+              <select className="select select-primary select-sm w-full max-w-xs" name="offline_class_category_id" onChange={onChange} required>
                 <option disabled selected defaultValue="Pilih kategori">
                   Pilih kategori
                 </option>
@@ -224,13 +163,7 @@ function TambahKelasOffline() {
             <label className="font-bold" htmlFor="">
               Deskripsi
             </label>
-            <textarea
-              type="text"
-              placeholder="Deskripsi"
-              className="input input-sm input-bordered w-full h-full"
-              onChange={onChange}
-              name="description"
-            />
+            <textarea type="text" placeholder="Deskripsi" className="input input-sm input-bordered w-full h-full" onChange={onChange} name="description" />
           </div>
           <div className="flex flex-col gap-y-4 w-full">
             <label className="font-bold" htmlFor="">
@@ -238,18 +171,9 @@ function TambahKelasOffline() {
             </label>
             <div className="w-full  flex justify-center items-center bg-transparent h-40">
               <div className="flex cursor-pointer relative flex-col justify-center w-full h-full  items-center border">
-                <input
-                  onChange={handleImage}
-                  name="offline_class"
-                  type="file"
-                  className="file-input w-full z-50 opacity-0 cursor-pointer borders  p-10 h-full"
-                />
+                <input onChange={handleImage} name="offline_class" type="file" className="file-input w-full z-50 opacity-0 cursor-pointer borders  p-10 h-full" />
                 <div className="absolute w-44 flex  flex-col  items-center">
-                  {data.picture !== null ? (
-                    <img className="w-28" src={data.picture} alt="" />
-                  ) : (
-                    <i class="bx bx-lg bxs-image-add"></i>
-                  )}
+                  {data.picture !== null ? <img className="w-28" src={data.picture} alt="" /> : <i class="bx bx-lg bxs-image-add"></i>}
                   <p className="text-sm text-center font-semibold">
                     <span className="text-prim">Tarik gambar kesini </span>atau
                     <span className="text-prim"> cari</span> untuk memilih
@@ -261,9 +185,11 @@ function TambahKelasOffline() {
         </div>
         <div className="w-full flex justify-end mt-5 gap-x-2 ">
           <button disabled={btn} className={`${btn ? "btnw" : "btnp"} w-48`}>
+            <i className="bx bx-save pr-2" />
             Simpan
           </button>
           <Link to="/kelasoffline" className="btnd2 w-48 text-center">
+            <i className="bx bx-trash pr-2" />
             Hapus
           </Link>
         </div>

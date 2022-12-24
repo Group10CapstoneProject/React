@@ -28,7 +28,7 @@ function DetailKelasOffline() {
           <div className="w-full flex justify-between mb-5">
             <h1 className="text-4xl text-prim font-bold text-center">{detail.title}</h1>
             <button onClick={() => navigate(`/editkelasoffline`, { state: detail })} className="px-4 py-1 bg-prim rounded-lg text-white font-bold hover:bg-info transition-all duration-200 ease-linear">
-              <i className="bx bx-edit"></i> Edit
+              <i className="bx bx-edit pr-1"></i> Edit
             </button>
           </div>
           <div className="flex gap-x-2 w-full ">
@@ -41,35 +41,26 @@ function DetailKelasOffline() {
             </div>
             <div className="w-[60%] flex justify-start">
               <div className="text-justify">
-                <p className="text-md">{detail.description}</p>
-                <p className="flex gap-x-1 items-center">
+                <p className="text-md font-sans">{detail.description}</p>
+                <p className="flex gap-x-1 items-center font-bold pt-4">
                   {" "}
                   <span>Harga :</span>
                   <FormatRupiah value={detail.price} />
                 </p>
 
-                <p className="flex gap-x-1 items-center">
+                <p className="flex gap-x-1 items-center font-bold">
                   {" "}
                   <span>Lokasi :</span>
                   {detail.location}
                 </p>
-                <p className="flex gap-x-1 items-center">
+                <p className="flex gap-x-1 items-center font-bold">
                   {" "}
                   <span>Pelatih :</span>
                   {detail.trainer?.name}
                 </p>
-                <p className="flex gap-x-1 items-center">
-                  {" "}
-                  Slot :{detail.slot}
-                </p>
-                <p className="flex gap-x-1 items-center">
-                  {" "}
-                  Durasi :{detail.duration}
-                </p>
-                <p className="flex gap-x-1 items-center">
-                  {" "}
-                  Kategori :{detail.offline_class_category?.name}
-                </p>
+                <p className="flex gap-x-1 items-center font-bold"> Slot :{detail.slot}</p>
+                <p className="flex gap-x-1 items-center font-bold"> Durasi :{detail.duration}</p>
+                <p className="flex gap-x-1 items-center font-bold"> Kategori :{detail.offline_class_category?.name}</p>
               </div>
             </div>
           </div>

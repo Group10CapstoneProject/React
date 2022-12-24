@@ -62,9 +62,7 @@ function ModalTambahKategoriOffline({ setLoad, show, setShow, setMessage }) {
             <span>❗</span>
             <div>
               <h2 className="font-bold text-lg">Tambah Kategori Offline</h2>
-              <p className="text-sm font-semibold">
-                Kamu dapat menambahkan Kategori disini
-              </p>
+              <p className="text-sm font-semibold">Kamu dapat menambahkan Kategori disini</p>
             </div>
           </div>
           <form onSubmit={handleSubmit} encType="multipart/form-data">
@@ -72,19 +70,8 @@ function ModalTambahKategoriOffline({ setLoad, show, setShow, setMessage }) {
               <div className="flex w-full px-2 gap-x-2 ">
                 <div className="w-[20%] relative  flex justify-center">
                   <div className=" w-28 bg-[#D3D3D3] gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-28  border">
-                    <input
-                      onChange={handleImage}
-                      className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t"
-                      type="file"
-                      name="offline_class_category"
-                    />
-                    {form.picture !== null && (
-                      <img
-                        className="absolute w-28 h-28 cursor-pointer rounded-full"
-                        src={form.picture}
-                        alt=""
-                      />
-                    )}
+                    <input onChange={handleImage} className="absolute block w-full h-full  cursor-pointer opacity-0  border pin-r pin-t" type="file" name="offline_class_category" />
+                    {form.picture !== null && <img className="absolute w-28 h-28 cursor-pointer rounded-full" src={form.picture} alt="" />}
                     <i className="bx bxs-camera-plus"></i>
                     <span className="">Pilih Foto</span>
                   </div>
@@ -98,34 +85,17 @@ function ModalTambahKategoriOffline({ setLoad, show, setShow, setMessage }) {
                   </label>
                 </div>
                 <div className=" w-[50%]">
-                  <input
-                    className="inputJenis w-full"
-                    type="text"
-                    name="name"
-                    onChange={onChange}
-                  />
-                  <input
-                    className="inputJenis w-full"
-                    type="text"
-                    name="description"
-                    onChange={onChange}
-                  />
+                  <input className="inputJenis w-full" type="text" name="name" onChange={onChange} />
+                  <input className="inputJenis w-full" type="text" name="description" onChange={onChange} />
                 </div>
               </div>
               <div className="modal-action flex">
-                <button
-                  disabled={btn}
-                  className={`${
-                    btn ? "btnw" : "btnp"
-                  }  flex items-center justify-center`}
-                >
-                  simpan
+                <button disabled={btn} className={`${btn ? "btnw" : "btnp"}  flex items-center justify-center`}>
+                  <i className="bx bx-save pr-2" />
+                  Simpan
                 </button>
-                <label
-                  onClick={() => setShow(!show)}
-                  htmlFor="my-modal-5"
-                  className="btnd flex items-center"
-                >
+                <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btnd flex items-center">
+                  <i className="bx bx-message-square-x  pr-2" />
                   Batal
                 </label>
               </div>

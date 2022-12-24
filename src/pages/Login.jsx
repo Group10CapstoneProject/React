@@ -36,23 +36,26 @@ function Login() {
       <div className="flex w-full h-full items-center  ">
         <div className="flex justify-center   bg-white h-full items-center  w-full">
           <div className="w-[55%]" data-aos="zoom-in-up" data-aos-duration="2000">
-            <h4 className="">Masuk Admin</h4>
+            <h4 className="font-bold pb-2">Masuk Admin</h4>
             <p className="text-[16px]">Silakan masuk dengan email dan password admin yang telah diberikan</p>
             <form onSubmit={handleLogin}>
-              <label className="block ply-2">
+              <label className="block ply-2 pt-2">
                 <b>Email</b>
               </label>
-              <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="alta@gmail.com" className="input input-bordered w-full" />
+              <input onChange={(e) => setEmail(e.target.value)} type="email" placeholder="alta@gmail.com" className="input input-bordered w-full text-sm rounded-md" />
               <label className="block py-2">
                 <b>Password</b>
               </label>
-              <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="******" className="input input-bordered w-full" />
-              <div className="flex gap-x-1 py-2">
-                <input type="checkbox" name="" id="" />
-                <label>Ingat saya</label>
+              <input onChange={(e) => setPassword(e.target.value)} type="password" placeholder="******" className="input input-bordered w-full rounded-md" />
+              <div className="flex gap-x-1 py-2 justify-between">
+                <div className="pl-2">
+                  <input type="checkbox" name="" id="" />
+                  <label className="pl-2">Ingat saya</label>
+                </div>
+                <p className="text-primary">Lupa password?</p>
               </div>
               <span className="text-red-600">{error}</span>
-              <div className="flex justify-center h-full items-center  w-full ">
+              <div className="flex justify-center h-full items-center  w-full pt-2">
                 <button className={`${loading ? "opacity-50 btn-disabled" : ""} bg-primary w-full h-full py-2 text-white rounded-lg`}>
                   <span className={`${loading ? "flex" : "hidden"}   justify-center`}>
                     <box-icon name="loader-alt" animation="spin"></box-icon>

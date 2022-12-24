@@ -290,7 +290,7 @@ function ModalTambahTrainer({ show, setShow, setMessage }) {
                   </div>
                 </div> */}
               </div>
-              <div className="modal-action flex">
+              <div className="modal-action flex pr-2">
                 <button className={`btnp flex items-center justify-center`}>
                   <i className="bx bx-save pr-2" />
                   Simpan

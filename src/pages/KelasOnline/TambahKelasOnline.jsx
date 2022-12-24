@@ -77,7 +77,7 @@ function TambahKelasOnline() {
     <>
       <Toaster />
       <h1 className="text-3xl mb-5 font-semibold text-info">
-        Online <span className="text-black font-medium">/</span> <span className="text-prim">Yoga</span> <span className="text-black font-medium">/</span> <span className="text-prim1">Tambah Kelas</span>
+        Online <span className="text-black font-medium">/</span> <span className="text-prim1">Tambah Kelas</span>
       </h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="flex flex-col gap-y-3">
@@ -196,9 +196,11 @@ function TambahKelasOnline() {
         </div>
         <div className="w-full flex justify-end mt-5 gap-x-2 ">
           <button disabled={btn} className={`${btn ? "btnw" : "btnp"} w-48`}>
+            <i className="bx bx-save pr-2" />
             Simpan
           </button>
           <Link to="/kelasonline" className="btnd2 w-48 text-center">
+            <i className="bx bx-message-square-x  pr-2" />
             Batal
           </Link>
         </div>

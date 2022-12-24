@@ -44,19 +44,19 @@ function Trainer() {
       {modal.showHapus && <ModalHapus show={modal.showHapus} setShow={setModal} data={modal.data} handleDelete={handleDelete} />}
 
       <Toaster />
-      <div>
+      <div data-aos="zoom-in" data-aos-duration="2000">
         <div className="flex items-center justify-between ">
-          <h4 className="font-bold text-prim">Daftar Trainer</h4>
-          <div className="flex justify-end ">
+          <h4 className="font-semibold text-prim">Daftar Trainer</h4>
+          <div className="flex justify-end pr-10">
             <label onClick={() => setModal({ showTambah: !modal.showTambah })} className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
               <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Trainer
             </label>
           </div>
         </div>
         {!trainer && <div className="absolute top-1/2 left-1/2">Belum ada Trainer...</div>}
-        <div className="grid grid-cols-4 gap-y-5 gap-x-4 mt-5 ">
+        <div className="grid grid-cols-4 gap-y-5 gap-x-4 mt-5 px-4 drop-shadow-xl">
           {trainer?.map((m) => (
-            <div className="h-28 relative shadow-lg ">
+            <div className="h-28 relative shadow-lg rounded-xl">
               <div className="flex  p-2 gap-x-5 ">
                 <div className="w-[20%]">
                   <div className="avatar">

@@ -40,17 +40,8 @@ function DetailBookingOnline() {
   return (
     <>
       <Toaster />
-      {modalEdit.isShow && (
-        <ModalEditBookingOnline
-          show={modalEdit.isShow}
-          data={modalEdit.data}
-          setShow={setModalEdit}
-          setMessage={setMessage}
-        />
-      )}
-      <h2 className="px-6 pt-2 text-3xl font-semibold text-prim">
-        Kelola Anggota / Detail
-      </h2>
+      {modalEdit.isShow && <ModalEditBookingOnline show={modalEdit.isShow} data={modalEdit.data} setShow={setModalEdit} setMessage={setMessage} />}
+      <h2 className="px-6 pt-2 text-3xl font-semibold text-prim">Kelola Anggota / Detail</h2>
       <div className="flex m-3 p-3 gap-x-5  border   ">
         <div className="w-[60%]  ">
           <div className=" flex gap-x-14 font-semibold text-md">
@@ -67,10 +58,7 @@ function DetailBookingOnline() {
               <p>: {detail.user?.name}</p>
               <p>: {detail.user?.email}</p>
               <p>
-                :{" "}
-                <Moment format="D MMM YYYY hh:mm:ss">
-                  {detail?.actived_at}
-                </Moment>
+                : <Moment format="D MMM YYYY hh:mm:ss">{detail?.actived_at}</Moment>
               </p>
               <p>: {detail.payment_method?.name}</p>
               <p>: {detail.payment_method?.payment_number}</p>
@@ -104,12 +92,7 @@ function DetailBookingOnline() {
           </div>
         </div>
         <div className="w-[5%]">
-          <button
-            onClick={() =>
-              setModalEdit({ isShow: !modalEdit.isShow, data: detail })
-            }
-            className="btnp"
-          >
+          <button onClick={() => setModalEdit({ isShow: !modalEdit.isShow, data: detail })} className="btnp">
             Edit
           </button>
         </div>
@@ -122,11 +105,7 @@ function DetailBookingOnline() {
         </div>
         <div className="flex gap-x-10 py-5 w-full ">
           <h2 className="text-md font-semibold">Status Membership</h2>
-          <select
-            className="select select-bordered select-sm w-full max-w-xs"
-            name="status"
-            onChange={(e) => setStatus(e.target.value)}
-          >
+          <select className="select select-bordered select-sm w-full max-w-xs" name="status" onChange={(e) => setStatus(e.target.value)}>
             <option defaultValue="menunggu">Menunggu Konfirmasi</option>
             <option value="REJECT">REJECT</option>
             <option value="INACTIVE">INACTIVE</option>
@@ -135,12 +114,11 @@ function DetailBookingOnline() {
         </div>
         <div className="flex gap-x-2">
           <button className="h-8 px-3 bg-prim btn border-none min-h-0 text-white">
+            <i className="bx bx-save pr-2" />
             Simpan
           </button>
-          <label
-            onClick={() => navigate("/bookingonline")}
-            className="h-8 px-3 bg-dang2 border-none text-white btn min-h-0"
-          >
+          <label onClick={() => navigate("/bookingonline")} className="h-8 px-3 bg-dang2 border-none text-white btn min-h-0">
+            <i className="bx bx-message-square-x  pr-2" />
             Batal
           </label>
         </div>

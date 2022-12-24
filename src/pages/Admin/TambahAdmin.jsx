@@ -137,9 +137,11 @@ function TambahAdmin() {
         </div>
         <div className="w-full flex justify-end mt-5 gap-x-2 ">
           <button disabled={btn} className={`${btn ? "btnw" : "btnp"} w-48`}>
+            <i className="bx bx-add-to-queue pr-2" />
             Tambah Admin
           </button>
           <Link to="/kelasonline" className="btnd2 w-48 text-center">
+            <i className="bx bx-message-square-x pr-2" />
             Batal
           </Link>
         </div>

@@ -24,10 +24,10 @@ function Dashboard() {
   }, []);
   return (
     <>
-      <div className="">
-        <h1 className="text-3xl mb-5 font-bold text-prim">Selamat Datang Kembali {dataAdmin && dataAdmin.role}</h1>
+      <div className="" data-aos="fade-up" data-aos-duration="2000">
+        <h1 className="text-3xl mb-5 font-semibold text-prim">Selamat Datang Kembali {dataAdmin && dataAdmin.role}</h1>
         {data && (
-          <div className="grid grid-cols-4 mb-5">
+          <div className="grid grid-cols-4 mb-5" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
             <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-warn">
               <div className="flex justify-center items-center">
                 <box-icon size="lg" name="group"></box-icon>
@@ -66,9 +66,9 @@ function Dashboard() {
             </div>
           </div>
         )}
-        <h1 className="text-3xl mb-5 font-bold text-prim">Anggota Terbaru</h1>
+        <h1 className="text-3xl mb-5 font-semibold text-prim">Anggota Terbaru</h1>
         <div className="overflow-x-auto">
-          <table className="table table-compact w-full">
+          <table className="table table-compact w-full flex justify-center text-center">
             <thead>
               <tr>
                 <th>No</th>

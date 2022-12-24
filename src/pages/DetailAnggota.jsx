@@ -135,12 +135,11 @@ const DetailAnggota = () => {
         </div>
         <div className="flex gap-x-2">
           <button className="h-8 px-3 bg-prim btn border-none min-h-0 text-white">
+            <i className="bx bx-save pr-2" />
             Simpan
           </button>
-          <button
-            onClick={() => navigate("/anggota")}
-            className="h-8 px-3 bg-dang2 border-none text-white btn min-h-0"
-          >
+          <button onClick={() => navigate("/anggota")} className="h-8 px-3 bg-dang text-white font-semibold active:scale-95 hover:bg-dang/80 transition-all duration-100 ease-linear rounded-lg">
+            <i className="bx bx-message-square-x  pr-2" />
             Batal
           </button>
         </div>

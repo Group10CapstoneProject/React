@@ -64,7 +64,7 @@ function BookingOffline() {
       </div>
       <br />
       <div className="overflow-x-auto">
-        <table className="table table-compact text-black w-full text-center">
+        <table className="table table-compact text-black w-full text-center flex justify-center">
           <thead>
             <tr>
               <th>No</th>
@@ -90,8 +90,9 @@ function BookingOffline() {
                       <span className={`${m.status === "ACTIVE" ? "bg-suc/10 px-2" : m.status === "INACTIVE" ? "bg-dang2/10 px-2  " : "bg-inf2/10 px-2"} `}>{m.status}</span>
                     </div>
                   </td>
-                  <td className="flex gap-x-1 ">
+                  <td className="flex gap-x-1 justify-center">
                     <button className="btnp" onClick={() => navigate(`/detailBookingOffline/${m.id}`)}>
+                      <i className="bx bxs-user-detail pr-2" />
                       Detail
                     </button>
                     <button

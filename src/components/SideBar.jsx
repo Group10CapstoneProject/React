@@ -40,10 +40,10 @@ const SideBar = () => {
       <div className="drawer-side border">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
         <ul className="menu p-4 w-60 text-prim">
-          <Link to="/" className="mb-2 flex justify-center">
+          <Link to="/landingpage" className="mb-2 flex justify-center pt-4">
             <img className="w-32" src={logo} alt="" />
           </Link>
-          <div className="pt-4">
+          <div className="pt-12">
             <li className={`${path == "/" ? "bg-prim1 text-white rounded-lg" : "bg-transparent text-prim"} font-semibold text-lg hover:bg-prim1 hover:text-white rounded-lg`}>
               <Link to="/">
                 <i className="bx bx-sm bxs-dashboard"></i>Dashboard
@@ -140,7 +140,7 @@ const SideBar = () => {
               </li>
               <li className="py-0 pt-1">
                 <Link to="kelasonline">
-                  <i className="bx bx-desktop bx-sm" />
+                  <i className="bx bx-video bx-sm" />
                   Kelas Online
                 </Link>
               </li>
@@ -211,7 +211,7 @@ const SideBar = () => {
 
           {data && data.role == "superadmin" ? (
             <Link to="admin" className="font-bold">
-              <li className={`${path == "admin" ? "bg-prim1 text-white rounded-lg" : ""} font-semibold text-lg`}>
+              <li className={`${path == "admin" ? "bg-prim1 text-white rounded-lg" : ""} font-semibold text-lg pt-2`}>
                 <span className="flex  items-center gap-x-3">
                   <i className="bx bx-sm bx-user-circle"></i>
                   Admin

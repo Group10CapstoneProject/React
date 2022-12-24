@@ -24,8 +24,7 @@ const ModalTambahAnggota = ({ show, setShow, setMessage }) => {
     const { name, value, type } = e.target;
     setAnggota({
       ...anggota,
-      [name]:
-        type == "number" || name == "member_type_id" ? parseInt(value) : value,
+      [name]: type == "number" || name == "member_type_id" ? parseInt(value) : value,
     });
   };
   const handleSubmit = (e) => {
@@ -43,12 +42,7 @@ const ModalTambahAnggota = ({ show, setShow, setMessage }) => {
   return (
     <>
       <Toaster />
-      <input
-        defaultChecked={show}
-        type="checkbox"
-        id="my-modal"
-        className="modal-toggle"
-      />
+      <input defaultChecked={show} type="checkbox" id="my-modal" className="modal-toggle" />
       <input type="checkbox" id="my-modal-5" className="modal-toggle" />
       <div className="modal ">
         <div className="modal-box  p-0 overflow-hidden w-1/2 max-w-5xl">
@@ -56,15 +50,13 @@ const ModalTambahAnggota = ({ show, setShow, setMessage }) => {
             <span>❗</span>
             <div>
               <h2 className="font-bold text-lg">Tambah Member</h2>
-              <p className="text-sm font-semibold">
-                kamu dapat menambahkan data member disini.
-              </p>
+              <p className="text-sm font-semibold">kamu dapat menambahkan data member disini.</p>
             </div>
           </div>
           <form onSubmit={handleSubmit} action="">
             <div className="p-3 ">
               <div className="flex w-full px-2 ">
-                <div className="w-52 ">
+                <div className="w-52 font-bold">
                   <label className="block my-1 py-1" htmlFor="">
                     Email
                   </label>
@@ -72,28 +64,18 @@ const ModalTambahAnggota = ({ show, setShow, setMessage }) => {
                     Member Type
                   </label>
                   <label className="block my-1 py-1" htmlFor="">
-                    duration
+                    Duration
                   </label>
                   <label className="block my-1 py-1" htmlFor="">
-                    total
+                    Total
                   </label>
                 </div>
                 <div className="w-full">
-                  <input
-                    onChange={onChange}
-                    className="w-full input-sm border border-primary   block py-1 my-1 rounded-none input-primary"
-                    type="text"
-                    name="email"
-                  />
+                  <input onChange={onChange} className="w-full input-sm border border-primary   block py-1 my-1 rounded-none input-primary" type="text" name="email" />
 
-                  <select
-                    className="select select-primary w-44 select-sm max-w-xs"
-                    name="member_type_id"
-                    onChange={onChange}
-                    required
-                  >
+                  <select className="select select-primary w-44 select-sm max-w-xs" name="member_type_id" onChange={onChange} required>
                     <option disabled selected>
-                      pilih tipe member
+                      Pilih tipe member
                     </option>
                     {type &&
                       type?.map((m) => (
@@ -102,27 +84,17 @@ const ModalTambahAnggota = ({ show, setShow, setMessage }) => {
                         </option>
                       ))}
                   </select>
-                  <input
-                    className="w-full input-sm border border-primary block py-1 my-1 rounded-none input-primary"
-                    name="duration"
-                    type="number"
-                    onChange={onChange}
-                  />
-                  <input
-                    className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
-                    name="total"
-                    type="number"
-                    onChange={onChange}
-                  />
+                  <input className="w-full input-sm border border-primary block py-1 my-1 rounded-none input-primary" name="duration" type="number" onChange={onChange} />
+                  <input className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" name="total" type="number" onChange={onChange} />
                 </div>
               </div>
               <div className="modal-action flex items-center">
-                <button className="btnp">Tambah</button>
-                <label
-                  onClick={() => setShow(!show)}
-                  htmlFor="my-modal-5"
-                  className="btnd"
-                >
+                <button className="btnp">
+                  <i className="bx bx-add-to-queue pr-2" />
+                  Tambah
+                </button>
+                <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btnd">
+                  <i className="bx bx-message-square-x pr-2" />
                   Batal
                 </label>
               </div>

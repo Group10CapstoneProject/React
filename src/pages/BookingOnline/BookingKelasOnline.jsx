@@ -93,6 +93,7 @@ function BookingKelasOnline() {
 
                   <td className="flex gap-x-1 justify-center">
                     <button className="btnp" onClick={() => navigate(`/detailBookingOnline/${m.id}`)}>
+                      <i className="bx bxs-user-detail pr-2" />
                       Detail
                     </button>
                     <button

@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PostApi from "../../apis/post.api";
 
-function ModalEditKategoriOffline({
-  setMessage,
-  setLoad,
-  show,
-  setShow,
-  data,
-}) {
+function ModalEditKategoriOffline({ setMessage, setLoad, show, setShow, data }) {
   const [btn, setBtn] = useState(true);
   const [form, setForm] = useState({
     id: data.id,
@@ -62,9 +56,7 @@ function ModalEditKategoriOffline({
             <span>❗</span>
             <div>
               <h2 className="font-bold text-lg">Edit Kategori Offline</h2>
-              <p className="text-sm font-semibold">
-                kamu dapat mengedit Kategori disini.
-              </p>
+              <p className="text-sm font-semibold">kamu dapat mengedit Kategori disini.</p>
             </div>
           </div>
           <form onSubmit={handleSubmit} encType="multipart/form-data">
@@ -72,19 +64,8 @@ function ModalEditKategoriOffline({
               <div className="flex w-full px-2 gap-x-2 ">
                 <div className="w-[20%] relative  flex justify-center">
                   <div className=" w-28 bg-[#D3D3D3] gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-28  border">
-                    <input
-                      onChange={handleImage}
-                      className="absolute block w-full h-full z-50  cursor-pointer opacity-0  border pin-r pin-t"
-                      type="file"
-                      name="offline_class_category"
-                    />
-                    {form.picture !== null && (
-                      <img
-                        className="absolute w-28 h-28 cursor-pointer rounded-full"
-                        src={form.picture}
-                        alt=""
-                      />
-                    )}
+                    <input onChange={handleImage} className="absolute block w-full h-full z-50  cursor-pointer opacity-0  border pin-r pin-t" type="file" name="offline_class_category" />
+                    {form.picture !== null && <img className="absolute w-28 h-28 cursor-pointer rounded-full" src={form.picture} alt="" />}
                     <i className="bx bxs-camera-plus"></i>
                     <span className="">Pilih Foto</span>
                   </div>
@@ -98,36 +79,17 @@ function ModalEditKategoriOffline({
                   </label>
                 </div>
                 <div className=" w-[50%]">
-                  <input
-                    className="inputJenis w-full"
-                    type="text"
-                    name="name"
-                    onChange={onChange}
-                    value={form.name}
-                  />
-                  <textarea
-                    className="inputJenis w-full h-20"
-                    type="text"
-                    name="description"
-                    onChange={onChange}
-                    value={form.description}
-                  />
+                  <input className="inputJenis w-full" type="text" name="name" onChange={onChange} value={form.name} />
+                  <textarea className="inputJenis w-full h-20" type="text" name="description" onChange={onChange} value={form.description} />
                 </div>
               </div>
-              <div className="modal-action flex">
-                <button
-                  disabled={btn}
-                  className={`${
-                    btn ? "btnw" : "btnp"
-                  }  flex items-center justify-center`}
-                >
-                  simpan
+              <div className="modal-action flex pr-6">
+                <button disabled={btn} className={`${btn ? "btnw" : "btnp"}  flex items-center justify-center`}>
+                  <i className="bx bx-save pr-2" />
+                  Simpan
                 </button>
-                <label
-                  onClick={() => setShow(!show)}
-                  htmlFor="my-modal-5"
-                  className="btnd flex items-center"
-                >
+                <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btnd flex items-center">
+                  <i className="bx bx-message-square-x  pr-2" />
                   Batal
                 </label>
               </div>

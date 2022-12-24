@@ -47,17 +47,17 @@ export const Pembayaran = () => {
 
       <Toaster />
       <div className="">
-        <div className="w-full">
-          <h4 className="font-bold text-prim">Metode Pembayaran</h4>
+        <div className="w-full" data-aos="fade-down-right" data-aos-duration="2000">
+          <h4 className="font-semibold text-prim">Metode Pembayaran</h4>
         </div>
 
-        <div className="pt-2 flex justify-end ">
+        <div className="pt-2 flex justify-end " data-aos="fade-left" data-aos-duration="2000">
           <label onClick={() => setModal({ modalTambah: !modal.modalTambah })} className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
             <i className="bx bx-user-plus bx-sm pr-2"></i>Tambah Metode Pembayaran
           </label>
         </div>
 
-        <div className="grid grid-cols-3 gap-3 mt-5">
+        <div className="grid grid-cols-3 gap-3 mt-8 drop-shadow-xl px-6" data-aos="flip-up" data-aos-duration="2000">
           {method &&
             method.map((m) => (
               <div key={m.id} className="  overflow-hidden flex items-center justify-center border-1 border-prim rounded-xl  shadow-xl w-72 h-42 py-2">

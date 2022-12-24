@@ -60,9 +60,13 @@ function ModalEditAdmin({ setMessage, setLoad, data, show, setShow }) {
                   <input className="inputJenis w-full" type="email" name="email" onChange={onChange} value={form.email} />
                 </div>
               </div>
-              <div className="modal-action flex">
-                <button className="btnp">Tambah</button>
+              <div className="modal-action flex justify-center">
+                <button className="btnp">
+                  <i className="bx bx-add-to-queue pr-2" />
+                  Tambah
+                </button>
                 <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btnd flex items-center">
+                  <i className="bx bx-message-square-x pr-2" />
                   Batal
                 </label>
               </div>

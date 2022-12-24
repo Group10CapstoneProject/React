@@ -6,19 +6,7 @@ import PostApi from "../../apis/post.api";
 
 function EditKelasOffline() {
   let state = useLocation();
-  const {
-    id,
-    title,
-    time,
-    duration,
-    slot,
-    price,
-    picture,
-    description,
-    trainer_id,
-    location,
-    offline_class_category,
-  } = state.state;
+  const { id, title, time, duration, slot, price, picture, description, trainer_id, location, offline_class_category } = state.state;
   console.log(state);
   const [btn, setBtn] = useState(true);
 
@@ -44,16 +32,7 @@ function EditKelasOffline() {
 
     setData({
       ...data,
-      [name]:
-        name == "offline_class_category_id" ||
-        name == "price" ||
-        name == "duration" ||
-        name == "slot" ||
-        name == "trainer_id"
-          ? parseInt(value)
-          : name == "time"
-          ? time.join(" ") + ":00"
-          : value,
+      [name]: name == "offline_class_category_id" || name == "price" || name == "duration" || name == "slot" || name == "trainer_id" ? parseInt(value) : name == "time" ? time.join(" ") + ":00" : value,
     });
   };
 
@@ -104,9 +83,7 @@ function EditKelasOffline() {
   return (
     <>
       <Toaster />
-      <h1 className="text-3xl mb-5 font-bold text-primary">
-        Edit Kelas Offline
-      </h1>
+      <h1 className="text-3xl mb-5 font-bold text-primary">Edit Kelas Offline</h1>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="flex flex-col gap-y-3">
           <div className="flex gap-x-5 w-full justify-between">
@@ -114,25 +91,13 @@ function EditKelasOffline() {
               <label className="font-bold" htmlFor="">
                 Nama Kelas
               </label>
-              <input
-                type="text"
-                placeholder="Masukkan Nama"
-                className="input input-sm input-bordered w-full "
-                onChange={onChange}
-                name="title"
-                value={data.title}
-              />
+              <input type="text" placeholder="Masukkan Nama" className="input input-sm input-bordered w-full " onChange={onChange} name="title" value={data.title} />
             </div>
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">
                 Nama Pelatih
               </label>
-              <select
-                onChange={onChange}
-                name="trainer_id"
-                className="select-sm border w-full max-w-xs"
-                value={data.trainer_id}
-              >
+              <select onChange={onChange} name="trainer_id" className="select-sm border w-full max-w-xs" value={data.trainer_id}>
                 <option disabled selected defaultValue={data.trainer_id}>
                   Plih Trainer
                 </option>
@@ -147,27 +112,13 @@ function EditKelasOffline() {
               <label className="font-bold" htmlFor="">
                 Slot
               </label>
-              <input
-                type="number"
-                placeholder="Masukkan Nama"
-                className="input input-sm input-bordered w-full "
-                onChange={onChange}
-                name="slot"
-                value={data.slot}
-              />
+              <input type="number" placeholder="Masukkan Nama" className="input input-sm input-bordered w-full " onChange={onChange} name="slot" value={data.slot} />
             </div>
             <div className="flex flex-col w-1/2 gap-y-2">
               <label className="font-bold" htmlFor="">
                 Durasi
               </label>
-              <input
-                type="number"
-                placeholder="Durasi"
-                className="input input-sm input-bordered w-full "
-                onChange={onChange}
-                name="duration"
-                value={data.duration}
-              />
+              <input type="number" placeholder="Durasi" className="input input-sm input-bordered w-full " onChange={onChange} name="duration" value={data.duration} />
             </div>
           </div>
           <div>
@@ -176,39 +127,19 @@ function EditKelasOffline() {
                 <label className="font-bold" htmlFor="">
                   Waktu
                 </label>
-                <input
-                  type="datetime-local"
-                  className="input input-sm input-bordered w-full "
-                  onChange={onChange}
-                  name="time"
-                  required
-                />
+                <input type="datetime-local" className="input input-sm input-bordered w-full " onChange={onChange} name="time" required />
               </div>
               <div className="flex flex-col w-1/2 gap-y-2">
                 <label className="font-bold" htmlFor="">
                   Harga
                 </label>
-                <input
-                  type="number"
-                  placeholder="Harga"
-                  className="input input-sm input-bordered w-full "
-                  name="price"
-                  onChange={onChange}
-                  value={data.price}
-                />
+                <input type="number" placeholder="Harga" className="input input-sm input-bordered w-full " name="price" onChange={onChange} value={data.price} />
               </div>
               <div className="flex flex-col w-1/2 gap-y-2">
                 <label className="font-bold" htmlFor="">
                   Lokasi
                 </label>
-                <input
-                  type="text"
-                  placeholder="Masukkan Nama Pelatih"
-                  className="input input-sm input-bordered w-full "
-                  name="location"
-                  onChange={onChange}
-                  value={data.location}
-                />
+                <input type="text" placeholder="Masukkan Nama Pelatih" className="input input-sm input-bordered w-full " name="location" onChange={onChange} value={data.location} />
               </div>
             </div>
           </div>
@@ -217,17 +148,8 @@ function EditKelasOffline() {
               <label className="font-bold" htmlFor="">
                 Kategori
               </label>
-              <select
-                className="select select-primary select-sm w-full max-w-xs"
-                name="offline_class_category_id"
-                onChange={onChange}
-                value={data.offline_class_category_id}
-              >
-                <option
-                  disabled
-                  selected
-                  defaultValue={data?.offline_class_category_id}
-                >
+              <select className="select select-primary select-sm w-full max-w-xs" name="offline_class_category_id" onChange={onChange} value={data.offline_class_category_id}>
+                <option disabled selected defaultValue={data?.offline_class_category_id}>
                   pilih kategori
                 </option>
                 {kategori &&
@@ -243,14 +165,7 @@ function EditKelasOffline() {
             <label className="font-bold" htmlFor="">
               Deskripsi
             </label>
-            <textarea
-              type="text"
-              placeholder="Deskripsi"
-              className="input input-sm input-bordered w-full h-full"
-              onChange={onChange}
-              name="description"
-              value={data.description}
-            />
+            <textarea type="text" placeholder="Deskripsi" className="input input-sm input-bordered w-full h-full" onChange={onChange} name="description" value={data.description} />
           </div>
           <div className="flex flex-col gap-y-4 w-full">
             <label className="font-bold" htmlFor="">
@@ -258,18 +173,9 @@ function EditKelasOffline() {
             </label>
             <div className="w-full  flex justify-center items-center bg-transparent h-40">
               <div className="flex cursor-pointer relative flex-col justify-center w-full h-full  items-center border">
-                <input
-                  onChange={handleImage}
-                  name="offline_class"
-                  type="file"
-                  className="file-input w-full z-50 opacity-0 cursor-pointer borders  p-10 h-full"
-                />
+                <input onChange={handleImage} name="offline_class" type="file" className="file-input w-full z-50 opacity-0 cursor-pointer borders  p-10 h-full" />
                 <div className="absolute w-44 flex  flex-col  items-center">
-                  {data.picture !== null ? (
-                    <img className="w-28" src={data.picture} alt="" />
-                  ) : (
-                    <i class="bx bx-lg bxs-image-add"></i>
-                  )}
+                  {data.picture !== null ? <img className="w-28" src={data.picture} alt="" /> : <i class="bx bx-lg bxs-image-add"></i>}
                   <p className="text-sm text-center font-semibold">
                     <span className="text-prim">Tarik gambar kesini </span>atau
                     <span className="text-prim"> cari</span> untuk memilih
@@ -281,6 +187,7 @@ function EditKelasOffline() {
         </div>
         <div className=" w-full flex justify-center mt-5 ">
           <button disabled={btn} className={`${btn ? "btnw" : "btnp"} w-full`}>
+            <i className="bx bx-save pr-2" />
             Simpan
           </button>
         </div>

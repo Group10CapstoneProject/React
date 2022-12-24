@@ -60,33 +60,18 @@ function ModalTambahAdmin({ setMessage, setLoad, show, setShow }) {
                   </label>
                 </div>
                 <div className=" w-[50%]">
-                  <input
-                    className="inputJenis w-full"
-                    type="text"
-                    name="name"
-                    onChange={onChange}
-                  />
-                  <input
-                    className="inputJenis w-full"
-                    type="email"
-                    name="email"
-                    onChange={onChange}
-                  />
-                  <input
-                    className="inputJenis w-full"
-                    type="password"
-                    name="password"
-                    onChange={onChange}
-                  />
+                  <input className="inputJenis w-full" type="text" name="name" onChange={onChange} />
+                  <input className="inputJenis w-full" type="email" name="email" onChange={onChange} />
+                  <input className="inputJenis w-full" type="password" name="password" onChange={onChange} />
                 </div>
               </div>
               <div className="modal-action flex">
-                <button className="btnp">Tambah</button>
-                <label
-                  onClick={() => setShow(!show)}
-                  htmlFor="my-modal-5"
-                  className="btnd flex items-center"
-                >
+                <button className="btnp">
+                  <i className="bx bx-add-to-queue pr-2" />
+                  Tambah
+                </button>
+                <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btnd flex items-center">
+                  <i className="bx bx-message-square-x pr-2" />
                   Batal
                 </label>
               </div>

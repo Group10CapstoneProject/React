@@ -92,7 +92,7 @@ const KategoriOffline = () => {
                       onClick={() => handleEdit(m)}
                       className="py-3 w-[90%] font-bold rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none text-white flex items-center justify-center bg-primary  "
                     >
-                      <i className="bx  bx-edit"></i>
+                      <i className="bx bx-edit pr-2"></i>
                       Edit
                     </button>
 
