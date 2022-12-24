@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# GYM MEMBEBRSHIP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Nama Aplikasi
 
-## Available Scripts
+AltaGym
 
-In the project directory, you can run:
+## Deskripsi
 
-### `npm start`
+Altagym merupakan perusahaan yang bergerak dibidang olahraga. Altagym memiliki platfotm yang menyediakan berbagai kelas olahraga berkualitas untuk dilakukan di rumah maupun di tempat gym dengan pendampingan pelatih proffesional dibidangnya.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## GOALS
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Tujuan dari project ini adalah untuk memfasilitasi masyarakat di tengah pandemi untuk tetap sehat dengan mengikuti kelas fitness online & offline dan memberikan fasilitas keanggotaan yang diadakan oleh Altagym.
 
-### `npm test`
+## Fitur
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Landing Page
+2. Manage memberships
+3. Manage offline classes
+4. Manage offline classes booking
+5. Manage online classes
+6. Manage online classes booking
 
-### `npm run build`
+## Fitur Nilai Plus
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Manage admins
+2. Manage newsletters
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Fitur Tambahan dari role Backend
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Trainers
 
-### `npm run eject`
+## Tools
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. REACT JS
+2. VISUAL STUDIO CODE
+3. GITHUB
+4. NODE JS
+5. TAILWIND CSS
+6. VERCEL
+7. POSTMAN
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## PACKAGES/LIBRARIES USED
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- arismun/format-rupiah
+- aos
+- axios
+- boxicons
+- daisyui
+- js-cookie
+- moment
+- react-helmet
+- react-hot-toast
+- react-moment
+- react-router-dom
+- react-scroll
+- react-select
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Domain Site
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+SABAR YAA.....
