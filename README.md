@@ -2,7 +2,7 @@
 
 ## Nama Aplikasi
 
-AltaGym
+`AltaGym`
 
 ## Deskripsi
 
