@@ -68,7 +68,7 @@ const KelasOffline = () => {
               Kelas <span className="text-black font-medium">/</span> <span className="text-prim1">Offline</span>
             </h4>
             <div className="flex justify-end pr-12">
-              <Link to="/tambahkelasoffline" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base" data-aos="fade-left" data-aos-duration="2000">
+              <Link to="/tambahkelasoffline" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base mr-2" data-aos="fade-left" data-aos-duration="2000">
                 <i className="bx bx-user-plus bx-sm pr-2"></i>Tambah Kelas
               </Link>
             </div>
@@ -97,7 +97,7 @@ const KelasOffline = () => {
                       <p className="text-md ">{m.level}</p>
                     </div>
                   </div>
-                  <div className="w-full flex mt-2 gap-x-2 items-center justify-between">
+                  <div className="w-full flex mt-2 gap-x-2 items-center justify-between" data-aos="zoom-out-up" data-aos-duration="2000">
                     <button
                       onClick={() => navigate(`/detailkelasoffline/${m.id}`)}
                       className="py-3 w-[90%] rounded-lg font-semibold active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none text-white btn-primary "

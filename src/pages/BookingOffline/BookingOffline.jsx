@@ -56,14 +56,14 @@ function BookingOffline() {
     <>
       <Toaster />
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} setShow={setModalDelete} handleDelete={handleDelete} data={modalDelete.data} />}
-      <h1 className="font-semibold text-2xl text-info">
+      <h1 className="font-semibold text-2xl text-info" data-aos="zoom-in-down" data-aos-duration="2000">
         Booking <span className="text-black font-medium">/</span> <span className="text-prim1">Offline</span>
       </h1>
-      <div className="flex  pt-4 input-group justify-start">
+      <div className="flex  pt-4 input-group justify-start" data-aos="zoom-in-down" data-aos-duration="2000">
         <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Cari Anggota ....." className="input input-bordered input-black  w-56 max-w-xs" />
       </div>
       <br />
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto" data-aos="zoom-in-down" data-aos-duration="2000">
         <table className="table table-compact text-black w-full text-center flex justify-center">
           <thead>
             <tr>
@@ -114,7 +114,7 @@ function BookingOffline() {
         {booking && booking.offline_class_bookings == null && <div className="flex justify-center w-full">Pencarian tidak ditemukan..</div>}
       </div>
       <br />
-      <div className="flex justify-between">
+      <div className="flex justify-between" data-aos="zoom-in-down" data-aos-duration="2000">
         <div className="flex gap-x-2 font-semibold">
           <label>Show : </label>
           <select defaultChecked="10" name="" id="" onChange={(e) => setPostPerPage(parseInt(e.target.value))}>

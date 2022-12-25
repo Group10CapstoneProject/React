@@ -28,7 +28,7 @@ function Navbar() {
               {dataAdmin ? <b>{dataAdmin.role}</b> : "muhammad Agil"}
               <p>alta@gmail.com</p>
             </button>
-            <ul tabIndex={0} className="dropdown-content menu p-2 w-full shadow bg-base-100  ">
+            <ul tabIndex={0} className="dropdown-content menu p-2 w-full shadow bg-base-100 rounded-xl">
               <li className="text-dang5 font-semibold">
                 <button onClick={handleLogout}>
                   <i className="bx bx-log-out bx-sm" style={{ color: "#ff5328" }} />

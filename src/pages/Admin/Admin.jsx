@@ -75,14 +75,14 @@ function Admin() {
 
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} handleDelete={handleDelete} data={modalDelete.data} setShow={setModalDelete} />}
 
-      <div className="relative">
+      <div className="relative" data-aos="zoom-out" data-aos-duration="2000">
         <Toaster />
         <h1 className="text-info font-semibold text-3xl">Admin</h1>
         <div className="flex  pt-4 input-group justify-start"></div>
         <div className="flex items-center justify-between pt-8">
           <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Cari Akun Admin ......" className="input input-bordered input-black  w-56 max-w-xs" />
           <div className="flex justify-end ">
-            <button onClick={() => setShow(true)} className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
+            <button onClick={() => setShow(true)} className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base mr-12">
               <i className="bx bx-user-plus bx-sm pr-2 text-center"></i> Tambah Admin
             </button>
           </div>

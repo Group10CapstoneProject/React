@@ -56,16 +56,21 @@ function Artikel() {
 
       <Toaster />
       <div>
-        <div className="flex items-center justify-between ">
+        <div className="flex items-center justify-between " data-aos="zoom-in-right" data-aos-duration="2000">
           <h4 className="font-semibold text-prim">Artikel</h4>
           <div className="flex justify-end ">
-            <label onClick={() => setModal({ showTambah: !modal.showTambah })} className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
+            <label
+              onClick={() => setModal({ showTambah: !modal.showTambah })}
+              className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base mr-12"
+              data-aos="zoom-in-left"
+              data-aos-duration="2000"
+            >
               <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Artikel
             </label>
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-x-4 gap-y-5 mt-5 ">
+        <div className="grid grid-cols-3 gap-x-4 gap-y-5 mt-5" data-aos="zoom-out" data-aos-duration="2000">
           {artikel?.map((m) => (
             <div key={m.id} className="h-56 py-2 flex flex-col justify-between relative shadow-lg ">
               <div className="flex h-full w-full justify-center ">
