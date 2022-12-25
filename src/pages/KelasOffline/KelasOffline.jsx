@@ -58,23 +58,23 @@ const KelasOffline = () => {
 
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} setShow={setModalDelete} handleDelete={handleDelete} data={modalDelete.data} />}
       <div>
-        <div className="form-control">
+        <div className="form-control" data-aos="fade-right" data-aos-duration="2000">
           <div className="flex   input-group">
             <input type="text" onChange={(e) => setText(e.target.value)} placeholder="Cari Kelas Offline..." className="input input-bordered input-black w-full max-w-xs" />
           </div>
           <br />
-          <div className="flex items-center   justify-between ">
-            <h4 className="font-semibold text-info">
+          <div className="flex items-center   justify-between">
+            <h4 className="font-semibold text-info" data-aos="fade-right" data-aos-duration="2000">
               Kelas <span className="text-black font-medium">/</span> <span className="text-prim1">Offline</span>
             </h4>
-            <div className="flex justify-end ">
-              <Link to="/tambahkelasoffline" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
+            <div className="flex justify-end pr-12">
+              <Link to="/tambahkelasoffline" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base" data-aos="fade-left" data-aos-duration="2000">
                 <i className="bx bx-user-plus bx-sm pr-2"></i>Tambah Kelas
               </Link>
             </div>
           </div>
 
-          <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3">
+          <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3" data-aos="zoom-out-up" data-aos-duration="2000">
             {kelas?.map((m) => (
               <div key={m.id} className="card w-[320px] border-prim h-[300px] bg-base-100 shadow-xl">
                 <figure className="  h-full">

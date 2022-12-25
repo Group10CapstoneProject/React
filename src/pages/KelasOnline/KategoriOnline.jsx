@@ -73,17 +73,17 @@ const KategoriOnline = () => {
         <div className="form-control">
           <br />
           <div className="flex items-center justify-between ">
-            <h4 className="font-semibold text-prim">
+            <h4 className="font-semibold text-prim" data-aos="fade-right" data-aos-duration="2000">
               Kategori Kelas <span className="text-black font-medium">/</span> <span className="text-prim1">Online</span>
             </h4>
-            <div className="flex justify-end ">
+            <div className="flex justify-end pr-8" data-aos="fade-left" data-aos-duration="2000">
               <label onClick={() => setShow(true)} htmlFor="my-modal-5" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
                 <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Kategori
               </label>
             </div>
           </div>
 
-          <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3">
+          <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3" data-aos="zoom-in-down" data-aos-duration="2000">
             {kategori?.map((m) => (
               <div key={m.id} className="  card w-[320px]  h-72 bg-base-100 shadow-xl ">
                 <figure className="  h-full">
