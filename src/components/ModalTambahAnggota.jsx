@@ -1,5 +1,7 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
+import Gym from "../apis/get.api";
 
 const ModalTambahAnggota = ({ show, setShow }) => {
   const [anggota, setAnggota] = useState({});
@@ -11,6 +13,18 @@ const ModalTambahAnggota = ({ show, setShow }) => {
     e.preventDefault();
     setShow(!show);
   };
+
+  const listJenis = () => {
+    try {
+      Gym.memberType().then((res) => console.log(res.data.data));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // useEffect(() => {
+  //   listJenis();
+  // }, []);
   return (
     <>
       <input type="checkbox" id="my-modal" className="modal-toggle" />
@@ -20,8 +34,11 @@ const ModalTambahAnggota = ({ show, setShow }) => {
           <div className="w-full p-3 bg-base2 flex">
             <span>❗</span>
             <div>
-              <h2 className="font-bold text-lg">Edit Data Member</h2>
-              <p className="text-sm font-semibold">kamu dapat mengedit data member dan menkonfirmasi pembayaran disini.</p>
+              <h2 className="font-bold text-lg">Tambah Anggota</h2>
+              <p className="text-sm font-semibold">
+                kamu dapat mengedit data member dan menkonfirmasi pembayaran
+                disini.
+              </p>
             </div>
           </div>
           <form action="">
@@ -48,19 +65,49 @@ const ModalTambahAnggota = ({ show, setShow }) => {
                   </label>
                 </div>
                 <div className="w-full">
-                  <input onChange={onChange} className="w-full input-sm border border-primary   block py-1 my-1 rounded-none input-primary" type="text" name="nama" />
-                  <input onChange={onChange} className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" type={"date"} name="date" />
-                  <input className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" type="text" />
-                  <input className="w-full input-sm border border-primary block py-1 my-1 rounded-none input-primary" type="text" />
-                  <input className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" type="text" />
-                  <input className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary" type="file" />
+                  <input
+                    onChange={onChange}
+                    className="w-full input-sm border border-primary   block py-1 my-1 rounded-none input-primary"
+                    type="text"
+                    name="nama"
+                  />
+                  <input
+                    onChange={onChange}
+                    className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
+                    type={"date"}
+                    name="date"
+                  />
+                  <input
+                    className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
+                    type="text"
+                  />
+                  <input
+                    className="w-full input-sm border border-primary block py-1 my-1 rounded-none input-primary"
+                    type="text"
+                  />
+                  <input
+                    className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
+                    type="text"
+                  />
+                  <input
+                    className="w-full input-sm border border-primary  block py-1 my-1 rounded-none input-primary"
+                    type="file"
+                  />
                 </div>
               </div>
               <div className="modal-action flex">
-                <label onClick={handleUpdate} htmlFor="my-modal-5" className="btn">
+                <label
+                  onClick={handleUpdate}
+                  htmlFor="my-modal-5"
+                  className="btn"
+                >
                   Update
                 </label>
-                <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btn">
+                <label
+                  onClick={() => setShow(!show)}
+                  htmlFor="my-modal-5"
+                  className="btn"
+                >
                   Batal
                 </label>
               </div>

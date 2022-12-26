@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import Gym from "../apis/get.api";
 import Get from "../apis/get.api";
 import PostApi from "../apis/post.api";
@@ -8,6 +9,7 @@ import useHook from "../hooks/useHook";
 export const Pembayaran = () => {
   const [method, setMethod] = useState([]);
   const { load, setLoad } = useHook();
+  const [message, setMessage] = useState("");
   const { show, setShow } = useHook();
   const metode = async () => {
     try {
@@ -19,22 +21,25 @@ export const Pembayaran = () => {
 
   const handleDelete = (e, id) => {
     e.preventDefault();
-    setLoad(true);
-    PostApi.deleteMethod(id).then((res) => setLoad(false));
+    PostApi.deleteMethod(id).then((res) => setMessage(res.data.message));
   };
   useEffect(() => {
     metode();
-  }, [load]);
-
+    if (message !== "") {
+      toast.success(message);
+      setMessage("");
+    }
+  }, [load, message]);
   if (load) {
     return <h1>loading...</h1>;
   }
   return (
     <div className="relative">
-      {show ? <ModalMethod setLoad={setLoad} show={show} setShow={setShow} /> : ""}
+      {show ? <ModalMethod setMessage={setMessage} setLoad={setLoad} show={show} setShow={setShow} /> : ""}
+      <Toaster />
       <div className="">
         <div className="w-full">
-          <h4 className="font-bold">Metode Pembayaran</h4>
+          <h4 className="font-bold text-prim">Metode Pembayaran</h4>
         </div>
 
         <div className="pt-2 flex justify-end ">

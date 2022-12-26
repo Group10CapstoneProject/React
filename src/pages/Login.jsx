@@ -33,7 +33,7 @@ function Login() {
   // console.log(error);
   return (
     <div className="h-screen flex   text-black">
-      <img className="absolute top-2 left-2 w-[100px] h-[70px]" src={logo} alt="" />
+      <img className="absolute top-4 left-2 w-[100px] h-[70px] ml-4" src={logo} alt="" />
       <div className="flex w-full h-full items-center  ">
         <div className="flex justify-center   bg-white h-full items-center  w-full">
           <div className="w-[55%]">

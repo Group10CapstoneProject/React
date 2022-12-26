@@ -1,9 +1,10 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import PostApi from "../../apis/post.api";
 
-function ModalEditKategoriOnline({ setLoad, show, setShow, data }) {
+function ModalEditKategoriOnline({ setMessage, setLoad, show, setShow, data }) {
   const [btn, setBtn] = useState(true);
   const [form, setForm] = useState({
     id: data.id,
@@ -33,23 +34,26 @@ function ModalEditKategoriOnline({ setLoad, show, setShow, data }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoad(true);
+
     try {
-      PostApi.updateKategoriOnline(form).then((res) => setLoad(false));
-      setShow(!show);
-    } catch (error) {
-      console.log(error);
+      PostApi.updateKategoriOnline(form).then((res) => {
+        setMessage(res.data.message);
+        setShow(false);
+      });
+    } catch (err) {
+      toast.err.message(err.message);
     }
   };
 
   useEffect(() => {
-    if (form.picture !== null && form.name !== "" && form.description !== "") {
+    if (form.picture !== null) {
       setBtn(false);
     }
   }, [form]);
 
   return (
     <>
+      <Toaster />
       <input defaultChecked={show} type="checkbox" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box   p-0 overflow-hidden w-1/2 max-w-5xl">

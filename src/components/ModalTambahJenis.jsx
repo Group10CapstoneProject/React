@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import PostApi from "../apis/post.api";
-const ModalTambahJenis = ({ setLoad, show, setShow }) => {
+const ModalTambahJenis = ({ setLoad, show, setShow, setMessage }) => {
   const [btn, setBtn] = useState(true);
   const [check, setCheck] = useState(false);
   const [member, setMember] = useState({
@@ -33,11 +34,16 @@ const ModalTambahJenis = ({ setLoad, show, setShow }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoad(true);
-    PostApi.tambahJenisMember(member).then((res) => setLoad(false));
-    setShow(!show);
+    PostApi.tambahJenisMember(member)
+      .then((res) => {
+        setMessage(res.data.message);
+        setShow(!show);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
-  console.log(member);
+
   useEffect(() => {
     if (member.picture != null) {
       setBtn(false);
@@ -45,6 +51,7 @@ const ModalTambahJenis = ({ setLoad, show, setShow }) => {
   }, [member]);
   return (
     <>
+      <Toaster />
       <input defaultChecked={show} type="checkbox" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box   p-0 overflow-hidden w-1/2 max-w-5xl">

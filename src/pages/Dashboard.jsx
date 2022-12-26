@@ -6,7 +6,7 @@ function Dashboard() {
   const dataAdmin = JSON.parse(Cookies.get("data"));
   console.log(dataAdmin);
   return (
-    <div className="">
+    <div>
       <h1 className="text-3xl mb-5 font-bold text-primary">Selamat Datang Kembali {dataAdmin && dataAdmin.role}</h1>
       <div className="grid grid-cols-4 mb-5">
         <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-warn">
@@ -36,7 +36,7 @@ function Dashboard() {
             <p className="text-[16px]">Total Membership</p>
           </div>
         </div>
-        <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-dang">
+        <div className="h-[136px] w-[240px] flex gap-x-2 justify-center rounded-lg items-center bg-dang6">
           <div className="flex justify-center items-center">
             <box-icon size="lg" name="user"></box-icon>
           </div>

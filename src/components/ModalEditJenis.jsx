@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import PostApi from "../apis/post.api";
 
-const ModalEditJenis = ({ data, show, setShow, setLoad }) => {
+const ModalEditJenis = ({ data, show, setShow, setLoad, setMessage }) => {
   const [check, setCheck] = useState(false);
-  // const [data, setData] = useState(null);
   const { id, name, price, description, picture, access_online_class, access_offline_class, access_trainer, access_gym } = data;
+
   const [member, setMember] = useState({
     id: id,
     name: name,
@@ -37,15 +38,19 @@ const ModalEditJenis = ({ data, show, setShow, setLoad }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoad(true);
-    try {
-      PostApi.updateJenis(member).then((res) => setLoad(false));
-    } catch (error) {}
-    setShow(!show);
+    PostApi.updateJenis(member)
+      .then((res) => {
+        setMessage(res.data.message);
+        setShow(!show);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
   };
 
   return (
     <>
+      <Toaster />
       <input defaultChecked={show} type="checkbox" className="modal-toggle" />
       <div className="modal">
         <div className="modal-box   p-0 overflow-hidden w-1/2 max-w-5xl">
