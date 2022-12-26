@@ -34,108 +34,102 @@ const SideBar = () => {
           <Link to="/" className="mb-2 flex justify-center">
             <img className="w-32" src={logo} alt="" />
           </Link>
-          <li className={`${path == "/" ? "bg-prim text-white rounded-lg" : ""} font-bold `}>
+          <li className={`${path == "/" ? "bg-prim1 text-white rounded-lg" : "bg-transparent text-prim"} font-bold text-lg hover:bg-prim1 hover:text-white rounded-lg`}>
             <Link to="/">
-              <box-icon color={`${path == "/" ? "white" : ""}`} type="solid" name="dashboard"></box-icon>
-              Dashboard
+              <i className="bx bx-sm bxs-dashboard"></i>Dashboard
             </Link>
           </li>
-          <li className={`${path == "/pembayaran" ? "bg-prim text-white rounded-lg" : ""} font-bold `}>
-            <Link to="pembayaran">
-              <box-icon color={`${path == "/pembayaran" ? "white" : ""}`} name="wallet"></box-icon>
-              Pembayaran
-            </Link>
-          </li>
-          <div className="dropdown dropdown-top- dropdown-end ">
-            <label onClick={() => setMember(!member)} className={`${member ? "bg-primary" : "bg-transparent"}  w-full  justify-between font-bold btn  hover:bg-primary text-black border-none `}>
-              <span className="flex  items-center gap-x-3">
-                <box-icon type="solid" name="book-content"></box-icon>
+          <div className="pt-1.5">
+            <li className={`${path == "/pembayaran" ? "bg-prim1 text-white rounded-lg" : "bg-transparent text-prim"} font-bold text-lg hover:bg-prim1 hover:text-white rounded-lg`}>
+              <Link to="pembayaran">
+                <i className="bx bx-sm bxs-wallet"></i>Pembayaran
+              </Link>
+            </li>
+          </div>
+          <div className="dropdown dropdown-top- dropdown-end pt-1.5">
+            <label onClick={() => setMember(!member)} className={`${member ? "bg-prim1 text-white" : "bg-transparent  text-prim"}  w-full  justify-between font-bold btn  hover:bg-prim1 hover:text-white  border-none `}>
+              <span className="flex items-center gap-x-3 normal-case text-lg">
+                <i className="bx bx-sm bx-book-content"></i>
                 Membership
               </span>
-              <box-icon type="solid" name={`${!member ? "chevron-down" : "chevron-up"}`}></box-icon>
+              <i className={`bx bx-sm ${!member ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
-            <ul className={`${member ? "" : "hidden "} font-semibold   w-52`}>
-              <li className="py-0 ">
-                <Link to="anggota">Kelola Anggota</Link>
+            <ul className={`${member ? "" : "hidden "}  w-52 `}>
+              <li className={`${path == "/anggota" ? "bg-transparent text-prim rounded-lg py-0" : ""} font-semibold pt-1`}>
+                <Link to="anggota">Kelola Member</Link>
               </li>
-              <li>
+              <li className={`${path == "/jenis" ? "bg-transparent text-prim rounded-lg py-0" : ""} font-semibold pt-1`}>
                 <Link to="jenis">Jenis Member</Link>
               </li>
             </ul>
           </div>
 
-          <li className="mt-1 font-bold text-lg">
-            <label className="">
-              <box-icon name="dumbbell"></box-icon> Kelas
+          <li className="mt-2 font-bold text-lg">
+            <label className="hover:bg-prim1 hover:text-white rounded-lg">
+              <i className="bx bx-sm bx-dumbbell"></i>
+              Kelas
             </label>
           </li>
-          <div className="dropdown dropdown-top- dropdown-end font-semibold  text-md">
-            <label onClick={() => setOnline(!online)} className={`${online ? "bg-primary" : "bg-transparent"}  w-full  justify-between  btn  font-semibold  hover:bg-primary text-black border-none `}>
+          <div className="dropdown dropdown-top- dropdown-end font-semibold  text-md pt-1">
+            <label onClick={() => setOnline(!online)} className={`${online ? "bg-prim1 text-white" : "bg-transparent text-prim"}  w-full  justify-between  btn  font-bold  hover:bg-prim1 hover:text-white border-none `}>
               <span className="flex  items-center gap-x-1">Online</span>
-              <box-icon type="solid" name={`${!online ? "chevron-down" : "chevron-up"}`}></box-icon>
+              <i className={`bx bx-sm ${!online ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
-            <ul className={`${online ? "" : "hidden "}  w-52`}>
-              <li className="py-0 ">
+            <ul className={`${online ? "" : "hidden "}  w-52 `}>
+              <li className="py-0 pt-1">
                 <Link to="kategorionline">Kategori Kelas</Link>
               </li>
-              <li className="py-0 ">
+              <li className="py-0 pt-1">
                 <Link to="kelasonline">Kelas Online</Link>
-              </li>
-              <li>
-                <Link to="offline">Daftar Anggota</Link>
               </li>
             </ul>
           </div>
-          <div className="dropdown dropdown-top- dropdown-end  font-semibold text-md">
-            <label onClick={() => setOfline(!offline)} className={`${offline ? "bg-primary" : "bg-transparent"}  w-full  justify-between  btn  font-semibold  hover:bg-primary text-[#222222] border-none `}>
+          <div className="dropdown dropdown-top- dropdown-end  font-semibold text-md pt-1.5">
+            <label onClick={() => setOfline(!offline)} className={`${offline ? "bg-prim1 text-white" : "bg-transparent text-prim"}  w-full  justify-between  btn  font-bold  hover:bg-prim1 hover:text-white  border-none `}>
               <span className="flex items-center gap-x-1">Offline</span>
-              <box-icon type="solid" name={`${!offline ? "chevron-down" : "chevron-up"}`}></box-icon>
+              <i className={`bx bx-sm ${!offline ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
             <ul className={`${offline ? "" : "hidden "} w-52`}>
-              <li className="py-0 ">
+              <li className="py-0 pt-1">
                 <Link to="kategorioffline">Kategori Kelas</Link>
               </li>
-              <li className="py-0 ">
-                <Link to="kelasoffline">Kelas offline</Link>
-              </li>
-              <li>
-                <Link to="offline">Daftar Anggota</Link>
+              <li className="py-0 pt-1">
+                <Link to="kelasoffline">Kelas Offline</Link>
               </li>
             </ul>
           </div>
 
-          <div className="dropdown dropdown-top- dropdown-end ">
-            <label onClick={() => setBook(!book)} className={`${book ? "bg-primary" : "bg-transparent"}  w-full  justify-between font-bold btn  hover:bg-primary text-black border-none `}>
-              <span className="flex items-center gap-x-3">
-                <box-icon type="solid" name="book-bookmark"></box-icon>
+          <div className="dropdown dropdown-top- dropdown-end pt-1.5">
+            <label onClick={() => setBook(!book)} className={`${book ? "bg-prim1 text-white" : "bg-transparent text-prim"}  w-full  justify-between  btn  font-semibold  hover:bg-prim1 hover:text-white border-none `}>
+              <span className="flex items-center font-bold gap-x-3 normal-case text-lg">
+                <i class="bx bx-sm bxs-book-bookmark"></i>
                 Booking
               </span>
-              <box-icon type="solid" name={`${!book ? "chevron-down" : "chevron-up"}`}></box-icon>
+              <i className={`bx bx-sm ${!book ? "bx-chevron-down" : "bx-chevron-up"} `}></i>
             </label>
             <ul className={`${book ? "" : "hidden "}  w-52`}>
-              <li className="font-normal hover:font-bold py-0 text-prim2 rounded-lg">
+              <li className="py-0 pt-1 font-semibold">
                 <Link to="bookingonline">Online</Link>
               </li>
-              <li className="font-normal hover:font-bold py-0 text-prim2 rounded-lg">
+              <li className="py-0 pt-1 font-semibold">
                 <Link to="bookingoffline">Offline</Link>
               </li>
             </ul>
           </div>
 
-          {data && data.role == "superadmin" ? (
-            <li className={`${path == "/offline" ? "bg-prim text-white rounded-lg" : ""} font-bold `}>
-              <span className="flex  items-center gap-x-3">
-                <box-icon color={`${path == "/offline" ? "white" : ""}`} name="user-circle"></box-icon>
-                <Link to="offline" className="font-bold">
-                  Admin
-                </Link>
-              </span>
-            </li>
-          ) : (
-            ""
-          )}
-
-          <div className="pt-[50px]">
+          <div className="pt-1.5">
+            {data && data.role == "superadmin" ? (
+              <li className={`${path == "/admin" ? "bg-prim1 text-white rounded-lg" : "bg-transparent text-prim"} font-bold text-lg hover:bg-prim1 hover:text-white rounded-lg`}>
+                <span className="flex  items-center gap-x-3">
+                  <i class="bx bx-user-circle bx-sm"></i>
+                  <Link to="admin">Admin</Link>
+                </span>
+              </li>
+            ) : (
+              ""
+            )}
+          </div>
+          {/* <div className="pt-[50px]">
             {data && data.role == "superadmin" ? (
               <li className={`${path == "/offline" ? "bg-base text-dang4 rounded-lg" : ""} font-bold `}>
                 <span className="flex  items-center gap-x-3">
@@ -148,7 +142,7 @@ const SideBar = () => {
             ) : (
               ""
             )}
-          </div>
+          </div> */}
         </ul>
       </div>
     </div>

@@ -8,7 +8,7 @@ import ModalHapus from "../../components/ModalHapus";
 import Paginations from "../../components/Paginations";
 import useHook from "../../hooks/useHook";
 
-function BookingOffline() {
+function BookingKelasOnline() {
   let navigate = useNavigate();
   const [booking, setBooking] = useState([]);
 
@@ -23,14 +23,11 @@ function BookingOffline() {
   const { load, setLoad } = useHook();
 
   const listBooking = () => {
-    Gym.bookingOffline({ currentPage, postPerPage, search }).then((res) => {
-      setBooking(res.data.data);
-    });
+    Gym.bookingOnline({ currentPage, postPerPage, search }).then((res) => setBooking(res.data.data));
   };
-
   const handleDelete = (e, id) => {
     e.preventDefault();
-    PostApi.deleteBookingOffline(id)
+    PostApi.deleteBookingOnline(id)
       .then((res) => {
         setMessage(res.data.message);
         setModalDelete(false);
@@ -47,8 +44,9 @@ function BookingOffline() {
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
   if (load) {
-    return <h1>loading...</h1>;
+    return <h1>load...</h1>;
   }
   return (
     <>
@@ -61,39 +59,42 @@ function BookingOffline() {
       <br />
       <div className="overflow-x-auto">
         <table className="table table-compact text-black w-full text-center">
-          <thead>
+          <thead className="bg-black">
             <tr>
-              <th>No</th>
+              <th>Nomor</th>
               <th>Nama</th>
               <th>Email</th>
               <th>Nama Kelas</th>
               <th>Aktif pada tanggal</th>
-              <th>Expired pada tanggal</th>
+              <th>Durasi</th>
               <th>Status</th>
               <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
             {booking &&
-              booking.offline_class_bookings !== null &&
-              booking.offline_class_bookings?.map((m, index) => (
+              booking.online_class_bookings !== null &&
+              booking.online_class_bookings?.map((m, index) => (
                 <tr className="font-semibold" key={m.id}>
                   <td className=" leading-none">{++index}</td>
                   <td className=" leading-none">{m.user_name}</td>
                   <td className="leading-none">{m.user_email}</td>
                   <td className="leading-none">{m.online_class_title}</td>
                   <td className="leading-none">
-                    {" "}
-                    <Moment format="D MMM YYYY hh:mm:ss">{m.actived_at}</Moment>{" "}
+                    {m.status == "ACTIVE" ? (
+                      <>
+                        {" "}
+                        <Moment format="D MMM YYYY hh:mm:ss">{m.actived_at}</Moment>
+                      </>
+                    ) : (
+                      "-"
+                    )}
                   </td>
-                  <td className="leading-none">
-                    {" "}
-                    <Moment format="D MMM YYYY hh:mm:ss">{m.expired_at}</Moment>{" "}
-                  </td>
+                  <td className="leading-none">{m.duration} Bulan</td>
                   <td className="leading-none text-inf2 font-semibold">{m.status}</td>
 
                   <td className="flex gap-x-1 justify-center">
-                    <button className="btnp" onClick={() => navigate(`/detailBookingOffline/${m.id}`)}>
+                    <button className="btnp" onClick={() => navigate(`/detailBookingOnline/${m.id}`)}>
                       Detail
                     </button>
                     <button
@@ -111,7 +112,7 @@ function BookingOffline() {
                 </tr>
               ))}
           </tbody>
-          {booking && booking.offline_class_bookings == null && (
+          {booking && booking.online_class_bookings == null && (
             <div className=" w-full text-center">
               <p>Pencarian Tidak Ditemukan</p>
             </div>
@@ -135,4 +136,4 @@ function BookingOffline() {
   );
 }
 
-export default BookingOffline;
+export default BookingKelasOnline;

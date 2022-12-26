@@ -14,12 +14,22 @@ const Gym = {
     }
   },
 
-  async members() {
+  async members(payload) {
+    const { currentPage, postPerPage, search } = payload;
     try {
-      const response = await axiosInstance.get(`/members`);
+      const response = await axiosInstance.get(`/members?page=${currentPage}&limit=${postPerPage}&q=${search}`);
       return response;
     } catch (error) {
       console.log("error");
+    }
+  },
+
+  async membersDetail(id) {
+    try {
+      const response = await axiosInstance.get(`/members/details/${id}`);
+      return response;
+    } catch (error) {
+      console.log(error);
     }
   },
 
@@ -93,23 +103,51 @@ const Gym = {
     }
   },
 
-  async bookingOnline() {
+  async bookingOnline(payload) {
+    const { currentPage, postPerPage, search } = payload;
     try {
-      const response = await axiosInstance.get(`/online-classes/bookings`);
+      const response = await axiosInstance.get(`/online-classes/bookings?page=${currentPage}&limit=${postPerPage}&q=${search}`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+  async bookingOffline(payload) {
+    const { currentPage, postPerPage, search } = payload;
+    try {
+      const response = await axiosInstance.get(`/offline-classes/bookings?page=${currentPage}&limit=${postPerPage}&q=${search}`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+  async detailBookingOffline(id) {
+    try {
+      const response = await axiosInstance.get(`/offline-classes/bookings/details/${id}`);
+      return response;
+    } catch (error) {
+      console.log("error");
+    }
+  },
+  async detailBookingOnline(id) {
+    try {
+      const response = await axiosInstance.get(`/online-classes/bookings/details/${id}`);
       return response;
     } catch (error) {
       console.log("error");
     }
   },
 
-  async bookingOffline() {
-    try {
-      const response = await axiosInstance.get(`/offline-classes/bookings`);
-      return response;
-    } catch (error) {
-      console.log("error");
-    }
-  },
+  // async detailBookingOnline(id) {
+  //   try {
+  //     const response = await axiosInstance.get(
+  //       `/online-classes/bookings/details/${id}`
+  //     );
+  //     return response;
+  //   } catch (error) {
+  //     console.log("error");
+  //   }
+  // },
 };
 
 export default Gym;

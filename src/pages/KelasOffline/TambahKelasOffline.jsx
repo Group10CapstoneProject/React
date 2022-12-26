@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import Moment from "react-moment";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 
 function TambahKelasOffline() {
   let navigate = useNavigate();
   const [kategori, setKategori] = useState([]);
+  const [message, setMessage] = useState("");
   const [btn, setBtn] = useState(true);
   const [data, setData] = useState({
     title: "",
@@ -51,8 +53,8 @@ function TambahKelasOffline() {
     e.preventDefault();
     try {
       PostApi.tambahkelasOffline(data).then((res) => navigate("/kelasoffline"));
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      toast.error(err.message);
     }
   };
 
@@ -75,6 +77,7 @@ function TambahKelasOffline() {
   }, [data]);
   return (
     <>
+      <Toaster />
       <h1 className="text-3xl mb-5 font-bold text-primary">
         Tambah Kelas Offline
       </h1>
@@ -217,10 +220,13 @@ function TambahKelasOffline() {
             </div>
           </div>
         </div>
-        <div className=" w-full flex justify-center mt-5 ">
-          <button disabled={btn} className={`${btn ? "btnw" : "btnp"} w-full`}>
+        <div className="w-full flex justify-end mt-5 gap-x-2 ">
+          <button disabled={btn} className={`${btn ? "btnw" : "btnp"} w-48`}>
             Simpan
           </button>
+          <Link to="/kelasoffline" className="btnd2 w-48 text-center">
+            Hapus
+          </Link>
         </div>
       </form>
     </>

@@ -18,44 +18,40 @@ const Trainer = () => {
         <p className="text-center text-lg">mencapai tujuan gaya Kamu.</p>
       </div>
 
-      <div className="pt-[90px]">
-        {/* <img src={rectangleImage} alt="" /> */}
-        <div className="grid gap-x-32 gap-y-4 grid-cols-4 py-8 mx-[15%] pr-[5%] pt-[60px]">
-          <div className="card w-60 bg-base shadow-xl cursor-pointer hover:scale-125 ease-in-out duration-300">
-            <figure className="px-10 pt-10">
-              <img src={profil1Image} alt="profil 1" className="rounded-xl" />
-            </figure>
-            <div className="card-body items-start text-start">
-              <h2 className="card-title text-info font-bold">Dika Pramudya</h2>
-              <p>Weight Mangement, Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss</p>
-            </div>
+      <div className="w-full min-h-screen gap-8 flex-wrap flex justify-center items-center pb-[100px]" data-aos="flip-up" data-aos-duration="3000">
+        <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
+          <img className="h-70 object-cover rounded-xl" src={profil1Image} alt="" />
+          <div className="p-2">
+            <h2 className="font-bold text-lg mb-2 text-prim">Dika Pramudya</h2>
+
+            <p className="text-sm text-gray-600 tracking-wider">Weight Mangement, Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss</p>
           </div>
-          <div className="card w-60 bg-base shadow-xl cursor-pointer hover:scale-125 ease-in-out duration-300">
-            <figure className="px-10 pt-10">
-              <img src={profil2Image} alt="profil 2" className="rounded-xl" />
-            </figure>
-            <div className="card-body items-start text-start">
-              <h2 className="card-title text-info font-bold">Ammy Novarianti</h2>
-              <p>Weight Mangement, Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Functional Training</p>
-            </div>
+        </div>
+
+        <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
+          <img className="h-70 object-cover rounded-xl" src={profil2Image} alt="" />
+          <div className="p-2">
+            <h2 className="font-bold text-lg mb-2 text-prim">Ammy Novarianti</h2>
+
+            <p className="text-sm text-gray-600 tracking-wider">Weight Mangement, Muscle Building, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Functional Training</p>
           </div>
-          <div className="card w-60 bg-base shadow-xl cursor-pointer hover:scale-125 ease-in-out duration-300">
-            <figure className="px-10 pt-10">
-              <img src={profil3Image} alt="profil 3" className="rounded-xl" />
-            </figure>
-            <div className="card-body items-start text-start">
-              <h2 className="card-title text-info font-bold">Mark William</h2>
-              <p>Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Boxing, Muay Thai</p>
-            </div>
+        </div>
+
+        <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
+          <img className="h-70  object-cover rounded-xl" src={profil3Image} alt="" />
+          <div className="p-2">
+            <h2 className="font-bold text-lg mb-2 text-prim">Mark William</h2>
+
+            <p className="text-sm text-gray-600 tracking-wider">Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Boxing, Muay Thai</p>
           </div>
-          <div className="card w-60 bg-base shadow-xl cursor-pointer hover:scale-125 ease-in-out duration-300">
-            <figure className="px-10 pt-10">
-              <img src={profil4Image} alt="profil 4" className="rounded-xl" />
-            </figure>
-            <div className="card-body items-start text-start">
-              <h2 className="card-title text-info font-bold">Redy Indra</h2>
-              <p>Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Martial Arts, Nutrion Program, MMA</p>
-            </div>
+        </div>
+
+        <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
+          <img className="h-70 object-cover rounded-xl" src={profil4Image} alt="" />
+          <div className="p-2">
+            <h2 className="font-bold text-lg mb-2 text-prim">Redy Indra</h2>
+
+            <p className="text-sm text-gray-600 tracking-wider">Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Martial Arts, Nutrion Program, MMA</p>
           </div>
         </div>
       </div>

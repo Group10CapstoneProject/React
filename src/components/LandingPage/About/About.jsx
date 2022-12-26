@@ -9,7 +9,7 @@ import weightsImage from "../../../assets/images/weights.png";
 const About = () => {
   return (
     <div className="bg-base h-[110vh]">
-      <div className="flex justify-center pt-[60px]">
+      <div className="flex justify-center pt-[50px]">
         <h1 className="text-center text-3xl font-bold text-prim2" id="product">
           Kenapa Harus AltaGym?
         </h1>
@@ -17,10 +17,11 @@ const About = () => {
       <div className="flex justify-center pt-4">
         <p className="text-center text-lg">AltaGym bisa bikin kamu sehat hanya dengan satu Aplikasi lho!</p>
       </div>
-      <div className="px-14 mx-[10%]">
+
+      <div className="px-14 mx-[10%] flex min-h-screen items-center justify-center" data-aos="fade-up" data-aos-duration="3000">
         <div style={{ flex: 1 }} className="grid gap-x-8 gap-y-4 grid-cols-3 justify-content-center items-center py-14  px-10 mx-8">
           <div className="flex ml-5">
-            <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-125 ease-in-out duration-300">
+            <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-110 ease-in-out duration-300">
               <div className="ml-4">
                 <div className="flex justify-start w-10">
                   <img src={touchscreenImage} alt="touchscreen" />
@@ -31,7 +32,7 @@ const About = () => {
             </div>
           </div>
           <div className="flex ml-5">
-            <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-125 ease-in-out duration-300">
+            <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-110 ease-in-out duration-300">
               <div className="ml-4">
                 <div className="flex justify-start w-10">
                   <img src={liveImage} alt="live" />
@@ -42,7 +43,7 @@ const About = () => {
             </div>
           </div>
           <div className="flex ml-5">
-            <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-125 ease-in-out duration-300">
+            <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-110 ease-in-out duration-300">
               <div className="ml-4">
                 <div className="flex justify-start w-10">
                   <img src={membercardImage} alt="member-card" />
@@ -53,7 +54,7 @@ const About = () => {
             </div>
           </div>
           <div className="flex ml-5 py-8">
-            <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-125 ease-in-out duration-300">
+            <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-110 ease-in-out duration-300">
               <div className="ml-4">
                 <div className="flex justify-start w-10">
                   <img src={dumbbellImage} alt="dumbbell" />
@@ -64,7 +65,7 @@ const About = () => {
             </div>
           </div>
           <div className="flex ml-5">
-            <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-125 ease-in-out duration-300">
+            <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-110 ease-in-out duration-300">
               <div className="ml-4">
                 <div className="flex justify-start w-10">
                   <img src={applicationImage} alt="application" />
@@ -75,7 +76,7 @@ const About = () => {
             </div>
           </div>
           <div className="flex ml-5">
-            <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-125 ease-in-out duration-300">
+            <div className="h-[230px] w-[290px] flex gap-x-2 justify-center rounded-lg items-center bg-base shadow-lg cursor-pointer hover:scale-110 ease-in-out duration-300">
               <div className="ml-4">
                 <div className="flex justify-start w-10">
                   <img src={weightsImage} alt="weights" />

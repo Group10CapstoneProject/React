@@ -26,7 +26,7 @@ function DetailKelasOnline() {
         <>
           <div className="w-full flex justify-between mb-5">
             <h1 className="text-4xl text-prim font-bold text-center">{detail.title}</h1>
-            <button onClick={() => navigate(`/editkelasonline`, { state: detail })} className="px-4 py-1 bg-prim rounded-lg text-white font-bold hover:bg-info transition-all duration-200 ease-linear">
+            <button onClick={() => navigate(`/editkelasonline`, { state: detail })} className="px-4 py-1 bg-prim1 rounded-lg text-white font-bold hover:bg-prim transition-all duration-200 ease-linear">
               <i className="bx bx-edit"></i> Edit
             </button>
           </div>
