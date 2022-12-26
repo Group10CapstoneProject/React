@@ -10,15 +10,19 @@ const Hero = () => {
         <div className="hero-overlay bg-opacity-0"></div>
         <div className="hero-content text-center text-neutral-content">
           <div className="">
-            <h1 className="mb-5 text-5xl font-bold text-white pr-[750px]">Hidup lebih sehat</h1>
-            <h1 className="mb-5 text-5xl font-bold text-white pr-[750px]">dengan ALTAGYM</h1>
-            <div className="text-start text-2xl pt-4 tracking-wider">
+            <h1 className="mb-5 text-5xl font-bold text-white pr-[750px]" data-aos="fade-up-right" data-aos-duration="2000">
+              Hidup lebih sehat
+            </h1>
+            <h1 className="mb-5 text-5xl font-bold text-white pr-[750px]" data-aos="fade-up-right" data-aos-duration="2000">
+              dengan ALTAGYM
+            </h1>
+            <div className="text-start text-2xl pt-4 tracking-wider" data-aos="fade-up-right" data-aos-duration="2000">
               <p className="pr-[750px] text-white">Aplikasi pemesanan kebugaran</p>
               <p className="pr-[750px] text-white">dan kesehatan dengan bimbingan</p>
               <p className="pr-[750px] text-white">para pelatih profesional</p>
               <p className="pr-[750px] text-white">dibidangnya.</p>
             </div>
-            <div className="pt-8">
+            <div className="pt-8" data-aos="fade-up-right" data-aos-duration="2000">
               <Link className="bg-black text-white h-14 w-44 rounded-lg flex justify-center items-center">
                 <img src={playstoreImage} className="h-8 mr-2" alt="playstore icon" />
                 <div>

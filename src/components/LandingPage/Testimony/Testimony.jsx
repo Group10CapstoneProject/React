@@ -15,7 +15,7 @@ const Testimony = () => {
         <p className="text-center text-lg tracking-wider">Yuk, lihat cerita dari para sobat AltaGym biar kamu semakin terinspirasi dalam menjalani gaya hidup sehat!</p>
       </div>
 
-      <section className="md:h-full flex items-center text-gray-600 pb-32">
+      <section className="md:h-full flex items-center text-gray-600 pb-32" data-aos="fade-up" data-aos-anchor-placement="top-bottom" data-aos-duration="2000">
         <div className="container px-32 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
             <div className="p-4 sm:w-1/2 lg:w-1/3">

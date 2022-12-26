@@ -18,48 +18,39 @@ const Trainer = () => {
         <p className="text-center text-lg">mencapai tujuan gaya Kamu.</p>
       </div>
 
-      <div className="w-full min-h-screen gap-8 flex-wrap flex justify-center items-center pb-[100px]">
-        {/* Card */}
+      <div className="w-full min-h-screen gap-8 flex-wrap flex justify-center items-center pb-[100px]" data-aos="flip-up" data-aos-duration="3000">
         <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
-          {/* Image */}
           <img className="h-70 object-cover rounded-xl" src={profil1Image} alt="" />
           <div className="p-2">
-            {/* Heading */}
             <h2 className="font-bold text-lg mb-2 text-prim">Dika Pramudya</h2>
-            {/* Description */}
+
             <p className="text-sm text-gray-600 tracking-wider">Weight Mangement, Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss</p>
           </div>
         </div>
-        {/* Card */}
+
         <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
-          {/* Image */}
           <img className="h-70 object-cover rounded-xl" src={profil2Image} alt="" />
           <div className="p-2">
-            {/* Heading */}
             <h2 className="font-bold text-lg mb-2 text-prim">Ammy Novarianti</h2>
-            {/* Description */}
+
             <p className="text-sm text-gray-600 tracking-wider">Weight Mangement, Muscle Building, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Functional Training</p>
           </div>
         </div>
-        {/* Card */}
+
         <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
-          {/* Image */}
           <img className="h-70  object-cover rounded-xl" src={profil3Image} alt="" />
           <div className="p-2">
-            {/* Heading */}
             <h2 className="font-bold text-lg mb-2 text-prim">Mark William</h2>
-            {/* Description */}
+
             <p className="text-sm text-gray-600 tracking-wider">Muscle Building, Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Boxing, Muay Thai</p>
           </div>
         </div>
-        {/* Card */}
+
         <div className="w-60 p-2 bg-white rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl">
-          {/* Image */}
           <img className="h-70 object-cover rounded-xl" src={profil4Image} alt="" />
           <div className="p-2">
-            {/* Heading */}
             <h2 className="font-bold text-lg mb-2 text-prim">Redy Indra</h2>
-            {/* Description */}
+
             <p className="text-sm text-gray-600 tracking-wider">Core, Mobility Agility, Postural Alignment, Strenght, Freestyle Movement, Fat Loss, Martial Arts, Nutrion Program, MMA</p>
           </div>
         </div>
