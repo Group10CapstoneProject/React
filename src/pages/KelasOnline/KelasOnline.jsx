@@ -8,6 +8,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FormatRupiah } from "@arismun/format-rupiah";
 import { toast, Toaster } from "react-hot-toast";
 import ModalHapus from "../../components/ModalHapus";
+import { useDebounce } from "../../hooks/Searching";
 
 const KelasOnline = () => {
   let navigate = useNavigate();
@@ -20,10 +21,12 @@ const KelasOnline = () => {
   const link = useLocation();
   const [message, setMessage] = useState("");
   const [kelas, setKelas] = useState([]);
+  const [_text, setText] = useState("");
+  const [text] = useDebounce(500, _text);
 
   const listKelas = () => {
     try {
-      Gym.onlinekelas().then((res) => setKelas(res.data.data));
+      Gym.onlinekelas(text).then((res) => setKelas(res.data.data));
     } catch (error) {
       console.log(error);
     }
@@ -31,14 +34,16 @@ const KelasOnline = () => {
 
   const handleDelete = (e, id) => {
     e.preventDefault();
-    try {
-      PostApi.deleteKelasOnline(id).then((res) => {
+
+    PostApi.deleteKelasOnline(id)
+      .then((res) => {
         setMessage(res.data.message);
         setModalDelete(false);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+        setModalDelete(false);
       });
-    } catch (error) {
-      setMessage(error.message);
-    }
   };
 
   useEffect(() => {
@@ -47,7 +52,7 @@ const KelasOnline = () => {
       toast.success(message);
       setMessage("");
     }
-  }, [load, message]);
+  }, [load, text, message]);
 
   if (load) {
     return <h1>loading...</h1>;
@@ -59,20 +64,22 @@ const KelasOnline = () => {
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} handleDelete={handleDelete} data={modalDelete.data} setShow={setModalDelete} />}
       <div>
         <div className="form-control">
-          <div className="flex input-group">
-            <input type="text" placeholder="Cari Kelas..." className="input input-bordered input-black w-full max-w-xs" />
+          <div className="flex input-group" data-aos="fade-right" data-aos-duration="2000">
+            <input type="text" onChange={(e) => setText(e.target.value)} placeholder="Cari Kelas Online..." className="input input-bordered input-black w-full max-w-xs" />
           </div>
           <br />
-          <div className="flex items-center   justify-between ">
-            <h4 className="font-bold text-prim">Kelas Online</h4>
-            <div className="flex justify-end ">
+          <div className="flex items-center justify-between ">
+            <h4 className="font-semibold text-info" data-aos="fade-right" data-aos-duration="2000">
+              Kelas <span className="text-black font-medium">/</span> <span className="text-prim1">Online</span>
+            </h4>
+            <div className="flex justify-end" data-aos="fade-left" data-aos-duration="2000">
               <Link to="/tambahkelasonline" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
                 <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Kelas
               </Link>
             </div>
           </div>
 
-          <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3">
+          <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3" data-aos="zoom-out" data-aos-duration="2000">
             {kelas?.map((m) => (
               <div key={m.id} className="card w-[340px] border-prim h-[300px] bg-base-100 shadow-xl">
                 <figure className="  h-full">
@@ -100,6 +107,7 @@ const KelasOnline = () => {
                       onClick={() => navigate(`/detailkelasonline/${m.id}`)}
                       className="py-3 w-[90%] rounded-lg font-semibold active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none text-white btn-primary "
                     >
+                      <i className="bx bxs-user-detail pr-2" />
                       Detail
                     </button>
                     <button

@@ -1,5 +1,6 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
 import React, { useEffect, useState } from "react";
+import Moment from "react-moment";
 import { useNavigate, useParams } from "react-router-dom";
 import Gym from "../../apis/get.api";
 
@@ -27,45 +28,39 @@ function DetailKelasOffline() {
           <div className="w-full flex justify-between mb-5">
             <h1 className="text-4xl text-prim font-bold text-center">{detail.title}</h1>
             <button onClick={() => navigate(`/editkelasoffline`, { state: detail })} className="px-4 py-1 bg-prim rounded-lg text-white font-bold hover:bg-info transition-all duration-200 ease-linear">
-              <i className="bx bx-edit"></i> Edit
+              <i className="bx bx-edit pr-1"></i> Edit
             </button>
           </div>
           <div className="flex gap-x-2 w-full ">
-            <div className="w-1/2 flex justify-center">
+            <div className="w-[35%] flex">
               <div>
                 <div className="h-72 mt-2 w-full  ">
                   <img className="h-full w-full" src={detail.picture} alt="" />
                 </div>
               </div>
             </div>
-            <div className="w-1/2 flex justify-start">
+            <div className="w-[60%] flex justify-start">
               <div className="text-justify">
-                <p className="text-lg">{detail.description}</p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+                <p className="text-md font-sans">{detail.description}</p>
+                <p className="flex gap-x-1 items-center font-bold pt-4">
                   {" "}
-                  <i className="bx bx-md bx-money"></i>
+                  <span>Harga :</span>
                   <FormatRupiah value={detail.price} />
                 </p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+
+                <p className="flex gap-x-1 items-center font-bold">
                   {" "}
-                  <i className="bx bx-md bxs-hot"></i>
+                  <span>Lokasi :</span>
                   {detail.location}
                 </p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
+                <p className="flex gap-x-1 items-center font-bold">
                   {" "}
-                  <i className="bx  flex bx-timer bx-md"></i>
-                  {detail.time} Menit
+                  <span>Pelatih :</span>
+                  {detail.trainer?.name}
                 </p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
-                  {" "}
-                  <i className="bx  flex bx-dumbbell bx-md"></i>
-                  {detail.slot}
-                </p>
-                <p className="flex gap-x-1 items-center text-prim font-semibold">
-                  {" "}
-                  <i className="bx  flex bx-star bx-md"></i>
-                  {detail.time}
-                </p>
+                <p className="flex gap-x-1 items-center font-bold"> Slot :{detail.slot}</p>
+                <p className="flex gap-x-1 items-center font-bold"> Durasi :{detail.duration}</p>
+                <p className="flex gap-x-1 items-center font-bold"> Kategori :{detail.offline_class_category?.name}</p>
               </div>
             </div>
           </div>

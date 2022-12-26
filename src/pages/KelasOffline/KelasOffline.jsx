@@ -1,15 +1,19 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
 import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 import ModalHapus from "../../components/ModalHapus";
+import { useDebounce } from "../../hooks/Searching";
 
 const KelasOffline = () => {
   let navigate = useNavigate();
-  const [show, setShow] = useState(false);
+  let link = useLocation();
+  console.log(link);
   const [load, setLoad] = useState(false);
+  const [_text, setText] = useState("");
+  const [text] = useDebounce(500, _text);
   const [message, setMessage] = useState("");
   const [kelas, setKelas] = useState([]);
   const [modalDelete, setModalDelete] = useState({
@@ -18,21 +22,23 @@ const KelasOffline = () => {
   });
   const listKelas = () => {
     try {
-      Gym.offlineKelas().then((res) => setKelas(res.data.data.offline_classes));
+      Gym.offlineKelas(text).then((res) => setKelas(res.data.data.offline_classes));
     } catch (error) {
       console.log(error);
     }
   };
   const handleDelete = (e, id) => {
     e.preventDefault();
-    try {
-      PostApi.deleteKelasOffline(id).then((res) => {
+
+    PostApi.deleteKelasOffline(id)
+      .then((res) => {
         setMessage(res.data.message);
         setModalDelete(false);
+      })
+      .catch((err) => {
+        toast.error(err.message);
+        setModalDelete(false);
       });
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   useEffect(() => {
@@ -41,7 +47,7 @@ const KelasOffline = () => {
       toast.success(message);
       setMessage("");
     }
-  }, [load, message]);
+  }, [load, text, message]);
 
   if (load) {
     return <h1>loading...</h1>;
@@ -52,21 +58,23 @@ const KelasOffline = () => {
 
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} setShow={setModalDelete} handleDelete={handleDelete} data={modalDelete.data} />}
       <div>
-        <div className="form-control">
+        <div className="form-control" data-aos="fade-right" data-aos-duration="2000">
           <div className="flex   input-group">
-            <input type="text" placeholder="Cari Kelas..." className="input input-bordered input-black w-full max-w-xs" />
+            <input type="text" onChange={(e) => setText(e.target.value)} placeholder="Cari Kelas Offline..." className="input input-bordered input-black w-full max-w-xs" />
           </div>
           <br />
-          <div className="flex items-center   justify-between ">
-            <h4 className="font-bold text-prim">Kelas Offline</h4>
-            <div className="flex justify-end ">
-              <Link to="/tambahkelasoffline" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
+          <div className="flex items-center   justify-between">
+            <h4 className="font-semibold text-info" data-aos="fade-right" data-aos-duration="2000">
+              Kelas <span className="text-black font-medium">/</span> <span className="text-prim1">Offline</span>
+            </h4>
+            <div className="flex justify-end pr-12">
+              <Link to="/tambahkelasoffline" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base mr-2" data-aos="fade-left" data-aos-duration="2000">
                 <i className="bx bx-user-plus bx-sm pr-2"></i>Tambah Kelas
               </Link>
             </div>
           </div>
 
-          <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3">
+          <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3" data-aos="zoom-out-up" data-aos-duration="2000">
             {kelas?.map((m) => (
               <div key={m.id} className="card w-[320px] border-prim h-[300px] bg-base-100 shadow-xl">
                 <figure className="  h-full">
@@ -89,11 +97,12 @@ const KelasOffline = () => {
                       <p className="text-md ">{m.level}</p>
                     </div>
                   </div>
-                  <div className="w-full flex mt-2 gap-x-2 items-center justify-between">
+                  <div className="w-full flex mt-2 gap-x-2 items-center justify-between" data-aos="zoom-out-up" data-aos-duration="2000">
                     <button
                       onClick={() => navigate(`/detailkelasoffline/${m.id}`)}
                       className="py-3 w-[90%] rounded-lg font-semibold active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none text-white btn-primary "
                     >
+                      <i className="bx bxs-user-detail pr-2" />
                       Detail
                     </button>
                     <button

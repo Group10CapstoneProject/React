@@ -1,17 +1,15 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import Moment from "react-moment";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Gym from "../apis/get.api";
 import PostApi from "../apis/post.api";
-import addMember from "../assets/svg/addMember.svg";
-import ModalAnggota from "../components/ModalAnggota";
 import ModalHapus from "../components/ModalHapus";
 import ModalTambahAnggota from "../components/ModalTambahAnggota";
 import Paginations from "../components/Paginations";
+import { useDebounce } from "../hooks/Searching";
 import useHook from "../hooks/useHook";
-import Auth from "../utils/Auth";
+
 const KelolaAnggota = () => {
   let navigate = useNavigate();
   const [show, setShow] = useState(false);
@@ -21,17 +19,19 @@ const KelolaAnggota = () => {
     isShow: false,
     data: {},
   });
-  const [name, setName] = useState("");
   const [message, setMessage] = useState("");
-  const [search, setSearch] = useState("");
+  const [_text, setText] = useState("");
+  const [text] = useDebounce(500, _text);
   const [postPerPage, setPostPerPage] = useState(10);
-  const { load, setLoad } = useHook();
+  const [load, setLoad] = useState(false);
   const listMember = async () => {
-    try {
-      Gym.members({ currentPage, postPerPage, search }).then((res) => setMember(res.data.data));
-    } catch (error) {
-      console.log(error);
-    }
+    Gym.members({ currentPage, postPerPage, text })
+      .then((res) => {
+        setMember(res.data.data);
+      })
+      .catch((err) => toast.error(err.message));
+
+    setLoad(false);
   };
 
   const handleDelete = (e, id) => {
@@ -47,50 +47,36 @@ const KelolaAnggota = () => {
       toast.success(message);
       setMessage("");
     }
-  }, [load, currentPage, search, postPerPage, message]);
-  const indexOfLastPost = currentPage * postPerPage;
-  const indexOfFirstPost = indexOfLastPost - postPerPage;
+  }, [load, currentPage, text, postPerPage, message]);
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  const handleSearch = (e) => {
-    e.preventDefault(setSearch(name));
-  };
-  console.log(member);
+
   if (load) {
     return <h1>load...</h1>;
   }
   return (
-    <div className="relative">
-      {show ? <ModalTambahAnggota setLoad={setLoad} show={show} setShow={setShow} /> : ""}
+    <div className="relative" data-aos="zoom-in-up" data-aos-duration="2000">
+      {show ? <ModalTambahAnggota setMessage={setMessage} setLoad={setLoad} show={show} setShow={setShow} /> : ""}
 
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} handleDelete={handleDelete} data={modalDelete.data} setShow={setModalDelete} />}
       <Toaster />
       <div className="">
         <div className="w-full">
-          <h4 className="font-bold text-prim">Kelola Member</h4>
+          <h4 className="font-semibold text-prim">Kelola Member</h4>
         </div>
 
-        <div className="pt-2 flex justify-between ">
-          {/* <form action="" onSubmit={handleSearch}>
-            <input
-              onChange={(e) => setName(e.target.value)}
-              type="text"
-              placeholder="Cari Anggota ....."
-              className="input input-bordered input-black w-full max-w-xs"
-            />
-          </form> */}
-          <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Cari Anggota ....." className="input input-bordered input-black w-56 max-w-xs" />
-
-          <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
+        <div className="pt-2 flex justify-between pr-10">
+          <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Cari Member ....." className="input input-bordered input-black w-56 max-w-xs" />
+          <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
             <i className="bx bx-user-plus bx-sm pr-2"></i>Tambah member
           </label>
         </div>
 
         <div className="bg-white my-2 p-2">
           <div className="">
-            <table className="table table-compact w-full text-center text-sm ">
+            <table className="table table-compact w-full text-sm text-center">
               <thead>
                 <tr>
                   <th>No</th>
@@ -98,7 +84,6 @@ const KelolaAnggota = () => {
                   <th>Jenis Membership</th>
                   <th>Status Membership</th>
                   <th>Durasi</th>
-                  <th>Aktif pada tanggal</th>
                   <th>Aksi</th>
                 </tr>
               </thead>
@@ -110,18 +95,17 @@ const KelolaAnggota = () => {
                       <th>{++index}</th>
                       <td>{m.user_name}</td>
                       <td>{m.member_type_name}</td>
-                      <td className={`${m.status === "ACTIVE" ? "text-suc" : m.status === "INACTIVE" ? "text-dang2" : "text-inf2"}`}>
-                        <span> </span>
-                        <span>{m.status}</span>
+
+                      <td className={`${m.status === "ACTIVE" ? "text-suc" : m.status === "INACTIVE" ? "text-dang2  " : "text-inf2"}`}>
+                        <div className={` lowercase flex items-center justify-center`}>
+                          <span className={`${m.status === "ACTIVE" ? "bg-suc/10 px-2" : m.status === "INACTIVE" ? "bg-dang2/10 px-2  " : "bg-inf2/10 px-2"} lowercase`}>{m.status}</span>
+                        </div>
                       </td>
                       <td>{m.duration} Bulan</td>
-                      <td>
-                        {" "}
-                        <Moment format="D MMM YYYY hh:mm:ss">{m.actived_at}</Moment>
-                      </td>
 
                       <td className="flex gap-x-2 items-start justify-center">
                         <label onClick={() => navigate(`/detail/${m.id}`)} htmlFor="my-modal-5" className="btnp flex items-center">
+                          <i className="bx bxs-user-detail pr-2" />
                           Detail
                         </label>
                         <button
@@ -133,7 +117,7 @@ const KelolaAnggota = () => {
                           }
                           className="btnd"
                         >
-                          Hapus
+                          <i class="bx bx-trash-alt pr-2"></i>Hapus
                         </button>
                       </td>
                     </tr>
@@ -152,7 +136,7 @@ const KelolaAnggota = () => {
                   <option value="10">10</option>
                   <option value="20">20</option>
                   <option value="30">30</option>
-                  <option value="40">30</option>
+                  <option value="40">40</option>
                 </select>
               </div>
               <Paginations postPerPage={postPerPage} totalPosts={member?.count} paginate={paginate} currentPage={currentPage} />

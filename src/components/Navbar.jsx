@@ -7,7 +7,6 @@ import EllipseImage from "../assets/images/Ellipse.png";
 function Navbar() {
   let navigate = useNavigate();
   let path = useLocation();
-  console.log(path);
   const handleLogout = (e) => {
     e.preventDefault();
     Auth.signOut(navigate);
@@ -17,9 +16,6 @@ function Navbar() {
     <nav className="w-full sticky h-[70px] z-50  bg-base/60 border px-4 py-2  flex items-center justify-end">
       <div>
         <ul className="flex">
-          <div className="indicator pr-6 pt-2">
-            <i className="bx bxs-bell bx-sm" style={{ color: "#3d3d3d" }} />
-          </div>
           <div className="avatar placeholders">
             <div className="bg-neutral-focus text-neutral-content rounded-full w-[50px]">
               <a href="/landingpage">
@@ -32,9 +28,12 @@ function Navbar() {
               {dataAdmin ? <b>{dataAdmin.role}</b> : "muhammad Agil"}
               <p>alta@gmail.com</p>
             </button>
-            <ul tabIndex={0} className="dropdown-content menu p-2 w-full shadow bg-base-100  ">
-              <li>
-                <button onClick={handleLogout}>logout</button>
+            <ul tabIndex={0} className="dropdown-content menu p-2 w-full shadow bg-base-100 rounded-xl">
+              <li className="text-dang5 font-semibold">
+                <button onClick={handleLogout}>
+                  <i className="bx bx-log-out bx-sm" style={{ color: "#ff5328" }} />
+                  Keluar
+                </button>
               </li>
             </ul>
           </div>

@@ -6,6 +6,7 @@ import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 import ModalHapus from "../../components/ModalHapus";
 import Paginations from "../../components/Paginations";
+import { useDebounce } from "../../hooks/Searching";
 import useHook from "../../hooks/useHook";
 
 function BookingOffline() {
@@ -18,12 +19,15 @@ function BookingOffline() {
     data: {},
   });
   const [currentPage, setCurrentPage] = useState(1);
-  const [search, setSearch] = useState("");
+  const [_text, setText] = useState("");
+  const [text] = useDebounce(500, _text);
   const [postPerPage, setPostPerPage] = useState(10);
-  const { load, setLoad } = useHook();
+  const [load, setLoad] = useState(false);
 
   const listBooking = () => {
-    Gym.bookingOffline({ currentPage, postPerPage, search }).then((res) => {
+    setLoad(true);
+    Gym.bookingOffline({ currentPage, postPerPage, text }).then((res) => {
+      setLoad(false);
       setBooking(res.data.data);
     });
   };
@@ -43,57 +47,52 @@ function BookingOffline() {
       toast.success(message);
       setMessage("");
     }
-  }, [postPerPage, search, currentPage, message]);
+  }, [postPerPage, text, currentPage, message]);
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-  if (load) {
-    return <h1>loading...</h1>;
-  }
+  console.log(load);
   return (
     <>
       <Toaster />
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} setShow={setModalDelete} handleDelete={handleDelete} data={modalDelete.data} />}
-      <h1 className="font-bold text-2xl text-info">DAFTAR BOOKING CLASS</h1>
-      <div className="flex  pt-4 input-group justify-start">
-        <input onChange={(e) => setSearch(e.target.value)} type="text" placeholder="Cari Anggota ....." className="input input-bordered input-black  w-56 max-w-xs" />
+      <h1 className="font-semibold text-2xl text-info" data-aos="zoom-in-down" data-aos-duration="2000">
+        Booking <span className="text-black font-medium">/</span> <span className="text-prim1">Offline</span>
+      </h1>
+      <div className="flex  pt-4 input-group justify-start" data-aos="zoom-in-down" data-aos-duration="2000">
+        <input onChange={(e) => setText(e.target.value)} type="text" placeholder="Cari Anggota ....." className="input input-bordered input-black  w-56 max-w-xs" />
       </div>
       <br />
-      <div className="overflow-x-auto">
-        <table className="table table-compact text-black w-full text-center">
+      <div className="overflow-x-auto" data-aos="zoom-in-down" data-aos-duration="2000">
+        <table className="table table-compact text-black w-full text-center flex justify-center">
           <thead>
             <tr>
               <th>No</th>
               <th>Nama</th>
               <th>Email</th>
               <th>Nama Kelas</th>
-              <th>Aktif pada tanggal</th>
-              <th>Expired pada tanggal</th>
               <th>Status</th>
               <th>Aksi</th>
             </tr>
           </thead>
-          <tbody>
+
+          <tbody className="font-semibold capitalize">
             {booking &&
               booking.offline_class_bookings !== null &&
               booking.offline_class_bookings?.map((m, index) => (
-                <tr className="font-semibold" key={m.id}>
-                  <td className=" leading-none">{++index}</td>
-                  <td className=" leading-none">{m.user_name}</td>
-                  <td className="leading-none">{m.user_email}</td>
-                  <td className="leading-none">{m.online_class_title}</td>
-                  <td className="leading-none">
-                    {" "}
-                    <Moment format="D MMM YYYY hh:mm:ss">{m.actived_at}</Moment>{" "}
+                <tr key={m.id} className="font-semibold leading-none">
+                  <td>{++index}</td>
+                  <td>{m.user_name}</td>
+                  <td>{m.user_email}</td>
+                  <td>{m.offline_class_title}</td>
+                  <td className={`${m.status === "ACTIVE" ? "text-suc" : m.status === "INACTIVE" ? "text-dang2  " : "text-inf2 "}`}>
+                    <div className={` lowercase`}>
+                      <span className={`${m.status === "ACTIVE" ? "bg-suc/10 px-2" : m.status === "INACTIVE" ? "bg-dang2/10 px-2  " : "bg-inf2/10 px-2"} `}>{m.status}</span>
+                    </div>
                   </td>
-                  <td className="leading-none">
-                    {" "}
-                    <Moment format="D MMM YYYY hh:mm:ss">{m.expired_at}</Moment>{" "}
-                  </td>
-                  <td className="leading-none text-inf2 font-semibold">{m.status}</td>
-
                   <td className="flex gap-x-1 justify-center">
                     <button className="btnp" onClick={() => navigate(`/detailBookingOffline/${m.id}`)}>
+                      <i className="bx bxs-user-detail pr-2" />
                       Detail
                     </button>
                     <button
@@ -111,22 +110,18 @@ function BookingOffline() {
                 </tr>
               ))}
           </tbody>
-          {booking && booking.offline_class_bookings == null && (
-            <div className=" w-full text-center">
-              <p>Pencarian Tidak Ditemukan</p>
-            </div>
-          )}
         </table>
+        {booking && booking.offline_class_bookings == null && <div className="flex justify-center w-full">Pencarian tidak ditemukan..</div>}
       </div>
       <br />
-      <div className="flex justify-between">
+      <div className="flex justify-between" data-aos="zoom-in-down" data-aos-duration="2000">
         <div className="flex gap-x-2 font-semibold">
           <label>Show : </label>
           <select defaultChecked="10" name="" id="" onChange={(e) => setPostPerPage(parseInt(e.target.value))}>
             <option value="10">10</option>
             <option value="20">20</option>
             <option value="30">30</option>
-            <option value="40">30</option>
+            <option value="40">40</option>
           </select>
         </div>
         <Paginations postPerPage={postPerPage} totalPosts={booking?.count} paginate={paginate} currentPage={currentPage} />

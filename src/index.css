@@ -29,3 +29,6 @@
 .inputJenis {
   @apply border border-primary block my-1 rounded-none input-primary;
 }
+.inputTrainer {
+  @apply border border-primary block h-6 rounded-none input-primary;
+}

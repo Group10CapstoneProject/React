@@ -27,11 +27,15 @@ const JenisMembership = () => {
   });
 
   const listMember = async () => {
+    setLoad(true);
     try {
-      Gym.memberType().then((res) => setMember(res.data.data));
+      Gym.memberType().then((res) => {
+        setMember(res.data.data);
+      });
     } catch (error) {
       console.log(error);
     }
+    setLoad(false);
   };
   const handleDelete = (e, id) => {
     e.preventDefault();
@@ -67,7 +71,7 @@ const JenisMembership = () => {
   return (
     <>
       <Toaster />
-      <div className="relative">
+      <div className="relative" data-aos="zoom-in-up" data-aos-duration="2000">
         {show ? <ModalJenisMember show={show} setShow={setShow} /> : ""}
 
         {modalEdit.isShow ? <ModalEditJenis setLoad={setLoad} setShow={setModalEdit} show={modalEdit.isShow} data={modalEdit.data} setMessage={setMessage} /> : ""}
@@ -77,13 +81,11 @@ const JenisMembership = () => {
         {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} setShow={setModalDelete} data={modalDelete.data} handleDelete={handleDelete} />}
         <div className="">
           <div className="w-full">
-            <h4 className="font-bold text-prim">Jenis Membership</h4>
+            <h4 className="font-semibold text-prim">Jenis Membership</h4>
           </div>
 
-          <div className="pt-2 flex justify-between ">
-            <input type="text" placeholder="Cari Membership ....." className="input input-bordered input-black w-56 max-w-xs" />
-
-            <label htmlFor="my-modal-5" onClick={() => setModalTambah(!modalTambah)} className="btn text-primary border-primary bg-base hover:bg-primary hover:text-white transition duration-200 ease-in hover:border-base">
+          <div className="pt-2 flex justify-end ">
+            <label htmlFor="my-modal-5" onClick={() => setModalTambah(!modalTambah)} className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
               <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Jenis
             </label>
           </div>
@@ -124,6 +126,7 @@ const JenisMembership = () => {
                       </div>
                       <div className="flex flex-col w-full  gap-y-2 pb-3 justify-end ">
                         <label onClick={() => handleEdit(m)} className="btnp w-full text-center  ">
+                          <i className="bx bx-edit pr-2 " />
                           Edit
                         </label>
                         <label
@@ -135,6 +138,7 @@ const JenisMembership = () => {
                           }
                           className="btnd w-full text-center  "
                         >
+                          <i className="bx bx-trash pr-2" />
                           Hapus
                         </label>
                         <div className="absolute bottom-0"></div>

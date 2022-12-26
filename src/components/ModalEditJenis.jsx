@@ -5,7 +5,6 @@ import PostApi from "../apis/post.api";
 const ModalEditJenis = ({ data, show, setShow, setLoad, setMessage }) => {
   const [check, setCheck] = useState(false);
   const { id, name, price, description, picture, access_online_class, access_offline_class, access_trainer, access_gym } = data;
-
   const [member, setMember] = useState({
     id: id,
     name: name,
@@ -65,7 +64,12 @@ const ModalEditJenis = ({ data, show, setShow, setLoad, setMessage }) => {
             <div className="p-3 ">
               <div className="flex w-full px-2 gap-x-2 ">
                 <div className="w-[20%]  flex justify-center">
-                  <input className="bg-white  border w-24 h-24 file-input-bordered rounded-full file-input-ghost file" type="file" onChange={handleImage} name="member_type" />
+                  <div className={`${member.picture !== null ? "" : "bg-[#D3D3D3]"} w-28  gap-x-1 flex items-center justify-center rounded-full relative cursor-pointer  h-28  border`}>
+                    <input onChange={handleImage} className="absolute block w-full h-full z-50  cursor-pointer opacity-0  border pin-r pin-t" type="file" name="member_type" />
+                    {member.picture !== null && <img className="absolute w-28 h-28 cursor-pointer rounded-full" src={member.picture} alt="" />}
+                    <i className="bx bxs-camera-plus"></i>
+                    <span className="">Pilih Foto</span>
+                  </div>
                 </div>
                 <div className=" w-[25%] text-sm flex flex-col  ">
                   <label className="block my-1" htmlFor="">
@@ -108,8 +112,12 @@ const ModalEditJenis = ({ data, show, setShow, setLoad, setMessage }) => {
                 </div>
               </div>
               <div className="modal-action flex">
-                <button className="btnp">Simpan</button>
+                <button className="btnp">
+                  <i className="bx bx-save pr-2" />
+                  Simpan
+                </button>
                 <label onClick={() => setShow(!show)} htmlFor="my-modal-5" className="btnd">
+                  <i className="bx bx-message-square-x  pr-2" />
                   Batal
                 </label>
               </div>

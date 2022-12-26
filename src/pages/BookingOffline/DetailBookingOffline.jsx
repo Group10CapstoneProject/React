@@ -1,17 +1,10 @@
 import { FormatRupiah } from "@arismun/format-rupiah";
-import { data } from "autoprefixer";
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast, Toaster } from "react-hot-toast";
 import Moment from "react-moment";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
-import ModalDetailPembayaran from "../../components/ModalDetailPembayaran";
-import { ModalDetailProfile } from "../../components/ModalDetailProfile";
-import { ModalDetailTipeMember } from "../../components/ModalDetailTipeMember";
-import { Member } from "../Member";
 import ModalEditBooking from "./ModalEditBooking";
 
 function DetailBookingOffline() {
@@ -22,7 +15,7 @@ function DetailBookingOffline() {
     isShow: false,
     data: {},
   });
-
+  let navigate = useNavigate();
   const [status, setStatus] = useState("");
 
   const detailBooking = () => {
@@ -46,17 +39,8 @@ function DetailBookingOffline() {
   return (
     <>
       <Toaster />
-      {modalEdit.isShow && (
-        <ModalEditBooking
-          show={modalEdit.isShow}
-          data={modalEdit.data}
-          setShow={setModalEdit}
-          setMessage={setMessage}
-        />
-      )}
-      <h2 className="px-6 pt-2 text-3xl font-semibold text-prim">
-        Kelola Anggota / Detail
-      </h2>
+      {modalEdit.isShow && <ModalEditBooking show={modalEdit.isShow} data={modalEdit.data} setShow={setModalEdit} setMessage={setMessage} />}
+      <h2 className="px-6 pt-2 text-3xl font-semibold text-prim">Kelola Anggota / Detail</h2>
       <div className="flex m-3 p-3 gap-x-5  border   ">
         <div className="w-[60%]  ">
           <div className=" flex gap-x-14 font-semibold text-md">
@@ -74,10 +58,7 @@ function DetailBookingOffline() {
               <p>: {detail.user?.name}</p>
               <p>: {detail.user?.email}</p>
               <p>
-                :{" "}
-                <Moment format="D MMM YYYY hh:mm:ss">
-                  {detail?.actived_at}
-                </Moment>
+                : <Moment format="D MMM YYYY hh:mm:ss">{detail?.actived_at}</Moment>
               </p>
               <p>: {detail.payment_method?.name}</p>
               <p>: {detail.payment_method?.payment_number}</p>
@@ -100,12 +81,12 @@ function DetailBookingOffline() {
               <p>Slot</p>
               <p>Pesanan</p>
               <p>Kategori</p>
+              <p>Nama Trainer</p>
             </div>
             <div className="capitalize">
               <p>: {detail.offline_class?.title}</p>
               <p>
-                :{" "}
-                <Moment format="hh:mm:ss">{detail.offline_class?.time}</Moment>
+                : <Moment format="hh:mm:ss">{detail.offline_class?.time}</Moment>
               </p>
 
               <p>
@@ -114,17 +95,13 @@ function DetailBookingOffline() {
               <p>: {detail.offline_class?.duration}</p>
               <p>: {detail.offline_class?.slot}</p>
               <p>: {detail.offline_class?.slot_booked}</p>
-              <p>: {detail.offline_class?.offline_class_category_id}</p>
+              <p>: {detail.offline_class?.offline_class_category_name}</p>
+              <p>: {detail.offline_class?.trainer_name}</p>
             </div>
           </div>
         </div>
         <div className="w-[5%]">
-          <button
-            onClick={() =>
-              setModalEdit({ isShow: !modalEdit.isShow, data: detail })
-            }
-            className="btnp"
-          >
+          <button onClick={() => setModalEdit({ isShow: !modalEdit.isShow, data: detail })} className="btnp">
             Edit
           </button>
         </div>
@@ -137,11 +114,7 @@ function DetailBookingOffline() {
         </div>
         <div className="flex gap-x-10 py-5 w-full ">
           <h2 className="text-md font-semibold">Status Membership</h2>
-          <select
-            className="select select-bordered select-sm w-full max-w-xs"
-            name="status"
-            onChange={(e) => setStatus(e.target.value)}
-          >
+          <select className="select select-bordered select-sm w-full max-w-xs" name="status" onChange={(e) => setStatus(e.target.value)}>
             <option defaultValue="menunggu">Menunggu Konfirmasi</option>
             <option value="REJECT">REJECT</option>
             <option value="INACTIVE">INACTIVE</option>
@@ -150,11 +123,13 @@ function DetailBookingOffline() {
         </div>
         <div className="flex gap-x-2">
           <button className="h-8 px-3 bg-prim btn border-none min-h-0 text-white">
+            <i className="bx bx-save pr-2" />
             Simpan
           </button>
-          <button className="h-8 px-3 bg-dang2 border-none text-white btn min-h-0">
+          <label onClick={() => navigate("/bookingoffline")} className="h-8 px-3 bg-dang2 border-none text-white btn min-h-0">
+            <i className="bx bx-message-square-x  pr-2" />
             Batal
-          </button>
+          </label>
         </div>
       </form>
     </>

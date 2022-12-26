@@ -5,7 +5,7 @@ import playstoreImage from "../../../assets/images/playstore.png";
 
 const Footer = () => {
   return (
-    <div className="bg-info h-[50vh]">
+    <div className="bg-info h-[50vh] overflow-hidden">
       <div className="h-[50px] text-white md:flex md:justify-between">
         <div className="pl-[200px]">
           <div className="flex justify-start pt-[50px]">
@@ -58,24 +58,24 @@ const Footer = () => {
       </div>
       <hr className="mt-[250px]" />
       <div className="flex justify-evenly">
-        <div className="mt-8">
-          <a href="https://www.facebook.com/">
+        <div className="pt-8">
+          <a href="https://www.facebook.com/alterra.academy/" className="pr-4">
             <i className="bx bxl-facebook-square bx-sm" style={{ color: "#ffffff" }} />
           </a>
           {"  "}
-          <a href="https://www.instagram.com/">
+          <a href="https://www.instagram.com/alterra.academy/" className="pr-4">
             <i className="bx bxl-instagram-alt bx-sm" style={{ color: "#ffffff" }} />
           </a>
           {"  "}
-          <a href="https://twitter.com/home">
+          <a href="https://alta.id/" className="pr-4">
             <i className="bx bxl-twitter bx-sm" style={{ color: "#ffffff" }} />
           </a>
           {"  "}
-          <a href="https://www.youtube.com/">
+          <a href="https://www.youtube.com/@AlterraAcademy" className="pr-4">
             <i className="bx bxl-youtube bx-sm" style={{ color: "#ffffff" }} />
           </a>
         </div>
-        <p className="mt-8 text-base-300">&copy; Copyright 2022 .AltaGym. All Right Reserved.</p>
+        <p className="pt-8 text-base-300">&copy; Copyright 2022 .AltaGym. All Right Reserved.</p>
       </div>
     </div>
   );

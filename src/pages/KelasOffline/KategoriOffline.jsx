@@ -62,20 +62,21 @@ const KategoriOffline = () => {
       {modalDelete.isShow && <ModalHapus show={modalDelete.isShow} setShow={setModalDelete} handleDelete={handleDelete} data={modalDelete.data} />}
       <div>
         <div className="form-control">
-          <div className="flex   input-group">
-            <input type="text" placeholder="Cari Kategori..." className="input input-bordered input-black w-full max-w-xs" />
-          </div>
+          <div className="flex   input-group"></div>
+
           <br />
           <div className="flex items-center justify-between ">
-            <h4 className="font-bold text-prim">Kategori Kelas Offline</h4>
-            <div className="flex justify-end ">
+            <h4 className="font-semibold text-info" data-aos="fade-right" data-aos-duration="2000">
+              Kategori Kelas <span className="text-black font-medium">/</span> <span className="text-prim1">Offline</span>
+            </h4>
+            <div className="flex justify-end pr-8" data-aos="fade-left" data-aos-duration="2000">
               <label onClick={() => setShow(true)} htmlFor="my-modal-5" className="btn border-prim1 bg-prim1 hover:bg-prim text-white transition duration-200 ease-in hover:border-base">
                 <i className="bx bx-user-plus bx-sm pr-2"></i> Tambah Kategori
               </label>
             </div>
           </div>
 
-          <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3">
+          <div className="grid mt-5 gap-x-3 gap-y-5 grid-cols-3" data-aos="zoom-out-up" data-aos-duration="2000">
             {kategori?.map((m) => (
               <div key={m.id} className="  card w-[320px]  h-72 bg-base-100 shadow-xl ">
                 <figure className="  h-full">
@@ -84,14 +85,14 @@ const KategoriOffline = () => {
                 <div className="px-2 py-2  ">
                   <div className="flex items-center justify-between w-full">
                     <h2 className="card-title font-bold">{m.name}</h2>
-                    <span className="">{m.online_class_count} Video</span>
+                    <span className="">{m.offline_class_count} Kelas</span>
                   </div>
                   <div className="w-full flex mt-2 gap-x-2 items-center justify-between">
                     <button
                       onClick={() => handleEdit(m)}
                       className="py-3 w-[90%] font-bold rounded-lg active:scale-95 text-center cursor-pointer transition-all duration-100 ease-linear leading-none text-white flex items-center justify-center bg-primary  "
                     >
-                      <i className="bx  bx-edit"></i>
+                      <i className="bx bx-edit pr-2"></i>
                       Edit
                     </button>
 
