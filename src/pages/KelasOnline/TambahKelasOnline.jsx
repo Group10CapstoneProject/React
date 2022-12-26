@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { toast, Toaster } from "react-hot-toast";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Gym from "../../apis/get.api";
 import PostApi from "../../apis/post.api";
 
@@ -49,11 +50,9 @@ function TambahKelasOnline() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      PostApi.tambahKelasOnline(data).then((res) => navigate("/kelasonline"));
-    } catch (error) {
-      console.log(error);
-    }
+    PostApi.tambahKelasOnline(data)
+      .then((res) => navigate("/kelasonline"))
+      .catch((err) => toast.error(err.message));
   };
 
   const listKategori = () => {
@@ -75,6 +74,7 @@ function TambahKelasOnline() {
   }, [data]);
   return (
     <>
+      <Toaster />
       <h1 className="text-3xl mb-5 font-bold text-primary">
         Tambah Kelas Online
       </h1>
@@ -157,11 +157,11 @@ function TambahKelasOnline() {
               </div>
               <div className="flex flex-col w-1/2 gap-y-2">
                 <label className="font-bold" htmlFor="">
-                  Tools
+                  Peralatan
                 </label>
                 <input
                   type="text"
-                  placeholder="Tools"
+                  placeholder="Peralatan"
                   className="input input-sm input-bordered w-full "
                   name="tools"
                   onChange={onChange}
@@ -237,10 +237,13 @@ function TambahKelasOnline() {
             </div>
           </div>
         </div>
-        <div className=" w-full flex justify-center mt-5 ">
-          <button disabled={btn} className={`${btn ? "btnw" : "btnp"} w-full`}>
+        <div className="w-full flex justify-end mt-5 gap-x-2 ">
+          <button disabled={btn} className={`${btn ? "btnw" : "btnp"} w-48`}>
             Simpan
           </button>
+          <Link to="/kelasonline" className="btnd2 w-48 text-center">
+            Batal
+          </Link>
         </div>
       </form>
     </>

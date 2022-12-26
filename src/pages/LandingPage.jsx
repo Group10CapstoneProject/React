@@ -82,15 +82,6 @@ function LandingPage() {
       <div className="hero min-h-screen">
         <img src={bg2Image} alt="background" />
         <div className="hero-overlay bg-opacity-0"></div>
-        {/* <div className="hero-content text-start text-neutral-content">
-          <div className="max-w-md text-start">
-            <h1 className="mb-5 text-5xl font-bold text-white pb-8">Hidup lebih sehat dengan ALTAGYM</h1>
-            <p className="mb-5 text-2xl text-white pb-8">Aplikasi pemesanan kebugaran dan kesehatan dengan bimbingan para pelatih profesional dibidangnya.</p>
-            <div className="w-40">
-              <img src={playImage} alt="button-playstore" />
-            </div>
-          </div>
-        </div> */}
       </div>
       <br />
 

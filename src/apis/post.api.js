@@ -1,7 +1,4 @@
-import axios from "axios";
 import axiosInstance from "../configs/axiosInstance";
-import Auth from "../utils/Auth";
-import CONST from "../utils/Constants";
 
 const PostApi = {
   async metode(payload) {
@@ -15,7 +12,8 @@ const PostApi = {
 
       return response;
     } catch (err) {
-      console.log(err);
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
@@ -31,23 +29,15 @@ const PostApi = {
         },
       });
       return response;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
   async tambahJenisMember(payload) {
     try {
-      const {
-        name,
-        price,
-        description,
-        access_offline_class,
-        access_online_class,
-        access_trainer,
-        access_gym,
-        picture,
-      } = payload;
+      const { name, price, description, access_offline_class, access_online_class, access_trainer, access_gym, picture } = payload;
 
       const response = await axiosInstance.post(`/members/types`, {
         name,
@@ -61,22 +51,13 @@ const PostApi = {
       });
       return response;
     } catch (err) {
-      console.log(err);
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
   async updateJenis(payload) {
-    const {
-      id,
-      name,
-      price,
-      description,
-      access_online_class,
-      access_offline_class,
-      access_trainer,
-      access_gym,
-      picture,
-    } = payload;
+    const { id, name, price, description, access_online_class, access_offline_class, access_trainer, access_gym, picture } = payload;
     console.log(payload);
     try {
       const response = await axiosInstance.put(`/members/types/details/${id}`, {
@@ -90,8 +71,9 @@ const PostApi = {
         picture,
       });
       return response;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
@@ -108,24 +90,14 @@ const PostApi = {
       });
       return response;
     } catch (err) {
-      console.log(err);
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
   async tambahKelasOnline(payload) {
     try {
-      const {
-        title,
-        link,
-        price,
-        description,
-        online_class_category_id,
-        tools,
-        target_area,
-        duration,
-        level,
-        picture,
-      } = payload;
+      const { title, link, price, description, online_class_category_id, tools, target_area, duration, level, picture } = payload;
 
       const response = await axiosInstance.post(`/online-classes`, {
         title,
@@ -141,23 +113,14 @@ const PostApi = {
       });
       return response;
     } catch (err) {
-      console.log(err);
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
   async tambahkelasOffline(payload) {
     try {
-      const {
-        title,
-        time,
-        duration,
-        slot,
-        price,
-        picture,
-        description,
-        location,
-        offline_class_category_id,
-      } = payload;
+      const { title, time, duration, slot, price, picture, description, location, offline_class_category_id } = payload;
 
       const response = await axiosInstance.post(`/offline-classes`, {
         title,
@@ -172,100 +135,72 @@ const PostApi = {
       });
       return response;
     } catch (err) {
-      console.log(err.response.data.message);
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
   async deleteKelasOffline(id) {
     try {
-      const response = await axiosInstance.delete(
-        `/offline-classes/details/${id}`
-      );
+      const response = await axiosInstance.delete(`/offline-classes/details/${id}`);
       return response;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
   async updateKelasOffline(payload) {
-    const {
-      id,
-      title,
-      time,
-      duration,
-      slot,
-      price,
-      picture,
-      description,
-      location,
-      offline_class_category_id,
-    } = payload;
+    const { id, title, time, duration, slot, price, picture, description, location, offline_class_category_id } = payload;
     console.log(payload);
     try {
-      const response = await axiosInstance.put(
-        `/offline-classes/details/${id}`,
-        {
-          title,
-          time,
-          duration,
-          slot,
-          price,
-          picture,
-          description,
-          location,
-          offline_class_category_id,
-        }
-      );
+      const response = await axiosInstance.put(`/offline-classes/details/${id}`, {
+        title,
+        time,
+        duration,
+        slot,
+        price,
+        picture,
+        description,
+        location,
+        offline_class_category_id,
+      });
       return response;
-    } catch (error) {
-      console.log(error.response.data.message);
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
   async updateKelasOnline(payload) {
-    const {
-      id,
-      title,
-      link,
-      price,
-      description,
-      online_class_category_id,
-      tools,
-      target_area,
-      duration,
-      level,
-      picture,
-    } = payload;
+    const { id, title, link, price, description, online_class_category_id, tools, target_area, duration, level, picture } = payload;
     console.log(payload);
     try {
-      const response = await axiosInstance.put(
-        `/online-classes/details/${id}`,
-        {
-          title,
-          link,
-          price,
-          description,
-          online_class_category_id,
-          tools,
-          target_area,
-          duration,
-          level,
-          picture,
-        }
-      );
+      const response = await axiosInstance.put(`/online-classes/details/${id}`, {
+        title,
+        link,
+        price,
+        description,
+        online_class_category_id,
+        tools,
+        target_area,
+        duration,
+        level,
+        picture,
+      });
       return response;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
   async deleteKelasOnline(id) {
     try {
-      const response = await axiosInstance.delete(
-        `/online-classes/details/${id}`
-      );
+      const response = await axiosInstance.delete(`/online-classes/details/${id}`);
       return response;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
@@ -273,19 +208,19 @@ const PostApi = {
     try {
       const response = axiosInstance.delete(`/payment-methods/details/${id}`);
       return response;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
   async hapusJenisMember(id) {
     try {
-      const response = await axiosInstance.delete(
-        `/members/types/details/${id}`
-      );
+      const response = await axiosInstance.delete(`/members/types/details/${id}`);
       console.log(response);
       return response;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
@@ -293,8 +228,9 @@ const PostApi = {
     try {
       const response = await axiosInstance.delete(`/members/details/${id}`);
       return response;
-    } catch (error) {
-      console.log("error");
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
@@ -309,47 +245,44 @@ const PostApi = {
       });
       return response;
     } catch (err) {
-      console.log(err);
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
   async updateKategoriOnline(payload) {
     try {
       const { name, description, picture, id } = payload;
-      const response = await axiosInstance.put(
-        `/online-classes/categories/details/${id}`,
-        {
-          name,
-          description,
-          picture,
-        }
-      );
+      const response = await axiosInstance.put(`/online-classes/categories/details/${id}`, {
+        name,
+        description,
+        picture,
+      });
 
       return response;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
   async deleteKategoriOnline(id) {
     try {
-      const response = await axiosInstance.delete(
-        `/online-classes/categories/details/${id}`
-      );
+      const response = await axiosInstance.delete(`/online-classes/categories/details/${id}`);
       return response;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
   async deleteKategoriOffline(id) {
     try {
-      const response = await axiosInstance.delete(
-        `/offline-classes/categories/details/${id}`
-      );
+      const response = await axiosInstance.delete(`/offline-classes/categories/details/${id}`);
       return response;
-    } catch (error) {
-      console.log(error);
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
@@ -363,22 +296,115 @@ const PostApi = {
       });
       return response;
     } catch (err) {
-      console.log(err);
+      const { message } = err.response.data;
+      throw new Error(message);
     }
   },
 
   async updateKategoriOffline(payload) {
     try {
       const { name, description, picture, id } = payload;
+      const response = await axiosInstance.put(`/offline-classes/categories/details/${id}`, {
+        name,
+        description,
+        picture,
+      });
+
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+
+  async konfirmasiMembers(payload) {
+    const { id, status } = payload;
+    try {
+      const response = await axiosInstance.post(`/members/set-status/${id}`, {
+        status: status,
+      });
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+
+  async updateBookingOffline(payload) {
+    const { id, offline_class_id, payment_method_id, total } = payload;
+    try {
       const response = await axiosInstance.put(
-        `/offline-classes/categories/details/${id}`,
+        `/offline-classes/bookings/details/${id}`,
         {
-          name,
-          description,
-          picture,
+          offline_class_id,
+          payment_method_id,
+          total,
         }
       );
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+  async setStatusBookingOffline(payload) {
+    const { status, id } = payload;
+    try {
+      const response = await axiosInstance.post(
+        `/offline-classes/bookings/set-status/${id}`,
+        {
+          status,
+        }
+      );
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
 
+  async setStatusBookingOnline(payload) {
+    const { status, id } = payload;
+    try {
+      const response = await axiosInstance.post(
+        `/online-classes/bookings/set-status/${id}`,
+        {
+          status,
+        }
+      );
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+
+  async deleteBookingOffline(id) {
+    try {
+      const response = await axiosInstance.delete(
+        `/offline-classes/bookings/details/${id}`
+      );
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+  async deleteBookingOnline(id) {
+    try {
+      const response = await axiosInstance.delete(
+        `/online-classes/bookings/details/${id}`
+      );
+      return response;
+    } catch (err) {
+      const { message } = err.response.data;
+      throw new Error(message);
+    }
+  },
+
+  async deleteBookingOnline(id) {
+    try {
+      const response = await axiosInstance.delete(`/online-classes/bookings/details/${id}`);
       return response;
     } catch (error) {
       console.log(error);
